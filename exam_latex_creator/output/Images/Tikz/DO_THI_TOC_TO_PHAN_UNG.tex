@@ -1,0 +1,32 @@
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{calc,angles,intersections,shapes.geometric,arrows,decorations.markings,arrows.meta,patterns.meta,patterns,quotes}
+\usetikzlibrary{hobby}
+\usepackage{tikz-3dplot,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{polar}
+\usepackage{tkz-tab}
+\usepackage{amsmath}
+\begin{document}
+	\begin{tikzpicture}[declare function={r=7;}]
+		%%Vẽ hai trục tọa độ
+		\draw[>=stealth,->] (0,0)--(r,0) node[text width =2.5cm,align=center,below,shift={(1,0)},font=\fontsize{9pt}{4pt}\selectfont] {Thời gian phản ứng (s)};;
+		\draw[>=stealth,->] (0,0)--(0,r-3.5) node[text width =2.5cm,align=center,above,font=\fontsize{9pt}{4pt}\selectfont] {thể tích $CO_2$ (ml)};
+		%%Hiển thị giá trị trên Oy
+		\foreach \y in {
+			0.5,1,...,3
+		}{
+			\pgfmathsetmacro \yt {\y*10}
+			\draw (-1pt,\y) node [left,align=center]{\pgfmathprintnumber[fixed,precision=1,use comma=true]{\yt}} --(1pt,\y);
+		}
+		%%Hiển thị giá trị trên Ox
+		\foreach \x in {
+			1,2,...,6
+		}{
+			\pgfmathsetmacro \xt {\x*15}
+			\draw (\x,-1pt) node  [below,align=center]{\pgfmathprintnumber[fixed,precision=1,use comma=true]{\xt}} --(\x,1pt);
+		}
+		%%%Vẽ đuòng đồ thị controls từ (0,0) đến (5,3.5)
+		\draw[thick, blue] (0,0) .. controls ++(70:2) and ++(200:0.1) .. (2,2)..controls ++(20:0.0) and ++(180:0.3) .. (5,2.5);
+	\end{tikzpicture}
+\end{document}

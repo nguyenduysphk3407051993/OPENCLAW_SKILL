@@ -1,0 +1,92 @@
+%%%======================Thông tin nhóm học tập ===============================%%%
+\def\myytb{\href{https://www.youtube.com/@hochoakhongkho}{\color{red} \small\fmmfamily\faYoutubePlay~Học Hóa Không Khó}}
+\def\myqrcodeytb{\qrcode[height=1.0cm]{https://www.youtube.com/@hochoakhongkho}}
+\def\myqrcodezalo{\qrcode[height=1.0cm]{https://zalo.me/g/sqemzd726}}
+\usepackage{fancyhdr}
+\usepackage{textcase}
+\pagestyle{fancy}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LE]{}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RO]{}
+\cfoot{}
+\fancyhead[LE,RO]{\color{\mycolor!30!black}{\LARGE\fmmfamily\itshape Biên soạn: Nguyễn Tường Duy}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\chaptermark}[1]{\markboth{\LARGE\fmmfamily\textbf{Chương \arabic{chapter}.}\ \LARGE\fmmfamily\textbf{#1}}{}%
+}
+\renewcommand{\sectionmark}[1]{\markright{\LARGE\fmmfamily\textbf{Bài \arabic{section}.}\LARGE\fmmfamily\textbf{#1}}}{}
+\usepackage{lastpage}
+\renewcommand{\headrule}{\hbox to\headwidth{%
+	\color{\mycolor!80!black}\leaders\hrule height \headrulewidth\hfill}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eso-pic}
+\usepackage{qrcode}
+\AddToShipoutPicture{%
+	\hypersetup{urlcolor=\mycolor}
+	 \ifodd\value{page}
+		\begin{tikzpicture}[remember picture,overlay]
+			\path 
+			([shift={(2,1.5)}]current page.south west) coordinate (A)
+			([shift={(1.95,1)}]current page.south west) coordinate (B)
+			([shift={(1.9,1.5)}]current page.south west) coordinate (C)
+			([shift={(1,1)}]current page.south west) coordinate (D)
+			([shift={(1,1.5)}]current page.south west) coordinate (E)
+			([shift={(1.9,1)}]current page.south west) coordinate (G)
+			($ (D)!.5!(E) $) coordinate (DE)
+			;
+			\begin{scope}[transform canvas={xshift=1cm}]
+			\filldraw[\mycolor] (A) rectangle (B);
+			\filldraw[\mycolor] (C) -- (E)--([xshift=2pt]DE)--(D)-|(C)--cycle;
+			\path 
+			($ (C)!.5!(G) $) coordinate (CG)
+			($ (DE)!.5!(CG) $) coordinate (sotrang)
+			;
+			\path (sotrang) node[font=\sffamily\bfseries,white] {\thepage};
+			\end{scope}		
+			\path ([shift={(-.85,.5cm)}]current page.south east) 
+			node[anchor=south east](qr){\myqrcodezalo}
+			(qr.west) node[anchor=east,yshift=5pt](maqr){\fmmfamily Dùng ~\rotatebox{-15}{\faMobile}~quét mã QR}
+			([yshift=8pt]qr.south west) node[anchor=east]{\fmmfamily Tham gia group học tập nhé!				
+		}		;
+		
+		  \draw[\mycolor,line width =1pt] ([shift={(2,1.8)}]current page.south west)--([shift={(-1.0,1.8)}]current page.south east) 	;
+		\end{tikzpicture}
+
+	\else
+	
+	\begin{tikzpicture}[remember picture,overlay]
+		\path 
+		([shift={(-2,1.5)}]current page.south east) coordinate (A)
+		([shift={(-1.95,1)}]current page.south east) coordinate (B)
+		([shift={(-1.9,1.5)}]current page.south east) coordinate (C)
+		([shift={(-1,1)}]current page.south east) coordinate (D)
+		([shift={(-1,1.5)}]current page.south east) coordinate (E)
+		([shift={(-1.9,1)}]current page.south east) coordinate (G)
+		($ (D)!.5!(E) $) coordinate (DE)
+		;
+
+		\begin{scope}[transform canvas={xshift=-1cm}]
+			\filldraw[\mycolor] (A) rectangle (B);
+			\filldraw[\mycolor] (C) -- (E)--([xshift=-2pt]DE)--(D)-|(C)--cycle;
+			\path 
+			($ (C)!.5!(G) $) coordinate (CG)
+			($ (DE)!.5!(CG) $) coordinate (sotrang)
+			;
+			\path (sotrang) node[font=\sffamily\bfseries,white] {\thepage};
+		\end{scope}	
+		
+		\path (sotrang) node[font=\sffamily\bfseries,white] {\thepage};
+		\end{tikzpicture}
+		\begin{tikzpicture}[remember picture,overlay]
+		
+		\path ([shift={(.85cm,.5cm)}]current page.south west) node[anchor=south west](YT){
+		\myqrcodeytb};
+
+	\path
+	(YT.east) node[anchor= west,yshift=-3pt]{\myytb};
+	
+	\draw[\mycolor,line width =1pt] ([shift={(1,1.8)}]current page.south west)--([shift={(-2.0,1.8)}]current page.south east) 	;		
+\end{tikzpicture}
+	\fi
+}
+\raggedbottom

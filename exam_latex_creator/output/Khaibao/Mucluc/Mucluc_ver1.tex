@@ -1,0 +1,39 @@
+%%%=====================Muc luc============================%%%
+\usepackage{titletoc}
+\usepackage[colorlinks]{hyperref}
+\patchcmd{\tableofcontents}{\contentsname}{\sffamily\contentsname}{}{}
+\makeatletter
+\renewcommand{\numberline}[1]{#1.~}
+\titlecontents{chapter}[1.0cm]{{\textcolor{\maudam}\faBank}\ 
+	\hypersetup{linkcolor=black}\vspace*{0.15\baselineskip}\sffamily\bfseries{\thecontentslabel\;}}{}{}
+{\titlerule*[0.65pc]{.}\thecontentspage}
+\titlecontents{section}[1.65cm]{{\color{\maudam}\faBank}
+	\hypersetup{linkcolor=black}\vspace*{0.15\baselineskip}\sffamily\bfseries{\thecontentslabel\;}}{}{}
+{\titlerule*[0.65pc]{.}\thecontentspage}
+
+\titlecontents{subsection}[2cm]{{\color{\maudam} \faBook} \hypersetup{linkcolor=black}\sffamily\bfseries{\thecontentslabel\;}}{}{}
+{\titlerule*[0.65pc]{.}\thecontentspage}
+
+\makeatletter
+\renewcommand{\tableofcontents}{%
+	\thispagestyle{empty}
+	\newpage
+	\markboth{Mục lục}{Mục lục}
+	\renewcommand{\rightmark}{}%%%Bỏ chữ mục lục trên header %\sffamily Mục lục
+	\begin{center}
+		\begin{tcolorbox}[enhanced,hbox,
+			left=8mm,right=8mm,boxrule=0.55pt,
+			bottom=3pt,
+			colback=white,colframe=black,
+			%drop fuzzy midday shadow=black!50!yellow,
+			drop lifted shadow=black!50!yellow,arc is angular,
+			before=\par\vspace*{-1mm},after=\par\bigskip]
+			{\Large\bfseries\sffamily MỤC LỤC} 
+		\end{tcolorbox}
+	\end{center}
+	\vskip-0.35cm
+	\@starttoc{toc}
+	\newpage
+}
+\makeatother
+%%%==================================%%%

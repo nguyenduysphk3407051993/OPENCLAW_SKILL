@@ -1,0 +1,197 @@
+\usepackage[explicit]{titlesec}
+\setcounter{secnumdepth}{4}
+\renewcommand{\chaptertitlename}{CHƯƠNG}
+\DeclareFixedFont{\chapternumberfont}{T5}{phv}{bx}{sc}{0.78in}
+\DeclareFixedFont{\bigsf}{T5}{ugq}{b}{n}{30pt}
+\DeclareFixedFont{\chapternamefont}{T5}{ugq}{b}{n}{24pt}
+\DeclareFixedFont{\namedethi}{T5}{qag}{b}{n}{16pt}
+\titlespacing*{\chapter}{0pt}{-2cm}{0cm}
+\titleformat{\chapter}[display]
+{\color{white}\bigsf}
+{\begin{tikzpicture}[declare function ={d=8pt;}]
+	\node[minimum width=\textwidth-1.0cm,font=\fontsize{40pt}{4pt}\selectfont\color{white},anchor= center,text width =\linewidth-3cm,inner sep =0pt](tieudechuong) {\MakeUppercase{#1}};
+	\path (tieudechuong.north west) coordinate (A1)
+	(tieudechuong.north east) coordinate (B1)
+	(tieudechuong.south east) coordinate (C1)
+	(tieudechuong.south west) coordinate (D1)
+	;
+	\path (tieudechuong.north west)--++(135:d) coordinate (A2)
+	(tieudechuong.north east)--++(45:d) coordinate (B2)
+	(tieudechuong.south east)--++(-45:d) coordinate (C2)
+	(tieudechuong.south west)--++(-135:d) coordinate (D2)
+	;
+	\fill[\mycolor,rounded corners=8pt] (A2)--(B2)--(C2)--(D2)--cycle;
+	\draw[rounded corners=4pt,white,line width =2pt] (A1)--(B1)--(C1)--(D1)--cycle;
+	\node[minimum width=\textwidth-1.4cm,font=\color{white}\bigsf,anchor= center,text width =\linewidth-3cm,inner sep =0pt](tieude) at (tieudechuong) {\MakeUppercase{#1}};
+	\path ([xshift =-1.8cm,yshift=0.5cm]B1) node[fill=\mycolor!60,rounded corners=3pt,minimum size =2.0cm,font =\chapternumberfont,anchor = center] (sochuong) {\thechapter};
+	\path(sochuong.west) node[font =\color{\mycolor}\chapternamefont,anchor = south east,yshift=-.3cm] (chuong) {\chaptertitlename};
+\end{tikzpicture}}
+{1ex minus .1ex}
+{}
+[]
+%%%==================SECTION========================%%%
+\titlespacing*{\section}{0cm}{0.5cm}{-6pt}
+\renewcommand{\thesection}{Đề \arabic{section}}
+\titleformat{\section}
+{\filcenter\setcounter{bt}{0}\setcounter{ex}{0}}
+{}
+{0pt}
+{
+	\begin{tikzpicture}
+		\path (0,0) node[outer sep=5pt,font=\namedethi,text width=.95\linewidth,align=center] (A){Đề \arabic{section}. \MakeUppercase{#1}} ;			
+		\path(A.south east) coordinate (NA) 
+		(A.south west) coordinate (NB) 
+		(A.north east) coordinate (NC) 
+		(A.north west) coordinate (ND);
+		\draw [line width=4pt](NB)--(NA) (ND)--(NC);
+		\fill[\mycolor!12] (NA)--(NB)--(ND)--(NC);
+		\path (0,0) node[outer sep=5pt,font=\namedethi,text width=.95\linewidth,align=center] (A){{Đề} {\arabic{section}}{. \MakeUppercase{#1}}} ;
+	\end{tikzpicture}
+}
+%%%===========================subsection===============%%%
+\titlespacing*{\subsection}{3pt}{-10pt}{0pt}
+\titleformat{\subsection}[display]
+  {}
+  {%
+ \begin{tikzpicture}
+ \path (0,0) node[align=left,anchor=west,font=\Large\sffamily\bfseries\color{white},text width=0.95\linewidth](SEC){#1};
+ \path (SEC.north west) coordinate (A)
+	 (SEC.south west) coordinate (B)
+	 ($ (A)+(-1pt,-3pt) $)  coordinate (At)
+	 ($ (B)+(-1pt,3pt) $)  coordinate (Bt)
+	 ($(At)!1!90:(Bt)$) coordinate (Dt)
+	 ($(Bt)!1!-90:(At)$) coordinate (Ct)
+	 ($ (Ct)!0.5!(Dt) $) coordinate (E)
+	  ($ (Ct)!0.5!(At) $) coordinate (AC)
+	 ;
+  \draw[line width=1pt,dnvang!55!black,rounded corners=3pt] (A) rectangle ($(B)+(0.975\linewidth,0) $);
+  \fill[rounded corners=2pt,fill=dnvang!80!black] ($ (At)+(-3pt,0) $) rectangle (Ct); 
+  \fill[rounded corners=2pt,fill=dnvang] (At) rectangle (Ct);
+   \path ([shift={(-45:1pt)}]AC) node[inner sep=0pt,font=\large\bfseries\color{gray}]{\Alph{subsection}};
+   \path (AC) node[inner sep=0pt,font=\large\bfseries\color{white}]{\Alph{subsection}};  
+   \path ([shift={(-45:0.65pt)}]E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{gray},text width=0.95\linewidth]{#1};
+   \path (E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{dnvang!75!black},text width=0.95\linewidth]{#1};
+  \end{tikzpicture}%
+  }%
+  {0pt}
+  {}
+  
+   \renewcommand{\thesubsubsection}{\Roman{subsubsection}}
+   %%%===========================subsection===============%%%
+   \titlespacing*{\subsubsection}{3pt}{-5pt}{0pt}
+   \titleformat{\subsubsection}[display]
+   {}
+   {
+   	\begin{tikzpicture}[remember picture]
+   		\path (0,0) 
+   		node [dnvang,minimum height= .8cm,font=\bfseries \fontfamily{qag}\selectfont](Sub)%
+   		{\thesubsubsection.};
+   		\path
+   		(Sub.north west)coordinate (B)
+   		(Sub.south east)coordinate (C)
+   		(Sub.west)coordinate (D)
+   		(Sub.east)coordinate (E)
+   		($ (D)+(3pt,0) $) coordinate (D1)
+   		($ (E)+(3pt,0) $) coordinate (E1)
+   		;
+   		\fill[dnvang!40] (B)--(Sub.north east)--(E1)--(C)--(Sub.south west)--cycle 
+   		;
+   		\path ($ (Sub.east)+(1pt,0) $) 
+   		node [dnvang,minimum height= .8cm,inner sep=3pt,anchor=west,font=\bfseries \fontfamily{qag}\selectfont](Muc)%
+   		%{\arabic{subsection}.\;\MakeUppercase{#1}};
+   		{#1};
+   		\path
+   		(Muc.north west)coordinate (Bt)
+   		(Muc.south east)coordinate (Ct)
+   		(Muc.west)coordinate (Dt)
+   		(Muc.east)coordinate (Et)
+   		($ (Dt)+(3pt,0) $) coordinate (D1t)
+   		($ (Et)+(3pt,0) $) coordinate (E1t)
+   		;
+   		\fill[dnvang!20] (D1t)--(Bt)--(Muc.north east)--(E1t)--(Ct)--(Muc.south west)--cycle 
+   		;
+   		\path (0,0) 
+   		node [dnvang!50!black,font=\bfseries\fontfamily{qag}\selectfont]%
+   		%{\arabic{subsection}.\;\MakeUppercase{#1}};
+   		{\thesubsubsection.};
+   		\path ($ (Sub.east)+(1pt,0) $) 
+   		node [dnvang!50!black,anchor= west,font=\bfseries \fontfamily{qag}\selectfont]%
+   		%{\arabic{subsection}.\;\MakeUppercase{#1}};
+   		{#1};
+   	\end{tikzpicture}
+   }{3pt}{}
+   
+  
+ %%%==========================================================%%%
+\titlespacing*{\paragraph}{0cm}{-.5cm}{0pt}
+\titleformat{\paragraph}[display]
+{}
+{\bfseries\fontfamily{qag}\selectfont\arabic{paragraph}.\;\bfseries\fontfamily{qag}\selectfont{#1}}
+{0.5ex minus .2ex}
+{}
+{}
+%%%==========================================================%%%
+     
+     
+%%%=====================Muc luc============================%%%
+  \usepackage{titletoc}
+  \patchcmd{\tableofcontents}{\contentsname}{\sffamily\contentsname}{}{}
+  \makeatletter
+  \newif\ifnotstarredversion
+  \renewcommand{\numberline}[1]{#1.~}
+  \renewcommand{\thechapter}{\arabic{chapter}}
+  \renewcommand*\l@chapter[2]{%
+      \ifnum \c@tocdepth >-2\relax
+      \addpenalty{-\@highpenalty}%
+      \addvspace{10pt \@plus\p@}%
+      \setlength\@tempdima{3em}%
+      \begingroup
+     \tikz[remember picture]{
+  	\path (0,0) coordinate (A)--(\linewidth,0) coordinate (B);%
+  	\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\large,align=center,text width=\linewidth] (TEXT)
+  	{{Chương~#1 - Trang~#2}};
+  	 \fill[dnvang!65!black,rounded corners=3.5pt] ([xshift=-2pt]TEXT.north west) rectangle ([xshift=2pt]TEXT.south east);
+  	 \fill[dnvang!15,rounded corners=3pt] ([yshift=0.15pt]TEXT.north west) rectangle ([yshift=-0.15pt]TEXT.south east);
+  	 \hypersetup{linkcolor=dnvang!85!black}
+  	 \path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\large\color{dnvang!85!black},align=center,text width=\linewidth] (TEXT)
+  		{{Chương~#1 - Trang~#2}};
+  	}
+      \par\bigskip
+  	\penalty\@highpenalty
+  	\setcounter{section}{0}
+      \endgroup
+      \fi
+  }
+  \makeatother
+  \renewcommand{\thesection}{Đề \arabic{section}.}
+  \titlecontents{section}
+    [1.5cm]
+    {\hypersetup{linkcolor=black}\vspace*{0.15\baselineskip}\sffamily\bfseries{\thecontentslabel\;}}{}{}
+    {\titlerule*[0.65pc]{.}\thecontentspage}
+  
+  \renewcommand{\thesubsection}{\Alph{subsection}.}
+  \titlecontents{subsection}
+    [2.85cm]
+    {\hypersetup{linkcolor=black}\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
+    {\titlerule*[1pc]{.}\thecontentspage}
+  
+  \makeatletter
+  \renewcommand{\tableofcontents}{%
+  \newpage
+  \markboth{Mục lục}{Mục lục}
+  \renewcommand{\rightmark}{Mục lục}
+  \begin{center}
+  	\begin{tcolorbox}[enhanced,hbox,
+  			left=8mm,right=8mm,boxrule=0.55pt,
+  			bottom=3pt,
+  			colback=white,colframe=dnvang,
+  			%drop fuzzy midday shadow=black!50!yellow,
+  			drop lifted shadow=black!50!yellow,arc is angular,
+  			before=\par\vspace*{-1mm},after=\par\bigskip]
+  			{\bfseries\Large\color{dnvang}\sffamily MỤC LỤC} 
+  	\end{tcolorbox}
+  \end{center}
+  \newcounter{somucluc}
+  \vskip-1.25cm
+  \@starttoc{toc}}
+  \makeatother

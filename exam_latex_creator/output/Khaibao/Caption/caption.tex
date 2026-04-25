@@ -1,0 +1,10 @@
+\usepackage{graphicx}
+\usepackage[labelfont=bf,font=small]{caption} 
+\captionsetup[figure] {name=Hình}
+\graphicspath{{./Images/}}
+\usepackage{wrapfig} %chèn hình 1 bên
+%\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thefigure}{\arabic{figure}}
+%%%======Chèn nhiều ảnh trên một dòng=========%%%
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}

@@ -1,0 +1,46 @@
+\usepackage[explicit]{titlesec} %chỉnh định của section, chapter #1
+\usepackage{pgfornament}
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+\titleformat{\section}{\filcenter}{%
+	\begin{tikzpicture}[declare function={r = 0.79;},line cap=round]
+		\path[rounded corners=3pt,fill=\maudam!30,shift={(-15:3pt)}] (90:r)--(150:r)--(210:r)--(270:r)--(330:r)--(30:r)--cycle;
+		\path[rounded corners=3pt,fill=\maudam] (90:r)--(150:r)--(210:r)--(270:r)--(330:r)--(30:r)--cycle;
+		\draw[line width=1pt,\maudam] (-90:1.35*r) coordinate (A)--+(30:1.25*r)coordinate (B)
+		--([turn]-30:0.85*\linewidth) coordinate (C);
+		\fill[\maudam] (A) circle (2pt);
+		\fill[\maudam] (C) circle (3pt);
+		\draw[opacity=0.45,white,line width=3pt] (150:{0.8*r})--+(30:{0.3*r});
+		\fill[opacity=0.45,white] ($(150:{0.8*r})+(30:{0.55*r})$) circle (1.65pt);
+		\path let \p1=($(C)-(B)-(0.5,0)$) in  ($(B)!0.5!(C)+(0,2pt)$) 
+		node[text width=\x1,anchor=south,font=\bfseries\sffamily\Large,
+		inner sep=1pt,text=\maudam,align=center]{\MakeUppercase{#1}};
+		\path (0,0) node[font=\bfseries\sffamily,text=white]{BÀI \arabic{section}};		
+\end{tikzpicture}}{1pt}{\setcounter{ex}{0}\setcounter{bt}{0}}
+
+\titleformat{name=\section,numberless}[display]{\addcontentsline{toc}{section}{#1 \arabic{chapter}}}%
+{\begin{tikzpicture}[color=teal,declare function={bk=7pt;}]
+		\path (0,0) node[inner sep=9pt,outer sep=0pt,font=\fontfamily{pag}\bfseries\Large\selectfont](A){\phantom{I}ÔN TẬP CHƯƠNG \arabic{chapter}\phantom{I}};
+		\path (A.north west) coordinate (Tt)
+		(A.north east) coordinate (Tp)
+		(A.south west) coordinate (Dt)
+		(A.south east) coordinate (Dp);
+		\path[ultra thick,draw=teal!35,fill] ($(Tt)!bk!(Tp)$)--($(Tp)!bk!(Tt)$)--($(Tp)!bk!(Dp)$)--($(Dp)!bk!(Tp)$)
+		--($(Dp)!bk!(Dt)$)--($(Dt)!bk!(Dp)$)--($(Dt)!bk!(Tt)$)--($(Tt)!bk!(Dt)$)--cycle;
+		\path (0,0) node[inner sep=9pt,outer sep=0pt,font=\bfseries\Large,text=white]{\phantom{I}\MakeUppercase{#1} \arabic{chapter}\phantom{I}};
+\end{tikzpicture}}{3pt}{}
+
+\titlespacing*{\subsection}{0pt}{3pt}{3pt}
+\titleformat{\subsection}{}{%
+	\begin{tikzpicture}[declare function={r = 0.35;},line cap=round]
+		\path[fill=\mycolor!25] (-35:2pt) circle (r);
+		\path[fill=\mycolor] (0,0) circle (r);
+		\draw[opacity=0.45,white,line width=2pt] ({150:{0.75*r}}) arc (150:125:{0.75*r});
+		\path (0,0) node[font=\bfseries\large\sffamily,text=white]{\resizebox{!}{0.27cm}{\Roman{subsection}}};
+		\path ({1.25*r},0) node[anchor=west,font=\bfseries\sffamily\Large,text width=16.5cm,text=\maunhan]{#1};
+\end{tikzpicture}}{0.2em}{}
+
+%\titlespacing*{\subsubsection}{0.65cm}{3pt}{3pt}
+\titlespacing*{\subsubsection}{0pt}{3pt}{3pt}
+\titleformat{\subsubsection}{}{%
+	\bfseries\sffamily\large\color{\maunhan}\arabic{subsubsection}. #1%
+}{0em}{}

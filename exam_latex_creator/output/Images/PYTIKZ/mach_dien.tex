@@ -1,0 +1,74 @@
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{calc,angles,intersections,shapes.geometric,arrows,decorations.markings,arrows.meta,patterns.meta,patterns,quotes}
+\usetikzlibrary{hobby}
+\usepackage{tikz-3dplot,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{polar}
+\usepackage{tkz-tab}
+\usepackage{amsmath}
+\begin{document}
+
+	\definecolor{c323238}{RGB}{50,50,56}
+	\definecolor{c2c15c6}{RGB}{44,21,198}
+	\definecolor{c423b43}{RGB}{66,59,67}
+	\definecolor{cc32db9}{RGB}{195,45,185}
+	\definecolor{c2f2e38}{RGB}{47,46,56}
+	\definecolor{c413a45}{RGB}{65,58,69}
+	\definecolor{c9126a6}{RGB}{145,38,166}
+	\definecolor{cde18d1}{RGB}{222,24,209}
+
+	\begin{tikzpicture}[line cap=round,line join=round]
+		%%%Vẽ nguồn điện
+		\begin{scope}[draw=c323238,cm={ 2.12,-0,-0,2.12,(-0.72,-3.65)}]
+			\draw[c323238,line cap=round,line join=round,line width=0.06cm] (2.67,4.13) coordinate (A1) .. controls +(90:0.2) and +(0:0) ..
+				(2.67,4.34)
+				[draw=c323238,line cap=round,line join=round,line width=0.06cm] (2.74,4.16) coordinate (A2) .. controls +(90:0.1) and +(0:0) ..
+				(2.74,4.31);
+		\end{scope}
+		\draw[c423b43,line cap=round,line join=round,line width=0.06cm] (9.12,0.7) coordinate (A3) .. controls +(90:4.6) and +(0:0) ..
+			(9.12,5.31);
+		\draw[c423b43,line cap=round,line join=round,line width=0.06cm] (0.89,5.31) coordinate (A4) .. controls +(0:4) and +(0:0) ..
+			(4.91,5.31);
+		\draw[c423b43,fill=c2c15c6,line cap=round,line join=round,line width=0.06cm] (5.09,5.31) coordinate (A5) .. controls +(0:4) and +(0:0) ..
+			(9.12,5.31);
+		\draw[c423b43,fill=c2c15c6,line cap=round,line join=round,line width=0.06cm] (0.89,0.7) coordinate (A6) .. controls +(0:1.6) and +(0:0) ..
+			(2.52,0.7);
+		\fill[c423b43,line cap=round,line join=round,line width=0cm] (4.39,0.98) rectangle (5.94,0.41);
+		\begin{scope}[shift={(-0.01,-0)}]
+			\draw[c423b43,fill=c2c15c6,line cap=round,line join=round,line width=0.06cm] (0.89,3.51) coordinate (A7) .. controls +(90:1.8) and +(0:0) ..
+				(0.89,5.3);
+			\draw[c423b43,line cap=round,line join=round,line width=0.06cm] (0.89,0.7) coordinate (A8) .. controls +(90:2.4) and +(0:0) ..
+				(0.89,3.11);
+		\draw[c2f2e38,fill=c423b43,line cap=round,line join=round,line width=0cm] (0.89,3.12) circle (0.06cm);
+		\draw[c2f2e38,fill=c423b43,line cap=round,line join=round,line width=0cm] (0.89,3.48) circle (0.06cm);
+		\end{scope}
+		%%%vẽ công tắc
+		\begin{scope}[cm={ 2.12,-0.11,0.11,2.12,(-2.06,-3.66)}]
+			\path[draw=c413a45,fill=c423b43,line cap=round,line join=round,line width=0.06cm] (1.11,3.28) coordinate (A9) --(1.207,3.425);
+		\end{scope}
+		\draw[c423b43,line cap=round,line join=round,line width=0.06cm] (3.53,0.7) coordinate (A10) .. controls +(0:0.9) and +(0:0) ..
+			(4.4,0.7);
+			\draw[c423b43,,line cap=round,line join=round,line width=0.06cm] (5.94,0.7) coordinate (A11) .. controls +(0:3.2) and +(0:0) ..
+			(9.1,0.7);
+			\draw[c423b43,fill=c423b43,fill opacity=0,draw opacity=0.99,line cap=round,line join=round,line width=0.06cm] (3.03,0.7) circle (0.49cm);
+		%%%Vẽ dấu X
+		\begin{scope}[draw=c423b43,cm={ 2.04,-0,-0,2.04,(-1,-3.5)},transparency group]
+			\path[draw=c423b43,fill=cde18d1,draw opacity=0.99,line cap=round,line join=round,line width=0.06cm] (1.82,2.22) coordinate (A12) .. controls +(-45:0.4) and +(0:0) ..
+				(2.14,1.89)
+				[draw=c423b43,fill=cde18d1,draw opacity=0.99,line cap=round,line join=round,line width=0.06cm] (2.14,2.22) coordinate (A13) .. controls +(-135:0.4) and +(0:0) ..
+				(1.82,1.89);
+		\end{scope}
+		\node[text=c423b43,fill opacity=0.99,draw opacity=0.99,line cap=round,line join=round,font=\bfseries\sffamily] (text9) at (4.7,5.6){+}	;
+
+		\node[text=c423b43,fill opacity=0.99,draw opacity=0.99,line cap=round,line join=round,line width=0.04cm,font=\bfseries\sffamily] (text10) at (5.3,5.6){--}	;
+
+		\node[text=c423b43,fill opacity=0.99,draw opacity=0.99,line cap=round,line join=round,line width=0.03cm,font=\bfseries\sffamily] (text11) at (5,4.8){(1)}	;
+
+		\node[text=c423b43,fill opacity=0.99,draw opacity=0.99,line cap=round,line join=round,line width=0.03cm,font=\bfseries\sffamily] (text11-7) at (1.2,3.3){(2)}	;
+
+		\node[text=c423b43,fill opacity=0.99,draw opacity=0.99,line cap=round,line join=round,line width=0.03cm,font=\bfseries\sffamily] (text11-7-3) at (3.04,1.5){(3)}	;
+
+		\node[text=c423b43,fill opacity=0.99,draw opacity=0.99,line cap=round,line join=round,line width=0.03cm,font=\bfseries\sffamily] (text11-7-3-1) at (5.2,1.38){(4)}	;
+	\end{tikzpicture}
+\end{document}

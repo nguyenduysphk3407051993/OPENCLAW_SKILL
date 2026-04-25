@@ -1,0 +1,212 @@
+%%%==========================Lệnh mũi tên cập nhật này 02-02-2024========================%%%
+
+
+%%%============Lệnh căn dòng khi dùng tikZ==============================%%%
+\newcommand{\canhdong}[1]{\tikz[baseline=(char.base)]{
+		\node[inner sep =0pt,outer sep=0pt,anchor =base, baseline] (char){
+			#1
+		};
+	}
+}
+\newcommand{\canhdongH}[1]{\tikz[baseline=(current bounding box.base)]{
+		\node [inner sep=0pt,outer sep=0pt]{
+			#1
+		};
+	}
+}
+%%%==========Các lệnh Kiểu mũi tên của thư viện Arrow.meta==============%%%
+\newcommand{\arrowS}{-{Stealth[width=3.65pt,length=4pt]}}
+\newcommand{\arrowL}{-{Latex[width=3.65pt,length=4pt]}}
+\gdef\arrowTN{-{Stealth[left]}} %%% tùy chọn khi dùng phản ứng thuận nghịch
+\newcommand{\explus}{\;+\;}
+%%%============Mũi tên chất khí=============%%%
+\NewDocumentCommand{\MuiTenU}{O{}O{}O{}O{}}{%
+	\ifblank{#1}{\def\tuychonone{3}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{-3}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{\arrowS}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{black}}{\def\tuychonfour{#4}}
+	\ignorespaces\hspace*{-14pt}\canhdong{\begin{tikzpicture}[declare function={dodai=\tuychonone mm;goc=90;}]
+	\draw[->,\tuychonthree,\tuychonfour,line width =.8pt,shorten <=\tuychontwo pt] (0,0)--(goc:dodai);
+	\end{tikzpicture}}%
+}
+%%%============Mũi tên kết tủa=============%%%
+\NewDocumentCommand{\MuiTenD}{O{}O{}O{}O{}}{
+	\ifblank{#1}{\def\tuychonone{2}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{-5.65}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{\arrowS}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{black}}{\def\tuychonfour{#4}}
+	\ignorespaces\hspace*{-16pt}\canhdong{\begin{tikzpicture}[declare function={dodai=\tuychonone mm;goc=-90;}]
+			\draw[->,\tuychonthree,\tuychonfour,line width =.8pt,shorten <=\tuychontwo pt] (0,0)--(goc:dodai);
+	\end{tikzpicture}}%
+}%
+
+
+\newcommand{\Tieudegiua}[2][\maunhan]{
+	\begin{center}
+		\tikz[baseline=(char.base)]{
+			\node[inner sep =6pt,outer sep=6pt,anchor =base, baseline,shape=rectangle,rounded corners=6pt,fill=#1!10,font=\color{#1!80!black}\Huge\bfseries] (char){
+				#2
+			}; 
+		}
+	\end{center}
+	{\noindent\large\bfseries Họ và tên học sinh:}\makebox[10.5 cm]{\dotfill}\hfill
+	{\large\bfseries Lớp:}\makebox[2.5cm]{\dotfill}
+}
+
+%%%=========Tạo lệnh tập con  2 cận 6 tùy chọn  có 4 tùy chọn đầu đầu bỏ trống===============%%%%
+%%Tùy chọn 1 dấu ngoặc mở  cho cận a với tham số [t] ngoặc tròn, [v] ngoặc vuông
+%%tùy chọn 2 dấu ngoặc đóng cho cận b với tham số [t] ngoặc tròn, [v] ngoặc vuông
+%%tùy chọn 3 dấu gạch chéo với tham số [X] gạch chéo xuôi, [N] gạch chéo ngược
+%%tùy chọn 4 độ dài phần gạch chéo
+%%tùy chọn 5 độ dày gạch chéo
+%%tùy chọn 6 kích thước  hình vẽ
+\NewDocumentCommand{\tapconRH}{O{}O{}O{}O{}O{15}O{5}mm}{%
+	% Xử lý cho tùy chọn ngoặc đầu tiên
+	\ifblank{#1}{\def\tuychonone{ngoactron}}{%
+		\IfEq{#1}{t}{\def\tuychonone{ngoactron}}{}%
+		\IfEq{#1}{v}{\def\tuychonone{ngoacvuong}}{}%
+	}
+	% Xử lý cho tùy chọn ngoặc thứ hai
+	\ifblank{#2}{\def\tuychontwo{ngoactron}}{%
+		\IfEq{#2}{t}{\def\tuychontwo{ngoactron}}{}%
+		\IfEq{#2}{v}{\def\tuychontwo{ngoacvuong}}{}%
+	}
+	% Xử lý cho tùy chọn dấu gạch chéo
+	\ifblank{#3}{\def\tuychonthree{gachcheoN}}{%
+		\IfEq{#3}{X}{\def\tuychonthree{gachcheoX}}{}%
+		\IfEq{#3}{N}{\def\tuychonthree{gachcheoN}}{}%
+	}
+	% Xử lý  độ dài phần gạch chéo
+	\ifblank{#4}{\def\tuychonfour{2.5}}{\def\tuychonfour{#4}}
+	\resizebox{!}{#6 cm}{
+		\begin{tikzpicture}[declare function={a=#7;b=#8;d=\tuychonfour;r=0.5cm;},line join=round,line cap=round]
+			%%%Tạo pic các dấu ngoặc%%%
+			\tikzset{
+				ngoactron/.pic={
+					\path[pic actions] (0:0) arc (180:140:r) (0:0) arc (180:220:r);
+				},
+				ngoacvuong/.pic={
+					\path[pic actions] (0.15,r*0.6) --(0,r*0.6)--(0,-r*0.6)--(0.15,-r*0.6);
+				},
+				gachcheoN/.pic={
+					\path[pic actions](45:r*0.35)--(0:0)--(-135:r*0.35);
+				},
+				gachcheoX/.pic={
+					\path[pic actions](135:r*0.35)--(0:0)--(-45:r*0.35);
+				},
+			}
+			\draw [-stealth,\maudam,line width=1.1pt,shorten >=-6pt] (a-1.05*d,0)--(b+1.05*d,0);
+			% Gán giá trị của a và b vào biến macro mới
+			\pgfmathsetmacro{\a}{int(a)}
+			\pgfmathsetmacro{\b}{int(b)}
+			% Hiển thị các giá trị của a và b
+			\path (a,0) node[below= 0.65*r,font=\sffamily\bfseries]{\a};
+			\path (b,0) node[below= 0.65*r,font=\sffamily\bfseries]{\b};
+			% Hiển thị các dấu ngoặc vuông, ngoặc tròn
+			\path (a,0) pic [draw=\maunhan,line width =1.2pt] {\tuychonone};
+			\path (b,0) pic [draw=\maunhan,line width =1.2pt,rotate=180] {\tuychontwo};
+			%%%Hiển thị các dấu gạch
+			\pgfmathsetmacro{\n}{#5}%%thay đổi độ dày dấu gạch
+			% Thực hiện vòng lặp theo tùy chọn #1
+			\IfEq{#1}{t}{%
+				\foreach \i in {0,1,2,...,\n}{%
+					\path (a-1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+				}
+			}{%
+				\foreach \i in {1,2,...,\n}{%
+					\path (a-1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+				}
+			}
+			% Thực hiện vòng lặp theo tùy chọn #2
+			\IfEq{#2}{t}{%
+				\foreach \i in {0,1,2,...,\n}{%
+					\path (b+1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+				}
+			}{%
+				\foreach \i in {1,2,...,\n}{%
+					\path (b+1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+				}
+			}
+		\end{tikzpicture}
+	}
+}
+
+%%%=========Tạo lệnh tập con  1 cận 6 tùy chọn  có 4 tùy chọn đầu đầu bỏ trống===============%%%%
+%%Tùy chọn 1 dấu ngoặc với tham số [t] ngoặc tròn, [v] ngoặc vuông
+%%tùy chọn 2 dấu ngoặc đóng với tham số [0] mở, [180] đóng
+%%tùy chọn 3 dấu gạch chéo với tham số [X] gạch chéo xuôi, [N] gạch chéo ngược
+%%tùy chọn 4 độ dài phần gạch chéo
+%%tùy chọn 5 độ dày gạch chéo
+%%tùy chọn 6 kích thước  hình vẽ
+\NewDocumentCommand{\tapconRM}{O{}O{}O{}O{}O{15}O{5}m}{%
+	% Xử lý cho tùy chọn dấu ngoặc
+	\ifblank{#1}{\def\tuychonone{ngoactron}}{%
+		\IfEq{#1}{t}{\def\tuychonone{ngoactron}}{}%
+		\IfEq{#1}{v}{\def\tuychonone{ngoacvuong}}{}%
+	}
+	% Xử lý cho tùy chọn mở đóng dấu ngoặc
+	\ifblank{#2}{\def\tuychontwo{0}}{\def\tuychontwo{#2}}
+	% Xử lý cho tùy chọn dấu gạch chéo
+	\ifblank{#3}{\def\tuychonthree{gachcheoN}}{%
+		\IfEq{#3}{X}{\def\tuychonthree{gachcheoX}}{}%
+		\IfEq{#3}{N}{\def\tuychonthree{gachcheoN}}{}%
+	}
+	% Xử lý  độ dài phần gạch chéo
+	\ifblank{#4}{\def\tuychonfour{2.5}}{\def\tuychonfour{#4}}
+	\resizebox{!}{#6 cm}{
+		\begin{tikzpicture}[declare function={a=#7;d=\tuychonfour;r=0.5cm;},line join=round,line cap=round]
+			%%%Tạo pic các dấu ngoặc%%%
+			\tikzset{
+				ngoactron/.pic={
+					\path[pic actions] (0:0) arc (180:140:r) (0:0) arc (180:220:r);
+				},
+				ngoacvuong/.pic={
+					\path[pic actions] (0.15,r*0.6) --(0,r*0.6)--(0,-r*0.6)--(0.15,-r*0.6);
+				},
+				gachcheoN/.pic={
+					\path[pic actions](45:r*0.35)--(0:0)--(-135:r*0.35);
+				},
+				gachcheoX/.pic={
+					\path[pic actions](135:r*0.35)--(0:0)--(-45:r*0.35);
+				},
+			}
+			\draw[-stealth,\maudam,line width=1.1pt,shorten >=-6pt] (a-1.05*d,0) --+(2.1*d,0);
+			% Gán giá trị của a vào biến macro mới
+			\pgfmathsetmacro{\a}{int(a)}
+			% Hiển thị các giá trị của a 
+			\path (a,0) node[below= 0.65*r,font=\sffamily\bfseries]{\a};
+			% Hiển thị các dấu ngoặc vuông, ngoặc tròn
+			\path (a,0) pic [draw=\maunhan,line width =1.2pt,rotate=\tuychontwo] {\tuychonone};
+			%%%Hiển thị các dấu gạch
+			\pgfmathsetmacro{\n}{#5}%%thay đổi độ dày dấu gạch
+			\IfEq{#1}{t}{%
+				\IfEq{\tuychontwo}{0}{%
+					\foreach \i in {0,1,2,...,\n}{%
+						\path (a-1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+					}
+				}{%
+					\foreach \i in {0,1,2,...,\n}{%
+						\path (a+1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+					}
+				}
+				
+			}{%
+				\IfEq{\tuychontwo}{0}{%
+					\foreach \i in {1,2,...,\n}{%
+						\path (a-1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+					}
+				}{%
+					\foreach \i in {1,2,...,\n}{%
+						\path (a+1/\n*\i*d,0) pic [draw=\maudam,line width =1.1pt] {\tuychonthree};
+					}
+				}
+				
+			}
+			
+		\end{tikzpicture}
+	}
+}
+
+
+
+

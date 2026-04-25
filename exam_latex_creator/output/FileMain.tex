@@ -1,0 +1,156 @@
+\documentclass[12pt,twoside,openany]{report}%twoside, oneside,openany,book
+\usepackage[table]{xcolor} %,dvipsnames,svgnames
+\definecolor{darkblue}{HTML}{03346E}
+\definecolor{dnvang}{HTML}{BB671B}%994D1C
+\definecolor{dnxanh}{HTML}{0766AD}
+\definecolor{dnxanhdam}{HTML}{19376D}
+\definecolor{xanhngoc}{HTML}{116D6E}
+\definecolor{dndo}{HTML}{BB2649}
+\definecolor{dntrang}{HTML}{FFFFFF}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\def\mauchinh{darkblue}
+\def\mautuongdong{xanhngoc}
+\def\maunen{dntrang}
+\usepackage{amsmath}
+\allowdisplaybreaks[4]
+\usepackage{savesym}
+\savesymbol{Cross}
+\usepackage{bbding}
+\restoresymbol{bb}{Cross}
+\usepackage{textcmds}
+\usepackage[linkcolor=\mycolor!30!black,colorlinks]{hyperref}
+\usepackage{subfiles}
+\usepackage[utf8]{vietnam}
+\usepackage{pifont,oplotsymbl,marvosym,fontawesome}
+\usepackage{miama}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\usepackage{yhmath,tkz-euclide}
+\usepackage{soulutf8}
+\usepackage{csquotes}
+\setul{1pt}{0.65pt}
+\setulcolor{violet}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\tikzfading[name=fade out, inner color=transparent!0,outer color=transparent!100]
+\tikzfading[name=fade left, top color=transparent!0,bottom color=transparent!0,middle color=transparent!100]
+\tikzfading[name=fade right,left color=transparent!0,right color=transparent!100]
+\usepackage[a4paper,top=0.5cm,bottom=0.5cm,left=1.5cm,right=1.0cm,includefoot=true,includehead=true]{geometry}%,includemp=true
+\usepackage{multicol,environ,etoolbox}
+\usepackage{xparse}
+\setlength\multicolsep{2pt plus 2pt minus 1.5pt}
+\usepackage{intcalc}%Tính mod
+%%%%%Các lệnh thay đổi khoảng câchdọc
+\usepackage{setspace}
+\setstretch{1.25}% dãn dòng 1,5 = 1.25x1.2 line
+%\setlength{\parskip}{6pt}% co dãn khoảng cách các dòng
+%\setlength{\topskip}{6pt}% giống tab trong word
+%\setlength{\headheight}{25pt}
+%\setlength{\footskip}{20pt}
+\setlength{\parindent}{0.65cm}
+%%%%Hoặc có thể thay đổi khoảng cách dọc theo cách khác
+%\linespread{1.5}
+\usepackage{dsfont}
+\usepackage{amsmath,amssymb,mathrsfs,maybemath,xlop,polynom,graphics,graphicx,systeme}
+%% Căn đều tài liệu
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{makecell}
+\usepackage{colortbl}
+\usepackage{booktabs} 
+\usepackage{diagbox}
+\usepackage{mathptm}
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\renewcommand{\parallel}{\mathbin{\!\raisebox{0.25pt}/\mkern-2mu\raisebox{0.25pt}/\!}}
+\renewcommand{\backsim}{\ \mathord{\raisebox{0.025\baselineskip}{\rotatebox{90}{\fontfamily{qag}\selectfont S}}}\ }
+\setlength\arraycolsep{2pt}
+\newcommand{\hoac}[1]{\renewcommand{\arraystretch}{0.85}\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\renewcommand{\arraystretch}{0.85}\left\{\begin{aligned}#1\end{aligned}\right.}
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\makeatletter
+\DeclareSymbolFontAlphabet{\math@bb}{AMSb}
+\AtBeginDocument{\protected\def\mathbb{\math@bb}} 
+\g@addto@macro\normalsize{
+ \setlength{\abovedisplayskip}{4pt}%
+ \setlength{\belowdisplayskip}{2pt}%
+ \setlength{\abovedisplayshortskip}{4pt}%
+ \setlength{\belowdisplayshortskip}{1pt}%
+ }
+\makeatother
+\usepackage{arcs}
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd\over@under@arc
+{\let \rs@size@warning = \@gobbletwo}
+{\let \rs@size@warning = \@gobblethree}
+{}{\fail}
+\makeatother
+\input{Khaibao/Caption/caption.tex}
+\input{Khaibao/Tikz/tikz.tex}
+\input{Khaibao/Chemistry/chemmistry}
+\input{Khaibao/Tcolorbox/Tcolorbox.tex}
+\input{Khaibao/Table/table.tex}
+\input{Khaibao/HeaderFooter/Dethi_ver1.tex}
+\input{Khaibao/EXAM_BOX/BOX_EX_TEST_VER1.tex}
+\input{Khaibao/Chuongmuc/ChuongMuc_Dethi_VER1.tex}
+%\input{Khaibao/Chuongmuc/ChuongMuc_Dethi_VER3.tex}
+\input{Khaibao/Mucluc/Mucluc_ver1.tex}
+\input{Khaibao/Enumerate/Enume_ver1.tex}
+\input{Khaibao/ENV_BOX/ENV_BOX_VER1.tex} 
+\input{Khaibao/ENV_BOX/MYBOX.tex}
+\input{Khaibao/ENV_BOX/NOTE.tex}
+\input{Khaibao/TAOLENH/Bangdapan.tex}
+\input{Khaibao/TAOLENH/viettat.tex}
+\input{Khaibao/TAOLENH/newcommand}
+\input{Khaibao/TAOLENH/LenhThongtin.tex}
+%%%=============================================%%%
+\counterwithout*{section}{chapter}
+\everymath{\displaystyle\color{\maunhan}}
+%\everymath{\displaystyle}
+\everymath{\rm}
+\renewcommand{\thechapter}{\Alph{chapter}.}
+\renewcommand{\thesection}{Đề \arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\begin{document}
+%\setcounter{tocdepth}{1}
+%\tableofcontents % Hiện mục lục
+%%%%%%%%%%%%%%%%%%BẮT DẦU TÀI LIỆU%%%%%%%%%%%%%%%%%%%%%%
+%\tatloigiai
+%\newpage
+%\gdef\sophong{Sở Giáo dục và Đào tạo Quận Ba Đình}
+%\gdef\truong{Trường THCS NVA}
+%\gdef\lop{9}
+%\gdef\thoigian{90}
+%\gdef\made{154}
+%\subfile{DETHITHUVAO10_BA_DINH_HA_NOI_lan1.tex}
+%%%%
+%\newpage
+%\gdef\sophong{Phòng Giáo dục và Đào tạo Hoàng Mai}
+%\gdef\truong{Trường THCS NVA}
+%\gdef\lop{9}
+%\gdef\mon{Toán học}
+%\gdef\thoigian{120}
+%\gdef\made{158}
+%\subfile{DETHITHUVAO10_HOANGMAI_HA_NOI_lan1.tex}
+%%%%
+%\newpage
+%\gdef\sophong{UBND THÀNH PHỐ NAM ĐỊNH}
+%\gdef\truong{Trường THCS NVA}
+%\gdef\thoigian{90 phút}
+%\gdef\lop{9}
+%\gdef\mon{Toán học}
+%\gdef\made{105}
+%\subfile{DETHITHUVAO10_NAM_DINH_lan1.tex}
+%%%%%%%%%%%============Hết tài liệu=============%%%%%%%%%%%%
+%\fileend
+\end{document}

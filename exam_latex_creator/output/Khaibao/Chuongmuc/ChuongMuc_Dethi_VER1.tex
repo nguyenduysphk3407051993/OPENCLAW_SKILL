@@ -1,0 +1,106 @@
+\usepackage[explicit]{titlesec}
+\setcounter{secnumdepth}{4}
+\renewcommand{\chaptertitlename}{CHƯƠNG}
+\DeclareFixedFont{\chapternumberfont}{T5}{phv}{bx}{sc}{0.78in}
+\DeclareFixedFont{\bigsf}{T5}{ugq}{bx}{n}{45pt}
+\DeclareFixedFont{\chapternamefont}{T5}{ugq}{b}{n}{24pt}
+\DeclareFixedFont{\namedethi}{T5}{qag}{bx}{n}{20pt}
+\DeclareFixedFont{\myfont}{T5}{qag}{bx}{n}{13pt}
+\titlespacing*{\chapter}{0pt}{0.33\paperheight}{0cm}
+\titleformat{\chapter}
+{\filcenter\bigsf}
+{\begin{tcolorbox}[box align=center,halign=center,valign=center,arc=0pt,frame empty,colback=\maunhan!10]
+		\color{\mycolor}\MakeUppercase{#1}
+\end{tcolorbox}}
+{1ex minus .1ex}
+{}
+[\thispagestyle{empty}]
+
+
+%%%==================SECTION========================%%%
+%\newcommand{\generaterandomcode}{%tạo mã đề ngẫu nhiên
+	%	\pgfmathsetmacro{\made}{random(100,401)}%
+	%	\pgfmathtruncatemacro{\made}{\made}% 
+	%}
+\def\sophong{Sở giáo dục \& ĐT Gia Lai}
+\def\truong{Trường THPT Chi Lăng}
+\def\truongh{Trường TH, THCS và THPT Sao Việt}
+\def\monhoc{Toán học}
+\def\lop{10}
+\def\nh{2024 - 2025}
+\def\thoigian{90}
+\def\loaide{ĐỀ SỐ\circlenumH[\mycolor]{\fontfamily{ugq}\selectfont\large\thedemsode}}
+\def\kieude{Đề kiểm tra}
+\def\ngaykt{19/07/2025}
+\def\made{101}
+\titlespacing{\section}{0cm}{0cm}{15pt}
+\renewcommand{\thesection}{Đề \arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+%\titleformat{\section}
+%{\filcenter\setcounter{bt}{0}\setcounter{ex}{0}}
+%{}
+%{0pt}
+%{
+%	\noindent\refstepcounter{demsode}\label{bddethi\thedemsode}%
+%	%\generaterandomcode
+%	\begin{tcolorbox}[colback=\mycolor!9,colframe=white,frame empty,arc=5pt,code={\renewcommand{\arraystretch}{0.9}},boxsep=2pt,before skip=-20pt]
+%		\resizebox{\linewidth}{!}{
+%			\begin{tabular}{cp{0.5cm}c}
+%				{\color{\mycolor!30!black}\myfont\MakeUppercase{\sophong}}
+%				&&
+%				{\color{\mycolor!30!black}\myfont\MakeUppercase{#1}}\\
+%				{\color{\mycolor!30!black}\myfont\MakeUppercase{\truong}}
+%				&&
+%				{\color{\mycolor!30!black}\myfont Năm học: \nh}\\
+%				{\color{\mycolor!30!black}\textbf{\loaide}}
+%				&&
+%				{\bfseries\sffamily Môn: \monhoc\ -- Lớp: \lop}\\
+%				{
+%					\ifnum\number\numexpr\getpagerefnumber{bddethi\number\numexpr\thedemsode+1\relax}-\getpagerefnumber{bddethi\thedemsode}>0
+%					({\itshape \kieude\,có \number\numexpr\getpagerefnumber{bddethi\number\numexpr\thedemsode+1\relax}-\getpagerefnumber{bddethi\thedemsode}+1 \relax\ trang})
+%					\else
+%					(\textit{\kieude\,có 1 trang})
+%					\fi
+%				}
+%				&&
+%				{Thời gian: \textbf{\thoigian}\ phút (\textit{không kể phát đề})} 
+%			\end{tabular}
+%		}
+%		{\bfseries Họ và tên học sinh}:\makebox[6 cm]{\dotfill}
+%		{\bfseries Số báo danh:}\makebox[2.5cm]{\dotfill}
+%		\fbox{\bfseries\sffamily Mã đề \made}
+%	\end{tcolorbox} %
+%	\vspace*{-23pt}
+%}
+%[]
+\titleformat{\section}
+{\filcenter\setcounter{bt}{0}\setcounter{ex}{0}}
+{}
+{0pt}
+{\renewcommand{\arraystretch}{0.65}
+	\noindent\begin{tabular}{cp{1.5cm}c}
+	{\MakeUppercase{\textbf{\sophong}}}&&\MakeUppercase{\textbf{#1}}\\
+	\MakeUppercase{\textbf{\truong}} && \MakeUppercase{\textbf{Năm học \nh}}\\
+	\MakeUppercase{\textbf{\truongh}} && \textbf{Môn: \monhoc}\\
+	\textit{(Đề thi có \pageref{x} trang ) } &&  \textit{Thời gian làm bài \thoigian \, phút } \\
+	 \fbox{\textbf{Mã đề: \made}} && \textbf{Ngày kiểm tra : \ngaykt }
+\end{tabular}\\
+{\noindent\bfseries Họ và tên học sinh:}\makebox[10.5 cm]{\dotfill}\hfill
+{\bfseries Lớp:}\makebox[3.5cm]{\dotfill}
+}
+[]
+%%%===========================subsection===============%%%
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\titlespacing*{\subsection}{0pt}{3pt}{6pt}
+\titleformat{\subsection}[runin]{}{}{0pt}{%
+	{{\bfseries\fontfamily{qag}\selectfont Phần \Roman{subsection}. \MakeUppercase{#1}}}
+}
+%%%===========================subsubsection===============%%%
+\titlespacing*{\subsubsection}{0pt}{3pt}{6pt}
+\newfont{\damsc}{uncbc8v at 15pt}
+\newfont{\damss}{t5-lmssbx10 at 15pt}
+\newfont{\damugq}{ugqb8v at 19pt}
+\titleformat{\subsubsection}{}{}{0pt}{%
+	{\bfseries\sffamily\color{\mycolor}\arabic{subsubsection})\, #1}
+}
+%%%==========================================================%%%

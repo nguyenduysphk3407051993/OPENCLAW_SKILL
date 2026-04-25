@@ -1,0 +1,113 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{amsmath,amsfonts,amssymb,amsthm }
+\usepackage[utf8]{vietnam}
+\usepackage[french]{babel}
+\usepackage[T5]{fontenc}
+\usepackage[cmyk,table]{xcolor} 
+\usepackage{tikz}
+\usetikzlibrary{calc,shadows,shadows.blur}
+\usepackage[left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{eso-pic}
+\usepackage{tikzpagenodes}
+\renewcommand*\sfdefault{ugq}
+%========================================
+%color===========================================
+\colorlet{colexam}{red!75!black}
+\definecolor{WarmGray}{RGB}{222,214,204}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{mygray}{HTML}{eeeee4}
+\definecolor{myblueii}{RGB}{0, 0, 100}
+%===========================================
+%===========================================
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{myblueii}{RGB}{0, 0, 100}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{denim}{rgb}{0.08, 0.38, 0.74}
+\definecolor{ufla_blue}{HTML}{224271} 
+\definecolor{chaptercolor}{rgb}{0.36,0.73,0.82}
+\definecolor{MainRed}{rgb}{.8, .1, .1}
+\definecolor{col1}{RGB}{12, 102, 98}
+%===========================================
+%===========================================
+\tikzset{
+	page/.style={
+		color  = white ,
+		fill   = MainRed ,
+		font   = \normalfont\sffamily\Huge\bfseries ,
+		minimum size = .5in ,
+		yshift = 0.5in
+	}
+}
+%---------------------------------------------
+%===========================================
+%================================================================
+\newtcolorbox[auto counter]{exo}[2][]{
+	enhanced,
+	breakable,
+	drop fuzzy shadow=gray,
+	frame empty, 
+	interior style={top color=white,middle color=white,bottom color=cyan!15!white},    
+	title={\sffamily\large\textbf{Bài tập~\fontsize{30}{30}\selectfont\sffamily\color{orange}\centering\thetcbcounter} #2},
+	attach boxed title to top left,
+	coltitle=white,
+	boxed title style={empty},
+underlay boxed title={
+	\path[draw=none, top color=doc!65!white,bottom color=doc!55!white,
+	middle color=doc!75!white]
+	([yshift=-3.5mm]title.north west) -- ([yshift=-3.5mm]title.north east) -- (title.south east)--(title.south west)--cycle;  
+},
+	#1}
+%===============================================
+
+
+
+%start label for new stuff
+\newcommand{\NEW}{\SideBarNew}
+%=================================================
+\begin{document}
+\AddToShipoutPicture{
+	  \ifodd\value{page}
+		\begin{tikzpicture}[remember picture,overlay]
+		\fill[cyan!10] (current page.north west)rectangle ([shift={(1.5,0)}]current page.south west);
+		\fill[orange] (current page.north west)--([shift={(1.25,0)}]current page.north west) --++(0,-17) to[out=-90,in=90]  ++(-120:2)
+		|-(current page.south west)--cycle;
+		\fill[myblueii] (current page.north west)--([shift={(1.25,0)}]current page.north west)--++(0,-15) to[out=-90,in=90]++(-120:2)
+		|-(current page.south west)--cycle;
+		\fill[cyan] (current page.north west)--([shift={(1.25,0)}]current page.north west)--++(0,-13) to[out=-90,in=90]++(-120:2)
+		|-(current page.south west)--cycle;
+		\fill[doc] (current page.north east)--++(-0.9,0)--++(0,-7.5) arc(180:270:0.9)--cycle;
+		\node[white,rotate=90,font=\sffamily] at([shift={(-0.45,-4.5)}]current page.north east){{\large\bfseries{LaTeX Theme}}};
+        \node[left,page] at (current page.south east)
+        {\thepage} ;
+        	\draw[gray]  ([shift={(-45:1pt)}]current page.north west) rectangle ([shift={(135:1pt)}]current page.south east);
+		\end{tikzpicture}
+	  \else
+		\begin{tikzpicture}[remember picture,overlay]
+        	\draw[gray]  ([shift={(-45:1pt)}]current page.north west) rectangle ([shift={(135:1pt)}]current page.south east);
+		\fill[cyan!10] (current page.north east)rectangle ([shift={(-1.5,0)}]current page.south east);
+		\fill[orange] (current page.north east)--([shift={(-1.25,0)}]current page.north east) --++(0,-17) to[out=-90,in=90]++(300:2)
+		|-(current page.south east)--cycle;
+		\fill[myblueii] (current page.north east)--([shift={(-1.25,0)}]current page.north east)--++(0,-15) to[out=-90,in=90]++(300:2)
+		|-(current page.south east)--cycle;
+		\fill[cyan] (current page.north east)--([shift={(-1.25,0)}]current page.north east)--++(0,-13) to[out=-90,in=90]++(300:2)
+		|-(current page.south east)--cycle;
+		\fill[doc] (current page.north west)--++(0.9,0)--++(0,-7.5) arc (0:-90:0.9)--cycle;
+		\node[white,rotate=90,font=\sffamily] at([shift={(0.45,-4.5)}]current page.north west){{\large\bfseries{LaTeX Theme}}};
+        \node[right,page] at (current page.south west)
+        {\thepage} ;
+		\end{tikzpicture}
+   \fi
+}
+%\pagecolor{yellow!15}
+\color{white}
+\pagestyle{empty}
+a
+\newpage
+\pagestyle{empty}
+b
+
+
+
+
+\end{document}

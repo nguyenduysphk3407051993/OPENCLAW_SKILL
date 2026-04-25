@@ -1,0 +1,48 @@
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{calc,angles,intersections,shapes.geometric,arrows,decorations.markings,arrows.meta,patterns.meta,patterns}
+\usepackage{tikz-3dplot,pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor} 
+\definecolor{dnvang}{HTML}{994D1C}
+\definecolor{dnxanh}{HTML}{0766AD}
+\definecolor{dnxanhdam}{HTML}{19376D}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\begin{document}
+	\begin{tikzpicture}[line join=round,line cap=round,declare function={d=0.2cm;}]
+		\pgfmathsetmacro{\hsa}{1.5}
+		\pgfmathsetmacro{\hsb}{4}
+		%%% Vẽ 2 truc tọa độ
+		\draw [thick,-latex,\maunhan] (0,0)coordinate (xw)--(11,0)coordinate (xe) node 	[below]{(m/z)};
+		\draw [thick,-latex,\maunhan] (0,0)coordinate (ys)--(0,5.5)coordinate (yn) 	node[right]{(\%)};
+		
+		%%% Các giá trị truc y
+		\foreach \y[evaluate =\y as \yt using int(\y*20)] in {1,...,5}{
+			\draw[\maunhan!80!black] (0.1,\y)--+(180:0.2) node 		[left,font=\small\bfseries]{\yt};
+		}
+		%%% Các giá trị truc x
+		\foreach \x [evaluate =\x as \xt using int(\x+\hsb)] in {2,3}{
+			\draw[\maunhan!80!black] (\hsa*\x,0.1)--+(-90:.2) node 		[below,font=\small\bfseries]{\xt};
+		}
+		\foreach \x [evaluate =\x as \xt using int(\x+\hsb)] in {1,4,5,6}{
+			\draw[\maunhan!80!black] (\hsa*\x,0.1)--+(-90:.2) node 		[below,font=\small\bfseries]{};
+		}
+		%%% Vẽ cột 
+		\foreach \x/\y[evaluate =\y as \yt using \y*20] in {
+			2/0.375,3/4.625
+		}{
+			\path[fill=\maunhan!80] ([xshift=-d]\hsa*\x,0) rectangle +({2*d},\y) node 	[above,xshift=-d,font=\bfseries\color{\maunhan!60!black}] {\pgfmathprintnumber[fixed, precision=2,use comma]{\yt}\%};
+		}
+		%%% Hiển thị thông tin trục y
+		\path ([xshift=-1.2cm]ys)--([xshift=-1.2cm]yn) node 	[pos=0.5,midway,sloped,font =\scriptsize \color{\maunhan!50!black}\bfseries\sffamily]{Phần trăm số nguyên tử đồng vị};
+		%%% Hiển thị thông tin trục x
+		\path ([yshift=-0.9cm]xw)--([yshift=-0.9cm]xe) node 	[pos=0.5,midway,sloped,font 	=\scriptsize\color{\maunhan!50!black}\bfseries\sffamily]{Tỉ số nguyên tử khối điện tích};
+	\end{tikzpicture}
+\end{document}

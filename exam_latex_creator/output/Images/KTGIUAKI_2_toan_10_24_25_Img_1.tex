@@ -1,0 +1,21 @@
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{calc,angles,intersections,shapes.geometric,arrows,decorations.markings,arrows.meta,patterns.meta,patterns,quotes}
+\usetikzlibrary{hobby}
+\usepackage{tikz-3dplot,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{polar}
+\usepackage{tkz-tab}
+\usepackage{amsmath}
+\begin{document}
+	\begin{tikzpicture}[declare function={r=3.0;}]
+	%%%Vẽ trục tọa độ
+	\draw[-Stealth] (-6,0)--(4,0);
+	\draw[-Stealth] (0,-1)--(0,9);
+	\draw [color=cyan,ultra thick]
+	(-4.6,-1.0) --++(80:1.5*r)
+	..controls ++(80:1*r) and ++(-180:0.26*r)..++(65:1.6*r)
+	..controls ++(0:0.26*r) and ++(100:1*r)..++(-65:1.6*r)
+	--++(-80:1.5*r);
+	\end{tikzpicture}
+\end{document}

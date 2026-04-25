@@ -1,0 +1,43 @@
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\usepackage{tikz-3dplot,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{polar}
+\usepackage{amsmath}
+\usepackage{tkz-tab}
+\begin{document}
+%%%====================Câu 4======================%%%
+\begin{tikzpicture}[line join=round,line cap=round,font=\scriptsize,declare function={R=2.5cm;r=0.7cm;h=0.3*R;}]
+	\tikzset{pics/.cd,
+		chuthich/.style args={#1}{code={
+				\draw [fill=#1!35] (0:0.5) arc (0:45:0.5)--(0,0)--cycle;
+		}}
+	}
+	\pgfmathsetmacro{\mysum}{90}
+	\foreach \i/\t/\mau [evaluate=\i as \goc using (3.6*\i)] in {12/Đá cầu/violet,19/Bóng chuyền/orange,24/bóng bàn/gray!50!black,45/Bóng đá/red!70!blue}
+	{\path[fill=\mau,draw=white,thick] (\mysum:3) arc (\mysum:\mysum+\goc:3)--(0,0)--cycle;
+		\pgfmathsetmacro{\tb}{\mysum+0.5*\goc}
+		\path (\tb:2) node[fill=white,inner sep=1pt,minimum width =1.3cm,align=center,text width =1.1cm]{\t\ \i\%};
+		\pgfmathsetmacro{\mysum}{\mysum+\goc}
+		\xdef\mysum{\mysum}
+	}
+ \end{tikzpicture}
+ 
+ %%%====================Câu 9======================%%%
+ \begin{tikzpicture}[declare function={r=3cm;}]
+ 	\path (0,0) coordinate (P)
+ 	($(P)+(90:r)$) coordinate (M);
+ 	\draw(M)--(P);
+ 	\foreach \x/\y in{P/-90,M/90}{
+ 		\path[fill=red](\x) circle (1pt) node[shift={(\y:8pt)}]{\x};}
+ \end{tikzpicture}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+\end{document}
