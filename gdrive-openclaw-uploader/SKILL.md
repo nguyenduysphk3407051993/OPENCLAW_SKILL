@@ -17,7 +17,7 @@ OPENCLAW/                          ← Thư mục gốc (My Drive > OPENCLAW)
 ├── 01_Documents/                  ← Văn bản, giáo án, đề thi
 ├── 02_Images/                     ← Hình ảnh minh họa, sơ đồ, infographic
 ├── 03_Videos/                     ← Video bài giảng, thí nghiệm
-├── 04_Audio/                      ← Ghi âm, podcast, file âm thanh
+├── 04_Audios/                      ← Ghi âm, podcast, file âm thanh
 ├── 05_Presentations/              ← Slide thuyết trình, bài giảng
 ├── 06_Spreadsheets/               ← Bảng điểm, dữ liệu, ma trận đề
 ├── 07_Archives/                   ← File nén, backup
@@ -33,7 +33,7 @@ OPENCLAW/                          ← Thư mục gốc (My Drive > OPENCLAW)
 | `01_Documents` | `.pdf`, `.docx`, `.doc`, `.txt`, `.md`, `.rtf`, `.odt`, `.tex`, `.epub`, `.mobi` |
 | `02_Images` | `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.bmp`, `.tiff`, `.tif`, `.heic`, `.heif`, `.ico` |
 | `03_Videos` | `.mp4`, `.avi`, `.mov`, `.mkv`, `.wmv`, `.flv`, `.webm`, `.m4v`, `.mpg`, `.mpeg` |
-| `04_Audio` | `.mp3`, `.wav`, `.flac`, `.aac`, `.ogg`, `.m4a`, `.wma`, `.opus` |
+| `04_Audios` | `.mp3`, `.wav`, `.flac`, `.aac`, `.ogg`, `.m4a`, `.wma`, `.opus` |
 | `05_Presentations` | `.pptx`, `.ppt`, `.key`, `.odp` |
 | `06_Spreadsheets` | `.xlsx`, `.xls`, `.csv`, `.tsv`, `.ods`, `.numbers` |
 | `07_Archives` | `.zip`, `.rar`, `.7z`, `.tar`, `.gz`, `.bz2`, `.xz`, `.tar.gz`, `.tgz` |
