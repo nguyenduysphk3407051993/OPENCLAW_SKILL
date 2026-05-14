@@ -41,18 +41,6 @@
 }%
 
 
-\newcommand{\Tieudegiua}[2][\maunhan]{
-	\begin{center}
-		\tikz[baseline=(char.base)]{
-			\node[inner sep =6pt,outer sep=6pt,anchor =base, baseline,shape=rectangle,rounded corners=6pt,fill=#1!10,font=\color{#1!80!black}\Huge\bfseries] (char){
-				#2
-			}; 
-		}
-	\end{center}
-	{\noindent\large\bfseries Họ và tên học sinh:}\makebox[10.5 cm]{\dotfill}\hfill
-	{\large\bfseries Lớp:}\makebox[2.5cm]{\dotfill}
-}
-
 %%%=========Tạo lệnh tập con  2 cận 6 tùy chọn  có 4 tùy chọn đầu đầu bỏ trống===============%%%%
 %%Tùy chọn 1 dấu ngoặc mở  cho cận a với tham số [t] ngoặc tròn, [v] ngoặc vuông
 %%tùy chọn 2 dấu ngoặc đóng cho cận b với tham số [t] ngoặc tròn, [v] ngoặc vuông

@@ -353,12 +353,12 @@ Ví dụ trên Windows: `D:\...\skills\exam_latex_creator\output\`
 
 **Bước 6.1: Chạy script xử lý lỗi LaTeX và chuẩn hoá (Nếu cần sửa file):**
 ```bash
-python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" fix "<ABSOLUTE_SKILL_DIR>/output/<TEN_FILE>.tex"
+python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" fix "<ABSOLUTE_SKILL_DIR>/latex-output/<TEN_FILE>.tex"
 ```
 
 **Bước 6.2: Biên dịch LaTeX:** (Có thể dùng công cụ biên dịch tích hợp sẵn)
 ```bash
-python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" compile "<TEN_FILE>.tex" --dir "<ABSOLUTE_SKILL_DIR>/output" --times 2
+python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" compile "<TEN_FILE>.tex" --dir "<ABSOLUTE_SKILL_DIR>/latex-output" --times 2
 ```
 *(Hoặc tự cd vào thư mục output và chạy `pdflatex -interaction=nonstopmode "<TEN_FILE>.tex"` ít nhất 2 lần)*
 
@@ -367,7 +367,7 @@ Nếu người dùng yêu cầu tạo ra **nhiều mã đề khác nhau** (khôn
 
 **Cú pháp:**
 ```bash
-python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" shuffle "<ABSOLUTE_SKILL_DIR>/output/<FILE_DE_GOC>.tex" --seed <SO_NGAY_NHIEN> --made2 <MA_DE_MOI>
+python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" shuffle "<ABSOLUTE_SKILL_DIR>/latex-output/<FILE_DE_GOC>.tex" --seed <SO_NGAY_NHIEN> --made2 <MA_DE_MOI>
 ```
 *Ghi chú:* Bạn có thể chạy lệnh này nhiều lần (bằng vòng lặp) với các giá trị `--made2` và `--seed` khác nhau để tạo ra bao nhiêu đề tuỳ ý (ví dụ: tạo thêm mã 102, 103, 104, ... từ mã đề gốc 101).
 
