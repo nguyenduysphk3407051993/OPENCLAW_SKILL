@@ -251,7 +251,32 @@ trong đó name là một trong 2 môi trường ex, bt
 - Phải có %[ID6] sau \begin{name}
 %%%=====<Môi trường + số thứ tự >=====%%%
 - Đối với bài tập loại 2 nội dung các phương án phải chứa đụng nội dung kiến thức liên quan, không chấp nhận các phương án chỉ ghi sai, đúng
-- **XỬ LÝ HÌNH ẢNH:** Nếu câu hỏi có chứa hình ảnh, CẦN trích xuất hình ảnh từ file gốc bằng cách sử dụng ĐƯỜNG DẪN TUYỆT ĐỐI (có thể dùng lệnh `python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" images "<FILE_NGUON_DOCX>" "<ABSOLUTE_SKILL_DIR>/output/Images/<Tên_thư_mục_con>"`) và lưu vào thư mục con tương ứng. Sau đó dùng lệnh `\includegraphics` chèn vào code LaTeX.
+- **XỬ LÝ HÌNH ẢNH:** Nếu nội dung đề bài có chứa hình ảnh, CẦN trích xuất các hình ảnh đó vào thư mục con tự tạo theo đường dẫn `<ABSOLUTE_SKILL_DIR>/output/Images/<Tên_thư_mục_con>` (có thể dùng lệnh `python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" images "<FILE_NGUON_DOCX>" "<ABSOLUTE_SKILL_DIR>/output/Images/<Tên_thư_mục_con>"`). Sau đó dùng lệnh chèn hình căn giữa trong LaTeX để chèn hình vào code, ví dụ:
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{<đường_dẫn_ảnh_tuyệt_đối>}
+\end{center}
+
+### Quy ước đường dẫn (Cross-platform)
+
+Định nghĩa các biến đường dẫn linh hoạt:
+- `<ABSOLUTE_SKILL_DIR>`: Đường dẫn tuyệt đối đến thư mục gốc của skill này (tự detect theo OS)
+- `<SCRIPT>`: Viết tắt cho `python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py"`
+- `<OUTPUT_DIR>`: Viết tắt cho `<ABSOLUTE_SKILL_DIR>/latex-output`
+
+### Tham chiếu công cụ latex_tools.py
+
+File `<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py` là script duy nhất chứa toàn bộ logic xử lý. Các lệnh khả dụng:
+
+| Lệnh | Mô tả | Cú pháp |
+|------|--------|---------|
+| `fix` | Sửa lỗi LaTeX phổ biến | `<SCRIPT> fix "<file.tex>"` |
+| `parse` | Phân tích và thống kê câu hỏi | `<SCRIPT> parse "<file_hoặc_thư_mục>"` |
+| `assemble` | Ghép câu hỏi vào template đề thi | `<SCRIPT> assemble --input "<file1>" "<file2>" --output "<output.tex>" --monhoc "..." --ngaykt "..."` |
+| `shuffle` | Trộn đề tạo mã đề mới | `<SCRIPT> shuffle "<file_gốc.tex>" --seed <số> --made2 <mã_đề>` |
+| `compile` | Biên dịch LaTeX thành PDF | `<SCRIPT> compile "<file.tex>" --dir "<thư_mục>" --times 2` |
+| `dedup` | Lọc câu hỏi trùng lặp | `<SCRIPT> dedup "<input>" "<output.tex>" --threshold 0.85` |
+| `images` | Trích xuất ảnh từ .docx | `<SCRIPT> images "<file.docx>" "<thư_mục_ảnh>"` |
+| `imgpaths` | Chuẩn hóa đường dẫn ảnh | `<SCRIPT> imgpaths "<file.tex>" --inplace` |
 
 ### Hướng dẫn sử dụng Skill này (Next Step):
 
@@ -270,17 +295,18 @@ Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] c
 | Lớp | 6, 7, 8, 9, 0 (lớp 10), 1 (lớp 11), 2 (lớp 12) | `6` |
 | Môn | K (KHTN), H (Hóa), L (Lý), S (Sinh), T (Toán), V (Văn) | `K` |
 | Chương | 1-9, A-Z | `2` |
-| Mức độ | NB (Nhận biết), TH (Thông hiểu), VD (Vận dụng), VC (Vận dụng cao) | `TH` |
+| Mức độ | Y (Yếu), B (Trung bình), K (Khá), G (Giỏi), T (Thực tế), N (Nhận biết), H (Thông hiểu), V (Vận dụng), C (Vận dụng cao) | `H` |
 | Bài | 1-9, A-Z | `3` |
 | Dạng | 1-9 | `2` |
 
 **Ví dụ ID6:**
-- `[6K2NB1-1]` = Lớp 6, KHTN, Chương 2, Nhận biết, Bài 1, Dạng 1
-- `[9K8H9-2]` = Lớp 9, KHTN, Chương 8, Thông hiểu (H), Bài 9, Dạng 2
-- `[0H1VD3-3]` = Lớp 10, Hóa, Chương 1, Vận dụng, Bài 3, Dạng 3
+- `[6K2N1-1]` = Lớp 6, KHTN, Chương 2, Nhận biết, Bài 1, Dạng 1
+- `[9K8H9-2]` = Lớp 9, KHTN, Chương 8, Thông hiểu, Bài 9, Dạng 2
+- `[0H1V3-3]` = Lớp 10, Hóa, Chương 1, Vận dụng, Bài 3, Dạng 3
+- `[7K5G2-1]` = Lớp 7, KHTN, Chương 5, Giỏi, Bài 2, Dạng 1
 
 #### Bước 4: Chèn vào Template (BẮT BUỘC)
-**ĐỌC** file template mẫu tại: `<ABSOLUTE_SKILL_DIR>/assets/templates/Template.tex` (Dùng đường dẫn tuyệt đối)
+**ĐỌC** file template mẫu tại: `<ABSOLUTE_SKILL_DIR>/templates/Template.tex` (Dùng đường dẫn tuyệt đối)
 
 **Cấu trúc file đề thi hoàn chỉnh:**
 ```latex
@@ -294,7 +320,7 @@ Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] c
 \section[<Tên kì thi> - Mã đề \made]{<Tên kì thi>}
 
 %%%==============Phần trắc nghiệm nhiều lựa chọn==============%%%
-\subsection{Bài tập trắc nghiệm nhiều lựa chọn}
+\subsection{Bài tập trắc nghiệm nhiều lựa chọn}\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 1>. Mỗi câu thí sinh chỉ chọn một phương án}
 \Opensolutionfile{ansex}[Ans/LGEX-<TenFile>_MADE<made>]
 \Opensolutionfile{ans}[Ans/Ans-<TenFile>_MADE<made>]
   % CHÈN CÁC CÂU HỎI LOẠI 1 (EX) VÀO ĐÂY
@@ -302,7 +328,7 @@ Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] c
 \Closesolutionfile{ansex}
 %\bangdapan{Ans-<TenFile>_MADE<made>}
 %%%==============Phần trắc nghiệm đúng sai==============%%%
-\subsection{Trắc nghiệm đúng sai}
+\subsection{Trắc nghiệm đúng sai}\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 2>. Trong mỗi ý a), b), c), d) ở mỗi câu thí sinh chọn đúng hoặc sai}
 \Opensolutionfile{ansex}[Ans/LGTF-<TenFile>_MADE<made>]
 \Opensolutionfile{ansbook}[Ansbook/AnsTF-<TenFile>_MADE<made>]
 \setcounter{ex}{0}
@@ -311,7 +337,7 @@ Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] c
 \Closesolutionfile{ansex}
 %\bangdapanTF{AnsTF-<TenFile>_MADE<made>}
 %%%==============Phần bài tập trả lời ngắn==============%%%
-\subsection{Bài tập trả lời ngắn}
+\subsection{Bài tập trả lời ngắn}\textit{\large Thí sinh trả lời từ câu 1 đến câu <Tổng câu loại 3>}
 \Opensolutionfile{ansex}[Ans/LGSA-<TenFile>_MADE<made>]
 \Opensolutionfile{ansexh}[Ans/AnsSA-<TenFile>_MADE<made>]
 \setcounter{ex}{0}
@@ -320,7 +346,7 @@ Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] c
 \Closesolutionfile{ansex}
 
 %%%==============Phần bài tập tự luận==============%%%
-\subsection{Bài tập tự luận}
+\subsection{Bài tập tự luận}\textit{\large Thí sinh trả lời từ bài 1 đến bài <Tổng câu loại 4>}
 \Opensolutionfile{ansbth}[Ans/LGBT-<TenFile>_MADE<made>]
 \Opensolutionfile{ansbt}[Ans/AnsBT-<TenFile>_MADE<made>]
   % CHÈN CÁC CÂU HỎI LOẠI 4 (BT) VÀO ĐÂY (nếu có)
@@ -341,8 +367,8 @@ Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] c
 
 #### Bước 5: Lưu file
 **Thư mục lưu:** BẮT BUỘC sử dụng ĐƯỜNG DẪN TUYỆT ĐỐI ĐỘNG (Dynamic Absolute Path) theo môi trường hệ điều hành thực tế. Bạn phải tự nhận diện mình đang chạy trên Windows hay Linux (VPS) để sinh ra đường dẫn chuẩn xác. KHÔNG ghi cứng (hardcode) đường dẫn Windows (VD: `d:\...`) khi đang deploy trên VPS.
-Ví dụ trên VPS Linux: `/opt/openclaw/skills/exam_latex_creator/output/`
-Ví dụ trên Windows: `D:\...\skills\exam_latex_creator\output\`
+Ví dụ trên VPS Linux: `/opt/openclaw/skills/exam_latex_creator/latex-output/`
+Ví dụ trên Windows: `D:\...\skills\exam_latex_creator\latex-output\`
 
 **Quy tắc đặt tên file:** `<[Tên kì thi[>_<Lớp>_<Môn học>_MADE<MaDe>_<HS|GV>.tex`
 - Ví dụ: `KTDK_HOA_6_MADE115_GV.tex`
@@ -351,14 +377,31 @@ Ví dụ trên Windows: `D:\...\skills\exam_latex_creator\output\`
 
 **LƯU Ý QUAN TRỌNG:** Phải tự động xác định ĐƯỜNG DẪN TUYỆT ĐỐI của thư mục skill (`<ABSOLUTE_SKILL_DIR>`) tương thích với hệ điều hành hiện tại (Cross-platform) cho tất cả lệnh gọi script và đường dẫn file. Tuyệt đối không dùng đường dẫn tương đối (như `./skills/`) hay hardcode sai hệ điều hành để tránh lỗi "No such file or directory" trên VPS.
 
-**Bước 6.1: Chạy script xử lý lỗi LaTeX và chuẩn hoá (Nếu cần sửa file):**
+Tất cả lệnh đều sử dụng file duy nhất `<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py`.
+
+**Bước 6.1: Phân tích câu hỏi (tùy chọn, kiểm tra trước khi ghép đề):**
 ```bash
-python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" fix "<ABSOLUTE_SKILL_DIR>/latex-output/<TEN_FILE>.tex"
+<SCRIPT> parse "<OUTPUT_DIR>/<TEN_FILE>.tex"
 ```
 
-**Bước 6.2: Biên dịch LaTeX:** (Có thể dùng công cụ biên dịch tích hợp sẵn)
+**Bước 6.2: Lọc câu hỏi trùng lặp (tùy chọn, khi gộp nhiều nguồn):**
 ```bash
-python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" compile "<TEN_FILE>.tex" --dir "<ABSOLUTE_SKILL_DIR>/latex-output" --times 2
+<SCRIPT> dedup "<INPUT_PATH>" "<OUTPUT_DIR>/<TEN_FILE>_unique.tex" --threshold 0.85
+```
+
+**Bước 6.3: Chạy script xử lý lỗi LaTeX và chuẩn hoá:**
+```bash
+<SCRIPT> fix "<OUTPUT_DIR>/<TEN_FILE>.tex"
+```
+
+**Bước 6.4: Chuẩn hóa đường dẫn ảnh (nếu đề có hình):**
+```bash
+<SCRIPT> imgpaths "<OUTPUT_DIR>/<TEN_FILE>.tex" --inplace
+```
+
+**Bước 6.5: Biên dịch LaTeX:**
+```bash
+<SCRIPT> compile "<TEN_FILE>.tex" --dir "<OUTPUT_DIR>" --times 2
 ```
 *(Hoặc tự cd vào thư mục output và chạy `pdflatex -interaction=nonstopmode "<TEN_FILE>.tex"` ít nhất 2 lần)*
 
@@ -367,9 +410,19 @@ Nếu người dùng yêu cầu tạo ra **nhiều mã đề khác nhau** (khôn
 
 **Cú pháp:**
 ```bash
-python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" shuffle "<ABSOLUTE_SKILL_DIR>/latex-output/<FILE_DE_GOC>.tex" --seed <SO_NGAY_NHIEN> --made2 <MA_DE_MOI>
+<SCRIPT> shuffle "<OUTPUT_DIR>/<FILE_DE_GOC>.tex" --seed <SO_NGAY_NHIEN> --made2 <MA_DE_MOI>
 ```
 *Ghi chú:* Bạn có thể chạy lệnh này nhiều lần (bằng vòng lặp) với các giá trị `--made2` và `--seed` khác nhau để tạo ra bao nhiêu đề tuỳ ý (ví dụ: tạo thêm mã 102, 103, 104, ... từ mã đề gốc 101).
+
+#### Bước 8: Ghép câu hỏi từ nhiều nguồn (Tùy chọn)
+Nếu có nhiều file câu hỏi rời rạc cần ghép thành một đề thi hoàn chỉnh:
+```bash
+<SCRIPT> assemble --input "<file1.tex>" "<file2.tex>" --output "<OUTPUT_DIR>/<TEN_DE>.tex" --monhoc "Hóa học" --ngaykt "15/06/2026" --thoigian 45 --made 101 --ten-de "Kiểm tra giữa kỳ"
+```
+Hoặc dùng file config JSON:
+```bash
+<SCRIPT> assemble --config "<đường_dẫn_config.json>"
+```
 
 ---
 
