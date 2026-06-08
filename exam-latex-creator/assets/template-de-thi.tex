@@ -2,21 +2,20 @@
 \gdef\sophong{Sở GD \& ĐT Gia Lai}
 \gdef\truong{Trường THPT Chi Lăng}
 \gdef\truongh{Trường Mầm non, THCS, THPT Sao Việt}
-\gdef\monhoc{<Môn học>} % ví dụ hóa học 9
-\gdef\ngaykt{<ngày thi>} % ví dụ 04/02/2026
-\gdef\nh{2025 - 2026} % ví dụ 2025 - 2026
-\gdef\thoigian{<thời gian>}% ví dụ 30
-\gdef\made{<mã đề ngẫu nhiên>}  % ví dụ 758
-\setcounter{section}{<số tứ tự đề -1>}% ví dụ đề 1 là 0, đề 2 là 1.
+\gdef\monhoc{<Môn học>} % ví dụ: Khoa học tự nhiên 6
+\gdef\ngaykt{<ngày thi>} % ví dụ: 04/02/2026
+\gdef\nh{2025 - 2026} % ví dụ: 2025 - 2026
+\gdef\thoigian{<thời gian>}% ví dụ: 45
+\gdef\made{<mã đề ngẫu nhiên>}  % ví dụ: 758
+\setcounter{section}{<số thứ tự đề -1>}% ví dụ đề 1 là 0, đề 2 là 1.
 %\tatloigiai
 %\hienthiloigiai
 %\dongkeloigiai
 \begin{document}
 \section[<tên kì thi> <môn thi> - Mã đề \made]{<tên kì thi>} % ví dụ Kiểm tra giữa kỳ 1
-%\Tieudegiua{<tên kì thi> <môn thi> - Mã đề \made}
 
 %%%==============Phần trắc nghiệm nhiều lựa chọn==============%%%
-\subsection{Bài tập trắc nghiệm nhiều lựa chọn}\textit{\large Thí sinh trả lời từ câu 1 đến <tổng câu loại 1. Mỗi câu thí sinh chỉ chọn một phương án}
+\subsection{Bài tập trắc nghiệm nhiều lựa chọn}\textit{\large Thí sinh trả lời từ câu 1 đến <tổng câu loại 1>. Mỗi câu thí sinh chỉ chọn một phương án}
 \Opensolutionfile{ansex}[Ans/LGEX-<tên file>_MADE<mã đề>]
 \Opensolutionfile{ans}[Ans/Ans-<tên file>_MADE<mã đề>]
   % <Chèn các câu hỏi loại 1 vào đây>
@@ -47,7 +46,7 @@
 %\bangdapanSA{AnsSA-<tên file>_MADE<mã đề>}
 
 %%%==============Phần bài tập tự luận==============%%%
-\subsection{Bài tập tự luận}\textit{\large Thí sinh trả lời từ bài 1 đến bài <tổng bài loại 4}
+\subsection{Bài tập tự luận}\textit{\large Thí sinh trả lời từ bài 1 đến bài <tổng bài loại 4>}
 \Opensolutionfile{ansbth}[Ans/LGBT-<tên file>_MADE<mã đề>]
 \Opensolutionfile{ansbt}[Ans/AnsBT-<tên file>_MADE<mã đề>]
   % <Chèn các câu hỏi loại 4 vào đây>
