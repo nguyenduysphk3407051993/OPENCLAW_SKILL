@@ -1,438 +1,365 @@
 ---
 name: exam-latex-creator
-description: "Skill tạo câu hỏi/bài tập LaTeX cho giáo dục Việt Nam (THCS & THPT). Sử dụng khi cần soạn câu hỏi loại 1 (trắc nghiệm), loại 2 (đúng/sai), loại 3 (trả lời ngắn), loại 4 (tự luận) cho các môn KHTN, Toán, Văn theo chuẩn LaTeX."
-allowed-tools: Read, Write, Glob, Grep, WebFetch
+description: "Skill tạo câu hỏi/bài tập LaTeX cho giáo dục Việt Nam (THCS & THPT). Sử dụng khi cần soạn câu hỏi loại 1 (trắc nghiệm), loại 2 (đúng/sai), loại 3 (trả lời ngắn), loại 4 (tự luận) cho các môn KHTN, Toán, Văn theo chuẩn LaTeX. Cũng dùng khi cần trộn đề, ghép đề, lọc trùng, biên dịch PDF, hoặc trích xuất nội dung từ file pdf/ảnh/docx sang form LaTeX."
+allowed-tools: Read, Write, Edit, Glob, Grep, WebFetch
 argument-hint: "[loại câu hỏi] [số lượng] [chủ đề/chương/bài]"
 ---
 
 # Skill: Vietnamese Education LaTeX Generator
 
-## Description
-Skill này chuyên dùng để tạo các câu hỏi theo chủ đề/chương, bài, dạng (Toán, Lý, Hóa, Sinh, KHTN, Ngữ Văn) theo định dạng LaTeX chuẩn, tuân thủ nghiêm ngặt cấu trúc của chương trình giáo dục Việt Nam (THCS & THPT).
+## Mô tả
 
-## Usage
-- **Khi nào dùng:** Khi người dùng yêu cầu soạn các câu hỏi loại 1, loại 2, loại 3, loại 4 thuộc các môn KHTN (Lý, Hóa, Sinh), Toán, Văn dưới dạng mã nguồn LaTeX.
-- **Khi không dùng:** Khi người dùng chỉ hỏi kiến thức thông thường, yêu cầu giải thích bằng văn bản đơn thuần (plain text/markdown) hoặc không yêu cầu định dạng code.
+Skill chuyên tạo câu hỏi theo chủ đề/chương/bài/dạng (Toán, Lý, Hóa, Sinh, KHTN, Ngữ Văn) theo định dạng LaTeX chuẩn, tuân thủ nghiêm ngặt cấu trúc chương trình giáo dục Việt Nam (THCS & THPT). Hỗ trợ tạo đề thi hoàn chỉnh, trộn mã đề, lọc trùng, biên dịch PDF.
+
+## Khi nào dùng
+
+- Soạn câu hỏi loại 1 (trắc nghiệm), 2 (đúng/sai), 3 (trả lời ngắn), 4 (tự luận) dưới dạng mã LaTeX
+- Trích xuất nội dung từ file pdf/ảnh/docx chuyển sang form LaTeX
+- Tạo đề thi hoàn chỉnh với nhiều loại câu hỏi
+- Ghép câu hỏi từ nhiều nguồn thành đề thi (`assemble`)
+- Trộn mã đề mới từ đề gốc (`shuffle`)
+- Lọc câu hỏi trùng lặp (`dedup`)
+- Sửa lỗi LaTeX phổ biến và biên dịch PDF (`fix`, `compile`)
+
+## Cấu trúc thư mục
+
+```
+exam-latex-creator/
+├── SKILL.md                          ← File này
+├── references/                       ← Tài liệu tham chiếu format + MAPID
+│   ├── ex-trac-nghiem.md             ← Format loại 1: trắc nghiệm (EX)
+│   ├── tf-dung-sai.md                ← Format loại 2: đúng/sai (TF)
+│   ├── sa-tra-loi-ngan.md            ← Format loại 3: trả lời ngắn (SA)
+│   ├── bt-tu-luan.md                 ← Format loại 4: tự luận (BT)
+│   ├── mapid6-coding.md              ← Quy tắc mã hóa ID6
+│   ├── MAPID_KHTN6.tex               ← Bản đồ nội dung KHTN lớp 6 (11 chương, 33 bài, 184 dạng)
+│   ├── MAPID_KHTN7.tex               ← Bản đồ nội dung KHTN lớp 7 (11 chương, 29 bài, 134 dạng)
+│   ├── MAPID_KHTN8.tex               ← Bản đồ nội dung KHTN lớp 8 (8 chương, 39 bài, 137 dạng)
+│   └── MAPID_KHTN9.tex               ← Bản đồ nội dung KHTN lớp 9 (12 chương, 42 bài, 208 dạng)
+├── scripts/
+│   ├── mix_exam.py                   ← Ghép đề, trộn đề, parse, lọc trùng
+│   └── export_pdf.py                 ← Sửa lỗi LaTeX, biên dịch PDF, xử lý ảnh
+├── assets/
+│   └── template-de-thi.tex           ← Template đề thi chuẩn (subfiles)
+└── latex-output/                     ← Thư mục xuất file .tex/.pdf
+    ├── FileMain.tex                  ← File chủ (document class, packages, macro)
+    ├── Khaibao/                      ← Thư mục chứa các file khai báo LaTeX con
+    ├── Ans/                          ← Đáp án tự sinh (LG*, Ans-*, AnsBT-*, AnsSA-*)
+    ├── Ansbook/                      ← Bảng đáp án TF
+    └── Images/                       ← Hình ảnh đề thi
+```
+
+## Quy ước đường dẫn
+
+| Biến | Ý nghĩa |
+|------|---------|
+| `<SKILL_DIR>` | Đường dẫn tuyệt đối đến thư mục gốc skill (tự detect OS) |
+| `<OUTPUT_DIR>` | `<SKILL_DIR>/latex-output` |
+| `<MIX>` | `python "<SKILL_DIR>/scripts/mix_exam.py"` |
+| `<EXPORT>` | `python "<SKILL_DIR>/scripts/export_pdf.py"` |
+
+**Lưu ý:** Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.
+
+---
 
 ## Instruction
 
-***Role:***Bạn là chuyên gia trong tạo ra các loại câu hỏi theo dạng thuộc chủ đề khác nhau của môn học thuộc chương trình lớp 6 ,7,8,9,10 gồm có 4 loại câu hỏi được xây dưng theo mã latex có dạng: 
-##Câu hỏi loại 1:
-%%%============EX_<số thứ tự>=============%%%
-\begin{ex}
-Nội dung câu hỏi trắc nghiệm nhiều lựa chọn
-\choice
-{Nội dung phương án 1 }
-{Nội dung phương án 2 }
-{\True Nội dung phương án 3 }
-{Nội dung phương án 4 }
-\loigiai{Nội dung lời giải}
-\end{ex}
+***Role:*** Bạn là chuyên gia tạo câu hỏi theo dạng thuộc các chủ đề môn học lớp 6-12, gồm 4 loại câu hỏi LaTeX.
 
-##Câu hỏi loại 2:
-%%%=============TF_1=============%%%
-\begin{ex}
-	Nội dung câu hỏi trắc nghiệm đúng sai
-	\choiceTF
-	{\True Nội dung phương án đúng}
-	{ Nội dung phương án sai}
-	{\True Nội dung phương án đúng}
-	{\True Nội dung phương án đúng}
-	\loigiai{
-		\begin{itemchoice}[T1,F2,T3,T4]
-			\itemch Lời giải chi tiết cho phương án đúng
-			\itemch Lời giải chi tiết cho phương án sai
-			\itemch Lời giải chi tiết cho phương án đúng
-			\itemch Lời giải chi tiết cho phương án đúng
-		\end{itemchoice}
-	}
-\end{ex}
+### Bước 0: Đọc format tham chiếu (BẮT BUỘC trước khi tạo câu hỏi)
 
-##Câu hỏi loại 3:
-%%%==============SA_<Số thứ tự>==============%%%
-\begin{ex}
-	Nội dung bài tập trả lời ngắn
-	\shortans{Đáp án dạng số} 
-	\loigiai{Nội dung Lời giải chi tiết.}
-\end{ex}
+Đọc file tương ứng trong `<SKILL_DIR>/references/` để lấy format chuẩn:
 
-##Câu hỏi loại 4:
-%%%=============BT_<số thứ tự>=============%%%
-\begin{bt}
-	Nội dung câu hỏi tự luận 
-	\loigiai{Nội dung lời giải chio tiết bài tập tự luận }
-\end{bt}
-***Task:*** 
-Bạn giúp tôi thực hiện một trong các yêu cầu sau tùy yêu cầu:
-- Nhiệm vụ 1: Tạo bài tập theo đúng chủ đề, chương , bài, loại câu hỏi, số lượng câu hỏi
- Ví dụ: Tạo cho tôi 2 bài tập loại 2 về chủ đề phản ứng oxi hoa khử dạng xác định chất khử, chất oxi hóa, quá trình khử, quá trình oxi hóa.
-- Nhiệm vụ 2: Trích xuất nội dung văn bản từ file pdf, file ảnh sau đó chuyển sang đúng form của loại câu hỏi tôi yêu cầu: Ví dụ chuyển cho tôi nội dung tù file trên sang bài tập loại 2
+| Loại | File | Môi trường |
+|------|------|------------|
+| Loại 1 — Trắc nghiệm | `ex-trac-nghiem.md` | `\begin{ex}...\end{ex}` với `\choice` |
+| Loại 2 — Đúng/sai | `tf-dung-sai.md` | `\begin{ex}...\end{ex}` với `\choiceTF` |
+| Loại 3 — Trả lời ngắn | `sa-tra-loi-ngan.md` | `\begin{ex}...\end{ex}` với `\shortans` |
+| Loại 4 — Tự luận | `bt-tu-luan.md` | `\begin{bt}...\end{bt}` |
+| ID6 | `mapid6-coding.md` | Quy tắc gán mã ID6 |
 
-***Yêu cầu nghiêm ngặc:***
-# Phải theo đúng chuẩn form từng loại câu hỏi tôi nêu trên
-# Đối với câu hỏi loại 1:
-- Lệnh choice bắt buộc phải đủ 4 tham số và chỉ có 1 phương án đúng  \choice{}{}{}{} ( tương ứng với 4 phương án ) không được bỏ trống trong đó  chỉ phương án đúng mới đặt lệnh \True phía trước phương án
-- Các phương án không có dấu chấm ở cuối
-# Đối với câu hỏi loại 2:
-- Lệnh choiceTF bắt buộc phải đủ 4 tham số \choiceTF{}{}{}{} ( tương ứng với 4 phương án ) không được bỏ trống trong đó phương án đúng phải đặt lệnh \True phía trước phương án đúng và số lượng phương đúng trong mỗi câu hỏi phải khác nhau có thể 0,1,2,3,4 và sắp xếp ngẫu nhiên.Lời giải bắt buộc theo form:
-\begin{itemchoice}[T1,F2,F3,T4] <------Bắt buộc phải có 4 tùy chọn VD ý 1 đúng ghi T1, ý 1 sai ghi F1 tương tụ cho các ý còn lại--
-  \itemch lời giải giải chi tiết phuong án a
-  \itemch lời giải giải chi tiết phuong án b
-  \itemch lời giải giải chi tiết phuong án c
-  \itemch lời giải giải chi tiết phuong án d
-\end{itemchoice}
-- Các phương án không có dấu chấm ở cuối
+### Bước 1: Tra cứu MAPID — Bản đồ nội dung chương trình (BẮT BUỘC)
 
-# Đối với câu hỏi loại 3:
-- Nội dung câu hỏi cho đáp án ở dạng số con số
-- Lệnh shortans \shortans{} tham số bên trong phải là con số ví dụ \shortans{$2$}, \shortans{$2{,}3$} không có đơn vị
-###Yêu cầu về nội dung:
-##1. Các số,công thức, kí hiệu  inline phải bọc trong cặp $...$ , các công thức display bọc bởi \[...\] thay vì bọc bởi $$...$$.Nếu số thập phân thì dùng "{,}" thay vì "," để ngăn phần nguyên và phần thập phân $3{,}14$ thay vì $3.14$
+Thư mục `<SKILL_DIR>/references/` chứa các file `MAPID_<MÔN><LỚP>.tex` — bản đồ chi tiết toàn bộ chương/bài/dạng.
 
-###2. Các công thức nhiều dòng phải dùng môi trường eqnarray* để căn dóng:
+**Quy tắc:**
+1. **Trước khi tạo câu hỏi**, XÁC ĐỊNH LỚP từ yêu cầu người dùng → ĐỌC file MAPID đúng lớp:
+   - Lớp 6 → `MAPID_KHTN6.tex` (11 chương, 33 bài, 184 dạng)
+   - Lớp 7 → `MAPID_KHTN7.tex` (11 chương, 29 bài, 134 dạng)
+   - Lớp 8 → `MAPID_KHTN8.tex` (8 chương, 39 bài, 137 dạng)
+   - Lớp 9 → `MAPID_KHTN9.tex` (12 chương, 42 bài, 208 dạng)
+   - (Thêm file mới khi có: `MAPID_HOA10.tex`, `MAPID_TOAN9.tex`, ...)
 
-Ví dụ:
-\begin{eqnarray*}
-  f(x) & = & (x+1)^2 \\
-       & = & x^2 + 2x + 1 \\
-       & = & (x^2 + x) + (x + 1)
-\end{eqnarray*}
+2. Từ file MAPID, xác định chính xác:
+   - Chương nào chứa chủ đề người dùng yêu cầu
+   - Bài cụ thể trong chương
+   - Các dạng bài đã có sẵn → dùng để gán ID6 chính xác
 
-##3. Đối với bảng, dùng môi trường tabular latex để soạn thảo:
-Ví dụ
-\begin{center}
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		& $C-C$ & $C=C$ & C$\equiv$C \\
-		\hline
-		Độ dài liên kết ($A^{o}$) & $1{,}54$ & $1{,}34$ & $1{,}20$ \\
-		\hline
-		Năng lượng liên kết ($kJ/mol$) & $347$ & $614$ & $839$ \\
-		\hline
-	\end{tabular}
-\end{center}
-hoặc nếu nội dung nhiều trang dùng môi trường longtable
-\begin{longtable}{|c|c|c|}
-  \hline
-  \textbf{STT} & \textbf{Họ và tên} & \textbf{Điểm} \\
-  \hline
-  \endfirsthead % Phần đầu tiên của bảng (hiển thị trên trang đầu tiên)
-  \hline
-  \textbf{STT} & \textbf{Họ và tên} & \textbf{Điểm} \\
-  \hline
-  \endhead % Phần đầu của bảng (hiển thị trên các trang tiếp theo)
-  \hline
-  \endfoot % Phần cuối của bảng (hiển thị trên các trang trừ trang cuối)
-  \hline
-  \endlastfoot % Phần cuối của bảng (hiển thị trên trang cuối)
-  1 & Nguyễn Văn A & 8.5 \\
-  2 & Trần Thị B & 9.0 \\
-  3 & Lê Văn C & 7.5 \\
-  \hline
-\end{longtable}
+3. **Khi tạo câu hỏi hay/mới**, nếu dạng bài chưa có trong MAPID → **TỰ ĐỘNG cập nhật** bằng cách thêm dòng mới vào đúng vị trí trong file MAPID
 
-##4. Đối với Chỉ số trên và dưới phải dùng ^ và _ Ví dụ: $1s^22s^22p^63s^1$ thay vì 1s²2s²2p⁶3s¹.; $Al_2{(SO_4)}_3$ thay vì $Al2(SO4)3$
+4. Cấu trúc MAPID (mỗi level thêm 3 dấu `-`):
+   ```
+   -[6] Lớp 6
+   ----[K] Khoa học tự nhiên
+   -------[1] Chương: Các thể của chất
+   ----------[1] Bài: Sự đa dạng và các thể cơ bản của chất
+   -------------[1] Dạng: Nhận biết vật thể tự nhiên, nhân tạo...
+   -------------[2] Dạng: Đặc điểm các thể cơ bản...
+   ```
 
-##5.Chỉ dùng lệnh \chemfig khi vẽ công thức cấu tạo  Ví dụ gõ $Al_2{(SO_4)}_3$ thay vì \chemfig{Al_2{(SO_4)}_3}.
+5. Mapping sang ID6: dòng `-------[1]` → Chương=1, `----------[2]` → Bài=2, `-------------[3]` → Dạng=3
 
-##6. dùng \xrightarrow[$điều kiện$] thay cho \xrightarrow{$điều kiện 1$};\xrightarrow[$điều kiện 1$][$điều kiện 2$] thay cho \xrightarrow[$điều kiện 1$]{$điều kiện 1$}
+**Lưu ý:** File MAPID_KHTN7/8/9 có phần header cấu hình mức độ ở đầu file (trước dòng `-[<Lớp>]`). Header này mô tả các ký hiệu mức độ dùng chung (Y, B, K, G, T, N, H, V, C).
 
-##7. Đối với bài tập loại 3 loại 4 dùng enumerate để liệt kê danh sách
+**Ví dụ tra cứu:** Người dùng yêu cầu "tạo câu hỏi về lực ma sát lớp 6"
+→ Đọc MAPID_KHTN6.tex → Tìm chương 9, bài 3 (Lực ma sát) → Các dạng 1-6
+→ Gán ID6: `[6K9N3-1]`, `[6K9H3-2]`, ...
 
-##8. Bỏ Các cụm từ bài, ví dụ, câu và số thư tự
+### Bước 2: Tạo câu hỏi
 
-###Định dạng đầu ra chỉ là code latex như các ví dụ dưới đây không giải thích gì thêm
+**Nhiệm vụ 1:** Tạo câu hỏi loại 1/2/3/4 theo chủ đề, chương, bài, số lượng
+**Nhiệm vụ 2:** Trích xuất nội dung từ file pdf/ảnh/docx → chuyển sang form LaTeX
+**Nhiệm vụ 3:** Tạo đề thi hoàn chỉnh theo cấu trúc (phần 1: EX, phần 2: TF, phần 3: SA, phần 4: BT)
 
-***Câu hỏi/ bài tập loại 1:
-%%%=============EX_1=============%%%
-\begin{ex}
-	Phản ứng oxi hóa - khử là phản ứng hóa học trong đó có sự thay đổi đại lượng nào sau đây của các nguyên tử?
-	\choice
-	{Số khối}
-	{\True Số oxi hóa}
-	{Số electron lớp ngoài cùng}
-	{Số nơtron trong hạt nhân}
-	\loigiai{
-		Phản ứng oxi hóa - khử là phản ứng hóa học trong đó có sự thay đổi số oxi hóa của một số nguyên tố. Quá trình oxi hóa là sự tăng số oxi hóa, còn quá trình khử là sự giảm số oxi hóa.
-	}
-\end{ex}
+### Yêu cầu nghiêm ngặt theo loại câu hỏi
 
-***Câu hỏi/ bài tập loại 2:
+1. **Loại 1 (EX):**
+   - `\choice` đủ **4 tham số** `\choice{}{}{}{}` — không được bỏ trống
+   - Chỉ có **1 phương án đúng** duy nhất, đặt `\True` ngay trước nội dung
+   - Các phương án **không có dấu chấm** ở cuối
 
-%%%=============TF_1=============%%%
-\begin{ex}
-	"Calcium chloride dùng trong điện phân để sản xuất calcium kim loại và điều chế các hợp kim của calcium. Với tính chất hút ẩm lớn, calcium chloride được dùng làm tác nhân sấy khí và chất lỏng. Do nhiệt độ đông đặc thấp nên dung dịch calcium chloride được dùng làm chất tải lạnh trong các hệ thống lạnh.... Ngoài ra, calcium chloride còn được làm chất keo tụ trong hóa dược và dược phẩm hay trong các công việc khoan dầu khí."
+2. **Loại 2 (TF):**
+   - `\choiceTF` đủ **4 tham số** `\choiceTF{}{}{}{}` — không được bỏ trống
+   - `\True` trước phương án đúng, số phương án đúng **ngẫu nhiên** (0-4) và **khác nhau giữa các câu**
+   - Nội dung các phương án phải chứa **nội dung kiến thức** — không chấp nhận chỉ ghi "đúng"/"sai"
+   - Lời giải bắt buộc format:
+     ```latex
+     \begin{itemchoice}[T1,F2,F3,T4]
+       \itemch Lời giải phương án a
+       \itemch Lời giải phương án b
+       \itemch Lời giải phương án c
+       \itemch Lời giải phương án d
+     \end{itemchoice}
+     ```
+   - Bắt buộc 4 tùy chọn `[T1,F2,...]`: đúng = `T` + số, sai = `F` + số
 
-	Xét phản ứng tạo thành Calcium chloride từ đơn chất: $Ca + Cl_2 \xrightarrow CaCl_2$. Đánh giá tính đúng/sai của các phát biểu sau:
-	\choiceTF
-	{\True Trong phản ứng trên thì mỗi nguyên tử Calcium nhường 2e.}
-	{Số oxi hóa của Ca và Cl trước phản ứng lần lượt là +2 và -1.}
-	{Nếu dùng 4 gam Calcium thì số mol electron Chlorine nhận là 0,4 mol.}
-	{\True Liên kết trong phân tử $CaCl_2$ là liên kết ion.}
-	\loigiai{
-		Phản ứng: $\overset{0}{Ca} + \overset{0}{Cl}_2 \xrightarrow \overset{+2}{Ca}\overset{-1}{Cl}_2$
-		\begin{itemchoice}[T1,F2,F3,T4]
-			\itemch Quá trình oxi hóa Ca: $Ca \xrightarrow Ca^{2+} + 2e^-$. Mỗi nguyên tử Ca nhường 2 electron. Phát biểu đúng.
-			\itemch Trước phản ứng, $Ca$ và $Cl_2$ là các đơn chất nên có số oxi hóa bằng $0$. Phát biểu sai.
-			\itemch $n_{Ca} = \dfrac{4}{40} = 0{,}1$ mol.
-			\\
-			Số mol electron Ca nhường là $n_{e \text{ nhường}} = 0{,}1 \times 2 = 0{,}2$ mol.
-			\\
-			Theo bảo toàn electron, số mol electron $Cl_2$ nhận bằng số mol electron Ca nhường: $n_{e \text{ nhận}} = 0{,}2$ mol. Phát biểu sai.
-			\itemch $CaCl_2$ được tạo thành từ kim loại điển hình ($Ca$) và phi kim điển hình ($Cl$). Hiệu độ âm điện giữa $Ca$ và $Cl$ lớn. Do đó, liên kết giữa $Ca$ và $Cl$ trong $CaCl_2$ là liên kết ion. Phát biểu đúng.
-		\end{itemchoice}
-	}
-\end{ex}
+3. **Loại 3 (SA):**
+   - `\shortans{$<số>$}` chỉ chứa **con số**, không đơn vị
+   - Số thập phân: `\shortans{$2{,}3$}`
 
-***Câu hỏi/ bài tập loại 3:
+4. **Loại 4 (BT):**
+   - Dùng môi trường `\begin{bt}...\end{bt}` (không phải `ex`)
+   - Lời giải chi tiết, trình bày đầy đủ các bước
 
-%%%=============SA_1=============%%%
-\begin{ex}
-	Cho phản ứng đốt cháy carbon: \(C(s) + O_2(g) \rightarrow CO_2(g)\). Biết enthalpy tạo chuẩn của \(CO_2(g)\) là \(-393{,}5\) kJ/mol. Tính biến thiên enthalpy chuẩn của phản ứng này ở \(298 \text{ K}\) theo đơn vị kJ.
-	\shortans{\(-393{,}5\)}
-	\loigiai{
-		Biến thiên enthalpy chuẩn của phản ứng được tính theo công thức:
-		\[
-		\Delta_{r}H_{298}^\circ = \sum \Delta_{f}H_{298}^\circ(\text{sản phẩm}) - \sum \Delta_{f}H_{298}^\circ(\text{chất phản ứng})
-		\]
-		Trong đó, \(\Delta_{f}H_{298}^\circ\) là enthalpy tạo chuẩn ở \(298 \text{ K}\).\\
-		Enthalpy tạo chuẩn của các đơn chất ở dạng bền nhất như \(C(s)\) và \(O_2(g)\) bằng \(0\).\\
-		Vậy, \(\Delta_{r}H_{298}^\circ = \Delta_{f}H_{298}^\circ(CO_2(g)) - [\Delta_{f}H_{298}^\circ(C(s)) + \Delta_{f}H_{298}^\circ(O_2(g))]\).\\
-		\(\Delta_{r}H_{298}^\circ = -393{,}5 - [0 + 0] = -393{,}5\) kJ.
-	}
-\end{ex}
+### Yêu cầu nội dung LaTeX
 
-***Câu hỏi/ bài tập loại 4:
+1. Inline math: `$...$` — Display math: `\[...\]` (KHÔNG dùng `$$...$$`)
+2. Số thập phân: dùng `{,}` thay `.` → `$3{,}14$` thay vì `$3.14$`
+3. Công thức nhiều dòng: dùng `eqnarray*`:
+   ```latex
+   \begin{eqnarray*}
+     f(x) & = & (x+1)^2 \\
+          & = & x^2 + 2x + 1
+   \end{eqnarray*}
+   ```
+4. Bảng: `tabular` (ngắn) hoặc `longtable` (dài nhiều trang)
+5. Chỉ số trên/dưới: `$Al_2{(SO_4)}_3$` (KHÔNG dùng Unicode superscript ²³)
+6. Chỉ dùng `\chemfig` khi vẽ **công thức cấu tạo** — công thức phân tử dùng `$...$`
+7. Mũi tên phản ứng: `\xrightarrow[$đk$]` hoặc `\xrightarrow[$đk1$][$đk2$]` (KHÔNG dùng `\xrightarrow{...}`)
+8. Danh sách trong loại 3, 4: dùng `enumerate`
+9. **Bỏ** các cụm "Bài", "Ví dụ", "Câu" + số thứ tự trong nội dung câu hỏi
+10. Dùng `\dfrac` thay cho `\frac`
 
-%%%=============BT_4=============%%%
-\begin{bt}
-	Một hộ gia đình mua than đá làm nhiên liệu đun nấu và trung bình mỗi ngày dùng hết $1{,}60$ kg than. Giả thiết loại than đá trên chứa $90\%$ carbon về khối lượng, còn lại là các tạp chất trơ.
-	Cho phản ứng đốt cháy carbon: $C(s) + O_2(g) \xrightarrow CO_2(g) \quad \Delta_rH^\circ_{298} = -393{,}50$ kJ.
-	Tính nhiệt lượng cung cấp cho hộ gia đình từ quá trình đốt than trong một ngày theo đơn vị kWh (số điện). Biết rằng $1$ kWh $= 3600$ kJ. (Cho $M_C = 12$. Kết quả làm tròn đến hàng đơn vị).
-	\loigiai{
-		Khối lượng than sử dụng mỗi ngày: $m_{than} = 1{,}60 \text{ kg} = 1600 \text{ g}$.
-		\\
-		Khối lượng carbon trong than sử dụng mỗi ngày:
-		\[ m_C = m_{than} \times 90\% = 1600 \text{ g} \times 0{,}90 = 1440 \text{ g} \]
-		Số mol carbon bị đốt cháy mỗi ngày:
-		\[ n_C = \dfrac{m_C}{M_C} = \dfrac{1440 \text{ g}}{12 \text{ g/mol}} = 120 \text{ mol} \]
-		Theo phương trình nhiệt hóa học, đốt cháy $1$ mol $C(s)$ tỏa ra $393{,}50$ kJ.
-		\\
-		Nhiệt lượng tỏa ra khi đốt cháy $120$ mol C là:
-		\[ Q_{tỏa} = n_C \times |\Delta_rH^\circ_{298}| = 120 \text{ mol} \times 393{,}50 \text{ kJ/mol} = 47220 \text{ kJ} \]
-		Đổi nhiệt lượng tỏa ra sang đơn vị kWh (số điện):
-		\[ \text{Số điện (kWh)} = \dfrac{Q_{tỏa}}{3600 \text{ kJ/kWh}} = \dfrac{47220 \text{ kJ}}{3600 \text{ kJ/kWh}} = 13{,}116... \text{ kWh} \]
-		Làm tròn đến hàng đơn vị, nhiệt lượng cung cấp tương đương $13$ kWh ($13$ số điện).
-	}
-\end{bt}
+### Định dạng đầu ra
 
+#### Nhiệm vụ 1 & 2: Code block latex
 
-
-***Định dạng đầu ra latex *** là code block latex có dạng:
-
-###ĐỊNH DANG ĐẦU RA bắt buộc :
-Chỉ hiện thị  code  latex dạng code block 
 ```latex
-%%%=========[Môi trường: EX, TF, SA, BT]_[số thứ tự]================%%%
-
-\begin{name}%[<ID6>]
-Nội dung code latex
-\end{name}
-trong đó name là một trong 2 môi trường ex, bt
+%%%=========[EX|TF|SA|BT]_[số thứ tự]================%%%
+\begin{ex}%[<ID6>]
+Nội dung câu hỏi
+\end{ex}
 ```
-### Bổ sung:
-# Đề xuất thêm một số dạng toán và đưa ra bài tập tương tự về chủ đề liên quan
-# Gợi ý thêm một số ý tưởng mở rộng bài toán
 
-***Văn phong*** Soạn theo văn phong sư phạm dễ hiểu, đảm bảo đúng kiến thức, khoa học
-***Chú ý quan trọng*** 
-- Các phương án đúng trong kiểu câu hỏi loại 1 loại 2 có lệnh \True đằng trước nội dung phương án
-- Phải có dòng đánh số thứ tự cho từng loại môi trường ex, bt và vd
-- Phải có %[ID6] sau \begin{name}
-%%%=====<Môi trường + số thứ tự >=====%%%
-- Đối với bài tập loại 2 nội dung các phương án phải chứa đụng nội dung kiến thức liên quan, không chấp nhận các phương án chỉ ghi sai, đúng
-- **XỬ LÝ HÌNH ẢNH:** Nếu nội dung đề bài có chứa hình ảnh, CẦN trích xuất các hình ảnh đó vào thư mục con tự tạo theo đường dẫn `<ABSOLUTE_SKILL_DIR>/output/Images/<Tên_thư_mục_con>` (có thể dùng lệnh `python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py" images "<FILE_NGUON_DOCX>" "<ABSOLUTE_SKILL_DIR>/output/Images/<Tên_thư_mục_con>"`). Sau đó dùng lệnh chèn hình căn giữa trong LaTeX để chèn hình vào code, ví dụ:
-\begin{center}
-	\includegraphics[width=0.4\linewidth]{<đường_dẫn_ảnh_tuyệt_đối>}
-\end{center}
+Trong đó:
+- `name` là `ex` (loại 1/2/3) hoặc `bt` (loại 4)
+- `<ID6>` theo quy tắc trong `mapid6-coding.md`
+- Mỗi câu có dòng marker: `%%%=====<Loại>_<số>=====%%%`
 
-### Quy ước đường dẫn (Cross-platform)
+#### Nhiệm vụ 3: File `.tex` hoàn chỉnh
 
-Định nghĩa các biến đường dẫn linh hoạt:
-- `<ABSOLUTE_SKILL_DIR>`: Đường dẫn tuyệt đối đến thư mục gốc của skill này (tự detect theo OS)
-- `<SCRIPT>`: Viết tắt cho `python "<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py"`
-- `<OUTPUT_DIR>`: Viết tắt cho `<ABSOLUTE_SKILL_DIR>/latex-output`
+Đọc template tại `<SKILL_DIR>/assets/template-de-thi.tex` rồi chèn câu hỏi vào.
 
-### Tham chiếu công cụ latex_tools.py
+**Lưu ý quan trọng khi dùng template:**
+- `\documentclass[FileMain.tex]{subfiles}` → file output phải nằm cùng thư mục với `FileMain.tex` (tức `<OUTPUT_DIR>/`)
+- Xóa **toàn bộ** phần `\subsection` nào không có câu hỏi
+- Thay `<tên file>` trong `Opensolutionfile`/`Closesolutionfile` bằng tên file thực (không có `.tex`)
+- Thay các `\gdef` phù hợp: `\monhoc`, `\ngaykt`, `\nh`, `\thoigian`, `\made`
+- Có thể bỏ `\gdef\sophong`, `\gdef\truong`, `\gdef\truongh` nếu không cần header trường
+- Dùng `\setcounter{section}{0}` cho đề 1, `{1}` cho đề 2, ...
 
-File `<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py` là script duy nhất chứa toàn bộ logic xử lý. Các lệnh khả dụng:
+### Bổ sung sau khi tạo câu hỏi
+
+- Đề xuất thêm dạng toán và bài tập tương tự về chủ đề liên quan
+- Gợi ý ý tưởng mở rộng bài toán
+- Văn phong sư phạm, đảm bảo đúng kiến thức, khoa học
+
+---
+
+## Scripts
+
+### mix_exam.py — Ghép, trộn đề, phân tích, lọc trùng
 
 | Lệnh | Mô tả | Cú pháp |
-|------|--------|---------|
-| `fix` | Sửa lỗi LaTeX phổ biến | `<SCRIPT> fix "<file.tex>"` |
-| `parse` | Phân tích và thống kê câu hỏi | `<SCRIPT> parse "<file_hoặc_thư_mục>"` |
-| `assemble` | Ghép câu hỏi vào template đề thi | `<SCRIPT> assemble --input "<file1>" "<file2>" --output "<output.tex>" --monhoc "..." --ngaykt "..."` |
-| `shuffle` | Trộn đề tạo mã đề mới | `<SCRIPT> shuffle "<file_gốc.tex>" --seed <số> --made2 <mã_đề>` |
-| `compile` | Biên dịch LaTeX thành PDF | `<SCRIPT> compile "<file.tex>" --dir "<thư_mục>" --times 2` |
-| `dedup` | Lọc câu hỏi trùng lặp | `<SCRIPT> dedup "<input>" "<output.tex>" --threshold 0.85` |
-| `images` | Trích xuất ảnh từ .docx | `<SCRIPT> images "<file.docx>" "<thư_mục_ảnh>"` |
-| `imgpaths` | Chuẩn hóa đường dẫn ảnh | `<SCRIPT> imgpaths "<file.tex>" --inplace` |
+|-------|--------|---------|
+| `parse` | Thống kê câu hỏi (đếm EX/TF/SA/BT, liệt kê ID6) | `<MIX> parse "<file_hoặc_thư_mục>"` |
+| `dedup` | Lọc câu trùng (so sánh nội dung, loại bỏ trùng) | `<MIX> dedup "<input>" "<output>" --threshold 0.85` |
+| `assemble` | Ghép câu hỏi từ nhiều nguồn vào template đề thi | Xem bên dưới |
+| `shuffle` | Trộn mã đề mới (xáo trộn thứ tự câu + phương án) | `<MIX> shuffle "<file_gốc>" --seed <số> --made2 <mã_đề>` |
 
-### Hướng dẫn sử dụng Skill này (Next Step):
-
-#### Bước 1: Tạo câu hỏi
-Khi chat với Agent, bạn chỉ cần nói: *"Tạo cho tôi [số lượng] câu hỏi loại [1/2/3/4] về <chủ đề/chương/bài/dạng> thuộc <môn> <lớp>"*
-
-#### Bước 2: Tham khảo tài liệu
-- Tham khảo MapID trong: `<ABSOLUTE_SKILL_DIR>/resources/` hoặc `<ABSOLUTE_SKILL_DIR>/output/DuLieu/MAPID/`
-- Tham khảo các trang web uy tín về kiến thức môn học
-
-#### Bước 3: Tạo ID6 đúng chuẩn (BẮT BUỘC)
-**Cấu trúc ID6:** `[<Lớp><Môn><Chương><Mức độ><Bài>-<Dạng>]`
-
-| Thành phần | Giá trị | Ví dụ |
-|------------|---------|-------|
-| Lớp | 6, 7, 8, 9, 0 (lớp 10), 1 (lớp 11), 2 (lớp 12) | `6` |
-| Môn | K (KHTN), H (Hóa), L (Lý), S (Sinh), T (Toán), V (Văn) | `K` |
-| Chương | 1-9, A-Z | `2` |
-| Mức độ | Y (Yếu), B (Trung bình), K (Khá), G (Giỏi), T (Thực tế), N (Nhận biết), H (Thông hiểu), V (Vận dụng), C (Vận dụng cao) | `H` |
-| Bài | 1-9, A-Z | `3` |
-| Dạng | 1-9 | `2` |
-
-**Ví dụ ID6:**
-- `[6K2N1-1]` = Lớp 6, KHTN, Chương 2, Nhận biết, Bài 1, Dạng 1
-- `[9K8H9-2]` = Lớp 9, KHTN, Chương 8, Thông hiểu, Bài 9, Dạng 2
-- `[0H1V3-3]` = Lớp 10, Hóa, Chương 1, Vận dụng, Bài 3, Dạng 3
-- `[7K5G2-1]` = Lớp 7, KHTN, Chương 5, Giỏi, Bài 2, Dạng 1
-
-#### Bước 4: Chèn vào Template (BẮT BUỘC)
-**ĐỌC** file template mẫu tại: `<ABSOLUTE_SKILL_DIR>/templates/Template.tex` (Dùng đường dẫn tuyệt đối)
-
-**Cấu trúc file đề thi hoàn chỉnh:**
-```latex
-\documentclass[FileMain.tex]{subfiles}
-\gdef\monhoc{<Tên môn học>}           % VD: Khoa học tự nhiên 6
-\gdef\ngaykt{<Ngày thi>}              % VD: 04/02/2026
-\gdef\nh{<Năm học>}                   % VD: 2025 - 2026
-\gdef\thoigian{<Thời gian (phút)>}    % VD: 45
-\gdef\made{<Mã đề ngẫu nhiên 3 số>}   % VD: 847
-\begin{document}
-\section[<Tên kì thi> - Mã đề \made]{<Tên kì thi>}
-
-%%%==============Phần trắc nghiệm nhiều lựa chọn==============%%%
-\subsection{Bài tập trắc nghiệm nhiều lựa chọn}\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 1>. Mỗi câu thí sinh chỉ chọn một phương án}
-\Opensolutionfile{ansex}[Ans/LGEX-<TenFile>_MADE<made>]
-\Opensolutionfile{ans}[Ans/Ans-<TenFile>_MADE<made>]
-  % CHÈN CÁC CÂU HỎI LOẠI 1 (EX) VÀO ĐÂY
-\Closesolutionfile{ans}
-\Closesolutionfile{ansex}
-%\bangdapan{Ans-<TenFile>_MADE<made>}
-%%%==============Phần trắc nghiệm đúng sai==============%%%
-\subsection{Trắc nghiệm đúng sai}\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 2>. Trong mỗi ý a), b), c), d) ở mỗi câu thí sinh chọn đúng hoặc sai}
-\Opensolutionfile{ansex}[Ans/LGTF-<TenFile>_MADE<made>]
-\Opensolutionfile{ansbook}[Ansbook/AnsTF-<TenFile>_MADE<made>]
-\setcounter{ex}{0}
-  % CHÈN CÁC CÂU HỎI LOẠI 2 (TF) VÀO ĐÂY (nếu có)
-\Closesolutionfile{ansbook}
-\Closesolutionfile{ansex}
-%\bangdapanTF{AnsTF-<TenFile>_MADE<made>}
-%%%==============Phần bài tập trả lời ngắn==============%%%
-\subsection{Bài tập trả lời ngắn}\textit{\large Thí sinh trả lời từ câu 1 đến câu <Tổng câu loại 3>}
-\Opensolutionfile{ansex}[Ans/LGSA-<TenFile>_MADE<made>]
-\Opensolutionfile{ansexh}[Ans/AnsSA-<TenFile>_MADE<made>]
-\setcounter{ex}{0}
-  % CHÈN CÁC CÂU HỎI LOẠI 3 (SA) VÀO ĐÂY (nếu có)
-\Closesolutionfile{ansexh}
-\Closesolutionfile{ansex}
-
-%%%==============Phần bài tập tự luận==============%%%
-\subsection{Bài tập tự luận}\textit{\large Thí sinh trả lời từ bài 1 đến bài <Tổng câu loại 4>}
-\Opensolutionfile{ansbth}[Ans/LGBT-<TenFile>_MADE<made>]
-\Opensolutionfile{ansbt}[Ans/AnsBT-<TenFile>_MADE<made>]
-  % CHÈN CÁC CÂU HỎI LOẠI 4 (BT) VÀO ĐÂY (nếu có)
-\Closesolutionfile{ansbt}
-\Closesolutionfile{ansbth}
-
-\begin{center}
- \rule[4pt]{2cm}{1pt}\,\large\bfseries Hết\,\rule[4pt]{2cm}{1pt}
-\end{center}
-\label{x}
-\end{document}
-```
-
-**LƯU Ý QUAN TRỌNG:**
-- Nếu đề thi KHÔNG CÓ loại câu hỏi nào (VD: không có loại 2, loại 3) thì **XÓA TOÀN BỘ** phần subsection tương ứng
-- Mỗi câu hỏi **BẮT BUỘC** có format: `%%%%%============EX_<số>================%%%%%%` và `\begin{ex}%[ID6]`
-- Label cuối file dùng mã đề: `\label{x}`
-
-#### Bước 5: Lưu file
-**Thư mục lưu:** BẮT BUỘC sử dụng ĐƯỜNG DẪN TUYỆT ĐỐI ĐỘNG (Dynamic Absolute Path) theo môi trường hệ điều hành thực tế. Bạn phải tự nhận diện mình đang chạy trên Windows hay Linux (VPS) để sinh ra đường dẫn chuẩn xác. KHÔNG ghi cứng (hardcode) đường dẫn Windows (VD: `d:\...`) khi đang deploy trên VPS.
-Ví dụ trên VPS Linux: `/opt/openclaw/skills/exam_latex_creator/latex-output/`
-Ví dụ trên Windows: `D:\...\skills\exam_latex_creator\latex-output\`
-
-**Quy tắc đặt tên file:** `<[Tên kì thi[>_<Lớp>_<Môn học>_MADE<MaDe>_<HS|GV>.tex`
-- Ví dụ: `KTDK_HOA_6_MADE115_GV.tex`
-- Hoặc ngắn gọn: `6K2NB1-1_EX.tex` (nếu chỉ có câu hỏi loại 1)
-#### Bước 6: Chạy script clean và biên dịch (TỰ ĐỘNG)
-
-**LƯU Ý QUAN TRỌNG:** Phải tự động xác định ĐƯỜNG DẪN TUYỆT ĐỐI của thư mục skill (`<ABSOLUTE_SKILL_DIR>`) tương thích với hệ điều hành hiện tại (Cross-platform) cho tất cả lệnh gọi script và đường dẫn file. Tuyệt đối không dùng đường dẫn tương đối (như `./skills/`) hay hardcode sai hệ điều hành để tránh lỗi "No such file or directory" trên VPS.
-
-Tất cả lệnh đều sử dụng file duy nhất `<ABSOLUTE_SKILL_DIR>/scripts/latex_tools.py`.
-
-**Bước 6.1: Phân tích câu hỏi (tùy chọn, kiểm tra trước khi ghép đề):**
+**assemble — chi tiết:**
 ```bash
-<SCRIPT> parse "<OUTPUT_DIR>/<TEN_FILE>.tex"
+<MIX> assemble \
+  --input "<f1.tex>" "<f2.tex>" \
+  --output "<OUTPUT_DIR>/<TEN_FILE>.tex" \
+  --monhoc "Khoa học tự nhiên 6" \
+  --ngaykt "08/06/2026" \
+  --thoigian 45 \
+  --made 101 \
+  --ten-de "Kiểm tra giữa kỳ 1" \
+  --nh "2025 - 2026"
 ```
 
-**Bước 6.2: Lọc câu hỏi trùng lặp (tùy chọn, khi gộp nhiều nguồn):**
-```bash
-<SCRIPT> dedup "<INPUT_PATH>" "<OUTPUT_DIR>/<TEN_FILE>_unique.tex" --threshold 0.85
-```
-
-**Bước 6.3: Chạy script xử lý lỗi LaTeX và chuẩn hoá:**
-```bash
-<SCRIPT> fix "<OUTPUT_DIR>/<TEN_FILE>.tex"
-```
-
-**Bước 6.4: Chuẩn hóa đường dẫn ảnh (nếu đề có hình):**
-```bash
-<SCRIPT> imgpaths "<OUTPUT_DIR>/<TEN_FILE>.tex" --inplace
-```
-
-**Bước 6.5: Biên dịch LaTeX:**
-```bash
-<SCRIPT> compile "<TEN_FILE>.tex" --dir "<OUTPUT_DIR>" --times 2
-```
-*(Hoặc tự cd vào thư mục output và chạy `pdflatex -interaction=nonstopmode "<TEN_FILE>.tex"` ít nhất 2 lần)*
-
-#### Bước 7: Tạo nhiều mã đề tự động (Tùy chọn)
-Nếu người dùng yêu cầu tạo ra **nhiều mã đề khác nhau** (không giới hạn số lượng) từ một file đề thi gốc, hãy sử dụng tính năng `shuffle` của `latex_tools.py`. Lệnh này sẽ xáo trộn ngẫu nhiên thứ tự các câu hỏi để sinh ra các mã đề hoàn toàn mới.
-
-**Cú pháp:**
-```bash
-<SCRIPT> shuffle "<OUTPUT_DIR>/<FILE_DE_GOC>.tex" --seed <SO_NGAY_NHIEN> --made2 <MA_DE_MOI>
-```
-*Ghi chú:* Bạn có thể chạy lệnh này nhiều lần (bằng vòng lặp) với các giá trị `--made2` và `--seed` khác nhau để tạo ra bao nhiêu đề tuỳ ý (ví dụ: tạo thêm mã 102, 103, 104, ... từ mã đề gốc 101).
-
-#### Bước 8: Ghép câu hỏi từ nhiều nguồn (Tùy chọn)
-Nếu có nhiều file câu hỏi rời rạc cần ghép thành một đề thi hoàn chỉnh:
-```bash
-<SCRIPT> assemble --input "<file1.tex>" "<file2.tex>" --output "<OUTPUT_DIR>/<TEN_DE>.tex" --monhoc "Hóa học" --ngaykt "15/06/2026" --thoigian 45 --made 101 --ten-de "Kiểm tra giữa kỳ"
-```
 Hoặc dùng file config JSON:
 ```bash
-<SCRIPT> assemble --config "<đường_dẫn_config.json>"
+<MIX> assemble --config "<config.json>"
+```
+Config JSON:
+```json
+{
+  "input": ["file1.tex", "file2.tex"],
+  "output": "output.tex",
+  "monhoc": "Khoa học tự nhiên 6",
+  "ngaykt": "08/06/2026",
+  "thoigian": "45",
+  "made": "101",
+  "ten_de": "Kiểm tra giữa kỳ 1",
+  "nh": "2025 - 2026"
+}
+```
+
+**shuffle — chi tiết:**
+```bash
+<MIX> shuffle "<OUTPUT_DIR>/<FILE_GỐC>.tex" --seed 42 --made2 102
+# Tùy chọn: --out-name "<đường_dẫn_output>"
+```
+
+### export_pdf.py — Sửa lỗi LaTeX, biên dịch PDF, xử lý ảnh
+
+| Lệnh | Mô tả | Cú pháp |
+|-------|--------|---------|
+| `fix` | Sửa 10 lỗi LaTeX phổ biến | `<EXPORT> fix "<file.tex>" [output_file]` |
+| `compile` | Biên dịch file .tex thành PDF | `<EXPORT> compile "<file.tex>" --dir "<thư_mục>" --times 2 --clean` |
+| `clean` | Xóa file rác LaTeX (.aux, .log, .out, ...) | `<EXPORT> clean "<thư_mục>" [--no-recursive]` |
+| `images` | Trích xuất ảnh từ file .docx | `<EXPORT> images "<file.docx>" "<thư_mục_ảnh>"` |
+| `imgpaths` | Chuẩn hóa đường dẫn ảnh trong .tex | `<EXPORT> imgpaths "<file.tex>" --inplace` |
+
+**fix — 10 lỗi được sửa tự động:**
+1. Ngoặc kép `"..."` → `\lq\lq ... \rq\rq`
+2. `\xrightarrow` format sai → format chuẩn `\xrightarrow[$...$]`
+3. `...` → `\dots`
+4. `5 x 3` → `5 \times 3`
+5. `\frac` → `\dfrac`
+6. Subscript tiếng Việt: `_đ` → `_{\text{đ}}`
+7. Xóa marker AI citation `[cite_start]`, `[cite_end]`
+8. Xóa khoảng trắng thừa
+9. Xóa dấu chấm cuối phương án trong `\choice`/`\choiceTF`
+10. Bọc công thức hóa học trong math mode
+
+---
+
+## Workflow tạo đề thi hoàn chỉnh
+
+### Cách 1: Tạo thủ công (viết trực tiếp)
+
+1. **Đọc format** → `<SKILL_DIR>/references/<loại>.md`
+2. **Tra MAPID** → `<SKILL_DIR>/references/MAPID_<MÔN><LỚP>.tex`
+3. **Tạo câu hỏi** với ID6 đúng chuẩn
+4. **Chèn vào template** → đọc `<SKILL_DIR>/assets/template-de-thi.tex`
+5. **Lưu file** → `<OUTPUT_DIR>/<TEN_FILE>.tex`
+6. **Fix + compile + clean:**
+   ```bash
+   <EXPORT> fix "<OUTPUT_DIR>/<TEN_FILE>.tex"
+   <EXPORT> compile "<TEN_FILE>.tex" --dir "<OUTPUT_DIR>" --times 2 --clean
+   ```
+
+### Cách 2: Ghép từ nhiều nguồn (assemble)
+
+1. Chuẩn bị các file câu hỏi riêng lẻ
+2. Ghép đề:
+   ```bash
+   <MIX> assemble --input "cau_hoi_1.tex" "cau_hoi_2.tex" \
+     --output "<OUTPUT_DIR>/DE_THI_MADE101.tex" \
+     --monhoc "KHTN 9" --thoigian 90 --made 101 --ten-de "Kiểm tra cuối kỳ"
+   ```
+3. Fix + compile
+
+### Cách 3: Trộn nhiều mã đề
+
+1. Tạo đề gốc (cách 1 hoặc 2)
+2. Trộn:
+   ```bash
+   <MIX> shuffle "<OUTPUT_DIR>/DE_GỐC.tex" --seed 42 --made2 102
+   <MIX> shuffle "<OUTPUT_DIR>/DE_GỐC.tex" --seed 99 --made2 103
+   ```
+
+### Xử lý hình ảnh
+
+Nếu đề có hình từ file .docx:
+```bash
+<EXPORT> images "<file.docx>" "<OUTPUT_DIR>/Images/<thư_mục_con>"
+<EXPORT> imgpaths "<OUTPUT_DIR>/<TEN_FILE>.tex" --inplace
+```
+
+Chèn hình trong LaTeX:
+```latex
+\begin{center}
+  \includegraphics[width=0.4\linewidth]{Images/<thư_mục_con>/<tên_ảnh>}
+\end{center}
 ```
 
 ---
 
-### Checklist trước khi hoàn thành:
-- [ ] ID6 đúng chuẩn cho MỖI câu hỏi
-- [ ] Chèn vào template đầy đủ (header, Opensolutionfile, Closesolutionfile, footer)
-- [ ] Xóa các phần không có câu hỏi
-- [ ] Đặt tên file đúng quy tắc
-- [ ] Lưu vào thư mục output
-- [ ] Chạy script clean
-- [ ] Xử lý và chèn hình ảnh (nếu đề bài có hình)
-- [ ] Biên dịch PDF thành công
-- [ ] Tạo nhiều mã đề tùy biến bằng lệnh shuffle (nếu có yêu cầu)
+## ID6 — Mã định danh câu hỏi
+
+**Cấu trúc:** `[<Lớp><Môn><Chương><Mức độ><Bài>-<Dạng>]`
+
+Xem chi tiết tại `<SKILL_DIR>/references/mapid6-coding.md`.
+
+**Tóm tắt nhanh:**
+
+| Thành phần | Giá trị |
+|------------|---------|
+| Lớp | `6`=Lớp 6, `7`=Lớp 7, `8`=Lớp 8, `9`=Lớp 9, `0`=Lớp 10, `1`=Lớp 11, `2`=Lớp 12 |
+| Môn | `K`=KHTN, `H`=Hóa, `L`=Lý, `S`=Sinh, `T`=Toán, `V`=Văn |
+| Chương | `1-9`, `A-Z` |
+| Mức độ | `N`=Nhận biết, `H`=Thông hiểu, `V`=Vận dụng, `C`=VD cao, `Y`=Yếu, `B`=TB, `K`=Khá, `G`=Giỏi, `T`=Thực tế |
+| Bài | `1-9`, `A-Z` |
+| Dạng | `1-9` |
+
+**Ví dụ:** `[6K2N1-1]` = Lớp 6, KHTN, Chương 2, Nhận biết, Bài 1, Dạng 1
+
+---
+
+## Checklist trước khi hoàn thành
+
+- [ ] Đọc format reference đúng loại câu hỏi
+- [ ] Tra MAPID đúng lớp/môn → gán ID6 chính xác cho mỗi câu
+- [ ] Format đúng theo loại (choice 4 tham số, True đúng vị trí, itemchoice đúng label)
+- [ ] Nội dung LaTeX đúng quy chuẩn ($...$, {,}, \dfrac, \xrightarrow, ...)
+- [ ] Chèn template đầy đủ (nếu tạo đề): header, Opensolutionfile, Closesolutionfile, footer
+- [ ] Xóa phần subsection không có câu hỏi
+- [ ] Lưu vào `<OUTPUT_DIR>/`
+- [ ] Chạy `<EXPORT> fix` để sửa lỗi
+- [ ] Chạy `<EXPORT> compile` để biên dịch PDF
+- [ ] Cập nhật MAPID nếu có dạng bài mới

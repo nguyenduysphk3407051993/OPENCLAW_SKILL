@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "title": "KẾ HOẠCH BÀI DẠY STEM:",
+    "project_name": "XÀ PHÒNG HANDMADE – PHẢN ỨNG XÀ PHÒNG HÓA VÀ BÀI TOÁN ĐỘ pH AN TOÀN CHO DA",
+    "duration": "3 tiết (45 phút/tiết)",
+    "lead_subject": "Hóa học",
+    "integrated_subjects": "Toán học, Sinh học, Công nghệ",
+    "scale": "Lớp học bình thường, không cần phòng thí nghiệm, dùng dụng cụ gia dụng và nguyên liệu an toàn (dầu dừa, dầu thực vật)."
+  },
+  "objectives": {
+    "knowledge": [
+      { "subject": "a. Hóa học", "items": [
+        "Hiểu bản chất phản ứng xà phòng hóa: chất béo (triglyceride) tác dụng với kiềm NaOH tạo muối natri của axit béo (xà phòng) và glycerol.",
+        "Giải thích cơ chế tẩy rửa: phân tử xà phòng có đầu ưa nước và đuôi kị nước, tạo mixen kéo dầu mỡ vào nước.",
+        "Hiểu vai trò của độ pH: xà phòng dư kiềm (pH cao) gây hại da; cần kiểm soát tỉ lệ dầu/kiềm để an toàn." ] },
+      { "subject": "b. Sinh học & Sức khỏe", "items": [
+        "Nắm được khoảng pH an toàn của da người (khoảng 4.5 – 6.5) và tác hại của môi trường kiềm mạnh lên da." ] }
+    ],
+    "competencies": [
+      "Năng lực Tìm hiểu tự nhiên: thiết kế thí nghiệm đối chứng thay đổi tỉ lệ NaOH để khảo sát ảnh hưởng tới độ pH và độ cứng của xà phòng.",
+      "Năng lực Giải quyết vấn đề: tính lượng kiềm cần dùng theo chỉ số xà phòng hóa (SAP) để tối ưu chất lượng và an toàn.",
+      "Năng lực Tính toán: vận dụng công thức khối lượng – tỉ lệ mol và hiệu suất phản ứng vào bài toán pha chế thực tế."
+    ],
+    "qualities": [
+      "Chăm chỉ, Trung thực: ghi chép chính xác khối lượng và số liệu đo pH, không sửa số liệu cho đẹp.",
+      "Trách nhiệm: tuân thủ an toàn khi làm việc với kiềm; tận dụng dầu ăn thừa để bảo vệ môi trường."
+    ]
+  },
+  "materials": {
+    "organization": [
+      "Chia lớp thành các nhóm cố định từ 4 – 5 học sinh.",
+      "Phân công vai trò bắt buộc trong nhóm:",
+      "+ Kỹ sư trưởng (nhóm trưởng): điều phối chung, giữ Nhật ký công nghệ (Notebook).",
+      "+ Kỹ sư Hóa chất: cân đong dầu và kiềm, pha dung dịch, theo dõi phản ứng.",
+      "+ Kỹ sư An toàn & Đo lường: đeo găng, đo nhiệt độ và đo pH sản phẩm.",
+      "+ Chuyên viên Dữ liệu (kế toán nhóm): thu số liệu, tính toán tỉ lệ và vẽ biểu đồ."
+    ],
+    "teacher": [
+      "01 hộp NaOH (xút) dạng vảy – mua tại tiệm hóa chất/tiệm làm nến xà phòng (chi phí khoảng 25.000đ/kg).",
+      "Giấy quỳ tím hoặc bút đo pH (loại rẻ) – đặt tại bàn GV cho các nhóm đo chung.",
+      "01 cân tiểu ly điện tử (độ chia 0.1g) đặt tại bàn GV."
+    ],
+    "groups": [
+      "200ml dầu dừa hoặc dầu thực vật (có thể dùng dầu ăn thừa đã lọc sạch).",
+      "01 cốc thủy tinh chịu nhiệt 500ml và 01 đũa khuấy bằng inox/gỗ.",
+      "01 đôi găng tay cao su và 01 kính bảo hộ (bắt buộc).",
+      "Khuôn silicon hoặc hộp nhựa nhỏ để đổ khuôn.",
+      "100ml nước lọc và một ít tinh dầu/màu thực phẩm (tùy chọn để tạo hương)."
+    ]
+  },
+  "periods": [
+    {
+      "title": "TIẾT 1: BÀI TOÁN CÔNG NGHỆ XÀ PHÒNG & KIẾN THỨC NỀN PHẢN ỨNG XÀ PHÒNG HÓA",
+      "objectives": [
+        "HS nhận diện bài toán thực tế: vì sao xà phòng tự làm hay bị 'rát da' và làm sao kiểm soát.",
+        "HS hiểu và viết được phương trình phản ứng xà phòng hóa, nắm nguyên tắc an toàn khi dùng kiềm."
+      ],
+      "activities": [
+        { "name": "Hoạt động 1: Tình huống thực tế (10 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Chào các kỹ sư hóa mỹ phẩm! Nhiều bạn mua xà phòng handmade về dùng thấy rất thơm nhưng có loại lại làm da khô rát, bong tróc. Theo các em, 'thủ phạm' nằm ở đâu trong công thức? Hôm nay chúng ta sẽ trở thành kỹ sư để tìm ra con số an toàn." },
+            { "type": "note", "text": "GV chiếu ảnh so sánh hai bánh xà phòng: một mịn đẹp, một bị 'cháy kiềm' lốm đốm trắng." }
+          ] },
+        { "name": "Hoạt động 2: Kiến thức nền về phản ứng xà phòng hóa (25 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Chất béo trong dầu là các triglyceride. Khi gặp kiềm NaOH, liên kết este bị cắt, tạo ra muối natri của axit béo – chính là xà phòng – và glycerol giúp dưỡng ẩm. Phương trình tổng quát: (RCOO)3C3H5 + 3NaOH → 3RCOONa + C3H5(OH)3." },
+            { "role": "HS", "text": "Các nhóm thảo luận và viết lại phương trình vào Notebook, đánh dấu đâu là xà phòng, đâu là glycerol." },
+            { "type": "note", "text": "Lưu ý an toàn: NaOH ăn da, tỏa nhiệt khi gặp nước. Bắt buộc đeo găng và kính; luôn cho xút vào nước, KHÔNG đổ nước vào xút." }
+          ] },
+        { "name": "Hoạt động 3: Giao bài toán định lượng (10 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Mỗi loại dầu cần một lượng kiềm khác nhau, đặc trưng bởi chỉ số xà phòng hóa SAP. Tiết sau các em sẽ tính lượng NaOH chính xác cho 200ml dầu của nhóm mình và làm thí nghiệm đối chứng thừa/thiếu kiềm." }
+          ] }
+      ]
+    },
+    {
+      "title": "TIẾT 2: THỰC NGHIỆM ĐỐI CHỨNG – KIỂM SOÁT TỈ LỆ KIỀM VÀ ĐỘ pH",
+      "objectives": [
+        "HS tính được lượng NaOH theo chỉ số SAP và pha chế đúng kỹ thuật.",
+        "HS thực hiện thí nghiệm đối chứng 3 mẫu để khảo sát ảnh hưởng của lượng kiềm tới pH sản phẩm."
+      ],
+      "activities": [
+        { "name": "Hoạt động 1: Tính toán và pha dung dịch kiềm (15 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Chuyên viên dữ liệu hãy dùng công thức ở phụ lục để tính khối lượng NaOH chuẩn cho 200ml dầu. Sau đó chia làm 3 phần để làm 3 mẫu đối chứng." },
+            { "role": "HS", "text": "HS cân chính xác NaOH cho 3 mẫu: Mẫu A thiếu kiềm (80% lượng chuẩn), Mẫu B tối ưu (100%), Mẫu C dư kiềm (130%). Hòa từng phần NaOH vào 30ml nước (đeo găng, khuấy ngoài trời thoáng)." }
+          ] },
+        { "name": "Hoạt động 2: Trộn và theo dõi phản ứng (25 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Khi dung dịch kiềm nguội còn khoảng 40°C, từ từ rót vào dầu và khuấy đều liên tục theo một chiều cho tới khi hỗn hợp đặc sệt lại như sốt mayonnaise (gọi là điểm 'trace')." },
+            { "role": "HS", "text": "Mỗi nhóm trộn lần lượt 3 mẫu A, B, C với cùng lượng dầu, đổ vào 3 khuôn có đánh số. Kỹ sư An toàn đo và ghi pH bề mặt hỗn hợp ngay sau khi đổ khuôn." },
+            { "type": "note", "text": "Hiện tượng: Mẫu C (dư kiềm) đặc lại nhanh và giấy quỳ chuyển xanh đậm; Mẫu B chuyển xanh nhạt; Mẫu A lâu đặc, quỳ gần như không đổi màu." }
+          ] },
+        { "name": "Hoạt động 3: Ghi nhận số liệu (5 phút)",
+          "blocks": [
+            { "role": "HS", "text": "HS ghi pH của 3 mẫu vào Phiếu học tập số 1. GV kiểm tra ngẫu nhiên Notebook các nhóm." }
+          ] }
+      ]
+    },
+    {
+      "title": "TIẾT 3: TOÁN HỌC STEM, ĐÁNH GIÁ SẢN PHẨM & PHẢN BIỆN CÔNG NGHỆ",
+      "objectives": [
+        "HS tính hiệu suất và biện luận mối quan hệ giữa lượng kiềm và độ an toàn cho da.",
+        "HS thuyết trình bảo vệ công thức tối ưu bằng số liệu thực nghiệm."
+      ],
+      "activities": [
+        { "name": "Hoạt động 1: Đo và xử lý số liệu (15 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Sau 24-48 giờ xà phòng đã đông cứng. Các nhóm đo lại pH của 3 mẫu và đối chiếu với khoảng pH an toàn cho da (4.5 – 8 với xà phòng tốt)." },
+            { "role": "HS", "text": "Chuyên viên dữ liệu lập bảng pH và độ cứng cảm quan của 3 mẫu, tính độ lệch so với khoảng an toàn." },
+            { "type": "note", "text": "Quan sát: Mẫu A mềm nhão, dễ chảy; Mẫu B cứng vừa, pH ~8 dùng tốt; Mẫu C cứng giòn, pH ~11 gây rát da." }
+          ] },
+        { "name": "Hoạt động 2: Vẽ biểu đồ và biện luận (15 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Hãy vẽ đồ thị: trục ngang là tỉ lệ kiềm (80% – 100% – 130%), trục đứng là pH sản phẩm. Vì sao càng nhiều kiềm pH càng cao? Tại tỉ lệ nào sản phẩm vừa an toàn vừa thành hình tốt?" },
+            { "role": "HS", "text": "HS điền kết quả và phần biện luận vào Phiếu học tập số 2." }
+          ] },
+        { "name": "Hoạt động 3: Sàn đấu Shark Tank xà phòng (15 phút)",
+          "blocks": [
+            { "role": "GV", "text": "Thầy/Cô đóng vai nhà đầu tư muốn mua công thức. Chất vấn: 'Vì sao tôi không nên cho nhiều kiềm để xà phòng cứng và tạo bọt mạnh hơn?'" },
+            { "role": "HS", "text": "HS phản biện dựa trên số liệu: dư kiềm khiến pH lên ~11, vượt xa pH an toàn của da, gây khô rát và mất uy tín thương hiệu; mẫu tối ưu B mới cân bằng giữa chất lượng và an toàn." }
+          ] }
+      ]
+    }
+  ],
+  "formulas": [
+    { "name": "Khối lượng NaOH cần dùng theo chỉ số xà phòng hóa",
+      "formula": "m(NaOH) = m(dầu) × SAP",
+      "explain": "m(dầu): khối lượng dầu (g); SAP: chỉ số xà phòng hóa của loại dầu (vd dầu dừa ≈ 0.190 g NaOH cho 1 g dầu)." },
+    { "name": "Hiệu suất phản ứng xà phòng hóa",
+      "formula": "H% = (m(xà phòng thực tế) / m(xà phòng lý thuyết)) × 100%",
+      "explain": "m(thực tế): khối lượng xà phòng rắn cân được sau khi đông; m(lý thuyết): khối lượng tính theo phương trình." }
+  ],
+  "worksheets": [
+    { "title": "PHIẾU HỌC TẬP SỐ 1",
+      "subtitle": "BÁO CÁO THÍ NGHIỆM ĐỐI CHỨNG TỈ LỆ KIỀM",
+      "elements": [
+        { "type": "field", "label": "Tên nhóm" },
+        { "type": "field", "label": "Kỹ sư trưởng" },
+        { "type": "paragraph", "text": "Ghi lại khối lượng NaOH đã tính và pH đo được của 3 mẫu ngay sau khi đổ khuôn:" },
+        { "type": "table",
+          "headers": ["Mẫu", "Tỉ lệ kiềm", "Khối lượng NaOH (g)", "pH đo được", "Hiện tượng quan sát"],
+          "rows": [ ["A", "80% (thiếu)", "", "", ""], ["B", "100% (tối ưu)", "", "", ""], ["C", "130% (dư)", "", "", ""] ] },
+        { "type": "paragraph", "text": "Phương trình phản ứng xà phòng hóa (điền chất còn thiếu):" },
+        { "type": "blanks", "lines": 2 }
+      ] },
+    { "title": "PHIẾU HỌC TẬP SỐ 2",
+      "subtitle": "XỬ LÝ SỐ LIỆU VÀ BIỆN LUẬN AN TOÀN",
+      "elements": [
+        { "type": "table",
+          "headers": ["Mẫu", "pH sau 24-48h", "Độ cứng cảm quan", "An toàn cho da?"],
+          "rows": [ ["A", "", "", ""], ["B", "", "", ""], ["C", "", "", ""] ] },
+        { "type": "paragraph", "text": "Dựa vào số liệu, hãy giải thích vì sao mẫu C (dư kiềm) lại gây rát da và không nên bán ra thị trường:" },
+        { "type": "blanks", "lines": 3 },
+        { "type": "paragraph", "text": "Nhóm em chọn tỉ lệ kiềm nào là tối ưu? Vì sao?" },
+        { "type": "blanks", "lines": 3 }
+      ] }
+  ],
+  "rubric": {
+    "headers": ["Tiêu chí đánh giá", "Mức Tốt (8 - 10 điểm)", "Mức Khá (5 - 7 điểm)", "Mức Chưa Đạt (0 - 4 điểm)"],
+    "rows": [
+      ["Chất lượng sản phẩm xà phòng (Trọng số 30%)", "Bánh xà phòng đông cứng, mịn, pH an toàn (7-9), tạo bọt tốt, không lốm đốm kiềm.", "Xà phòng đông nhưng hơi mềm hoặc pH hơi cao, bọt trung bình.", "Sản phẩm nhão không thành hình hoặc giòn cháy kiềm, pH quá cao."],
+      ["Xử lý số liệu và Notebook (Trọng số 30%)", "Tính đúng lượng NaOH và hiệu suất, ghi đủ đơn vị, biểu đồ chuẩn trục.", "Tính đúng công thức nhưng sai đơn vị hoặc biểu đồ chưa chuẩn.", "Không tính được, số liệu bỏ trống hoặc tẩy xóa."],
+      ["Thuyết trình & Phản biện (Trọng số 40%)", "Giải thích trôi chảy bản chất phản ứng và dùng số liệu pH để bảo vệ công thức tối ưu.", "Trình bày được quy trình nhưng còn lúng túng khi bị chất vấn.", "Đọc nguyên văn, không hiểu vì sao phải kiểm soát lượng kiềm."]
+    ]
+  }
+}

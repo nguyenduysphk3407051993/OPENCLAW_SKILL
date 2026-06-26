@@ -1,3 +1,54 @@
 .claude/
 mapid_creator/references/SBT_KHTN_9_KNTT.pdf
 mapid_creator/references/SGK_KHTN_9_KNTT.pdf
+
+# Archives and large binaries
+*.zip
+*.tar.gz
+*.tgz
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Generated documents and media
+*.pdf
+*.docx
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# LaTeX auxiliary/temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.sol
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.run.xml
+*.bcf
+
+# Temporary directories or files
+zim9dNHr/
+zim9dNHr
+tmp/
+temp/
+latex-output/
+output/

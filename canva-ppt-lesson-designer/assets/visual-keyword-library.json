@@ -1,0 +1,576 @@
+{
+  "_description": "Thu vien CHU DE -> HINH ANH cho KHTN, dung voi PLUGIN CANVA. Moi khai niem co: mo ta tieng Viet (alt), tu khoa tieng Anh de tim ICON/ANH tren Canva Elements (hoac chuan bi anh nguoi dung de xuat de upload), icon_id (goi y LOAI icon - dung lam tu khoa tim icon Canva), shape goi y, va mon ap dung. KHONG dung de sinh .pptx bang code; chi de chon hinh trong Canva.",
+  "_version": "1.0",
+  "_how_to_match": "Chuan hoa chu de (bo dau, viet thuong), do 'match' cua tung concept; concept khop chon icon_id + tu khoa. Khong khop -> dung fallback_keywords_by_subject. Tat ca de phuc vu chon icon/anh TREN CANVA.",
+  "concepts": [
+    {
+      "key": "nguyen_tu",
+      "match": [
+        "nguyen tu",
+        "atom",
+        "hat nhan",
+        "electron",
+        "proton",
+        "neutron",
+        "cau tao chat"
+      ],
+      "vi": "Mô hình nguyên tử: hạt nhân ở giữa, electron quay quanh",
+      "en_keywords": [
+        "atom structure icon",
+        "atomic model line icon",
+        "electron orbit",
+        "nucleus diagram",
+        "atom science flat icon"
+      ],
+      "icon_id": "atom",
+      "shape": "circle + orbit ellipses",
+      "subjects": [
+        "hoa_hoc",
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "phan_tu",
+      "match": [
+        "phan tu",
+        "molecule",
+        "lien ket",
+        "cong thuc hoa hoc",
+        "hop chat"
+      ],
+      "vi": "Phân tử: các nguyên tử nối nhau bằng liên kết",
+      "en_keywords": [
+        "molecule icon",
+        "molecular structure flat",
+        "chemical bond icon",
+        "compound molecule line icon"
+      ],
+      "icon_id": "molecule",
+      "shape": "circles + connectors",
+      "subjects": [
+        "hoa_hoc"
+      ]
+    },
+    {
+      "key": "phan_ung_thi_nghiem",
+      "match": [
+        "phan ung",
+        "thi nghiem",
+        "dung dich",
+        "hoa chat",
+        "ong nghiem",
+        "beaker",
+        "axit",
+        "bazo",
+        "chat long"
+      ],
+      "vi": "Thí nghiệm hoá học: cốc/ống nghiệm chứa dung dịch",
+      "en_keywords": [
+        "beaker icon",
+        "lab flask line icon",
+        "chemistry experiment flat icon",
+        "test tube reaction",
+        "erlenmeyer flask"
+      ],
+      "icon_id": "beaker",
+      "shape": "trapezoid flask + liquid",
+      "subjects": [
+        "hoa_hoc"
+      ]
+    },
+    {
+      "key": "nuoc_giot",
+      "match": [
+        "nuoc",
+        "water",
+        "giot",
+        "do am",
+        "chat long",
+        "dung moi",
+        "h2o"
+      ],
+      "vi": "Giọt nước / nước",
+      "en_keywords": [
+        "water drop icon",
+        "droplet flat icon",
+        "H2O water line icon",
+        "liquid drop"
+      ],
+      "icon_id": "drop",
+      "shape": "teardrop",
+      "subjects": [
+        "hoa_hoc",
+        "sinh_hoc"
+      ]
+    },
+    {
+      "key": "anh_sang_mat_troi",
+      "match": [
+        "anh sang",
+        "mat troi",
+        "light",
+        "sun",
+        "quang",
+        "buc xa",
+        "nang luong mat troi"
+      ],
+      "vi": "Ánh sáng / Mặt Trời (nguồn sáng, năng lượng)",
+      "en_keywords": [
+        "sun icon",
+        "sunlight rays flat icon",
+        "solar energy line icon",
+        "light source icon"
+      ],
+      "icon_id": "sun",
+      "shape": "circle + rays",
+      "subjects": [
+        "vat_ly",
+        "sinh_hoc"
+      ]
+    },
+    {
+      "key": "bong_den_y_tuong",
+      "match": [
+        "bong den",
+        "den",
+        "y tuong",
+        "idea",
+        "phat sang",
+        "chieu sang",
+        "bulb"
+      ],
+      "vi": "Bóng đèn (ý tưởng / nguồn sáng nhân tạo)",
+      "en_keywords": [
+        "light bulb icon",
+        "idea bulb flat icon",
+        "lamp line icon",
+        "innovation bulb"
+      ],
+      "icon_id": "bulb",
+      "shape": "circle + base",
+      "subjects": [
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "dien_nang_luong",
+      "match": [
+        "dien",
+        "electric",
+        "dong dien",
+        "nang luong",
+        "energy",
+        "tia set",
+        "phong dien",
+        "mach dien"
+      ],
+      "vi": "Điện / năng lượng (tia chớp)",
+      "en_keywords": [
+        "lightning bolt icon",
+        "electricity flat icon",
+        "energy power line icon",
+        "electric spark"
+      ],
+      "icon_id": "lightning",
+      "shape": "lightning bolt",
+      "subjects": [
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "tu_nam_cham",
+      "match": [
+        "nam cham",
+        "magnet",
+        "tu truong",
+        "tu tinh",
+        "cuc tu",
+        "luc tu"
+      ],
+      "vi": "Nam châm / từ trường",
+      "en_keywords": [
+        "magnet icon",
+        "horseshoe magnet flat icon",
+        "magnetic field line icon",
+        "magnetism"
+      ],
+      "icon_id": "magnet",
+      "shape": "U-magnet",
+      "subjects": [
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "luc_chuyen_dong",
+      "match": [
+        "luc",
+        "force",
+        "chuyen dong",
+        "motion",
+        "van toc",
+        "gia toc",
+        "day",
+        "keo",
+        "huong"
+      ],
+      "vi": "Lực / chuyển động (mũi tên lực)",
+      "en_keywords": [
+        "force arrow icon",
+        "motion vector flat icon",
+        "push pull force diagram",
+        "direction arrow physics"
+      ],
+      "icon_id": "force_arrow",
+      "shape": "block arrow",
+      "subjects": [
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "nhiet_do",
+      "match": [
+        "nhiet",
+        "nhiet do",
+        "temperature",
+        "nong",
+        "lanh",
+        "nhiet ke",
+        "thermometer",
+        "su no vi nhiet"
+      ],
+      "vi": "Nhiệt độ (nhiệt kế)",
+      "en_keywords": [
+        "thermometer icon",
+        "temperature flat icon",
+        "heat line icon",
+        "celsius thermometer"
+      ],
+      "icon_id": "thermometer",
+      "shape": "tube + bulb",
+      "subjects": [
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "song_am",
+      "match": [
+        "am thanh",
+        "song",
+        "wave",
+        "sound",
+        "tan so",
+        "dao dong",
+        "rung dong"
+      ],
+      "vi": "Sóng / âm thanh (sóng dao động)",
+      "en_keywords": [
+        "sound wave icon",
+        "wave frequency flat icon",
+        "audio wave line icon",
+        "vibration wave"
+      ],
+      "icon_id": "wave",
+      "shape": "sine wave",
+      "subjects": [
+        "vat_ly"
+      ]
+    },
+    {
+      "key": "may_co_khi_quy_trinh",
+      "match": [
+        "may",
+        "co khi",
+        "banh rang",
+        "gear",
+        "quy trinh",
+        "co che",
+        "van hanh",
+        "engine"
+      ],
+      "vi": "Bánh răng (máy móc / cơ chế / quy trình)",
+      "en_keywords": [
+        "gear icon",
+        "cog mechanism flat icon",
+        "machine process line icon",
+        "engineering gear"
+      ],
+      "icon_id": "gear",
+      "shape": "gear",
+      "subjects": [
+        "vat_ly",
+        "chung"
+      ]
+    },
+    {
+      "key": "do_luong",
+      "match": [
+        "do luong",
+        "thuoc",
+        "ruler",
+        "measure",
+        "kich thuoc",
+        "chieu dai",
+        "don vi do"
+      ],
+      "vi": "Đo lường (thước)",
+      "en_keywords": [
+        "ruler icon",
+        "measurement flat icon",
+        "scale ruler line icon",
+        "length measure"
+      ],
+      "icon_id": "ruler",
+      "shape": "ruler bar",
+      "subjects": [
+        "vat_ly",
+        "chung"
+      ]
+    },
+    {
+      "key": "te_bao",
+      "match": [
+        "te bao",
+        "cell",
+        "mang te bao",
+        "nhan",
+        "bao quan",
+        "vi khuan",
+        "mo"
+      ],
+      "vi": "Tế bào (màng + nhân)",
+      "en_keywords": [
+        "cell biology icon",
+        "cell structure flat icon",
+        "nucleus cell line icon",
+        "biological cell"
+      ],
+      "icon_id": "cell",
+      "shape": "oval + inner nucleus",
+      "subjects": [
+        "sinh_hoc"
+      ]
+    },
+    {
+      "key": "la_cay_quang_hop",
+      "match": [
+        "la",
+        "leaf",
+        "quang hop",
+        "photosynthesis",
+        "thuc vat",
+        "diep luc",
+        "cay xanh"
+      ],
+      "vi": "Lá cây (thực vật / quang hợp)",
+      "en_keywords": [
+        "leaf icon",
+        "plant leaf flat icon",
+        "photosynthesis line icon",
+        "green leaf nature"
+      ],
+      "icon_id": "leaf",
+      "shape": "leaf freeform",
+      "subjects": [
+        "sinh_hoc"
+      ]
+    },
+    {
+      "key": "sinh_truong_cay",
+      "match": [
+        "sinh truong",
+        "phat trien",
+        "nay mam",
+        "cay con",
+        "growth",
+        "trong cay",
+        "mam"
+      ],
+      "vi": "Cây nảy mầm / sinh trưởng",
+      "en_keywords": [
+        "plant growth icon",
+        "sprout seedling flat icon",
+        "growing plant line icon",
+        "germination"
+      ],
+      "icon_id": "plant",
+      "shape": "sprout + soil",
+      "subjects": [
+        "sinh_hoc"
+      ]
+    },
+    {
+      "key": "di_truyen_dna",
+      "match": [
+        "di truyen",
+        "dna",
+        "gen",
+        "gene",
+        "adn",
+        "nhiem sac the",
+        "heredity"
+      ],
+      "vi": "DNA / di truyền (chuỗi xoắn kép)",
+      "en_keywords": [
+        "dna icon",
+        "double helix flat icon",
+        "genetics line icon",
+        "gene dna strand"
+      ],
+      "icon_id": "dna",
+      "shape": "double helix",
+      "subjects": [
+        "sinh_hoc"
+      ]
+    },
+    {
+      "key": "chu_trinh_sinh_thai",
+      "match": [
+        "chu trinh",
+        "vong tuan hoan",
+        "cycle",
+        "sinh thai",
+        "moi truong",
+        "tai che",
+        "he sinh thai",
+        "tuan hoan"
+      ],
+      "vi": "Chu trình / vòng tuần hoàn (sinh thái, vật chất)",
+      "en_keywords": [
+        "cycle icon",
+        "circular arrows flat icon",
+        "ecosystem cycle line icon",
+        "recycle loop"
+      ],
+      "icon_id": "cycle",
+      "shape": "circular arrows",
+      "subjects": [
+        "sinh_hoc",
+        "chung"
+      ]
+    },
+    {
+      "key": "kinh_hien_vi_tim_hieu",
+      "match": [
+        "kinh hien vi",
+        "microscope",
+        "quan sat",
+        "tim hieu",
+        "kham pha",
+        "nghien cuu",
+        "phong to"
+      ],
+      "vi": "Kính lúp / quan sát / tìm hiểu",
+      "en_keywords": [
+        "magnifier icon",
+        "search discover flat icon",
+        "microscope line icon",
+        "observe research"
+      ],
+      "icon_id": "magnifier",
+      "shape": "lens + handle",
+      "subjects": [
+        "sinh_hoc",
+        "chung"
+      ]
+    },
+    {
+      "key": "muc_tieu",
+      "match": [
+        "muc tieu",
+        "target",
+        "goal",
+        "trong tam",
+        "dich",
+        "ket qua can dat"
+      ],
+      "vi": "Mục tiêu (bia/đích)",
+      "en_keywords": [
+        "target icon",
+        "goal bullseye flat icon",
+        "objective line icon",
+        "aim target"
+      ],
+      "icon_id": "target",
+      "shape": "concentric circles",
+      "subjects": [
+        "chung"
+      ]
+    },
+    {
+      "key": "sach_kien_thuc",
+      "match": [
+        "sach",
+        "book",
+        "kien thuc",
+        "bai hoc",
+        "ly thuyet",
+        "ghi nho",
+        "tai lieu"
+      ],
+      "vi": "Sách / kiến thức",
+      "en_keywords": [
+        "book icon",
+        "open book flat icon",
+        "knowledge line icon",
+        "textbook learning"
+      ],
+      "icon_id": "book",
+      "shape": "open book",
+      "subjects": [
+        "chung"
+      ]
+    },
+    {
+      "key": "so_sanh_can_bang",
+      "match": [
+        "so sanh",
+        "can bang",
+        "balance",
+        "compare",
+        "ti le",
+        "scale",
+        "cong bang"
+      ],
+      "vi": "Cân bằng / so sánh (cân)",
+      "en_keywords": [
+        "balance scale icon",
+        "compare weighing flat icon",
+        "equilibrium line icon",
+        "justice scale"
+      ],
+      "icon_id": "scale",
+      "shape": "balance beam",
+      "subjects": [
+        "chung"
+      ]
+    }
+  ],
+  "fallback_keywords_by_subject": {
+    "vat_ly": [
+      "physics education flat icon",
+      "science experiment classroom",
+      "physics diagram line icon"
+    ],
+    "hoa_hoc": [
+      "chemistry flat icon",
+      "laboratory science icon",
+      "chemical reaction diagram"
+    ],
+    "sinh_hoc": [
+      "biology flat icon",
+      "nature science illustration",
+      "living organism line icon"
+    ],
+    "chung": [
+      "science education flat icon",
+      "STEM classroom illustration",
+      "school learning line icon"
+    ]
+  },
+  "image_source_priority": [
+    "Canva Elements (icon/illustration, giu MOT style: flat hoac line)",
+    "Anh nguoi dung de xuat -> upload-asset-from-url vao Canva",
+    "Canva Photos / Brand Kit assets",
+    "Ngoai le: anh stock co URL hop le -> upload-asset-from-url"
+  ]
+}

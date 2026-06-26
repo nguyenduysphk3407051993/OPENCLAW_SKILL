@@ -1,0 +1,96 @@
+{
+  "_description": "Gia tri chuan de cau hinh BRAND KIT CANVA cho skill canva-ppt-lesson-designer. Mac dinh: EduTechND Earth (Dark) - nen toi, chu sang, gam vang dat; accent doi theo mon KHTN. Mau hex KHONG kem #. Font 9Slide upload vao Brand fonts. Luu y: Canva MCP khong doi font-family qua API -> font phai co san trong Brand Kit/Template.",
+  "_version": "1.0",
+  "default_system": "edutechnd-earth",
+  "edutechnd-earth": {
+    "_note": "ĐÚNG 4 vai trò màu. Nền + chữ + panel cố định; chỉ ACCENT đổi theo môn. Accent < 10% diện tích.",
+    "background": "4B2E2B",
+    "panel": "8C5A3C",
+    "ink": "FFF8F0",
+    "accent_default": "C08552",
+    "dark_mode": true,
+    "accent_max_area_pct": 10,
+    "spacing_unit_in": 0.5,
+    "subject_accents": {
+      "_doc": "Biến thể accent theo môn — vẫn giữ nền nâu #4B2E2B + chữ kem #FFF8F0 + panel #8C5A3C. Mỗi accent hài hoà với gam đất, tương phản tốt trên nền tối, dùng < 10%.",
+      "chung": {
+        "accent": "C08552",
+        "ten": "caramel",
+        "dung_cho": "KHTN tổng hợp, STEM, mặc định"
+      },
+      "vat_ly": {
+        "accent": "D98E48",
+        "ten": "hổ phách",
+        "dung_cho": "Vật lý — lực, điện, năng lượng, chuyển động"
+      },
+      "hoa_hoc": {
+        "accent": "6FA89C",
+        "ten": "xanh đồng ấm",
+        "dung_cho": "Hóa học — phản ứng, nguyên tử, dung dịch"
+      },
+      "sinh_hoc": {
+        "accent": "8FAE5D",
+        "ten": "xanh lá olive",
+        "dung_cho": "Sinh học — tế bào, thực vật, cơ thể, sinh thái"
+      }
+    }
+  },
+  "fonts": {
+    "_role": "BẮT BUỘC font 9Slide (có trên Canva). Tiêu đề = bộ 'Tieu de' (vai trò serif/display); nội dung = bộ 'Noi dung' (vai trò sans). Không dùng chung một bộ cho cả hai (mất tương phản serif↔sans).",
+    "title_short": "#9Slide01 Tieu de ngan",
+    "title_long": "#9Slide02 Tieu de dai",
+    "title_xlong_01": "#9Slide02 Tieu de rat dai 01",
+    "title_xlong_02": "#9Slide02 Tieu de rat dai 02",
+    "body_short": "#9Slide01 Noi dung ngan",
+    "body_long": "#9Slide02 Noi dung dai",
+    "body_xlong": "#9Slide02 Noi dung rat dai",
+    "fallback_title_serif": "DejaVu Serif",
+    "fallback_body_sans": "DejaVu Sans"
+  },
+  "font_rules": {
+    "_doc": "Chọn font theo độ dài chuỗi text (số ký tự).",
+    "title": {
+      "le_25": "title_short",
+      "le_45": "title_long",
+      "gt_45": "title_xlong_01"
+    },
+    "body": {
+      "le_40": "body_short",
+      "le_90": "body_long",
+      "gt_90": "body_xlong"
+    },
+    "min_display_pt": 24
+  },
+  "sizes_pt": {
+    "title": 36,
+    "section": 24,
+    "body": 17,
+    "caption": 11,
+    "ghost_numeral": 180
+  },
+  "subject_alias": {
+    "vật lý": "vat_ly",
+    "vat ly": "vat_ly",
+    "vatly": "vat_ly",
+    "physics": "vat_ly",
+    "lý": "vat_ly",
+    "hóa học": "hoa_hoc",
+    "hoa hoc": "hoa_hoc",
+    "hoahoc": "hoa_hoc",
+    "chemistry": "hoa_hoc",
+    "hóa": "hoa_hoc",
+    "sinh học": "sinh_hoc",
+    "sinh hoc": "sinh_hoc",
+    "sinhhoc": "sinh_hoc",
+    "biology": "sinh_hoc",
+    "sinh": "sinh_hoc",
+    "khtn": "chung",
+    "khoa học tự nhiên": "chung",
+    "stem": "chung",
+    "science": "chung"
+  },
+  "_canva": {
+    "brand_kit_id_hint": "kAHLq3RErqs",
+    "note": "Dat 4 mau (nen/panel/chu/accent) vao Brand Colors; upload font 9Slide vao Brand fonts."
+  }
+}

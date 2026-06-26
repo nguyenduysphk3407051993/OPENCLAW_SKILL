@@ -1,0 +1,64 @@
+\documentclass[FileMain.tex]{subfiles}
+\gdef\sophong{Sở GD \& ĐT Gia Lai} 
+\gdef\truong{Trường THPT Chi Lăng} 
+\gdef\truongh{Trường Mầm non, THCS, THPT Sao Việt} 
+\gdef\monhoc{<Môn học>} % ví dụ hóa học 9
+\gdef\ngaykt{<ngày thi>} % ví dụ 04/02/2026
+\gdef\nh{2025 - 2026} % ví dụ 2025 - 2026
+\gdef\thoigian{<thời gian>}% ví dụ 30
+\gdef\made{<mã đề ngẫu nhiên>}  % ví dụ 758
+\setcounter{section}{0}
+%\tatloigiai
+%\hienthiloigiai
+%\dongkeloigiai
+\begin{document}
+\section[<tên kì thi> <môn thi> - Mã đề \made]{<tên kì thi>} % ví dụ Kiểm tra giữa kỳ 1
+%\Tieudegiua{<tên kì thi> <môn thi> - Mã đề \made}
+
+%%%==============Phần trắc nghiệm nhiều lựa chọn==============%%% 
+\subsection{Bài tập trắc nghiệm nhiều lựa chọn}\textit{\large Thí sinh trả lời từ câu 1 đến <tổng câu loại 1. Mỗi câu thí sinh chỉ chọn một phương án}
+\Opensolutionfile{ansex}[Ans/LGEX-<tên file>_MADE<mã đề>]
+\Opensolutionfile{ans}[Ans/Ans-<tên file>_MADE<mã đề>]
+  <Chèn các câu hỏi loại 1 vào đây>
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%\bangdapan{Ans-<tên file>_MADE<mã đề>}
+
+%%%==============Phần trắc nghiệm đúng sai==============%%% 
+\subsection{Trắc nghiệm đúng sai}\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 2>. Trong mỗi ý a), b), c), d) ở mỗi câu thí sinh chọn đúng hoặc sai}
+\Opensolutionfile{ansex}[Ans/LGTF-<tên file>_MADE<mã đề>]
+\Opensolutionfile{ansbook}[Ansbook/AnsTF-<tên file>_MADE<mã đề>]
+\Opensolutionfile{ans}[Ans/Tempt-<tên file>_MADE<mã đề>]
+\setcounter{ex}{0}
+	<Chèn các câu hỏi loại 2 vào đây>
+\Closesolutionfile{ans}
+\Closesolutionfile{ansbook}
+\Closesolutionfile{ansex}
+%\bangdapanTF{AnsTF-<tên file>_MADE<mã đề>}
+
+%%==============Phần bài tập trả lời ngắn==============%%% 
+\subsection{Bài tập trả lời ngắn}\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 3>}
+\Opensolutionfile{ansex}[Ans/LGSA-<tên file>_MADE<mã đề>]
+\Opensolutionfile{ansexh}[Ans/AnsSA-<tên file>_MADE<mã đề>]
+\setcounter{ex}{0}
+	<Chèn các câu hỏi loại 3 vào đây>
+\Closesolutionfile{ansexh}
+\Closesolutionfile{ansex}
+%\bangdapanSA{AnsSA-<tên file>_MADE<mã đề>}
+
+
+
+%%%==============Phần bài tập tự luận==============%%% 
+\subsection{Bài tập tự luận}\textit{\large Thí sinh trả lời từ bài 1 đến bài <tổng bài loại 4}
+\Opensolutionfile{ansbth}[Ans/LGBT-<tên file>_MADE<mã đề>]
+\Opensolutionfile{ansbt}[Ans/AnsBT-<tên file>_MADE<mã đề>]
+	<Chèn các câu hỏi loại 4 vào đây>
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}
+
+\begin{center}
+ \rule[4pt]{2cm}{1pt}\,\large\bfseries Hết\,\rule[4pt]{2cm}{1pt}
+\end{center}
+\label{x}
+\end{document}
+ 

@@ -1,0 +1,193 @@
+{
+  "truong": "TRƯỜNG THCS & THPT ...",
+  "to": "TỔ KHOA HỌC TỰ NHIÊN",
+  "giao_vien": "Giáo viên: ...",
+  "ten_du_an": "CHẾ TẠO PIN ĐIỆN TỪ TRÁI CÂY (PIN CHANH) (4 tiết)",
+  "mo_ta": {
+    "thuc_trang": "Nhu cầu về nguồn điện sạch, rẻ và an toàn ngày càng tăng. Thông qua chủ đề, HS tìm hiểu bản chất của dòng điện hóa học, vai trò của cặp điện cực và dung dịch điện li; đồng thời chế tạo được pin điện đơn giản từ trái cây để thắp sáng đèn LED, qua đó hiểu nguyên lí của pin Galvani và ý thức về sử dụng năng lượng.",
+    "dia_diem": "Lớp học, phòng thực hành và sân trường.",
+    "mon_chinh": "môn Vật lý (tích hợp Hóa học, Toán học, Công nghệ)"
+  },
+  "muc_tieu": {
+    "ky_nang": [
+      "Vận dụng kiến thức về dòng điện, hiệu điện thế và phản ứng oxi hóa - khử để giải thích nguyên lí hoạt động của pin trái cây.",
+      "Thiết kế và thử nghiệm pin điện từ trái cây để thắp sáng đèn LED.",
+      "Đo và xử lí số liệu hiệu điện thế, cường độ dòng điện bằng đồng hồ đo điện."
+    ],
+    "thai_do": [
+      "Có ý thức tiết kiệm và sử dụng năng lượng an toàn.",
+      "Nhận thấy sự vận dụng kiến thức môn học để giải quyết vấn đề thực tiễn."
+    ],
+    "nang_luc": [
+      "Năng lực thực nghiệm, nghiên cứu khoa học.",
+      "Năng lực giải quyết vấn đề và sáng tạo.",
+      "Năng lực giao tiếp và hợp tác."
+    ],
+    "thiet_bi": [
+      "Máy tính, máy chiếu.",
+      "Phim: nguyên lí hoạt động của pin Galvani; thí nghiệm pin chanh thắp sáng đèn LED."
+    ]
+  },
+  "tiet": [
+    {
+      "ten_tiet": "TIẾT 1,2",
+      "ten_hoat_dong": "XÁC ĐỊNH YÊU CẦU CHẾ TẠO PIN CHANH",
+      "muc_dich": [
+        "Nêu được nguyên lí cơ bản tạo dòng điện từ cặp điện cực và dung dịch điện li.",
+        "Xác định nhiệm vụ dự án: chế tạo pin chanh thắp sáng được ít nhất 1 đèn LED, vật liệu dễ kiếm, có thông số điện áp/dòng điện."
+      ],
+      "noi_dung": [
+        "GV trình bày vấn đề về nguồn điện và giới thiệu nhiệm vụ dự án: chế tạo pin điện từ trái cây.",
+        "HS xem phim ngắn về pin Galvani, hình thành ý tưởng ban đầu.",
+        "GV và HS thống nhất tiêu chí đánh giá sản phẩm (phụ lục)."
+      ],
+      "san_pham": [
+        "Bảng tổng kết nguyên lí tạo dòng điện từ trái cây.",
+        "Bảng tiêu chí đánh giá pin chanh.",
+        "Bản ghi nhận nhiệm vụ và phân công công việc."
+      ],
+      "chuan_bi": {
+        "giao_vien": [
+          "Dụng cụ: chanh/khoai tây, dây điện, kẹp cá sấu, đèn LED, đồng hồ đo điện (multimeter).",
+          "Điện cực: lá đồng (Cu) và lá kẽm (Zn) hoặc đinh kẽm.",
+          "Phiếu học tập."
+        ],
+        "hoc_sinh": [
+          "Ôn kiến thức: dòng điện, hiệu điện thế, phản ứng oxi hóa - khử.",
+          "Máy tính, giấy A0, A3, A4, bút, thước."
+        ]
+      },
+      "to_chuc": [
+        "GV tổ chức cho HS hoạt động theo nhóm 5-6 HS, bầu nhóm trưởng, thư kí.",
+        "Hoạt động 1: GV giới thiệu về dạy học STEM và ý nghĩa giáo dục STEM. (5 phút)",
+        "Hoạt động 2: GV nêu lí do chọn đề tài và quy định đánh giá. (7 phút)",
+        "Hoạt động 3: Đặt vấn đề - giao nhiệm vụ; tìm hiểu nguyên lí pin Galvani. (33 phút)",
+        "Hoạt động 4: Thống nhất tiêu chí đánh giá và tiến trình dự án. (10 phút)"
+      ]
+    },
+    {
+      "ten_tiet": "TIẾT 3",
+      "ten_hoat_dong": "TRÌNH BÀY PHƯƠNG ÁN THIẾT KẾ PIN CHANH",
+      "muc_dich": [
+        "Mô tả được bản thiết kế pin chanh (số quả, cách mắc nối tiếp/song song).",
+        "Lựa chọn phương án thiết kế tối ưu."
+      ],
+      "noi_dung": [
+        "Các nhóm báo cáo bản thiết kế: số lượng quả chanh, cặp điện cực, cách mắc, điện áp dự kiến.",
+        "GV và HS phản biện, nhóm điều chỉnh và chốt phương án tối ưu."
+      ],
+      "san_pham": [
+        "Bản thiết kế pin chanh.",
+        "Bản ghi nhận ý kiến phản biện."
+      ],
+      "to_chuc": [
+        "Mở đầu: GV thông báo tiến trình báo cáo (mỗi nhóm 3 phút trình bày, 3 phút hỏi đáp).",
+        "Báo cáo: các nhóm trình bày, GV dùng phiếu đánh giá.",
+        "Tổng kết: GV nhận xét, yêu cầu HS hoàn thiện thiết kế và chuẩn bị chế tạo."
+      ]
+    },
+    {
+      "ten_tiet": "TIẾT 4",
+      "ten_hoat_dong": "CHẾ TẠO, THỬ NGHIỆM, TRÌNH BÀY VÀ ĐÁNH GIÁ PIN CHANH",
+      "muc_dich": [
+        "Thi công được pin chanh theo phương án thiết kế.",
+        "Thử nghiệm, cải tiến và giải thích thành công/thất bại của sản phẩm."
+      ],
+      "noi_dung": [
+        "HS thi công pin chanh theo nhóm, đo điện áp và thử thắp sáng đèn LED.",
+        "HS báo cáo, vận hành thử sản phẩm; GV và HS đánh giá, tổng kết hồ sơ dự án."
+      ],
+      "san_pham": [
+        "Pin chanh thắp sáng đèn LED.",
+        "Bài báo cáo quá trình và kinh nghiệm chế tạo."
+      ],
+      "to_chuc": [
+        "GV theo dõi, hỗ trợ HS trong quá trình chế tạo.",
+        "HS thử nghiệm tại lớp, đo và ghi nhận số liệu."
+      ],
+      "che_tao_thu_nghiem": {
+        "che_tao": "Dựa trên bản thiết kế đã điều chỉnh, nhóm cắm lá đồng và lá kẽm vào các quả chanh, mắc nối tiếp bằng dây dẫn để tăng điện áp.",
+        "tieu_chi": [
+          "Pin hoạt động dựa trên nguyên lí cặp điện cực - dung dịch điện li.",
+          "Pin được chế tạo từ vật liệu dễ kiếm.",
+          "Có đủ thông số kĩ thuật: số quả, loại điện cực, điện áp, dòng điện đo được.",
+          "Pin thắp sáng được ít nhất 1 đèn LED."
+        ]
+      }
+    }
+  ],
+  "phu_luc": {
+    "rubric": [
+      {"ten": "Bảng tiêu chí đánh giá hoạt động báo cáo kiến thức nền",
+       "rows": [
+         ["Bài báo cáo kiến thức (15)"],
+         ["1","Đầy đủ nội dung cơ bản về chủ đề được báo cáo.","2"],
+         ["2","Kiến thức chính xác, khoa học.","3"],
+         ["Hình thức"],
+         ["3","Bài trình chiếu có bố cục hợp lí.","1"],
+         ["4","Bài trình chiếu có màu sắc hài hòa.","1"],
+         ["Kĩ năng thuyết trình"],
+         ["5","Trình bày thuyết phục.","1"],
+         ["6","Trả lời được câu hỏi phản biện.","1"],
+         ["7","Tham gia đóng góp ý kiến, đặt câu hỏi phản biện.","1"],
+         ["Tổng điểm","","10"]
+       ]},
+      {"ten": "Bảng tiêu chí đánh giá hoạt động báo cáo phương án thiết kế",
+       "rows": [
+         ["Bản phương án thiết kế (30)"],
+         ["1","Có chú thích đầy đủ các bộ phận của thiết bị.","1"],
+         ["2","Có liệt kê rõ danh mục nguyên vật liệu.","1"],
+         ["3","Có đầy đủ thông số kĩ thuật.","1"],
+         ["4","Có trình bày nguyên lí/hiện tượng vật lí khi pin hoạt động.","1"],
+         ["5","Mô tả được nguyên lí hoạt động của pin.","1"],
+         ["Hình thức bản thiết kế"],
+         ["6","Hình vẽ và chú thích rõ ràng.","1"],
+         ["7","Poster màu sắc hài hòa, bố cục hợp lí.","1"],
+         ["Kĩ năng thuyết trình"],
+         ["8","Trình bày thuyết phục.","1"],
+         ["9","Trả lời được câu hỏi phản biện.","1"],
+         ["10","Tham gia đóng góp ý kiến, đặt câu hỏi phản biện.","1"],
+         ["Tổng điểm","","10"]
+       ]},
+      {"ten": "Bảng tiêu chí đánh giá hoạt động báo cáo sản phẩm",
+       "rows": [
+         ["Pin chanh (30)"],
+         ["1","Pin hoạt động dựa trên nguyên lí cặp điện cực - dung dịch điện li.","1"],
+         ["2","Pin được chế tạo từ nguyên vật liệu dễ kiếm.","1"],
+         ["3","Pin thắp sáng được đèn LED.","1"],
+         ["4","Có đủ thông số kĩ thuật (số quả, điện cực, điện áp, dòng điện).","1"],
+         ["5","Sản phẩm có hình thức đẹp.","1"],
+         ["Bài báo cáo"],
+         ["6","Nêu được tiến trình thử nghiệm và cải tiến.","1"],
+         ["7","Nêu được nguyên lí hoạt động của sản phẩm.","1"],
+         ["Kĩ năng thuyết trình"],
+         ["8","Trình bày thuyết phục.","1"],
+         ["9","Trả lời được câu hỏi phản biện.","1"],
+         ["10","Tham gia đóng góp ý kiến, đặt câu hỏi phản biện.","1"],
+         ["Tổng điểm","","10"]
+       ]}
+    ],
+    "kien_thuc_lien_quan": [
+      {"tieu_de": "NGUYÊN LÍ HOẠT ĐỘNG CỦA PIN TRÁI CÂY",
+       "noi_dung": [
+         "Pin trái cây là một dạng pin Galvani: hai kim loại khác nhau (ví dụ kẽm Zn và đồng Cu) đóng vai trò điện cực, nhúng trong dung dịch axit citric của quả chanh đóng vai trò chất điện li.",
+         "Kẽm hoạt động mạnh hơn đồng nên bị oxi hóa, nhường electron (cực âm): Zn -> Zn(2+) + 2e. Electron di chuyển qua dây dẫn tới cực đồng, tạo thành dòng điện thắp sáng đèn LED.",
+         "Một quả chanh thường cho điện áp khoảng 0,9 V. Để thắp sáng đèn LED (cần khoảng 1,8-2 V) phải mắc nối tiếp nhiều quả chanh."
+       ]}
+    ],
+    "phieu_hoc_tap": [
+      {"ten": "Phiếu học tập 1 - Định hướng nghiên cứu",
+       "noi_dung": [
+         "Liệt kê các cặp kim loại có thể dùng làm điện cực. Vì sao chọn Zn và Cu?",
+         "Loại trái cây/dung dịch nào đóng vai trò chất điện li tốt?",
+         "Cách mắc nối tiếp/song song ảnh hưởng thế nào tới điện áp và dòng điện?"
+       ]},
+      {"ten": "Phiếu học tập 2 - Hạch toán & định lượng",
+       "noi_dung": [
+         "Tính số quả chanh cần mắc nối tiếp để đạt điện áp thắp sáng đèn LED.",
+         "Hạch toán chi phí vật liệu cho 1 sản phẩm pin chanh.",
+         "Ghi lại điện áp đo được theo số quả chanh và vẽ đồ thị."
+       ]}
+    ]
+  }
+}

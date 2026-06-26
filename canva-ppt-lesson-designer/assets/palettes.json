@@ -1,0 +1,256 @@
+{
+  "_description": "Palette definitions for canva-ppt-lesson-designer styles. Colors are hex without the # prefix for direct use with pptx.dml.color.RGBColor.from_string(). Bao gom ca 7 design system goc tu pptx-designer + EduTechND Earth moi.",
+  "_version": "1.2",
+  "styles": {
+    "editorial-minimalist": {
+      "ink": "1A1A1A",
+      "paper": "FFFFFF",
+      "muted": "6B6B6B",
+      "rule": "D9D4CA",
+      "accents": {
+        "ink_red": "8B2332",
+        "forest": "2C5F2D",
+        "deep_navy": "1E3A5F"
+      },
+      "fonts": {
+        "header": "Georgia",
+        "body": "Calibri",
+        "mono": "Consolas"
+      },
+      "title_size_pt": 32,
+      "section_size_pt": 20,
+      "body_size_pt": 15
+    },
+    "silicon-modern": {
+      "base": "0B0B12",
+      "surface": "14141F",
+      "ink": "F5F5F7",
+      "muted": "7A7A8C",
+      "accents": {
+        "electric_purple": "7C5CFF",
+        "teal": "5EEAD4",
+        "orange": "FF6B35"
+      },
+      "fonts": {
+        "header": "Calibri Light",
+        "body": "Calibri",
+        "mono": "Consolas"
+      },
+      "title_size_pt": 44,
+      "section_size_pt": 24,
+      "body_size_pt": 16
+    },
+    "keynote-clean": {
+      "variants": {
+        "stark_light": {
+          "paper": "FFFFFF",
+          "ink": "000000",
+          "accents": {
+            "apple_blue": "0071E3",
+            "ios_red": "FF375F",
+            "ios_green": "30D158"
+          }
+        },
+        "stark_dark": {
+          "base": "000000",
+          "ink": "F5F5F7",
+          "accents": {
+            "ios_blue": "0A84FF",
+            "ios_red": "FF453A",
+            "ios_green": "30D158"
+          }
+        }
+      },
+      "fonts": {
+        "header": "Calibri Light",
+        "body": "Calibri"
+      },
+      "title_size_pt": 84,
+      "section_size_pt": 44,
+      "body_size_pt": 24
+    },
+    "academic-editorial": {
+      "ink": "1A1A1A",
+      "paper": "FFFFFF",
+      "muted": "5A5A5A",
+      "rule": "C8C8C8",
+      "accents": {
+        "deep_navy": "1E3A5F",
+        "forest": "2C5F2D",
+        "aubergine": "6B2D5C",
+        "sienna": "8B4513"
+      },
+      "fonts": {
+        "header": "Cambria",
+        "body": "Calibri",
+        "body_alt": "Cambria",
+        "mono": "Consolas"
+      },
+      "title_size_pt": 30,
+      "section_size_pt": 22,
+      "body_size_pt": 16,
+      "vietnamese_recommended": true
+    },
+    "bold-magazine": {
+      "ink": "0A0A0A",
+      "paper": "F5F0E8",
+      "heroes": {
+        "punch_red": "E63946",
+        "burnt_orange": "F4A261",
+        "teal_green": "264653",
+        "mustard": "FFB703",
+        "magenta": "8338EC"
+      },
+      "fonts": {
+        "display": "Impact",
+        "display_alt": "Arial Black",
+        "body": "Calibri"
+      },
+      "title_size_pt": 54,
+      "display_size_pt": 180,
+      "body_size_pt": 14
+    },
+    "scientific-data": {
+      "ink": "212121",
+      "paper": "FFFFFF",
+      "muted": "666666",
+      "rule": "E0E0E0",
+      "data": {
+        "primary": "0173B2",
+        "secondary": "DE8F05",
+        "tertiary": "029E73",
+        "warning": "CC3311"
+      },
+      "fonts": {
+        "header": "Calibri",
+        "body": "Calibri",
+        "data": "Consolas"
+      },
+      "title_size_pt": 26,
+      "section_size_pt": 18,
+      "body_size_pt": 13,
+      "colorblind_safe": true,
+      "palette_source": "Wong (2011) Nature Methods"
+    },
+    "warm-human": {
+      "base": "FAF6F0",
+      "ink": "2A2522",
+      "muted": "8A8079",
+      "soft_panel": "F2E9DC",
+      "accent_pairs": {
+        "terracotta_sage": [
+          "C87553",
+          "9CAF88"
+        ],
+        "clay_teal": [
+          "D4956F",
+          "5F9EA0"
+        ],
+        "rose_moss": [
+          "C08497",
+          "7A9172"
+        ]
+      },
+      "fonts": {
+        "header": "Georgia",
+        "body": "Calibri",
+        "handwritten": "Segoe Script"
+      },
+      "title_size_pt": 28,
+      "section_size_pt": 20,
+      "body_size_pt": 15
+    },
+    "edutechnd-earth": {
+      "canvas": {
+        "width_inches": 20,
+        "height_inches": 11.25
+      },
+      "bg_dark": "3F2313",
+      "surface": "D7A550",
+      "accent": "D28119",
+      "ink_light": "FCFBF9",
+      "ink_light2": "F2F3EC",
+      "ink_dark": "1A1713",
+      "brown_mid": "75502C",
+      "amber_dark": "6A4115",
+      "amber_dark2": "6B4408",
+      "brown_light": "AB7E41",
+      "tan": "C7B5A5",
+      "dark_mode": true,
+      "fonts": {
+        "section_title": "Noto Sans Bold",
+        "sub_heading": "Noto Serif Bold",
+        "title_short": "#9Slide01 Tieu de ngan",
+        "title_long": "#9Slide02 Tieu de dai",
+        "title_very_long_01": "#9Slide02 Tieu de rat dai 01",
+        "title_very_long_02": "#9Slide02 Tieu de rat dai 02",
+        "body_short": "#9Slide01 Noi dung ngan",
+        "body_long": "#9Slide02 Noi dung dai",
+        "body_very_long": "#9Slide02 Noi dung rat dai"
+      },
+      "font_selection_rules": {
+        "section_title": "section_title (63-95pt)",
+        "title_lte_25_chars": "title_short (44-72pt)",
+        "title_26_50_chars": "title_long (44-72pt)",
+        "title_gt_50_chars": "title_very_long_01 or 02",
+        "sub_heading": "sub_heading (40-46pt)",
+        "body_short": "body_short (28-32pt)",
+        "body_paragraph": "body_long (36pt)",
+        "body_dense": "body_very_long"
+      },
+      "section_title_size_pt": 63,
+      "title_size_pt": 72,
+      "sub_heading_size_pt": 46,
+      "body_size_pt": 36,
+      "caption_size_pt": 28,
+      "footnote_size_pt": 18,
+      "vietnamese_recommended": true,
+      "brand": "EduTechND",
+      "source_reference": "ANKENE.pptx",
+      "best_for": [
+        "khtn",
+        "thcs",
+        "gdpt_2018",
+        "bai_giang_viet_nam",
+        "nen_toi"
+      ]
+    }
+  },
+  "topic_to_style": {
+    "business_analysis": "editorial-minimalist",
+    "strategy": "editorial-minimalist",
+    "policy": "editorial-minimalist",
+    "thought_leadership": "editorial-minimalist",
+    "tech": "silicon-modern",
+    "saas": "silicon-modern",
+    "ai_ml": "silicon-modern",
+    "engineering": "silicon-modern",
+    "product_launch": "keynote-clean",
+    "pitch_deck": "keynote-clean",
+    "keynote": "keynote-clean",
+    "lecture": "academic-editorial",
+    "teaching": "academic-editorial",
+    "giao_duc_vn": "academic-editorial",
+    "thcs": "edutechnd-earth",
+    "thpt": "academic-editorial",
+    "stem_explainer": "academic-editorial",
+    "khtn": "edutechnd-earth",
+    "edutechnd": "edutechnd-earth",
+    "nen_toi": "edutechnd-earth",
+    "vang_dat": "edutechnd-earth",
+    "marketing": "bold-magazine",
+    "brand": "bold-magazine",
+    "creative": "bold-magazine",
+    "culture": "bold-magazine",
+    "finance": "scientific-data",
+    "analytics": "scientific-data",
+    "quarterly_review": "scientific-data",
+    "research_data": "scientific-data",
+    "nonprofit": "warm-human",
+    "ngo": "warm-human",
+    "wellness": "warm-human",
+    "community": "warm-human",
+    "k12": "warm-human",
+    "children": "warm-human"
+  }
+}
