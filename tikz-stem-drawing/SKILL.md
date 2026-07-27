@@ -99,7 +99,8 @@ Xem `references/techniques.md` để biết:
      (2, 0) coordinate (B);
 
 % ❌ TRÁNH
- \path(0, 0) coordinate (p1)
+ \path(0, 0) coordinate (p1);
+ \coordinate (A) at (0, 0);
 ```
 
 ### 2. Dùng calc cho mọi tính toán
@@ -110,10 +111,10 @@ Xem `references/techniques.md` để biết:
 % Điểm chia theo tỉ lệ 2:1
 \path ($(A)!0.67!(B)$) coordinate (M);
 % Hình chiếu vuông góc của C lên AB
-\coordinate (H) at ($(A)!(C)!(B)$);
+\path ($(A)!(C)!(B)$) coordinate (H);
 
 % Điểm cách A một khoảng 2cm theo hướng B
-\coordinate (P) at ($(A)!2cm!(B)$);
+\path ($(A)!2cm!(B)$) coordinate (P);
 ```
 
 ### 3. Comment code đầy đủ
@@ -161,12 +162,12 @@ Xem `references/techniques.md` để biết:
     point/.style={circle, fill, inner sep=1.5pt}
 ]
     % Định nghĩa đỉnh
-    \coordinate (A) at (0,0);
-    \coordinate (B) at (4,0);
-    \coordinate (C) at (0,3);
-    
+	\path (0,0) coordinate (A);
+	\path (4,0) coordinate (B);
+	\path (0,3) coordinate (C);
+ 
     % Chân đường cao
-    \coordinate (H) at ($(B)!(A)!(C)$);
+    \path ($(B)!(A)!(C)$) coordinate (H) ;
     
     % Vẽ tam giác
     \draw[thick] (A) -- (B) -- (C) -- cycle;
@@ -181,10 +182,10 @@ Xem `references/techniques.md` để biết:
     \draw (H) ++(-0.2,0.15) -- ++(-0.15,-0.2) -- ++(0.2,-0.15);
     
     % Nhãn
-    \node[below left] at (A) {$A$};
-    \node[below right] at (B) {$B$};
-    \node[above] at (C) {$C$};
-    \node[above right] at (H) {$H$};
+    \path (A) node[below left] {$A$};
+	\path (B) node[below right] {$B$};
+	\path (C) node[above] {$C$};
+	\path (H) node[above right] {$H$};
     
     % Đánh dấu điểm
     \foreach \p in {A,B,C,H} \fill (\p) circle (1.5pt);
