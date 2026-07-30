@@ -1,0 +1,71 @@
+\documentclass[FileMain.tex]{subfiles}
+\begin{document}
+
+\chapter{<TÊN CHƯƠNG>}
+\begin{Muctieu}
+    \item <Nội dung mục tiêu 1 cần đạt trong chương>
+    \item <Nội dung mục tiêu 2 cần đạt trong chương>
+\end{Muctieu}
+
+\section{<TÊN BÀI 1 CHƯƠNG 1>}
+
+%%%=============Phần lý thuyết=====================%%%
+\subsection{Lý thuyết trọng tâm}
+\begin{kienthuccannho}
+    \subsubsection{<Nội dung mục con cấp 1 thứ nhất>}
+    <Nội dung chi tiết kết hợp bảng biểu, hình ảnh, công thức...>
+
+    \subsubsection{<Nội dung mục con cấp 1 thứ hai>}
+    <Nội dung chi tiết kết hợp bảng biểu, hình ảnh, công thức...>
+
+    \subsubsection{<Nội dung mục con cấp 1 thứ n>}
+    <Nội dung chi tiết kết hợp bảng biểu, hình ảnh, công thức...>
+\end{kienthuccannho}
+
+%%%=============Phần bài tập=====================%%%
+\subsection{Bài tập}
+
+%%%==============Phần bài tập tự luận==============%%%
+\phan{Bài tập tự luận}
+\textit{\large Thí sinh trả lời từ bài 1 đến bài <tổng bài loại 4>}
+\Opensolutionfile{ansbth}[Ans/LGBT-<tên file lưu đáp án>]
+\Opensolutionfile{ansbt}[Ans/AnsBT-<tên file lưu đáp án>]
+  % <Chèn các câu hỏi loại 4 (BT) vào đây>
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}
+
+%%%==============Phần trắc nghiệm nhiều lựa chọn==============%%%
+\phan{Bài tập trắc nghiệm nhiều lựa chọn}
+\textit{\large Thí sinh trả lời từ câu 1 đến <tổng câu loại 1>. Mỗi câu thí sinh chỉ chọn một phương án}
+\Opensolutionfile{ansex}[Ans/LGEX-<tên file lưu đáp án>]
+\Opensolutionfile{ans}[Ans/Ans-<tên file lưu đáp án>]
+  % <Chèn các câu hỏi loại 1 (EX) vào đây>
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%\bangdapan{Ans-<tên file lưu đáp án>}
+
+%%%==============Phần trắc nghiệm đúng sai==============%%%
+\phan{Bài tập trắc nghiệm đúng sai}
+\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 2>. Trong mỗi ý a), b), c), d) ở mỗi câu thí sinh chọn đúng hoặc sai}
+\Opensolutionfile{ansex}[Ans/LGTF-<tên file lưu đáp án>]
+\Opensolutionfile{ansbook}[Ansbook/AnsTF-<tên file lưu đáp án>]
+\Opensolutionfile{ans}[Ans/Tempt-<tên file lưu đáp án>]
+\setcounter{ex}{0}
+  % <Chèn các câu hỏi loại 2 (TF) vào đây>
+\Closesolutionfile{ans}
+\Closesolutionfile{ansbook}
+\Closesolutionfile{ansex}
+%\bangdapanTF{AnsTF-<tên file lưu đáp án>}
+
+%%==============Phần bài tập trả lời ngắn==============%%%
+\phan{Bài tập trả lời ngắn}
+\textit{\large Thí sinh trả lời từ câu 1 đến câu <tổng câu loại 3>}
+\Opensolutionfile{ansex}[Ans/LGSA-<tên file lưu đáp án>]
+\Opensolutionfile{ansexh}[Ans/AnsSA-<tên file lưu đáp án>]
+\setcounter{ex}{0}
+  % <Chèn các câu hỏi loại 3 (SA) vào đây>
+\Closesolutionfile{ansexh}
+\Closesolutionfile{ansex}
+%\bangdapanSA{AnsSA-<tên file lưu đáp án>}
+
+\end{document}
