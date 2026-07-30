@@ -1,0 +1,208 @@
+\usepackage[explicit]{titlesec}
+\setcounter{secnumdepth}{3}
+\renewcommand{\chaptertitlename}{Chương}
+\newcommand{\chapternumberfont}{%
+	\fontencoding{T5}%
+	\fontfamily{phv}%
+	\fontseries{b}%
+	\fontshape{n}%
+	\fontsize{16pt}{5pt}%
+	\selectfont
+}
+
+\DeclareFixedFont{\chapternamefont}{T5}{ugq}{b}{n}{18pt}
+%%%Hộp chương mục
+%%Khai báo khoảng cách
+%\titlespacing*{\chapter}{0pt}{-2.2cm}{1cm}
+%%Khai báo thiết lập
+%\titleformat
+%{<lệnh tiêu đề>}
+%[<kiểu bố trí>]
+%{<định dạng chung>}
+%{<nhãn số>}
+%{<khoảng cách sau nhãn>}
+%{<mã đặt trước nội dung>}
+%[<mã đặt sau nội dung>]
+
+%%%=================Phiên bản 3==================%%%
+% ===== Icon mặc định: nguyên tử TikZ vector, không dùng ảnh ngoài =====
+\newcommand{\AtomIcon}{%
+	\begin{tikzpicture}[baseline=-0.55ex,scale=0.42,line cap=round,line join=round]
+		\shade[ball color=\mycolor!80] (0,0) circle (0.23);
+		\foreach \ang in {0,60,-60}{%
+			\begin{scope}[rotate=\ang]
+				\draw[\maudam!80!teal,line width=1.2pt] (0,0) ellipse (1.05 and 0.33);
+				\shade[ball color=\mycolor!80] (1.05,0) circle (0.11);
+			\end{scope}}
+	\end{tikzpicture}%
+}
+% ===== Key chỉnh chapterbox =====
+% icon: biểu tượng bên trái nhãn; number: số chương; label: chữ nhãn chương.
+% colback: nền thân hộp; colframe: viền; numberback: nền ô số.
+% textcolor: màu chữ; arc: độ bo góc; fonttitle: font tên chương.
+\newif\ifchapterboxdecoration
+\pgfkeys{/chapterbox/.is family,/chapterbox,
+	icon/.store in=\chapterboxicon,
+    number/.store in=\chapterboxnumber,
+    label/.store in=\chapterboxlabel,
+	show-decoration/.is if=chapterboxdecoration,
+	show-decoration/.default=true,
+	icon=\AtomIcon,
+	number=1,
+	label=CHƯƠNG,
+	show-decoration=true
+}
+
+\NewTColorBox{chapterbox}{ O{} }{%
+	code={\pgfkeys{/chapterbox,#1}},
+	enhanced,
+	before skip=0mm,
+	after skip=0mm,
+	width=\linewidth,
+	boxrule=0pt,
+	frame hidden,
+	arc=3mm,
+	outer arc=3mm,
+	colback=\mycolor!20,
+	left=5mm,right=5mm,top=5mm,bottom=5mm,
+	halign=center,
+	drop fuzzy shadow={\mycolor!10!black},
+	before upper={\fontsize{25pt}{10pt}\fontfamily{phv}\selectfont\color{\mycolor!30!black}\bfseries\centering\MakeUppercase},
+	overlay={%
+		\ifchapterboxdecoration
+		\node[anchor=south east,inner sep=0pt] at ([xshift=-29mm,yshift=-1mm]frame.north east)
+		{\fontfamily{phv}\bfseries\LARGE\color{\mycolor!30!black}\chapterboxicon\hspace{1.5mm}\chapterboxlabel};
+		\draw[rounded corners=2mm,\mycolor!50!black,line width=1.25pt] ([shift={(-45:8pt)}]frame.north west)-- ([shift={(-135:8pt)}]frame.north east)--([shift={(135:8pt)}]frame.south east)--([shift={(45:8pt)}]frame.south west)--cycle;
+		\node[anchor=center,rounded corners=1mm,draw=\mycolor!60!black,line width=1.35pt,
+		fill=\mycolor!40,minimum width=17mm,minimum height=17mm,
+		inner sep=1.5mm,text=\mycolor!20!black,font=\fontfamily{phv}\bfseries\bfseries\fontsize{34}{34}\selectfont]
+		at ([xshift=-17mm,yshift=3.8mm]frame.north east) {\chapterboxnumber};
+		\fi
+	}
+}
+
+%%%% ===== \chapter dùng chapterbox, số tự lấy \thechapter =====%%%%
+\titlespacing*{\chapter}{0pt}{-6pt}{18pt}
+\titleformat{\chapter}[block]
+{\normalfont}
+{}
+{0pt}
+{\begin{chapterbox}[number={\thechapter},label={Chương},icon={\AtomIcon}]\MakeUppercase{#1}}
+[\end{chapterbox}\thispagestyle{empty}]
+
+% Chương mở đầu/không đánh số: chỉ còn khung và tên chương.
+\titleformat{name=\chapter,numberless}[block]
+{\normalfont}
+{}
+{0pt}
+{\begin{chapterbox}[show-decoration=false]\MakeUppercase{#1}}
+[\end{chapterbox}\thispagestyle{empty}]
+
+%%%=================Section================%%%
+\newcommand{\sectionfont}{%
+	\fontencoding{T5}%
+	\fontfamily{ugq}%
+	\fontseries{b}%
+	\fontshape{n}%
+	\fontsize{22pt}{5pt}%
+	\selectfont
+}
+\renewcommand{\thesubsection}{\Roman{subsection}.}
+
+\titlespacing*{\section}{2pt}{30pt}{18pt}
+\titleformat{\section}
+{}
+{}
+{3pt}
+{%
+ \begin{tikzpicture}[overlay,remember picture,line join=round,line cap=round]
+ 	\path (1,-0.25) node[%
+ 	circle,
+ 	anchor=center,
+ 	fill=\mycolor!60,  
+ 	minimum size=20mm,
+ 	inner sep=2pt,
+ 	align=center,
+ 	font=\color{\mycolor!90}\bfseries\fontfamily{qag}\fontsize{24pt}{3pt}\selectfont
+ 	]
+ 	(secnum) {};
+ 	\path (secnum) node[%
+ 	circle,
+ 	anchor=center,
+ 	fill=\mycolor!95!black,  
+ 	minimum size=18mm,
+ 	inner sep=2pt,
+ 	align=center,
+ 	font=\color{black}\bfseries\fontfamily{qag}\fontsize{26pt}{3pt}\selectfont
+ 	]
+ 	(Bai) {\text{\S}\arabic{section}};
+ 	\path ($(Bai.east)+(0.2,0.05)$) node[anchor=west,font=\color{gray!70!black}\sectionfont,text width=0.95\linewidth](BaiND){\MakeUppercase{#1}};
+ 	\path ($(Bai.east)+(0.21,0.07)$) node[anchor=west,font=\color{\mycolor!70!black}\sectionfont,text width=0.95\linewidth](BaiNDh){\MakeUppercase{#1}};
+ \end{tikzpicture}
+}%
+[\vspace{8pt}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{bt}{0}
+\setcounter{ex}{0}
+\setcounter{vd}{0}
+]
+
+%%%===========================subsection===============%%%
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\titlespacing*{\subsection}{0cm}{10pt}{1cm}
+\titleformat{\subsection}
+{}
+{%
+  \begin{tikzpicture}[overlay,remember picture]%
+	  \path (0.5*\textwidth,0) 
+		node [minimum height= 1cm,
+		font=\Large\bfseries \fontfamily{phv}\selectfont,
+		fill=\mycolor!50!white,
+		rounded corners =2mm,
+		inner sep =6pt, 
+		outer sep =3pt, 
+		text width =5cm,
+		text =\mycolor!60!black, 
+		align =center]
+		(Sub){\thesubsection\ -- #1};
+	   \path ($(Sub.north west)+(2mm,0)$) coordinate (Aa)
+	         ($(Sub.north west)+ (0,-2mm)$) coordinate (Ab)
+	         ($(Sub.north east)+ (-2mm,0)$) coordinate (Ba)
+	         ($(Sub.north east)+ (0,-2mm)$) coordinate (Bb)
+	         ($(Sub.south east)+ (0,2mm)$) coordinate (Ca)
+	         ($(Sub.south east)+ (-2mm,0)$) coordinate (Cb)	
+	         ($(Sub.south west)+ (2mm,0)$) coordinate (Da)
+             ($(Sub.south west)+ (0,2mm)$) coordinate (Db)	 	                  	  	         
+	   ;
+	   \draw[\mycolor!60!black, rounded corners=0.5mm] (Ab)--(Aa)--(Ba)--(Bb)--(Ca)--(Cb)--(Da)--(Db)--cycle;
+   \end{tikzpicture}
+}%
+{8pt}{}
+%%%===========================subsubsection================================%%%
+\titlespacing*{\subsubsection}{0.5cm}{5pt}{0pt}
+\titleformat{\subsubsection}
+{\raggedright}
+{\color{\maunhan!90!black}\large\bfseries\fontfamily{qag}\selectfont\Roman{subsubsection}.}
+{0.5 ex minus .2ex}
+{\color{\maunhan!90!black}\large\bfseries\fontfamily{qag}\selectfont{#1}}
+{}
+
+%%%%====================paragraph===========================%%%
+%\titlespacing*{\paragraph}{1cm}{5pt}{0pt}
+%\titleformat{\paragraph}
+%{}
+%{\color{\mycolor!90!black}\bfseries\fontfamily{qag}\selectfont\arabic{paragraph}.}
+%{1ex minus .2ex}
+%{\color{\mycolor!90!black}\bfseries\fontfamily{qag}\selectfont{#1}}
+%{}
+\setcounter{secnumdepth}{4}
+\counterwithin{paragraph}{subsection}
+\titlespacing*{\paragraph}{12pt}{6pt}{0pt}
+\titleformat{\paragraph}
+{\bfseries\fontfamily{qag}\selectfont\color{\maunhan!90!black}}
+{\arabic{paragraph}.}
+{0.3 ex minus .2ex}
+{#1}[]
+
+
