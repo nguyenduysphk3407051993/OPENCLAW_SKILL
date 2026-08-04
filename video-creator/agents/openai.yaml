@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Creator"
+  short_description: "Realistic, consistent AI video storyboards"
+  default_prompt: "Use $video-creator to create a production-ready AI video blueprint from my brief."
