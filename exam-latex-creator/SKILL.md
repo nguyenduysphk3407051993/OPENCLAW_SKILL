@@ -363,3 +363,100 @@ Xem chi tiết tại `<SKILL_DIR>/references/mapid6-coding.md`.
 - [ ] Chạy `<EXPORT> fix` để sửa lỗi
 - [ ] Chạy `<EXPORT> compile` để biên dịch PDF
 - [ ] Cập nhật MAPID nếu có dạng bài mới
+
+
+---
+
+## Cập nhật bắt buộc: template cứng và build đúng latex-output của skill
+
+Khi tạo đề thi hoàn chỉnh bằng `exam-latex-creator`, bắt buộc tuân thủ các luật sau.
+
+### 1. Dùng đúng template đề thi
+
+File `.tex` phải sinh theo đúng template:
+
+```text
+<SKILL_DIR>/assets/template-de-thi.tex
+```
+
+Dòng đầu của file đề bắt buộc là:
+
+```latex
+\documentclass[FileMain.tex]{subfiles}
+```
+
+Không tự thêm bất cứ phần nào sau đây vào file đề:
+
+```latex
+\usepackage
+```
+
+Không tự thêm macro, preamble, `geometry`, `fancyhdr`, `tcolorbox`, `tikz`, màu, header/layout tự chế, hoặc lệnh trình bày ngoài template.
+
+Chỉ được thay placeholder trong template và chèn câu hỏi vào đúng 4 vùng:
+
+- trắc nghiệm nhiều lựa chọn `EX`;
+- đúng/sai `TF`;
+- trả lời ngắn `SA`;
+- tự luận `BT`.
+
+Nếu cần package/macro ngoài template để build, báo blocker; không tự sửa file đề bằng cách thêm package/macro.
+
+### 2. Dùng đúng thư mục latex-output của chính skill
+
+Source/build chính luôn nằm trong thư mục:
+
+```text
+<SKILL_DIR>/latex-output/
+```
+
+Với OpenClaw hiện tại:
+
+```text
+/home/node/.openclaw/skills/exam-latex-creator/latex-output/
+```
+
+Không build đề của skill này trong:
+
+```text
+/home/node/.openclaw/workspace/latex-edutechnd/latex-output/
+```
+
+### 3. Biên dịch bằng pdflatex 2 lần
+
+Biên dịch trong đúng thư mục `latex-output` của skill:
+
+```bash
+cd <SKILL_DIR>/latex-output
+pdflatex -interaction=nonstopmode -halt-on-error <ten-file>.tex
+pdflatex -interaction=nonstopmode -halt-on-error <ten-file>.tex
+```
+
+Chạy 2 lần để cập nhật tham chiếu, nhãn, mục lục và số trang. Chỉ bàn giao khi lần 2 thành công.
+
+### 4. Bàn giao file
+
+Sau khi build thành công mới copy bản bàn giao sang workspace agent:
+
+```text
+/home/node/.openclaw/workspace/latex-edutechnd/01_Documents/<ten-file>.tex
+/home/node/.openclaw/workspace/latex-edutechnd/01_Documents/<ten-file>.pdf
+/home/node/.openclaw/workspace/latex-edutechnd/01_Documents/<ten-file>-report.txt
+```
+
+Không ghi sản phẩm ra gốc workspace.
+
+### 5. Report hậu kiểm bắt buộc
+
+Report phải ghi rõ:
+
+- `Skill live`: đường dẫn `SKILL.md` đã dùng;
+- `Template live`: đường dẫn `assets/template-de-thi.tex` đã dùng;
+- `Build directory`: đúng `<SKILL_DIR>/latex-output/`;
+- `Compiler pass 1` và `Compiler pass 2`;
+- dòng đầu `.tex` là `\documentclass[FileMain.tex]{subfiles}`;
+- số lần `\usepackage` trong file đề là `0`;
+- số lượng `EX`, `TF`, `SA`, `BT`;
+- kiểm `choiceTF` khớp `itemchoice`;
+- PDF tồn tại và >0 byte;
+- đường dẫn bản bàn giao trong `01_Documents/`.
