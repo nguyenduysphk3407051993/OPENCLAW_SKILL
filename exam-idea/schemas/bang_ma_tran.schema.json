@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "exam-idea/bang_ma_tran.schema.json",
+  "title": "Bảng ma trận đề kiểm tra",
+  "type": "object",
+  "required": ["cau_hinh", "chu_de"],
+  "properties": {
+    "tieu_de": { "type": "string" },
+    "thong_tin": { "$ref": "#/$defs/thongTin" },
+    "cau_hinh": { "$ref": "#/$defs/cauHinh" },
+    "chu_de": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ten", "noi_dung"],
+        "properties": {
+          "tt": { "type": ["integer", "string"] },
+          "ten": { "type": "string", "minLength": 1 },
+          "noi_dung": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["ten"],
+              "properties": {
+                "ten": { "type": "string", "minLength": 1 },
+                "so_lenh_hoi": {
+                  "description": "{ <mã nhóm>: { <mã mức độ>: số lệnh hỏi } }",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": { "type": "integer", "minimum": 0 }
+                  }
+                },
+                "diem": {
+                  "description": "Điểm khai tường minh, ghi đè phép nhân số lệnh hỏi × diem_moi_lenh",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": { "type": "number", "minimum": 0 }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "ghi_chu": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "thongTin": {
+      "type": "object",
+      "properties": {
+        "mon": { "type": "string" },
+        "lop": { "type": ["integer", "string"] },
+        "thoi_gian": { "type": "string" },
+        "hinh_thuc": { "type": "string" },
+        "chu_de_chung": { "type": "string" }
+      }
+    },
+    "cauHinh": {
+      "type": "object",
+      "required": ["muc_do", "nhom_cau_hoi"],
+      "properties": {
+        "tong_diem": { "type": "number", "exclusiveMinimum": 0, "default": 10 },
+        "muc_do": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": ["ma", "ten"],
+            "properties": {
+              "ma": { "type": "string" },
+              "ten": { "type": "string" },
+              "ten_ngan": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "ty_le_muc_tieu": {
+          "description": "{ <mã mức độ>: phần trăm điểm }. validate.py đối chiếu tuyệt đối.",
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 100 }
+        },
+        "nhom_cau_hoi": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["ma", "ten", "loai"],
+            "properties": {
+              "ma": { "type": "string" },
+              "ten": { "type": "string" },
+              "nhom_cha": {
+                "description": "Gộp cột ở dòng tiêu đề 2, ví dụ TNKQ / Tự luận",
+                "type": "string"
+              },
+              "loai": { "type": "integer", "enum": [1, 2, 3, 4] },
+              "diem_moi_lenh": { "type": ["number", "null"], "minimum": 0 },
+              "so_cau": { "type": "integer", "minimum": 0 },
+              "so_y_moi_cau": {
+                "description": "Số lệnh hỏi mỗi câu: loại 2 = 4, loại 4 = 2",
+                "type": "integer",
+                "minimum": 1
+              },
+              "ghi_chu": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "exam-idea/bang_dac_ta.schema.json",
+  "title": "Bảng đặc tả đề kiểm tra",
+  "type": "object",
+  "required": ["cau_hinh", "chu_de"],
+  "properties": {
+    "tieu_de": { "type": "string" },
+    "thong_tin": { "$ref": "bang_ma_tran.schema.json#/$defs/thongTin" },
+    "cau_hinh": {
+      "description": "PHẢI giống hệt khối cau_hinh của bang_ma_tran.json",
+      "$ref": "bang_ma_tran.schema.json#/$defs/cauHinh"
+    },
+    "chu_de": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ten", "noi_dung"],
+        "properties": {
+          "tt": { "type": ["integer", "string"] },
+          "ten": {
+            "description": "Chuỗi giống hệt chu_de[].ten bên ma trận",
+            "type": "string",
+            "minLength": 1
+          },
+          "noi_dung": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["ten", "yeu_cau_can_dat"],
+              "properties": {
+                "ten": {
+                  "description": "Chuỗi giống hệt noi_dung[].ten bên ma trận",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yeu_cau_can_dat": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["muc_do", "noi_dung"],
+                    "properties": {
+                      "muc_do": {
+                        "description": "Mã mức độ, phải có trong cau_hinh.muc_do",
+                        "type": "string"
+                      },
+                      "noi_dung": { "type": "string", "minLength": 1 },
+                      "so_lenh_hoi": {
+                        "description": "{ <mã nhóm>: số lệnh hỏi } — phẳng một tầng vì mức độ đã nằm ở khoá muc_do",
+                        "type": "object",
+                        "additionalProperties": { "type": "integer", "minimum": 0 }
+                      },
+                      "diem": {
+                        "description": "{ <mã nhóm>: điểm } — chỉ cần cho nhóm có diem_moi_lenh = null",
+                        "type": "object",
+                        "additionalProperties": { "type": "number", "minimum": 0 }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "ghi_chu": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

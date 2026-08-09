@@ -1,0 +1,81 @@
+{
+  "tieu_de": "1. MA TRẬN ĐỀ KIỂM TRA ĐỊNH KÌ",
+  "thong_tin": {
+    "mon": "Khoa học tự nhiên",
+    "lop": 6,
+    "thoi_gian": "45 phút",
+    "hinh_thuc": "Trắc nghiệm khách quan kết hợp tự luận",
+    "chu_de_chung": "Mở đầu về Khoa học tự nhiên – Đa dạng chất, các thể của chất"
+  },
+  "cau_hinh": {
+    "tong_diem": 10,
+    "muc_do": [
+      { "ma": "NB", "ten": "Nhận biết", "ten_ngan": "Biết" },
+      { "ma": "TH", "ten": "Thông hiểu", "ten_ngan": "Hiểu" },
+      { "ma": "VD", "ten": "Vận dụng", "ten_ngan": "Vận dụng" },
+      { "ma": "LH", "ten": "Liên hệ thực tế", "ten_ngan": "Liên hệ" }
+    ],
+    "ty_le_muc_tieu": { "NB": 50, "TH": 30, "VD": 10, "LH": 10 },
+    "nhom_cau_hoi": [
+      { "ma": "TN", "ten": "Nhiều lựa chọn", "nhom_cha": "TNKQ", "loai": 1, "diem_moi_lenh": 0.25, "so_cau": 12, "ghi_chu": "12 câu × 0,25 điểm = 3,0 điểm" },
+      { "ma": "DS", "ten": "\"Đúng – Sai\"", "nhom_cha": "TNKQ", "loai": 2, "diem_moi_lenh": 0.25, "so_cau": 4, "so_y_moi_cau": 4, "ghi_chu": "4 câu × 4 ý × 0,25 điểm = 4,0 điểm; đơn vị đếm trong ma trận là LỆNH HỎI (ý)" },
+      { "ma": "TLN", "ten": "Trả lời ngắn", "nhom_cha": "TNKQ", "loai": 3, "diem_moi_lenh": 0.5, "so_cau": 2, "ghi_chu": "2 câu × 0,5 điểm = 1,0 điểm" },
+      { "ma": "TL", "ten": "Tự luận", "nhom_cha": "Tự luận", "loai": 4, "diem_moi_lenh": null, "so_cau": 3, "so_y_moi_cau": 2, "ghi_chu": "3 câu × 2 ý a), b) = 6 lệnh hỏi; điểm khai báo tường minh, tổng 2,0 điểm" }
+    ]
+  },
+  "chu_de": [
+    {
+      "tt": 1,
+      "ten": "Mở đầu về Khoa học tự nhiên",
+      "noi_dung": [
+        {
+          "ten": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+          "so_lenh_hoi": {
+            "TN": { "NB": 2, "TH": 1 },
+            "DS": { "NB": 2, "TH": 2 }
+          }
+        },
+        {
+          "ten": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+          "so_lenh_hoi": {
+            "TN": { "NB": 2, "TH": 1 },
+            "DS": { "NB": 3, "TH": 1 },
+            "TLN": { "NB": 1 },
+            "TL": { "TH": 2 }
+          },
+          "diem": { "TL": { "TH": 0.5 } }
+        }
+      ]
+    },
+    {
+      "tt": 2,
+      "ten": "Đa dạng chất. Các thể của chất",
+      "noi_dung": [
+        {
+          "ten": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+          "so_lenh_hoi": {
+            "TN": { "NB": 2, "TH": 1 },
+            "DS": { "NB": 2, "TH": 1, "VD": 1 },
+            "TL": { "VD": 2 }
+          },
+          "diem": { "TL": { "VD": 0.5 } }
+        },
+        {
+          "ten": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+          "so_lenh_hoi": {
+            "TN": { "NB": 2, "TH": 1 },
+            "DS": { "NB": 3, "VD": 1 },
+            "TLN": { "TH": 1 },
+            "TL": { "LH": 2 }
+          },
+          "diem": { "TL": { "LH": 1.0 } }
+        }
+      ]
+    }
+  ],
+  "ghi_chu": [
+    "(*) Đơn vị đếm trong ma trận là LỆNH HỎI: mỗi câu loại 1 và loại 3 tính 1 lệnh hỏi; mỗi câu loại 2 (\"Đúng – Sai\") tính 4 lệnh hỏi ứng với 4 ý a), b), c), d); mỗi câu loại 4 (tự luận) tính 2 lệnh hỏi ứng với 2 ý a), b).",
+    "(**) Thang điểm: loại 1 = 0,25 điểm/câu; loại 2 = 0,25 điểm/ý; loại 3 = 0,5 điểm/câu; loại 4 tính điểm theo từng ý a), b), tổng 2,0 điểm.",
+    "(***) Tỷ lệ mức độ Nhận biết : Thông hiểu : Vận dụng : Liên hệ thực tế = 50% : 30% : 10% : 10%."
+  ]
+}

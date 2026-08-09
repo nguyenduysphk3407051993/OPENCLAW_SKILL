@@ -1,0 +1,357 @@
+{
+  "tieu_de": "CÁC DẠNG BÀI TẬP VÀ ĐỀ MINH HOẠ",
+  "thong_tin": {
+    "mon": "Khoa học tự nhiên",
+    "lop": 6,
+    "chu_de_chung": "Chủ đề: Mở đầu về Khoa học tự nhiên và Đa dạng chất, các thể của chất"
+  },
+  "cau_hinh": {
+    "muc_do": [
+      { "ma": "NB", "ten": "Nhận biết" },
+      { "ma": "TH", "ten": "Thông hiểu" },
+      { "ma": "VD", "ten": "Vận dụng" },
+      { "ma": "LH", "ten": "Liên hệ thực tế" }
+    ]
+  },
+
+  "muc_tieu": [
+    {
+      "chu_de": "Chủ đề 1. Mở đầu về Khoa học tự nhiên",
+      "yeu_cau": [
+        { "muc_do": "NB", "noi_dung": "Nêu được khái niệm khoa học tự nhiên; nhận ra được đối tượng nghiên cứu của khoa học tự nhiên là các sự vật, hiện tượng và quy luật của thế giới tự nhiên." },
+        { "muc_do": "NB", "noi_dung": "Trình bày được các lĩnh vực chủ yếu của khoa học tự nhiên: Vật lí, Hoá học, Sinh học, Thiên văn học, Khoa học Trái Đất." },
+        { "muc_do": "NB", "noi_dung": "Nêu được các quy định an toàn khi học trong phòng thực hành; nhận biết được ý nghĩa của một số kí hiệu cảnh báo." },
+        { "muc_do": "NB", "noi_dung": "Trình bày được công dụng và cách sử dụng một số dụng cụ đo thông dụng (thước, bình chia độ, cân, nhiệt kế), kính lúp và kính hiển vi quang học." },
+        { "muc_do": "TH", "noi_dung": "Phân biệt được vật sống và vật không sống dựa vào các đặc điểm đặc trưng: trao đổi chất và chuyển hoá năng lượng, lớn lên, sinh sản, cảm ứng." },
+        { "muc_do": "TH", "noi_dung": "Xác định được giới hạn đo (GHĐ) và độ chia nhỏ nhất (ĐCNN) của dụng cụ đo; lựa chọn được dụng cụ đo phù hợp với phép đo." },
+        { "muc_do": "TH", "noi_dung": "Giải thích được cơ sở khoa học của một số quy tắc an toàn bắt buộc trong phòng thực hành." },
+        { "muc_do": "VD", "noi_dung": "Xử lí được một số tình huống mất an toàn thường gặp trong phòng thực hành; tính được độ phóng đại của kính hiển vi quang học." }
+      ]
+    },
+    {
+      "chu_de": "Chủ đề 2. Đa dạng chất. Các thể của chất",
+      "yeu_cau": [
+        { "muc_do": "NB", "noi_dung": "Nêu được sự đa dạng của chất; chất có ở xung quanh ta, trong mọi vật thể tự nhiên và vật thể nhân tạo." },
+        { "muc_do": "NB", "noi_dung": "Nêu được ba thể (trạng thái) cơ bản của chất: rắn, lỏng, khí kèm ví dụ minh hoạ ở điều kiện thường." },
+        { "muc_do": "NB", "noi_dung": "Nêu được khái niệm về sự nóng chảy, sự đông đặc, sự bay hơi, sự ngưng tụ, sự sôi và các mốc nhiệt độ chuyển thể của nước." },
+        { "muc_do": "TH", "noi_dung": "Trình bày và so sánh được đặc điểm về hình dạng, thể tích, khả năng bị nén, khả năng lan truyền của chất ở thể rắn, lỏng, khí." },
+        { "muc_do": "TH", "noi_dung": "Phân biệt được vật thể tự nhiên – vật thể nhân tạo, vật hữu sinh – vật vô sinh; xác định được quá trình chuyển thể trong một hiện tượng cụ thể." },
+        { "muc_do": "VD", "noi_dung": "Vận dụng đặc điểm các thể của chất để dự đoán, giải thích kết quả khi chuyển một lượng chất sang vật chứa có hình dạng khác." },
+        { "muc_do": "LH", "noi_dung": "Giải thích được các hiện tượng chuyển thể của nước trong đời sống (trời nồm, sương mù, giọt nước bám ngoài thành cốc nước đá) và đề xuất được biện pháp ứng phó phù hợp với gia đình, địa phương." }
+      ]
+    }
+  ],
+
+  "dang_bai_tap": [
+    {
+      "loai": 1,
+      "mo_ta": "Mỗi câu nêu 1 vấn đề, cho 4 phương án A, B, C, D; thí sinh chọn duy nhất 1 phương án đúng. Các phương án nhiễu phải hợp lí, cùng trường ngữ nghĩa, tránh phương án quá dài hoặc lộ đáp án.",
+      "dang": [
+        { "ma": "1.1", "ten": "Nhận diện khái niệm, đối tượng và lĩnh vực của khoa học tự nhiên", "muc_do": "NB", "mo_ta": "Cho một khái niệm hoặc một hoạt động, yêu cầu chọn định nghĩa đúng hoặc chỉ ra lĩnh vực/ngành không thuộc KHTN.", "vi_du": "Lĩnh vực nào sau đây không thuộc khoa học tự nhiên?" },
+        { "ma": "1.2", "ten": "Nhận diện dụng cụ đo, quy tắc an toàn và kí hiệu cảnh báo", "muc_do": "NB", "mo_ta": "Gắn tên dụng cụ với công dụng (đo chiều dài, thể tích, khối lượng, nhiệt độ) hoặc gắn kí hiệu cảnh báo với ý nghĩa.", "vi_du": "Dụng cụ nào dùng để đo thể tích chất lỏng trong phòng thực hành?" },
+        { "ma": "1.3", "ten": "Nhận diện vật thể tự nhiên – nhân tạo, vật sống – vật không sống, thể của chất", "muc_do": "NB", "mo_ta": "Cho danh sách vật thể/chất quen thuộc, yêu cầu chọn đúng nhóm phân loại hoặc thể tồn tại ở điều kiện thường." },
+        { "ma": "1.4", "ten": "So sánh – phân biệt đặc điểm ba thể của chất", "muc_do": "TH", "mo_ta": "Cho một đặc điểm (hình dạng, thể tích, khả năng nén, khả năng lan truyền), yêu cầu xác định thể tương ứng." },
+        { "ma": "1.5", "ten": "Xác định GHĐ – ĐCNN và đọc kết quả đo", "muc_do": "TH", "mo_ta": "Cho thông số ghi trên dụng cụ đo, yêu cầu chỉ ra ý nghĩa của từng số hoặc chọn dụng cụ đo phù hợp." },
+        { "ma": "1.6", "ten": "Gọi tên quá trình chuyển thể trong một hiện tượng thực tế", "muc_do": "TH", "mo_ta": "Cho một hiện tượng đời sống (sương đọng, nước đá tan, quần áo khô…), yêu cầu chỉ ra quá trình chuyển thể tương ứng." }
+      ]
+    },
+    {
+      "loai": 2,
+      "mo_ta": "Mỗi câu cho một ngữ cảnh/dữ kiện chung và 4 nhận định a), b), c), d); thí sinh xác định từng nhận định là Đúng hay Sai. Số ý đúng trong mỗi câu nên khác nhau; 4 ý nên phủ nhiều mức độ tăng dần trong cùng một đơn vị kiến thức.",
+      "dang": [
+        { "ma": "2.1", "ten": "Chùm nhận định về nội quy và an toàn phòng thực hành", "muc_do": "NB", "mo_ta": "Trộn các quy tắc đúng với các thao tác sai điển hình (nếm/ngửi trực tiếp hoá chất, đổ hoá chất thừa lại lọ, hướng miệng ống nghiệm về phía người)." },
+        { "ma": "2.2", "ten": "Chùm nhận định về đặc điểm ba thể của chất", "muc_do": "TH", "mo_ta": "Cho 2–3 chất cụ thể ở điều kiện thường, các ý đi từ nhận biết thể → so sánh đặc điểm → dự đoán kết quả khi đổi vật chứa." },
+        { "ma": "2.3", "ten": "Chùm nhận định về các quá trình chuyển thể", "muc_do": "NB", "mo_ta": "Kiểm tra định nghĩa nóng chảy/đông đặc/bay hơi/ngưng tụ, kèm 1 ý vận dụng bác bỏ cách giải thích sai về hiện tượng thực tế." },
+        { "ma": "2.4", "ten": "Chùm nhận định về lĩnh vực KHTN và vật sống – vật không sống", "muc_do": "TH", "mo_ta": "Kết hợp nhận biết các lĩnh vực KHTN với việc phân biệt vật sống dựa trên dấu hiệu đặc trưng, có ý gài bẫy (ngọn nến, tinh thể muối lớn lên)." }
+      ]
+    },
+    {
+      "loai": 3,
+      "mo_ta": "Câu hỏi mà đáp án là một con số (kèm đơn vị nếu có). Yêu cầu phép tính đơn giản, dữ kiện rõ ràng, chỉ có duy nhất một giá trị đúng.",
+      "dang": [
+        { "ma": "3.1", "ten": "Tính độ phóng đại của kính hiển vi quang học", "muc_do": "NB", "mo_ta": "Độ phóng đại = số bội giác vật kính × số bội giác thị kính.", "vi_du": "Vật kính 40x, thị kính 10x → độ phóng đại 400 lần." },
+        { "ma": "3.2", "ten": "Đọc và tính kết quả đo (thể tích, khối lượng, nhiệt độ)", "muc_do": "TH", "mo_ta": "Cho mực chất lỏng trước và sau khi thả vật, hoặc số chỉ trên cân, yêu cầu tính giá trị cần đo." },
+        { "ma": "3.3", "ten": "Tính khoảng nhiệt độ tồn tại của một thể", "muc_do": "TH", "mo_ta": "Từ nhiệt độ nóng chảy và nhiệt độ sôi, tính độ rộng khoảng nhiệt độ mà chất tồn tại ở thể lỏng." },
+        { "ma": "3.4", "ten": "Đếm số đối tượng thoả mãn một tiêu chí phân loại", "muc_do": "NB", "mo_ta": "Cho danh sách vật thể/chất, đếm số vật thể tự nhiên, vật sống hoặc số chất ở thể khí." }
+      ]
+    },
+    {
+      "loai": 4,
+      "mo_ta": "Câu hỏi yêu cầu trình bày, giải thích, phân loại hoặc đề xuất giải pháp. Nên chia thành các ý a), b) với thang điểm rõ ràng để dễ chấm và bảo đảm đúng mức độ đã thiết kế trong ma trận.",
+      "dang": [
+        { "ma": "4.1", "ten": "Trình bày và giải thích cơ sở của quy tắc an toàn phòng thực hành", "muc_do": "TH", "mo_ta": "Không dừng ở việc kể tên quy tắc mà phải nêu được lí do khoa học/hậu quả nếu vi phạm." },
+        { "ma": "4.2", "ten": "Phân loại vật thể – chất và giải thích bằng đặc điểm các thể", "muc_do": "VD", "mo_ta": "Cho tình huống chuyển chất sang vật chứa khác, yêu cầu dự đoán hình dạng – thể tích và lí giải." },
+        { "ma": "4.3", "ten": "Giải thích hiện tượng chuyển thể trong đời sống và đề xuất biện pháp", "muc_do": "LH", "mo_ta": "Bám vào hiện tượng có thật ở địa phương (trời nồm, sương mù, bảo quản thực phẩm), yêu cầu 2 biện pháp kèm cơ sở khoa học." },
+        { "ma": "4.4", "ten": "Mô tả thí nghiệm đơn giản theo dõi sự chuyển thể", "muc_do": "VD", "mo_ta": "Nêu dụng cụ, các bước tiến hành, cách ghi số liệu và dự đoán dạng đồ thị nhiệt độ – thời gian khi đun nóng chảy nước đá." }
+      ]
+    }
+  ],
+
+  "de_minh_hoa": {
+    "cau_truc": "Cấu trúc đề: 12 câu loại 1 (3,0 điểm) – 4 câu loại 2 gồm 16 ý (4,0 điểm) – 2 câu loại 3 (1,0 điểm) – 3 câu loại 4 gồm 6 ý a), b) (2,0 điểm). Tổng 33 lệnh hỏi, 10,0 điểm; tỉ lệ Nhận biết : Thông hiểu : Vận dụng : Liên hệ thực tế = 50% : 30% : 10% : 10%.",
+    "phan": [
+      {
+        "ten": "PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN (12 câu – 3,0 điểm)",
+        "huong_dan": "Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án. Mỗi câu trả lời đúng được 0,25 điểm.",
+        "loai": 1,
+        "cau": [
+          {
+            "stt": 1, "loai": 1, "muc_do": "NB", "dang": "1.1", "diem": 0.25,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+            "de": "Khoa học tự nhiên nghiên cứu về đối tượng nào sau đây?",
+            "lua_chon": [
+              "Các sự vật, hiện tượng và quy luật của thế giới tự nhiên",
+              "Sự hình thành và phát triển của xã hội loài người",
+              "Các quy tắc ứng xử giữa người với người",
+              "Các tác phẩm hội hoạ và âm nhạc"
+            ],
+            "dap_an": "A",
+            "loi_giai": "Khoa học tự nhiên là ngành khoa học nghiên cứu các sự vật, hiện tượng, quy luật của tự nhiên cùng ảnh hưởng của chúng đến cuộc sống con người và môi trường."
+          },
+          {
+            "stt": 2, "loai": 1, "muc_do": "NB", "dang": "1.1", "diem": 0.25,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+            "de": "Lĩnh vực nào sau đây KHÔNG thuộc khoa học tự nhiên?",
+            "lua_chon": ["Sinh học", "Thiên văn học", "Lịch sử", "Hoá học"],
+            "dap_an": "C",
+            "loi_giai": "Năm lĩnh vực chủ yếu của khoa học tự nhiên là Vật lí, Hoá học, Sinh học, Thiên văn học và Khoa học Trái Đất. Lịch sử thuộc nhóm khoa học xã hội."
+          },
+          {
+            "stt": 3, "loai": 1, "muc_do": "TH", "dang": "1.3", "diem": 0.25,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+            "de": "Vật nào sau đây là vật sống?",
+            "lua_chon": ["Robot lau nhà", "Cây cà chua", "Hòn đá cuội", "Chiếc xe đạp"],
+            "dap_an": "B",
+            "loi_giai": "Cây cà chua có đầy đủ các đặc điểm của vật sống: trao đổi chất, lớn lên, sinh sản và cảm ứng. Robot chuyển động được nhưng không trao đổi chất và không sinh sản."
+          },
+          {
+            "stt": 4, "loai": 1, "muc_do": "NB", "dang": "1.2", "diem": 0.25,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+            "de": "Dụng cụ nào sau đây được dùng để đo thể tích chất lỏng trong phòng thực hành?",
+            "lua_chon": ["Cân điện tử", "Bình chia độ", "Nhiệt kế", "Lực kế"],
+            "dap_an": "B",
+            "loi_giai": "Bình chia độ (ống đong) dùng để đo thể tích chất lỏng; cân đo khối lượng, nhiệt kế đo nhiệt độ, lực kế đo lực."
+          },
+          {
+            "stt": 5, "loai": 1, "muc_do": "NB", "dang": "1.2", "diem": 0.25,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+            "de": "Kính hiển vi quang học được dùng để quan sát",
+            "lua_chon": [
+              "các thiên thể ở rất xa trên bầu trời",
+              "các chi tiết nhỏ của con tem, gân lá bằng cách phóng to vài chục lần",
+              "các vật rất nhỏ mà mắt thường không nhìn thấy được như tế bào, vi khuẩn",
+              "kích thước thật của các vật trong đời sống hằng ngày"
+            ],
+            "dap_an": "C",
+            "loi_giai": "Kính hiển vi quang học phóng đại hàng trăm đến hàng nghìn lần, dùng quan sát tế bào, vi khuẩn. Quan sát gân lá, con tem là công dụng của kính lúp; quan sát thiên thể dùng kính thiên văn."
+          },
+          {
+            "stt": 6, "loai": 1, "muc_do": "TH", "dang": "1.5", "diem": 0.25,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+            "de": "Trên một chiếc cân đồng hồ có ghi 5 kg – 20 g. Số 20 g cho biết điều gì?",
+            "lua_chon": [
+              "Giới hạn đo của cân",
+              "Khối lượng của đĩa cân",
+              "Độ chia nhỏ nhất của cân",
+              "Khối lượng lớn nhất mỗi lần cân thêm được"
+            ],
+            "dap_an": "C",
+            "loi_giai": "Số lớn (5 kg) là giới hạn đo – khối lượng lớn nhất cân đo được; số nhỏ (20 g) là độ chia nhỏ nhất – giá trị giữa hai vạch chia liên tiếp."
+          },
+          {
+            "stt": 7, "loai": 1, "muc_do": "NB", "dang": "1.3", "diem": 0.25,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+            "de": "Vật thể nào sau đây là vật thể tự nhiên?",
+            "lua_chon": ["Cây mía", "Chiếc bàn gỗ", "Cốc thuỷ tinh", "Chiếc áo len"],
+            "dap_an": "A",
+            "loi_giai": "Cây mía tồn tại sẵn trong tự nhiên. Bàn gỗ, cốc thuỷ tinh, áo len đều do con người chế tạo nên là vật thể nhân tạo."
+          },
+          {
+            "stt": 8, "loai": 1, "muc_do": "NB", "dang": "1.3", "diem": 0.25,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+            "de": "Ở điều kiện thường, chất nào sau đây tồn tại ở thể khí?",
+            "lua_chon": ["Đường ăn", "Oxygen", "Nước", "Sắt"],
+            "dap_an": "B",
+            "loi_giai": "Ở điều kiện thường oxygen là chất khí; đường ăn và sắt ở thể rắn, nước ở thể lỏng."
+          },
+          {
+            "stt": 9, "loai": 1, "muc_do": "TH", "dang": "1.4", "diem": 0.25,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+            "de": "Đặc điểm nào sau đây là của chất ở thể lỏng?",
+            "lua_chon": [
+              "Có hình dạng và thể tích xác định",
+              "Có thể tích xác định, hình dạng thay đổi theo vật chứa",
+              "Không có hình dạng và thể tích xác định",
+              "Chiếm toàn bộ thể tích của vật chứa và rất dễ bị nén"
+            ],
+            "dap_an": "B",
+            "loi_giai": "Chất lỏng có thể tích xác định nhưng hình dạng phụ thuộc vật chứa. Phương án A là thể rắn; C và D là thể khí."
+          },
+          {
+            "stt": 10, "loai": 1, "muc_do": "NB", "dang": "1.6", "diem": 0.25,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+            "de": "Quá trình chất chuyển từ thể lỏng sang thể rắn được gọi là",
+            "lua_chon": ["sự nóng chảy", "sự bay hơi", "sự đông đặc", "sự ngưng tụ"],
+            "dap_an": "C",
+            "loi_giai": "Lỏng → rắn là sự đông đặc; rắn → lỏng là sự nóng chảy; lỏng → khí là sự bay hơi; khí → lỏng là sự ngưng tụ."
+          },
+          {
+            "stt": 11, "loai": 1, "muc_do": "NB", "dang": "1.3", "diem": 0.25,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+            "de": "Ở điều kiện thường (áp suất khí quyển chuẩn), nước sôi ở nhiệt độ nào?",
+            "lua_chon": ["0 °C", "37 °C", "100 °C", "1000 °C"],
+            "dap_an": "C",
+            "loi_giai": "Ở áp suất khí quyển chuẩn, nước đá nóng chảy ở 0 °C và nước sôi ở 100 °C."
+          },
+          {
+            "stt": 12, "loai": 1, "muc_do": "TH", "dang": "1.6", "diem": 0.25,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+            "de": "Sáng sớm, trên lá cây thường có những giọt sương. Hiện tượng này liên quan trực tiếp đến quá trình nào?",
+            "lua_chon": ["Sự nóng chảy", "Sự ngưng tụ", "Sự đông đặc", "Sự sôi"],
+            "dap_an": "B",
+            "loi_giai": "Ban đêm nhiệt độ hạ thấp, hơi nước trong không khí gặp lạnh chuyển thành nước lỏng đọng trên lá – đó là sự ngưng tụ."
+          }
+        ]
+      },
+      {
+        "ten": "PHẦN II. TRẮC NGHIỆM ĐÚNG – SAI (4 câu – 4,0 điểm)",
+        "huong_dan": "Thí sinh trả lời từ câu 13 đến câu 16. Trong mỗi ý a), b), c), d) thí sinh chọn Đúng hoặc Sai. Mỗi ý trả lời đúng được 0,25 điểm.",
+        "loai": 2,
+        "cau": [
+          {
+            "stt": 13, "loai": 2, "diem": 1.0,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+            "de": "Khi học trong phòng thực hành môn Khoa học tự nhiên, học sinh phải tuân thủ nội quy an toàn và sử dụng đúng dụng cụ đo. Xét các nhận định sau:",
+            "y": [
+              { "nd": "Phải đọc kĩ nhãn và hướng dẫn sử dụng trước khi dùng bất kì hoá chất nào.", "dap_an": true, "muc_do": "NB", "giai_thich": "Đúng. Nhãn hoá chất cho biết tên, nồng độ và các cảnh báo nguy hiểm, bắt buộc phải đọc trước khi sử dụng." },
+              { "nd": "Có thể nếm hoặc ngửi trực tiếp hoá chất để nhận biết chúng.", "dap_an": false, "muc_do": "NB", "giai_thich": "Sai. Tuyệt đối không nếm, không ngửi trực tiếp hoá chất vì có thể gây ngộ độc hoặc bỏng đường hô hấp." },
+              { "nd": "Khi đun nóng ống nghiệm, phải hướng miệng ống nghiệm về phía không có người.", "dap_an": true, "muc_do": "NB", "giai_thich": "Đúng. Chất lỏng sôi có thể bắn ra khỏi miệng ống nghiệm gây bỏng cho người đối diện." },
+              { "nd": "Một bình chia độ có GHĐ 100 mL và ĐCNN 2 mL có thể đo chính xác thể tích 55 mL nước.", "dap_an": false, "muc_do": "TH", "giai_thich": "Sai. Với ĐCNN 2 mL, các vạch chia là 0; 2; 4; … mL nên chỉ đọc được các giá trị chẵn; 55 mL không trùng vạch chia nào." }
+            ]
+          },
+          {
+            "stt": 14, "loai": 2, "diem": 1.0,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+            "de": "Cho ba chất ở điều kiện thường: sắt, nước và khí oxygen. Xét các nhận định sau:",
+            "y": [
+              { "nd": "Sắt ở thể rắn nên có hình dạng và thể tích xác định.", "dap_an": true, "muc_do": "NB", "giai_thich": "Đúng. Chất rắn có hình dạng và thể tích riêng xác định, rất khó bị nén." },
+              { "nd": "Chất tạo nên vật thể chỉ có ở các vật thể nhân tạo, không có ở vật thể tự nhiên.", "dap_an": false, "muc_do": "NB", "giai_thich": "Sai. Mọi vật thể, dù tự nhiên hay nhân tạo, đều được tạo nên từ chất." },
+              { "nd": "Khí oxygen chiếm toàn bộ thể tích bình chứa và dễ bị nén hơn nước.", "dap_an": true, "muc_do": "TH", "giai_thich": "Đúng. Chất khí không có hình dạng và thể tích xác định, các hạt ở xa nhau nên rất dễ bị nén; chất lỏng khó bị nén hơn nhiều." },
+              { "nd": "Rót toàn bộ 200 mL nước từ cốc sang một bình tam giác thì thể tích nước đo được vẫn là 200 mL.", "dap_an": true, "muc_do": "VD", "giai_thich": "Đúng. Nước là chất lỏng: hình dạng đổi theo vật chứa nhưng thể tích được bảo toàn." }
+            ]
+          },
+          {
+            "stt": 15, "loai": 2, "diem": 1.0,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+            "de": "Xét các nhận định về sự chuyển thể của chất:",
+            "y": [
+              { "nd": "Sự nóng chảy là quá trình chất chuyển từ thể rắn sang thể lỏng.", "dap_an": true, "muc_do": "NB", "giai_thich": "Đúng, đây chính là định nghĩa của sự nóng chảy." },
+              { "nd": "Sự bay hơi chỉ xảy ra khi chất lỏng đạt tới nhiệt độ sôi.", "dap_an": false, "muc_do": "NB", "giai_thich": "Sai. Sự bay hơi xảy ra ở mọi nhiệt độ và chỉ trên bề mặt chất lỏng; sự sôi mới xảy ra ở nhiệt độ xác định và cả trong lòng chất lỏng." },
+              { "nd": "Sự ngưng tụ là quá trình chất chuyển từ thể khí sang thể lỏng.", "dap_an": true, "muc_do": "NB", "giai_thich": "Đúng, ngưng tụ là quá trình ngược với bay hơi." },
+              { "nd": "Cho nước đá vào cốc nước ngọt, một lúc sau thấy nước bám ngoài thành cốc; đó là do nước trong cốc thấm qua thành cốc ra ngoài.", "dap_an": false, "muc_do": "VD", "giai_thich": "Sai. Thành cốc thuỷ tinh không cho nước thấm qua. Hơi nước trong không khí gặp thành cốc lạnh đã ngưng tụ thành giọt nước bám bên ngoài." }
+            ]
+          },
+          {
+            "stt": 16, "loai": 2, "diem": 1.0,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+            "de": "Xét các nhận định về lĩnh vực của khoa học tự nhiên và về vật sống:",
+            "y": [
+              { "nd": "Vật lí, Hoá học, Sinh học, Thiên văn học và Khoa học Trái Đất là các lĩnh vực chủ yếu của khoa học tự nhiên.", "dap_an": true, "muc_do": "NB", "giai_thich": "Đúng, đây là 5 lĩnh vực chủ yếu của khoa học tự nhiên." },
+              { "nd": "Nghiên cứu phong tục, tập quán của một dân tộc thuộc lĩnh vực khoa học tự nhiên.", "dap_an": false, "muc_do": "NB", "giai_thich": "Sai. Đó là đối tượng của khoa học xã hội và nhân văn." },
+              { "nd": "Con gà và cây lúa là vật sống vì chúng có trao đổi chất, lớn lên, sinh sản và cảm ứng.", "dap_an": true, "muc_do": "TH", "giai_thich": "Đúng. Đó là 4 đặc điểm đặc trưng dùng để nhận biết vật sống." },
+              { "nd": "Ngọn nến đang cháy được coi là vật sống vì nó toả nhiệt và phát sáng.", "dap_an": false, "muc_do": "TH", "giai_thich": "Sai. Toả nhiệt, phát sáng không phải là dấu hiệu của sự sống; ngọn nến không trao đổi chất, không lớn lên và không sinh sản." }
+            ]
+          }
+        ]
+      },
+      {
+        "ten": "PHẦN III. TRẮC NGHIỆM TRẢ LỜI NGẮN (2 câu – 1,0 điểm)",
+        "huong_dan": "Thí sinh trả lời câu 17 và câu 18. Mỗi câu trả lời đúng được 0,5 điểm.",
+        "loai": 3,
+        "cau": [
+          {
+            "stt": 17, "loai": 3, "muc_do": "NB", "dang": "3.1", "diem": 0.5,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+            "de": "Một kính hiển vi quang học có vật kính ghi 40x và thị kính ghi 10x. Khi dùng cặp vật kính – thị kính này, ảnh của mẫu vật được phóng đại bao nhiêu lần?",
+            "dap_an": "400",
+            "loi_giai": "Độ phóng đại của kính hiển vi = số bội giác vật kính × số bội giác thị kính = 40 × 10 = 400 (lần)."
+          },
+          {
+            "stt": 18, "loai": 3, "muc_do": "TH", "dang": "3.3", "diem": 0.5,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+            "de": "Ở điều kiện thường, nước đá nóng chảy ở 0 °C và nước sôi ở 100 °C. Khoảng nhiệt độ mà nước tồn tại ở thể lỏng rộng bao nhiêu độ C?",
+            "dap_an": "100",
+            "loi_giai": "Nước ở thể lỏng trong khoảng từ 0 °C đến 100 °C, vậy khoảng nhiệt độ rộng 100 − 0 = 100 (°C)."
+          }
+        ]
+      },
+      {
+        "ten": "PHẦN IV. TỰ LUẬN (3 câu, mỗi câu 2 ý – 2,0 điểm)",
+        "huong_dan": "Thí sinh trả lời từ câu 19 đến câu 21. Mỗi câu gồm 2 ý a), b) được chấm điểm độc lập.",
+        "loai": 4,
+        "cau": [
+          {
+            "stt": 19, "loai": 4, "muc_do": "TH", "dang": "4.1", "diem": 0.5,
+            "chu_de": "Mở đầu về Khoa học tự nhiên",
+            "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+            "de": "Trong phòng thực hành môn Khoa học tự nhiên có hai quy định sau: (1) Không ăn, uống trong phòng thực hành; (2) Khi đun nóng ống nghiệm phải hướng miệng ống nghiệm về phía không có người.",
+            "y": [
+              { "nd": "a) Giải thích cơ sở khoa học của quy định (1).", "diem": 0.25, "muc_do": "TH" },
+              { "nd": "b) Giải thích cơ sở khoa học của quy định (2).", "diem": 0.25, "muc_do": "TH" }
+            ],
+            "huong_dan_cham": [
+              { "nd": "a) Bàn ghế, dụng cụ trong phòng thực hành có thể dính hoá chất độc; thức ăn, đồ uống dễ bị nhiễm hoá chất và đi vào cơ thể qua đường tiêu hoá gây ngộ độc.", "diem": 0.25 },
+              { "nd": "b) Khi đun, chất lỏng sôi có thể trào hoặc bắn mạnh ra khỏi miệng ống nghiệm; nếu miệng ống hướng về phía người sẽ gây bỏng cho bản thân hoặc bạn bên cạnh.", "diem": 0.25 }
+            ]
+          },
+          {
+            "stt": 20, "loai": 4, "muc_do": "VD", "dang": "4.2", "diem": 0.5,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+            "de": "Bạn An rót đầy 250 mL nước vào một chiếc cốc hình trụ, sau đó đổ toàn bộ lượng nước này sang một bình tam giác.",
+            "y": [
+              { "nd": "a) Hình dạng và thể tích của lượng nước thay đổi như thế nào? Giải thích dựa trên đặc điểm của chất ở thể lỏng.", "diem": 0.25, "muc_do": "VD" },
+              { "nd": "b) Nếu thay lượng nước trên bằng một viên nước đá có thể tích 250 cm³ thì hình dạng của nó khi đặt vào bình tam giác có thay đổi không? Vì sao?", "diem": 0.25, "muc_do": "VD" }
+            ],
+            "huong_dan_cham": [
+              { "nd": "a) Hình dạng thay đổi (từ hình trụ sang hình dạng của bình tam giác) nhưng thể tích không đổi, vẫn là 250 mL. Vì chất ở thể lỏng có thể tích xác định, còn hình dạng thì phụ thuộc vật chứa.", "diem": 0.25 },
+              { "nd": "b) Không thay đổi. Viên nước đá là chất ở thể rắn, có cả hình dạng và thể tích xác định, không phụ thuộc vào vật chứa.", "diem": 0.25 }
+            ]
+          },
+          {
+            "stt": 21, "loai": 4, "muc_do": "LH", "dang": "4.3", "diem": 1.0,
+            "chu_de": "Đa dạng chất. Các thể của chất",
+            "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+            "de": "Vào những ngày trời nồm ở miền Bắc nước ta, sàn nhà lát gạch men và tường nhà thường bị \"đổ mồ hôi\", ướt và trơn trượt rất nguy hiểm.",
+            "y": [
+              { "nd": "a) Hiện tượng trên liên quan đến quá trình chuyển thể nào của nước? Giải thích vì sao hiện tượng xảy ra mạnh trên nền gạch men và tường nhà.", "diem": 0.5, "muc_do": "LH" },
+              { "nd": "b) Đề xuất 2 biện pháp mà gia đình em có thể thực hiện để hạn chế hiện tượng này và nêu cơ sở khoa học của mỗi biện pháp.", "diem": 0.5, "muc_do": "LH" }
+            ],
+            "huong_dan_cham": [
+              { "nd": "a) Đó là sự ngưng tụ của hơi nước. Ngày trời nồm, không khí có độ ẩm rất cao (nhiều hơi nước) trong khi nền gạch men và tường nhà còn lạnh do giữ nhiệt của đợt lạnh trước. Hơi nước trong không khí tiếp xúc với bề mặt lạnh, bị làm lạnh xuống dưới điểm sương nên ngưng tụ thành các giọt nước bám trên bề mặt. Gạch men và tường nhẵn, dẫn nhiệt tốt và ấm lên chậm nên hiện tượng xảy ra rõ nhất.", "diem": 0.5 },
+              { "nd": "b) Nêu đúng mỗi biện pháp kèm cơ sở khoa học được 0,25 điểm, ví dụ: (1) Đóng kín cửa sổ, cửa ra vào để hạn chế không khí ẩm bên ngoài tràn vào nhà, làm giảm lượng hơi nước có thể ngưng tụ. (2) Dùng máy hút ẩm hoặc bật điều hoà ở chế độ khô để giảm độ ẩm không khí trong phòng. (3) Lau sàn bằng khăn khô, giẻ khô thay vì nước, đồng thời rải thảm/giấy báo để chống trơn trượt. (4) Bật quạt, đèn sưởi làm ấm bề mặt sàn – tường để nhiệt độ bề mặt cao hơn điểm sương thì hơi nước không ngưng tụ.", "diem": 0.5 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

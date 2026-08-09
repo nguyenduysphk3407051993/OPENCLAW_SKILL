@@ -1,0 +1,6 @@
+# Bắt buộc — dựng file .docx
+python-docx>=1.1.0
+
+# Tuỳ chọn — bật bước kiểm tra cú pháp JSON (scripts/check_schema.py)
+# Bỏ qua được: check_schema tự báo "[BO QUA]" nếu thiếu.
+jsonschema>=4.18

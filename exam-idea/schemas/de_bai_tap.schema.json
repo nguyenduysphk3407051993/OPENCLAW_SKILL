@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "exam-idea/de_bai_tap.schema.json",
+  "title": "Các dạng bài tập và đề minh hoạ",
+  "type": "object",
+  "required": ["muc_tieu", "dang_bai_tap"],
+  "properties": {
+    "tieu_de": { "type": "string" },
+    "thong_tin": {
+      "type": "object",
+      "properties": {
+        "mon": { "type": "string" },
+        "lop": { "type": ["integer", "string"] },
+        "chu_de_chung": { "type": "string" }
+      }
+    },
+    "cau_hinh": {
+      "type": "object",
+      "properties": {
+        "muc_do": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["ma", "ten"],
+            "properties": {
+              "ma": { "type": "string" },
+              "ten": { "type": "string" },
+              "ten_ngan": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "muc_tieu": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["chu_de", "yeu_cau"],
+        "properties": {
+          "chu_de": { "type": "string" },
+          "yeu_cau": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "object",
+                  "required": ["muc_do", "noi_dung"],
+                  "properties": {
+                    "muc_do": { "type": "string" },
+                    "noi_dung": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "dang_bai_tap": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["loai", "dang"],
+        "properties": {
+          "loai": { "type": "integer", "enum": [1, 2, 3, 4] },
+          "ten": { "type": "string" },
+          "mo_ta": { "type": "string" },
+          "dang": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["ma", "ten"],
+              "properties": {
+                "ma": { "type": "string" },
+                "ten": { "type": "string" },
+                "muc_do": { "type": "string" },
+                "mo_ta": { "type": "string" },
+                "vi_du": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "de_minh_hoa": {
+      "type": "object",
+      "required": ["phan"],
+      "properties": {
+        "cau_truc": { "type": "string" },
+        "phan": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["ten", "cau"],
+            "properties": {
+              "ten": { "type": "string" },
+              "huong_dan": { "type": "string" },
+              "loai": { "type": "integer", "enum": [1, 2, 3, 4] },
+              "cau": { "type": "array", "items": { "$ref": "#/$defs/cau" } }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "cau": {
+      "type": "object",
+      "required": ["stt", "de"],
+      "properties": {
+        "stt": { "type": ["integer", "string"] },
+        "loai": { "type": "integer", "enum": [1, 2, 3, 4] },
+        "chu_de": {
+          "description": "Chuỗi giống hệt chu_de[].ten trong ma trận",
+          "type": "string"
+        },
+        "don_vi": {
+          "description": "Chuỗi giống hệt noi_dung[].ten trong ma trận",
+          "type": "string"
+        },
+        "muc_do": { "type": "string" },
+        "dang": { "type": "string" },
+        "diem": { "type": "number", "minimum": 0 },
+        "de": { "type": "string", "minLength": 1 },
+
+        "lua_chon": {
+          "description": "Loại 1 — đúng 4 phương án theo thứ tự A, B, C, D",
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "type": "string" }
+        },
+        "dap_an": { "type": "string" },
+        "loi_giai": { "type": "string" },
+
+        "y": {
+          "description": "Loại 2 — đúng 4 ý a–d; Loại 4 — đúng 2 ý a, b",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["nd"],
+            "properties": {
+              "nd": { "type": "string" },
+              "dap_an": { "type": "boolean" },
+              "muc_do": { "type": "string" },
+              "diem": { "type": "number", "minimum": 0 },
+              "giai_thich": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+
+        "huong_dan_cham": {
+          "description": "Loại 4 — biểu điểm chi tiết từng ý",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["nd"],
+            "properties": {
+              "nd": { "type": "string" },
+              "diem": { "type": "number", "minimum": 0 }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+
+      "allOf": [
+        {
+          "if": { "properties": { "loai": { "const": 1 } }, "required": ["loai"] },
+          "then": { "required": ["lua_chon", "dap_an"] }
+        },
+        {
+          "if": { "properties": { "loai": { "const": 2 } }, "required": ["loai"] },
+          "then": {
+            "required": ["y"],
+            "properties": { "y": { "minItems": 4, "maxItems": 4 } }
+          }
+        },
+        {
+          "if": { "properties": { "loai": { "const": 3 } }, "required": ["loai"] },
+          "then": { "required": ["dap_an"] }
+        },
+        {
+          "if": { "properties": { "loai": { "const": 4 } }, "required": ["loai"] },
+          "then": {
+            "required": ["y", "huong_dan_cham"],
+            "properties": { "y": { "minItems": 2, "maxItems": 2 } }
+          }
+        }
+      ]
+    }
+  }
+}
