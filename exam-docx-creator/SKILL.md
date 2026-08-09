@@ -1,6 +1,6 @@
 ---
 name: exam-docx-creator
-description: "Skill chuyển đổi PDF/ảnh sang Word (.docx) và tạo câu hỏi loại 1-4 bằng AI xuất ra file Word định dạng đẹp mắt. Sử dụng khi người dùng cần: chuyển file PDF sang Word, chuyển ảnh sang Word, OCR tài liệu sang docx, tạo câu hỏi trắc nghiệm/đúng sai/trả lời ngắn/tự luận xuất file Word, soạn đề thi Word, RA ĐỀ WORD KHỚP BẢNG MA TRẬN do skill exam-idea sinh ra, hoặc bất kỳ yêu cầu nào liên quan đến tạo file .docx chứa câu hỏi giáo dục Việt Nam với định dạng tab/indent chuẩn."
+description: "Skill chuyển đổi PDF/ảnh sang Word (.docx) và tạo câu hỏi loại 1-4 bằng AI xuất ra file Word định dạng đẹp mắt. Sử dụng khi người dùng cần: chuyển file PDF sang Word, chuyển ảnh sang Word, OCR tài liệu sang docx, tạo câu hỏi trắc nghiệm/đúng sai/trả lời ngắn/tự luận xuất file Word, soạn đề thi Word, RA ĐỀ WORD KHỚP BẢNG MA TRẬN do skill exam-idea sinh ra, hoặc bất kỳ yêu cầu nào liên quan đến tạo file .docx chứa câu hỏi giáo dục Việt Nam với định dạng tab/indent chuẩn. Chỉ dựng file .docx khi người dùng yêu cầu Word/đề thi hoàn chỉnh; nếu chỉ xin vài câu hỏi hoặc trích xuất sang form chuẩn thì trả code block markdown (hoặc file .txt)."
 allowed-tools: Read, Write, Edit, Glob, Grep, WebFetch
 argument-hint: "[chuyển pdf/ảnh sang word | tạo câu hỏi loại 1/2/3/4 ra word]"
 ---
@@ -15,7 +15,9 @@ Skill chuyên xử lý 2 nhiệm vụ chính, xuất ra file .docx có định d
 2. **Tạo câu hỏi AI → Word**: AI soạn câu hỏi loại 1-4 → xuất .docx với layout phương án A-D theo cột, tiền tố câu hỏi in đậm + màu xanh.
 3. **Ra đề Word khớp ma trận**: nhận `bang_ma_tran.json` của skill **exam-idea** → sinh khung đề đúng số câu/mức độ → điền nội dung → đối chiếu ngược.
 
-**Yêu cầu bắt buộc**: Tất cả file docx đầu ra phải được lưu vào thư mục `output-docx` của dự án.
+**Yêu cầu bắt buộc**: Khi có sinh file `.docx`, tất cả phải được lưu vào thư mục
+`output-docx` của dự án. Nhưng **không phải yêu cầu nào cũng cần dựng `.docx`** —
+xem mục **CHỌN DẠNG ĐẦU RA** ngay dưới đây.
 
 ## Khi nào dùng
 
@@ -26,6 +28,36 @@ Skill chuyên xử lý 2 nhiệm vụ chính, xuất ra file .docx có định d
 - Soạn đề thi/kiểm tra hoàn chỉnh → file Word
 - **Người dùng đã có bảng ma trận (exam-idea) và muốn đề Word bám đúng ma trận đó** (`matrix_to_exam.py`)
 - Bất kỳ yêu cầu "tạo câu hỏi ra word/docx"
+
+---
+
+## CHỌN DẠNG ĐẦU RA — quyết định TRƯỚC KHI viết một dòng nào
+
+Không phải yêu cầu nào cũng đẻ ra file `.docx`. Dựng Word cho một yêu cầu chỉ cần
+vài câu hỏi là làm phiền người dùng: họ phải mở file, copy ra, dán lại. Xác định
+người dùng thuộc nhóm nào rồi mới làm:
+
+| Người dùng yêu cầu | Đầu ra ĐÚNG | Đầu ra SAI |
+|--------------------|-------------|------------|
+| **Đề thi / đề kiểm tra hoàn chỉnh**, ra đề từ ma trận exam-idea, "xuất Word", "gửi file docx" | File `.docx` đúng định dạng chuẩn, lưu trong `output-docx/` | Trả markdown thô bắt người dùng tự dựng |
+| **Chuyển PDF/ảnh sang Word** (người dùng nói rõ "sang Word") | File `.docx` trong `output-docx/` | Chỉ trả markdown |
+| **Tạo một/vài câu hỏi** ("cho tôi 5 câu trắc nghiệm về…") | **Code block markdown** ngay trong câu trả lời | Tự dựng `.docx`, tự chạy `build_exam_docx.py` |
+| **Trích xuất** pdf/ảnh sang form câu hỏi chuẩn (không nói "Word") | **Code block markdown**, hoặc file **`.txt`** nếu nội dung dài / người dùng xin file | File `.docx` |
+
+### Quy tắc cho nhóm "vài câu hỏi" và "trích xuất"
+
+1. Trả đúng markdown theo `references/format-cau-hoi.md` — `Câu N.` cùng dòng với
+   nội dung, phương án `A.`–`D.` mỗi dòng một phương án, công thức `$...$`.
+2. **KHÔNG** chạy `build_exam_docx.py`, **KHÔNG** tạo file trong `output-docx/`.
+3. Nội dung ngắn (dưới ~15 câu) → dán thẳng code block vào câu trả lời.
+4. Nội dung dài, hoặc người dùng nói "xuất ra file", "gửi file", "lưu lại" →
+   ghi ra **`.txt`** (hoặc `.md`), không phải `.docx`.
+
+**Khi mơ hồ:** mặc định là **code block**. Chỉ dựng `.docx` khi người dùng nói rõ
+"Word / docx / xuất file", hoặc yêu cầu là đề thi hoàn chỉnh, hoặc đưa bảng ma trận.
+
+Quy tắc này khớp với skill anh em `exam-latex-creator` — chỉ khác định dạng mã
+(markdown thay vì LaTeX).
 
 ---
 
@@ -124,6 +156,8 @@ pip install python-docx pypandoc Pillow PyMuPDF httpx --break-system-packages
 | "Tạo câu hỏi loại 1/2/3/4 ra Word" | AI Generate → DOCX | AI tạo markdown → `build_exam_docx.py` (Lưu file vào `output-docx/`) |
 | "Tạo đề thi hoàn chỉnh ra Word" | AI Generate → DOCX | AI tạo markdown đề thi → `build_exam_docx.py` (Lưu file vào `output-docx/`) |
 | "Ra đề khớp bảng ma trận" (có `bang_ma_tran.json`) | Matrix → MD → DOCX | `matrix_to_exam.py plan/skeleton` → AI điền nội dung → `verify` → `build_exam_docx.py` |
+| **"Cho tôi vài câu hỏi về…"** (không nhắc Word/file) | AI Generate → **code block** | AI tạo markdown → trả thẳng trong câu trả lời, **dừng ở đây** |
+| **"Trích xuất pdf/ảnh sang form câu hỏi chuẩn"** (không nhắc Word) | Read → **code block / .txt** | AI đọc file → markdown chuẩn → trả code block, hoặc ghi `.txt` nếu dài |
 
 ---
 
@@ -171,7 +205,13 @@ Theo yêu cầu trong `ai-generation-prompts.md`, trước khi tạo câu hỏi 
 
 AI đóng vai trò giáo viên chuyên môn, soạn câu hỏi bám sát 6 thông tin đã nhận và tuân thủ NGHIÊM NGẶT format trong `format-cau-hoi.md`.
 
-### Bước 2d: Lưu markdown và chạy script
+### Bước 2d: Chọn đầu ra — DỪNG LẠI HAY DỰNG WORD
+
+**Nếu người dùng chỉ xin vài câu hỏi và không nhắc tới Word/file:** trả markdown
+vừa soạn dưới dạng **code block** và **kết thúc ở đây**. Không chạy script, không
+tạo file. (Xem bảng **CHỌN DẠNG ĐẦU RA**.)
+
+**Nếu người dùng yêu cầu Word / đề thi hoàn chỉnh:** lưu markdown rồi chạy script:
 
 ```bash
 # Đảm bảo thư mục output tồn tại
@@ -477,10 +517,21 @@ mkdir -p "<SKILL_DIR>/output-docx"
 
 ## Checklist trước khi hoàn thành
 
+**Áp dụng cho mọi nhiệm vụ:**
+
+- [ ] Đã xác định dạng đầu ra theo bảng **CHỌN DẠNG ĐẦU RA**
 - [ ] Yêu cầu đủ cụ thể — nếu không, đã phản biện bằng prompt mẫu trước khi làm
-- [ ] Cài dependencies: `python-docx pypandoc Pillow PyMuPDF httpx`
 - [ ] Đọc format tham chiếu nếu tạo câu hỏi AI
 - [ ] Markdown đúng format (Câu N cùng dòng, A-D mỗi dòng, $...$ cho math)
+
+**Chỉ khi đầu ra là `.docx`:**
+
+- [ ] Cài dependencies: `python-docx pypandoc Pillow PyMuPDF httpx`
 - [ ] Nếu có ma trận: `<MTX> verify` báo **0 lỗi**
-- [ ] Chạy script → kiểm tra file .docx output tồn tại
+- [ ] Chạy script → kiểm tra file .docx output tồn tại trong `output-docx/`
 - [ ] Gửi file .docx cho người dùng
+
+**Chỉ khi đầu ra là code block / `.txt` (vài câu hỏi, trích xuất):**
+
+- [ ] Trả **code block markdown** trong câu trả lời, hoặc `.txt` nếu người dùng xin file
+- [ ] KHÔNG chạy `build_exam_docx.py`, KHÔNG tạo file trong `output-docx/`

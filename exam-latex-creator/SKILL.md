@@ -1,6 +1,6 @@
 ---
 name: exam-latex-creator
-description: "Skill tạo câu hỏi/bài tập LaTeX cho giáo dục Việt Nam (THCS & THPT). Sử dụng khi cần soạn câu hỏi loại 1 (trắc nghiệm), loại 2 (đúng/sai), loại 3 (trả lời ngắn), loại 4 (tự luận) cho các môn KHTN, Toán, Văn theo chuẩn LaTeX. Cũng dùng khi cần RA ĐỀ TỪ BẢNG ĐẶC TẢ có sẵn (.docx hoặc .json) để sinh đề đúng số câu/mức độ/chủ đề, trộn đề, ghép đề, lọc trùng, biên dịch PDF, hoặc trích xuất nội dung từ file pdf/ảnh/docx sang form LaTeX."
+description: "Skill tạo câu hỏi/bài tập LaTeX cho giáo dục Việt Nam (THCS & THPT). Sử dụng khi cần soạn câu hỏi loại 1 (trắc nghiệm), loại 2 (đúng/sai), loại 3 (trả lời ngắn), loại 4 (tự luận) cho các môn KHTN, Toán, Văn theo chuẩn LaTeX. Cũng dùng khi cần RA ĐỀ TỪ BẢNG ĐẶC TẢ có sẵn (.docx hoặc .json) để sinh đề đúng số câu/mức độ/chủ đề, trộn đề, ghép đề, lọc trùng, biên dịch PDF, hoặc trích xuất nội dung từ file pdf/ảnh/docx sang form LaTeX. Chỉ dựng file .tex theo template và biên dịch PDF khi yêu cầu là đề thi hoàn chỉnh; nếu chỉ xin vài câu hỏi hoặc trích xuất sang form LaTeX thì trả code block LaTeX (hoặc file .txt)."
 allowed-tools: Read, Write, Edit, Glob, Grep, WebFetch
 argument-hint: "[loại câu hỏi] [số lượng] [chủ đề/chương/bài]"
 ---
@@ -47,6 +47,35 @@ Skill chuyên tạo câu hỏi theo chủ đề/chương/bài/dạng (Toán, Lý
 - Trộn mã đề mới từ đề gốc (`shuffle`)
 - Lọc câu hỏi trùng lặp (`dedup`)
 - Sửa lỗi LaTeX phổ biến và biên dịch PDF (`fix`, `compile`)
+
+---
+
+## CHỌN DẠNG ĐẦU RA — quyết định TRƯỚC KHI viết một dòng nào
+
+Đây là luật quan trọng nhất của skill. Không phải yêu cầu nào cũng đẻ ra file
+`.tex` đầy đủ. Xác định người dùng thuộc nhóm nào rồi mới làm:
+
+| Người dùng yêu cầu | Đầu ra ĐÚNG | Đầu ra SAI |
+|--------------------|-------------|------------|
+| **Tạo đề thi / đề kiểm tra hoàn chỉnh**, ra đề từ bảng đặc tả, ghép đề, trộn mã đề | File `.tex` theo đúng `assets/template-de-thi.tex`, đặt trong `<OUTPUT_DIR>/`, biên dịch PDF | Trả code rời rạc, thiếu preamble template |
+| **Tạo một/vài câu hỏi** ("cho tôi 5 câu trắc nghiệm về…") | **Code block LaTeX** ngay trong câu trả lời | Tự dựng file `.tex`, tự biên dịch PDF |
+| **Trích xuất** pdf/ảnh/docx sang form LaTeX chuẩn | **Code block LaTeX**, hoặc file **`.txt`** chứa mã LaTeX nếu nội dung dài / người dùng xin file | File `.tex` hoàn chỉnh, PDF |
+
+### Quy tắc cho nhóm "vài câu hỏi" và "trích xuất"
+
+1. **KHÔNG** thêm `\documentclass`, `\usepackage`, `\begin{document}` — chỉ phần
+   thân câu hỏi từ `\begin{ex}` đến `\end{ex}` (hoặc `bt`).
+2. **KHÔNG** tự tạo file trong `<OUTPUT_DIR>/`, **KHÔNG** chạy `compile`.
+3. Nội dung ngắn (dưới ~15 câu) → dán thẳng code block vào câu trả lời.
+4. Nội dung dài, hoặc người dùng nói "xuất ra file", "gửi file", "lưu lại" →
+   ghi ra **`.txt`** (không phải `.tex`) để họ tự dán vào dự án của mình:
+   ```bash
+   # ví dụ: <OUTPUT_DIR>/trichxuat_khtn6_chuong1.txt
+   ```
+5. Vẫn phải gán **ID6** đúng và giữ nguyên marker `%%%=====<Loại>_<số>=====%%%`.
+
+**Khi mơ hồ:** mặc định là **code block**. Chỉ dựng file `.tex` + PDF khi người
+dùng nói rõ "đề thi", "đề kiểm tra", "xuất PDF", hoặc đưa bảng đặc tả/ma trận.
 
 ## Cấu trúc thư mục
 
@@ -211,7 +240,9 @@ Thư mục `<SKILL_DIR>/references/` chứa các file `MAPID_<MÔN><LỚP>.tex` 
 
 ### Định dạng đầu ra
 
-#### Nhiệm vụ 1 & 2: Code block latex
+Xem lại bảng ở mục **CHỌN DẠNG ĐẦU RA** trước khi viết.
+
+#### Nhiệm vụ 1 & 2: Code block LaTeX (hoặc file `.txt`) — KHÔNG dựng `.tex`, KHÔNG compile
 
 ```latex
 %%%=========[EX|TF|SA|BT]_[số thứ tự]================%%%
@@ -225,7 +256,10 @@ Trong đó:
 - `<ID6>` theo quy tắc trong `mapid6-coding.md`
 - Mỗi câu có dòng marker: `%%%=====<Loại>_<số>=====%%%`
 
-#### Nhiệm vụ 3: File `.tex` hoàn chỉnh
+Chỉ chứa phần thân câu hỏi — **không** `\documentclass`, **không** `\usepackage`,
+**không** `\begin{document}`. Nếu người dùng xin file thì ghi `.txt`, không phải `.tex`.
+
+#### Nhiệm vụ 3 & 4: File `.tex` hoàn chỉnh
 
 Đọc template tại `<SKILL_DIR>/assets/template-de-thi.tex` rồi chèn câu hỏi vào.
 
@@ -432,19 +466,31 @@ Xem chi tiết tại `<SKILL_DIR>/references/mapid6-coding.md`.
 
 ## Checklist trước khi hoàn thành
 
-- [ ] Nếu có bảng đặc tả: đã chạy `<SPEC> read` + `<SPEC> verify` và báo 0 lỗi
-- [ ] Không thêm bất kỳ gói hay lệnh LaTeX nào ngoài những gì template đã có
-- [ ] Giữ nguyên dòng hướng dẫn thí sinh sau mỗi `\subsection`
+**Áp dụng cho mọi nhiệm vụ:**
+
+- [ ] Đã xác định dạng đầu ra theo bảng **CHỌN DẠNG ĐẦU RA**
 - [ ] Đọc format reference đúng loại câu hỏi
 - [ ] Tra MAPID đúng lớp/môn → gán ID6 chính xác cho mỗi câu
 - [ ] Format đúng theo loại (choice 4 tham số, True đúng vị trí, itemchoice đúng label)
 - [ ] Nội dung LaTeX đúng quy chuẩn ($...$, {,}, \dfrac, \xrightarrow, ...)
-- [ ] Chèn template đầy đủ (nếu tạo đề): header, Opensolutionfile, Closesolutionfile, footer
+- [ ] Cập nhật MAPID nếu có dạng bài mới
+
+**Chỉ khi tạo đề thi hoàn chỉnh (Nhiệm vụ 3 & 4):**
+
+- [ ] Nếu có bảng đặc tả: đã chạy `<SPEC> read` + `<SPEC> verify` và báo 0 lỗi
+- [ ] Không thêm bất kỳ gói hay lệnh LaTeX nào ngoài những gì template đã có
+- [ ] Giữ nguyên dòng hướng dẫn thí sinh sau mỗi `\subsection`
+- [ ] Chèn template đầy đủ: header, Opensolutionfile, Closesolutionfile, footer
 - [ ] Xóa phần subsection không có câu hỏi
-- [ ] Lưu vào `<OUTPUT_DIR>/`
+- [ ] Lưu `.tex` vào `<OUTPUT_DIR>/`
 - [ ] Chạy `<EXPORT> fix` để sửa lỗi
 - [ ] Chạy `<EXPORT> compile` để biên dịch PDF
-- [ ] Cập nhật MAPID nếu có dạng bài mới
+
+**Chỉ khi tạo vài câu hỏi / trích xuất (Nhiệm vụ 1 & 2):**
+
+- [ ] Trả **code block LaTeX**, hoặc file **`.txt`** nếu người dùng xin file
+- [ ] KHÔNG có `\documentclass` / `\usepackage` / `\begin{document}`
+- [ ] KHÔNG tạo file `.tex`, KHÔNG chạy `compile`
 
 
 ---
