@@ -19,6 +19,14 @@ from docx_common import (TABLE_W_CM, apply_widths, fmt_diem, fmt_int, fmt_pct,
                          repeat_header, save_doc, set_borders, set_cell_margins,
                          set_fixed_layout, set_row_height, shade, title, write)
 
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 W_TT, W_CHUDE, W_NOIDUNG = 0.9, 2.4, 3.1
 
 

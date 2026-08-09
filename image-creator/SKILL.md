@@ -7,6 +7,31 @@ argument-hint: "[loại ảnh] [chủ đề] [tên file gợi ý]"
 
 # Image Creator — Quy trình 7 bước với gpt-image-2
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** loại ảnh · chủ đề · tỉ lệ khung · phong cách · nội dung chữ trên ảnh
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **tỉ lệ khung**, **phong cách**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Tạo **infographic** chủ đề **Vòng tuần hoàn của nước**.
+> Tỉ lệ: **16:9** · Phong cách: **hoạt hình phẳng, màu tươi, thân thiện học sinh**
+> Chữ trên ảnh: **tiếng Việt, 5 nhãn: bay hơi, ngưng tụ, mưa, thấm, chảy tràn**
+> Dùng cho: **slide bài giảng KHTN lớp 6** · Tên file: **vong_tuan_hoan_nuoc**
+> ```
+
+---
+
 ## Mục đích
 
 Skill này biến yêu cầu mơ hồ của user (ví dụ "tạo cho tôi ảnh infographic về quang hợp") thành ảnh chất lượng cao thông qua một quy trình có kiểm soát. Khác với việc sinh ảnh ad-hoc, skill này **bắt buộc bước xác nhận thành phần với user** trước khi sinh ảnh — vì:
@@ -238,3 +263,29 @@ Cần chỉnh sửa thêm? Tôi có thể:
 4. **Tôn trọng quy ước file trên Drive** — đúng pattern `OPENCLAW/IMAGES/<TYPE>_<n>_<TIMESTAMP>` để tích hợp với hệ thống thư mục lớn của user (n8n, các workflow khác có thể quét folder này).
 5. **Báo chi phí ước tính** trước khi sinh nếu user gen nhiều ảnh: vd "5 ảnh × $0.19 = ~$0.95".
 6. **Bước 5 không tự gọi API** — yêu cầu host (cơ chế image-gen của OpenClaw) sinh ảnh và lưu file ra `/tmp/`. Sau đó mới chạy `check_and_upload.py`.
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

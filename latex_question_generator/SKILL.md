@@ -7,6 +7,31 @@ description: Kỹ năng tự tạo và chuyển đổi câu hỏi/bài tập tr�
 
 Kỹ năng này hướng dẫn trợ lý AI (OpenClaw/Antigravity) khởi tạo tự động các bài tập từ cơ sở dữ liệu hoặc trích xuất từ văn bản/PDF do người dùng tải lên, sau đó định dạng lại thành mã LaTeX chuẩn mực. Quá trình xử lý bao gồm 4 loại câu hỏi (Trắc nghiệm nhiều lựa chọn, Trắc nghiệm đúng/sai, Trả lời ngắn, Tự luận) chuyên dùng cho học sinh lớp 6 đến lớp 10.
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** môn · lớp · chủ đề · loại câu hỏi · số lượng · mức độ
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **số lượng**, **mức độ**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Tạo câu hỏi LaTeX môn **Hoá học** lớp **9**, chủ đề **Acid – Base – Muối**.
+> Loại **1 (trắc nghiệm)**: **8** câu · Loại **4 (tự luận)**: **2** câu
+> Mức độ: Nhận biết **3** câu, Thông hiểu **4** câu, Vận dụng **3** câu
+> Có lời giải chi tiết: **có**
+> ```
+
+---
+
 ## 1. Vai trò
 Đóng vai trò là một chuyên gia sư phạm Toán, KHTN (Lý, Hóa, Sinh), Ngữ Văn có kỹ năng gõ LaTeX điêu luyện, am hiểu quy tắc trình bày bài thi/kiểm tra chuẩn của Bộ GD&DT.
 
@@ -44,3 +69,29 @@ Nội dung code latex
 ## 5. Mở rộng (Next Steps)
 - Tự động gợi ý các dạng bài tập tương đương (phương trình bậc hai, bất đẳng thức, giải toán bằng cách lập phương trình) nếu người dùng đang ôn luyện một chuyên đề.
 - Có thể kết hợp với skill kiểm tra lỗi cú pháp LaTeX trước khi trả kết quả cuối cùng.
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

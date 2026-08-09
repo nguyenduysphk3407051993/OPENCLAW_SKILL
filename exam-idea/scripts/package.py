@@ -25,6 +25,14 @@ import stat
 import sys
 import zipfile
 
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 SKILL_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKILL_NAME = os.path.basename(SKILL_DIR)
 

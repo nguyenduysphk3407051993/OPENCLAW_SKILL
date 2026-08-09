@@ -16,6 +16,14 @@ import sys
 
 from docx_common import load_json, new_doc, para, rich_para, save_doc, title
 
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ABCD = ["A", "B", "C", "D"]
 ABCD_Y = ["a", "b", "c", "d"]
 TEN_LOAI = {

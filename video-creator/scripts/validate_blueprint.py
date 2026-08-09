@@ -8,6 +8,14 @@ import re
 import sys
 from pathlib import Path
 
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 
 GLOBAL_FIELDS = (
     "PROJECT_TITLE", "TOTAL_DURATION", "SCENE_COUNT", "ASPECT_RATIO",

@@ -7,6 +7,31 @@ argument-hint: "[môn/lớp] [học kì/năm học] [chương/bài]"
 
 # Skill: Vietnamese KHTN Semester Syllabus & Outline Generator (Đề cương học kì Khoa học tự nhiên)
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** môn · lớp · học kì hoặc cả năm · phạm vi chương/bài · có kèm bài tập hay không
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **phạm vi chương/bài**, **mức độ chi tiết**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Tạo đề cương môn **KHTN** lớp **7**, **học kì I**.
+> Phạm vi: **chương 1 đến chương 5** (bài **1–18**).
+> Mỗi bài cần: **lý thuyết trọng tâm + 3 câu trắc nghiệm + 1 bài tự luận**
+> Định dạng: **LaTeX**, xuất PDF **có**
+> ```
+
+---
+
 ## Mô tả
 
 Skill chuyên tạo **Đề cương học kì** (Học kì I, Học kì II hoặc cả năm học) cho môn **Khoa học tự nhiên** (Lớp 6, Lớp 7, Lớp 8, Lớp 9) theo định dạng LaTeX chuẩn. Skill đảm bảo chính xác về cấu trúc chương/bài, mục tiêu bài học, lý thuyết trọng tâm và bộ câu hỏi trắc nghiệm/tự luận phân loại 4 cấp độ.
@@ -287,3 +312,29 @@ Trước khi soạn câu hỏi, đọc file mapid tương ứng trong `reference
 - [ ] Mã ID6 gắn đúng chuẩn MAPID KHTN 6-9.
 - [ ] Các công thức math, hóa học, bảng biểu đúng chuẩn LaTeX ($...$, `\dfrac`, `{,}`).
 - [ ] Đã chạy `<EXPORT> fix` và `<EXPORT> compile` tạo file PDF thành công.
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

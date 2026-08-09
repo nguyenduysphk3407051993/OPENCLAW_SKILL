@@ -22,6 +22,14 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 from docx.text.paragraph import Paragraph
 
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 FONT = "Times New Roman"
 ROMAN = r'(?:I|II|III|IV|V|VI|VII|VIII|IX|X)'
 HEADER_NUM = re.compile(r'^\d+\.\s*(Về|Kiến thức|Năng lực|Phẩm chất|Mục tiêu|Phương pháp|Công cụ|Giáo viên|Học sinh)')

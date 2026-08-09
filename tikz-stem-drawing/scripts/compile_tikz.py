@@ -18,6 +18,15 @@ import tempfile
 import shutil
 import os
 from pathlib import Path
+import sys
+
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 
 STANDALONE_TEMPLATE = r"""
 \documentclass[tikz,border=5pt]{standalone}

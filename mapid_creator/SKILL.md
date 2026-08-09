@@ -7,6 +7,31 @@ description: Phân loại và tạo Map ID cho bài tập Hóa học THCS/THPT. 
 
 Skill phân loại bài tập Hóa học và tạo cấu trúc Map ID cho ngân hàng đề thi.
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** môn · lớp · nguồn tài liệu (file PDF/SGK) · phạm vi chương/bài · độ sâu phân cấp
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **phạm vi chương/bài**, **độ sâu phân cấp**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Tạo Map ID môn **Hoá học** lớp **9** từ file **SBT_HOA9_KNTT.pdf**.
+> Phạm vi: **chương 1 đến chương 4**
+> Độ sâu: **đến cấp Dạng bài** (Lớp–Môn–Chương–Mức độ–Bài–Dạng)
+> Xuất ra: **MAPID_HOA9.tex**
+> ```
+
+---
+
 ## Quy ước mã hóa
 
 ### Cấu trúc Map ID
@@ -143,3 +168,29 @@ Viết output theo format:
 ## Tham khảo cấu trúc mẫu
 
 Xem file `references/hoa-hoc-10.md` để tham khảo cấu trúc chương trình Hóa học lớp 10 đầy đủ.
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

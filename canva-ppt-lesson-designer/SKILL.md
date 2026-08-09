@@ -11,6 +11,32 @@ Chi dung tieng Anh cho:
 - cum tim kiem copy-paste
 - ten phong cach hoac loai tai nguyen khi can giu nguyen de tra cuu
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** môn · lớp · bài/chủ đề · số slide · thời lượng tiết · phong cách thiết kế
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **số slide**, **phong cách thiết kế**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Thiết kế deck bài giảng môn **KHTN** lớp **8**,
+> bài **Định luật bảo toàn khối lượng**.
+> Số slide: **12** · Thời lượng: **1 tiết 45 phút**
+> Phong cách: **tối giản, nền sáng, nhiều hình minh hoạ, ít chữ**
+> Đối tượng: **học sinh đại trà** · Ngôn ngữ slide: **tiếng Việt**
+> ```
+
+---
+
 ## Muc tieu cua skill
 
 - Bien chu de bai giang thanh ke hoach thiet ke PPT hoac Canva hoan chinh.

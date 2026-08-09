@@ -77,15 +77,25 @@ _MD_SOLUTION_SPLIT_RE = re.compile(
     re.IGNORECASE | re.MULTILINE
 )
 
-_DOCUMENT_FONT_NAME = "Times New Roman"
-_DOCUMENT_BODY_FONT_SIZE = 12
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 
-_DOCUMENT_PAGE_WIDTH = Cm(21.59)
-_DOCUMENT_PAGE_HEIGHT = Cm(27.94)
+_DOCUMENT_FONT_NAME = "Times New Roman"
+_DOCUMENT_BODY_FONT_SIZE = 13
+
+# A4 — khổ giấy chuẩn của tài liệu trường học Việt Nam.
+# (Trước đây để 21,59 x 27,94 cm là US Letter nên in ra bị lệch lề.)
+_DOCUMENT_PAGE_WIDTH = Cm(21.0)
+_DOCUMENT_PAGE_HEIGHT = Cm(29.7)
 _DOCUMENT_LEFT_MARGIN = Cm(2.0)
 _DOCUMENT_RIGHT_MARGIN = Cm(1.25)
-_DOCUMENT_TOP_MARGIN = Cm(1.5)
-_DOCUMENT_BOTTOM_MARGIN = Cm(1.0)
+_DOCUMENT_TOP_MARGIN = Cm(1.25)
+_DOCUMENT_BOTTOM_MARGIN = Cm(1.25)
 
 _OPTION_LEFT_INDENT = Cm(0.5)
 _OPTION_TWO_COLUMN_TABS = (Cm(0.5), Cm(9.0))

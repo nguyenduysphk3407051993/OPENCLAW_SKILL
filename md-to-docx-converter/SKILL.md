@@ -70,3 +70,29 @@ Sau khi tạo file DOCX, cần can thiệp qua thư viện `python-docx` để t
 ## 3. Quy định lưu trữ
 - Code mẫu hoặc script bằng Python (.py) sử dụng cho logic chuyển đổi này phải lưu trong thư mục `scripts/` cùng cấp với file `SKILL.md`.
 - File đầu ra (file Word `.docx`) sẽ được lưu mặc định trong thư mục `output/` nếu không có cấu hình đường dẫn khác từ phía người dùng.
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

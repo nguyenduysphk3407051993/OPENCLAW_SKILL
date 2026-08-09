@@ -7,6 +7,31 @@ argument-hint: "[loại tài liệu: bài giảng/chuyên đề] [chủ đề/b�
 
 # Skill: Vietnamese Education General LaTeX Creator
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** loại tài liệu · môn · lớp · chủ đề · độ dài · có bài tập kèm hay không
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **độ dài**, **phạm vi bài tập**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Tạo **chuyên đề** LaTeX môn **Vật lí** lớp **10**,
+> chủ đề **Động lượng và định luật bảo toàn động lượng**.
+> Độ dài: **khoảng 12 trang** · Bài tập kèm: **10 câu trắc nghiệm + 5 bài tự luận**
+> Mức độ: **từ nhận biết đến vận dụng cao** · Có lời giải: **có**
+> ```
+
+---
+
 ## Description
 Skill này chuyên dùng để soạn bài giảng, chuyên đề, bài tập và đề kiểm tra cho chương trình giáo dục Việt Nam (THCS & THPT) theo định dạng LaTeX chuẩn. Hỗ trợ các môn Toán, Vật lý, Hóa học, Sinh học, KHTN (tích hợp Lý-Hóa-Sinh), Ngữ Văn. 
 Các tài liệu được tạo ra bao gồm đầy đủ 3 phần: Mở đầu (chương, bài, mục tiêu, khởi động), Lý thuyết (trình bày kiến thức, hình ảnh, câu hỏi tư duy, tóm tắt) và Bài tập (dạng toán, phương pháp, ví dụ mẫu, bài tập tự luyện với 4 loại câu hỏi).
@@ -231,3 +256,29 @@ Phần bài tập chia thành các dạng. Mỗi dạng gồm: Phương pháp gi
   ... (Toàn bộ code LaTeX) ...
 \end{document}
 ```
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

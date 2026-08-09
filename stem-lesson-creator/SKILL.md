@@ -15,6 +15,31 @@ description: >-
 
 # STEM Lesson Creator — Soạn giáo án STEM chuẩn xuất Word
 
+## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
+
+Yêu cầu chung chung luôn cho ra sản phẩm kém. **Không đoán bừa, cũng không hỏi
+lể tể từng ý.** Hãy nêu rõ đang thiếu gì, rồi đưa **một prompt mẫu đã điền sẵn
+giá trị mặc định hợp lý** để người dùng sửa và gửi lại trong đúng một lượt.
+
+Thiếu từ **2 tiêu chí trở lên** thì bắt buộc phản biện. Thiếu **đúng 1** tiêu chí
+thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
+
+**Tiêu chí bắt buộc:** môn · lớp · chủ đề STEM · số tiết · sản phẩm đầu ra của học sinh · vật liệu sẵn có
+
+**Mẫu phản biện:**
+
+> Yêu cầu hiện thiếu: **sản phẩm đầu ra**, **vật liệu**. Nếu làm luôn thì tôi phải đoán, dễ lệch
+> ý bạn. Bạn copy prompt dưới đây, sửa chỗ in đậm rồi gửi lại:
+>
+> ```
+> Thiết kế bài học STEM môn **KHTN** lớp **8**, chủ đề **Chế tạo mạch điện đơn giản**.
+> Số tiết: **3** · Sản phẩm học sinh làm ra: **đèn học dùng pin có công tắc**
+> Vật liệu sẵn có: **pin AA, dây điện, bóng LED, bìa carton, băng dính**
+> Cần có: **tiêu chí đánh giá sản phẩm**
+> ```
+
+---
+
 ## 1. Skill này làm gì
 
 Tạo một **Kế hoạch bài dạy STEM** hoàn chỉnh, chi tiết đến mức giáo viên cầm lên
@@ -92,3 +117,29 @@ KHÔNG viết chung chung ("học sinh làm thí nghiệm"). PHẢI cụ thể: 
 nhiêu gram/ml, thao tác ra sao, hiện tượng quan sát là gì. Lời thoại GV viết như
 kịch bản thật, có câu hỏi kích não. Mọi số liệu mẫu hợp lý khoa học. Dùng tiếng
 Việt, thuật ngữ chuẩn chương trình GDPT 2018.
+
+
+---
+
+## Tương thích đa nền tảng (Windows · Linux · môi trường skill)
+
+Các script Python của skill này đã xử lý sẵn những chỗ hay vỡ khi đổi máy:
+
+| Vấn đề | Đã xử lý thế nào |
+|--------|-------------------|
+| Console Windows là cp1252/cp437 → in tiếng Việt ném `UnicodeEncodeError` | Mỗi script tự `reconfigure` stdout/stderr sang UTF-8 ngay sau phần import |
+| Đọc/ghi file | Luôn khai báo `encoding="utf-8"`; đọc thêm `utf-8-sig` để nuốt BOM của Notepad |
+| Ghép đường dẫn | Dùng `os.path.join` / `pathlib`, không nối chuỗi `\` hay `/` |
+
+Khi tự gõ lệnh, tuân thủ thêm 4 điểm sau:
+
+1. **Bọc mọi đường dẫn trong dấu nháy kép** — thư mục tiếng Việt hay có dấu cách.
+2. **Linux phân biệt HOA/thường.** `output/` khác `Output/`, `Khaibao/HeaderFooter`
+   khác `Khaibao/Headerfooter`. Đặt tên file đầu ra **không dấu, không khoảng trắng**.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`. Dùng venv
+   (`python3 -m venv .venv && source .venv/bin/activate`) để các lệnh trong tài
+   liệu này chạy nguyên văn, hoặc thay `python` bằng `python3`.
+4. **Không hard-code đường dẫn tuyệt đối** kiểu `D:\...` hay `/home/...` vào file
+   cấu hình; luôn tính tương đối từ `<SKILL_DIR>`.
+
+Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.

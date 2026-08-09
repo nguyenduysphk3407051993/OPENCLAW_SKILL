@@ -20,6 +20,14 @@ import hashlib
 import shutil
 from difflib import SequenceMatcher
 
+# Console Windows mặc định là cp1252/cp437 -> in tiếng Việt sẽ ném
+# UnicodeEncodeError. Ép UTF-8 để chạy giống nhau trên Windows lẫn Linux.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 # Fix console encoding on Windows
 if sys.platform.startswith('win'):
     import io
