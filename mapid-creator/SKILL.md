@@ -1,11 +1,34 @@
 ---
-name: mapid-classifier
-description: Phân loại và tạo Map ID cho bài tập Hóa học THCS/THPT. Sử dụng khi cần phân tích file PDF bài tập để tạo cấu trúc phân cấp Map ID theo định dạng 6 tham số (Lớp-Môn-Chương-Mức độ-Bài-Dạng). Trigger khi người dùng upload PDF bài tập hoặc yêu cầu tạo Map ID, phân loại câu hỏi, hoặc xây dựng cấu trúc phân cấp cho ngân hàng đề thi.
+name: mapid-creator
+description: Phân loại và tạo Map ID cho bài tập KHTN, Hoá học THCS/THPT. Sử dụng khi cần phân tích SGK/SBT/file PDF bài tập để dựng bản đồ nội dung MAPID phân cấp Lớp-Môn-Chương-Bài-Dạng, hoặc gán mã 6 tham số (Lớp-Môn-Chương-Mức độ-Bài-Dạng) cho câu hỏi. Trigger khi người dùng upload PDF bài tập, yêu cầu tạo/cập nhật MAPID, phân loại câu hỏi, hoặc xây dựng cấu trúc phân cấp cho ngân hàng đề thi.
 ---
 
-# Map ID Classifier
+# Map ID Creator
 
-Skill phân loại bài tập Hóa học và tạo cấu trúc Map ID cho ngân hàng đề thi.
+Skill phân loại bài tập và dựng bản đồ nội dung **MAPID** cho ngân hàng đề thi.
+
+> Skill này trước đây nằm ở thư mục `mapid_creator` và khai báo
+> `name: mapid-classifier`. Nay thống nhất cả thư mục lẫn `name` thành
+> **`mapid-creator`**.
+
+## Nguồn sách và quy tắc đặt tên — KHÔNG BỊA
+
+Bộ sách chuẩn của dự án là **Kết nối tri thức với cuộc sống**. Tên chương và
+tên bài trong MAPID phải **chép nguyên văn từ mục lục SGK**, không rút gọn,
+không tự đặt tên gợi nhớ, không gộp hay tách bài.
+
+- Sách gốc để tra: `references/SGK_KHTN_<LỚP>_KNTT.pdf` và
+  `references/SBT_KHTN_<LỚP>_KNTT.pdf` (lớp 6–9).
+- Ảnh mục lục đã cắt sẵn, tra nhanh hơn mở PDF:
+  `de-cuong-khtn-creator/references/muc-luc-sgk/`.
+- **Trong MAPID chỉ ghi tên thuần**, không kèm "Chương I" hay "Bài 17." — số
+  thứ tự đã nằm ở mã `[n]` của chính dòng đó.
+- Bài nào chưa có dạng thì để trống, không nhét bừa cho đầy.
+
+`output/MAPID_KHTN6.tex` … `MAPID_KHTN9.tex` là bản đã chuẩn hoá theo SGK
+(lớp 6: 10 chương/55 bài; lớp 7: 42 bài; lớp 8: 47 bài; lớp 9: 51 bài), giống
+hệt bản đang dùng trong `exam-latex-creator/references/` và
+`de-cuong-khtn-creator/references/`. **Sửa MAPID ở đâu thì đồng bộ cả ba chỗ.**
 
 ## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
 

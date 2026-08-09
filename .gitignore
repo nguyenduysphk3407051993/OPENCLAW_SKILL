@@ -1,6 +1,8 @@
 .claude/
-mapid_creator/references/SBT_KHTN_9_KNTT.pdf
-mapid_creator/references/SGK_KHTN_9_KNTT.pdf
+# Sách giáo khoa / sách bài tập bản PDF — mỗi file hàng chục tới hơn 100 MB,
+# không đưa lên repo. Đặt thủ công vào mapid-creator/references/ khi cần tra.
+mapid-creator/references/*.pdf
+mapid_creator/references/*.pdf
 
 # Archives and large binaries
 *.zip
