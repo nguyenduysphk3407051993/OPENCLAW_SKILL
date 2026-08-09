@@ -1,6 +1,6 @@
-# Ví dụ Input/Output - TikZ STEM Drawing
+# Ví dụ Input/Output - TikZ Drawing
 
-Tài liệu này chứa các ví dụ cụ thể về cách chuyển đổi yêu cầu bài tập thành code TikZ.
+Tài liệu này chứa các ví dụ cụ thể về cách chuyển đổi một yêu cầu vẽ hình thành code TikZ.
 
 ---
 

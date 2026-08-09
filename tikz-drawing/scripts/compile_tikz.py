@@ -28,9 +28,47 @@ for _s in (sys.stdout, sys.stderr):
     except (AttributeError, ValueError):
         pass
 
+def tim_imagemagick():
+    """Tìm lệnh ImageMagick.
+
+    KHÔNG được gọi thẳng `convert` trên Windows: đó là tên của
+    C:\\Windows\\System32\\convert.exe — tiện ích chuyển FAT sang NTFS, hoàn
+    toàn không liên quan. ImageMagick 7 dùng lệnh `magick`.
+    """
+    for ten in ("magick", "convert"):
+        duong_dan = shutil.which(ten)
+        if not duong_dan:
+            continue
+        if os.name == "nt" and ten == "convert" \
+                and "system32" in duong_dan.lower():
+            continue
+        return [duong_dan] if ten == "magick" else [duong_dan]
+    return None
+
+
+def pdf_sang_png(pdf_file, output_path, dpi):
+    im = tim_imagemagick()
+    if not im:
+        print("❌ Không tìm thấy ImageMagick. Cài rồi thử lại:")
+        print("   Windows: winget install ImageMagick.ImageMagick")
+        print("   Ubuntu : sudo apt install -y imagemagick")
+        return False
+    r = subprocess.run(im + ["-density", str(dpi), str(pdf_file),
+                             "-quality", "100", str(output_path)],
+                       capture_output=True, encoding="utf-8", errors="replace")
+    if output_path.exists():
+        print(f"✅ PNG saved: {output_path}")
+        return True
+    print("❌ PNG conversion failed!")
+    print(r.stderr)
+    return False
+
+
+# `vietnam` thay cho `inputenc`: có inputenc không thôi thì nhãn tiếng Việt
+# trong hình sẽ bị rơi dấu, thậm chí mất chữ.
 STANDALONE_TEMPLATE = r"""
 \documentclass[tikz,border=5pt]{standalone}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{chemfig}
@@ -64,11 +102,13 @@ def compile_tikz(tikz_code: str, output_path: str, dpi: int = 300) -> bool:
     """
     output_path = Path(output_path)
     output_format = output_path.suffix.lower()
-    
+
     if output_format not in ['.pdf', '.png']:
         print(f"❌ Unsupported format: {output_format}")
         return False
-    
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     # Create temporary directory
     with tempfile.TemporaryDirectory() as tmpdir:
         tmpdir = Path(tmpdir)
@@ -83,10 +123,10 @@ def compile_tikz(tikz_code: str, output_path: str, dpi: int = 300) -> bool:
             result = subprocess.run(
                 ['pdflatex', '-interaction=nonstopmode', '-output-directory', str(tmpdir), str(tex_file)],
                 capture_output=True,
-                text=True,
-                timeout=30
+                encoding='utf-8', errors='replace',
+                timeout=120
             )
-            
+
             pdf_file = tmpdir / "tikz_temp.pdf"
             
             if not pdf_file.exists():
@@ -100,21 +140,9 @@ def compile_tikz(tikz_code: str, output_path: str, dpi: int = 300) -> bool:
                 return True
             
             elif output_format == '.png':
-                # Convert PDF to PNG using ImageMagick
-                result = subprocess.run(
-                    ['convert', '-density', str(dpi), str(pdf_file), '-quality', '100', str(output_path)],
-                    capture_output=True,
-                    text=True
-                )
-                
-                if output_path.exists():
-                    print(f"✅ PNG saved: {output_path}")
-                    return True
-                else:
-                    print("❌ PNG conversion failed!")
-                    print(result.stderr)
-                    return False
-                    
+                return pdf_sang_png(pdf_file, output_path, dpi)
+
+
         except subprocess.TimeoutExpired:
             print("❌ Compilation timeout!")
             return False

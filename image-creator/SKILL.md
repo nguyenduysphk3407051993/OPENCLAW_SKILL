@@ -66,7 +66,7 @@ Skill này **không tự gọi OpenAI API**. Trong môi trường OpenClaw, vi�
 ## Khi nào KHÔNG dùng
 
 - User chỉ hỏi/mô tả/phân tích ảnh đã có → trả lời trực tiếp.
-- User muốn vẽ sơ đồ TikZ/LaTeX → dùng skill `tikz-stem-drawing`.
+- User muốn vẽ sơ đồ TikZ/LaTeX → dùng skill `tikz-drawing`.
 - User muốn tạo cả slide PowerPoint, không phải chỉ ảnh đơn → dùng skill `pptx-designer` (skill đó có thể gọi skill này như sub-step để sinh hero image).
 - User cần ảnh chứa logo/IP có bản quyền (Disney, Marvel…) → từ chối lịch sự.
 

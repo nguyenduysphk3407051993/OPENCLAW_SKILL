@@ -63,7 +63,7 @@ File này dùng ở **bước 1 và bước 2** để chọn loại ảnh phù h
 - Tỷ lệ cân đối, không méo
 - Có thể có chú thích bên dưới
 
-**Cảnh báo**: gpt-image-2 đôi khi **không vẽ chính xác mạch điện hoặc cấu tạo phức tạp**. Với diagram đòi hỏi độ chính xác kỹ thuật cao (vd cấu tạo động cơ, sơ đồ thí nghiệm cụ thể), cân nhắc dùng skill `tikz-stem-drawing` thay thế.
+**Cảnh báo**: gpt-image-2 đôi khi **không vẽ chính xác mạch điện hoặc cấu tạo phức tạp**. Với diagram đòi hỏi độ chính xác kỹ thuật cao (vd cấu tạo động cơ, sơ đồ thí nghiệm cụ thể), cân nhắc dùng skill `tikz-drawing` thay thế.
 
 ### 4. ILLUSTRATION
 

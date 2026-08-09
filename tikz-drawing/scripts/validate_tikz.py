@@ -148,38 +148,52 @@ class TikZValidator:
                 f"Unclosed environment \\begin{{{env_name}}}"
             ))
     
+    # Lệnh vẽ đứng đầu dòng thì bắt buộc kết thúc bằng dấu ';'
+    STARTERS = (r'\draw', r'\fill', r'\filldraw', r'\shade', r'\shadedraw',
+                r'\path', r'\coordinate', r'\node', r'\clip', r'\useasboundingbox')
+
     def _check_semicolons(self, code: str, lines: List[str]):
-        """Check missing semicolons in TikZ commands."""
-        tikz_commands = [r'\draw', r'\fill', r'\node', r'\path', r'\coordinate']
-        
-        in_tikzpicture = False
-        command_buffer = ""
-        command_start_line = 0
-        
-        for line_num, line in enumerate(lines, 1):
-            # Track tikzpicture environment
-            if r'\begin{tikzpicture}' in line:
-                in_tikzpicture = True
-            if r'\end{tikzpicture}' in line:
-                in_tikzpicture = False
-            
-            if not in_tikzpicture:
+        """Thiếu dấu ';' cuối lệnh vẽ.
+
+        Lệnh TikZ được phép trải nhiều dòng, nên chỉ báo lỗi khi một lệnh chưa
+        đóng ';' mà dòng kế tiếp đã mở một lệnh mới — lúc đó chắc chắn lệnh
+        trước bị thiếu ';'. Cách này tránh báo oan cho lệnh xuống dòng.
+        """
+        in_pic = False
+        cho_dau_cham_phay = 0          # số dòng của lệnh đang mở, 0 = không có
+
+        for line_num, raw in enumerate(lines, 1):
+            if r'\begin{tikzpicture}' in raw:
+                in_pic = True
+            if r'\end{tikzpicture}' in raw:
+                if cho_dau_cham_phay:
+                    self.errors.append((
+                        cho_dau_cham_phay, 'SEMICOLON',
+                        "Lệnh vẽ không có dấu ';' trước \\end{tikzpicture}"))
+                    cho_dau_cham_phay = 0
+                in_pic = False
                 continue
-            
-            # Remove comments
-            comment_pos = line.find('%')
-            if comment_pos >= 0:
-                line = line[:comment_pos]
-            
-            # Check for commands without semicolons
-            for cmd in tikz_commands:
-                if cmd in line:
-                    # Simple check: line with command should end with ; or continue
-                    stripped = line.strip()
-                    if stripped and not stripped.endswith(';') and not stripped.endswith(','):
-                        # Could be multi-line command, just warn
-                        pass
-    
+            if not in_pic:
+                continue
+
+            line = raw.split('%')[0] if not raw.strip().startswith(r'\%') else raw
+            stripped = line.strip()
+            if not stripped:
+                continue
+
+            mo_lenh = stripped.startswith(self.STARTERS)
+            if mo_lenh and cho_dau_cham_phay:
+                self.errors.append((
+                    cho_dau_cham_phay, 'SEMICOLON',
+                    "Lệnh vẽ thiếu dấu ';' ở cuối"))
+                cho_dau_cham_phay = 0
+
+            if ';' in line:
+                cho_dau_cham_phay = 0
+            elif mo_lenh:
+                cho_dau_cham_phay = line_num
+
+
     def _check_common_issues(self, code: str, lines: List[str]):
         """Check common TikZ issues."""
         
@@ -203,12 +217,17 @@ class TikZValidator:
                         f"Coordinate '{content}' might be missing comma: use (x,y) format"
                     ))
             
-            # Check for -- vs - in paths
-            if re.search(r'[^-]-[^->\[]', line) and r'\draw' in line:
+            # Nối hai toạ độ bằng một dấu '-' thay vì '--'.
+            #
+            # Chỉ cảnh báo khi dấu '-' nằm đúng giữa hai dấu ngoặc, kiểu
+            # `(A)-(B)`. Không được bắt các trường hợp hợp lệ rất phổ biến:
+            # số âm `++(-1,0)`, phép trừ trong toạ độ `(\x-0.8, 0)`, hay mũi
+            # tên `[|<->|]`, `[->]`, `[-{Stealth}]`.
+            if r'\draw' in line and re.search(r'\)\s*-\s*\(', line):
                 self.warnings.append((
                     line_num,
                     'PATH',
-                    "Single '-' found in draw command. Use '--' for line segments."
+                    "Nối hai toạ độ bằng một dấu '-'. Đường thẳng phải dùng '--'."
                 ))
     
     def get_report(self) -> str:

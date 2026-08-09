@@ -1,13 +1,21 @@
 ---
-name: tikz-stem-drawing
-description: "Skill viết mã TikZ/PGF LaTeX vẽ hình minh họa cho bài tập STEM. Sử dụng khi cần vẽ: hình học phẳng/không gian (tam giác, tứ giác, đường tròn, hình hộp, hình chóp), đồ thị hàm số, biểu đồ, sơ đồ vật lý (vector lực, mạch điện, quang học, sóng), công thức cấu tạo hóa học (chemfig), sơ đồ phản ứng. Hỗ trợ TikZ, PGFplots, chemfig, circuitikz."
-allowed-tools: Read, Write, Glob, Grep
+name: tikz-drawing
+description: "Skill viết mã TikZ/PGF LaTeX để vẽ hình. Dùng BẤT CỨ KHI NÀO cần một hình vẽ trong tài liệu LaTeX — bài tập, đề thi, bài giảng, giáo án, slide, chuyên đề, sách, báo cáo — không giới hạn ở bài tập STEM. Vẽ được: hình học phẳng và không gian (tam giác, tứ giác, đường tròn, hình hộp, hình chóp), đồ thị hàm số, bảng biến thiên, bảng xét dấu, biểu đồ, sơ đồ khối, lưu đồ, sơ đồ tư duy, hình vật lí (vector lực, mạch điện, quang học, sóng), công thức cấu tạo hoá học (chemfig), sơ đồ phản ứng, hình minh hoạ tự do. Hỗ trợ TikZ, PGFplots, tkz-tab, chemfig, circuitikz, tikz-3dplot."
+allowed-tools: Read, Write, Glob, Grep, Bash
 argument-hint: "[loại hình] [mô tả]"
 ---
 
-# TikZ STEM Drawing Skill
+# TikZ Drawing Skill
 
-Skill chuyên dụng viết mã TikZ/PGF LaTeX để vẽ hình minh họa cho bài tập Toán, Vật lý, Hóa học.
+Skill chuyên viết mã TikZ/PGF LaTeX để **vẽ hình trong tài liệu LaTeX**.
+
+Dùng bất cứ khi nào cần một hình vẽ, không cần phải là bài tập STEM: bài giảng,
+giáo án, slide, chuyên đề, đề thi, sách, báo cáo, hay chỉ một hình minh hoạ lẻ.
+Toán – Vật lí – Hoá học – Sinh học là những chỗ hay dùng nhất, nhưng sơ đồ khối,
+lưu đồ, biểu đồ, sơ đồ tư duy hay hình trang trí đều nằm trong phạm vi skill này.
+
+> Skill này trước đây tên `tikz-stem-drawing`. Đã đổi thành `tikz-drawing` vì
+> cái tên cũ khiến người dùng tưởng chỉ vẽ được hình cho bài tập STEM.
 
 ## Khi yêu cầu chưa đủ cụ thể — PHẢN BIỆN TRƯỚC, LÀM SAU
 
@@ -42,8 +50,9 @@ thì tự chọn mặc định, làm tiếp, và nói rõ đã chọn gì.
 
 | Yếu tố | Câu hỏi cần trả lời |
 |--------|---------------------|
-| Môn học | Toán / Vật lý / Hóa học? |
-| Loại hình | Hình phẳng / không gian / đồ thị / sơ đồ? |
+| Bối cảnh | Hình dùng cho tài liệu gì: bài tập, bài giảng, slide, báo cáo? |
+| Lĩnh vực | Toán / Vật lí / Hoá học / Sinh học / sơ đồ tổng quát? |
+| Loại hình | Hình phẳng / không gian / đồ thị / bảng biến thiên / sơ đồ? |
 | Đối tượng | Điểm, đường, hình, vector, phân tử nào? |
 | Nhãn | Tên điểm, độ dài, góc, công thức? |
 | Đặc biệt | Nét đứt, màu sắc, đánh dấu góc vuông? |
@@ -227,6 +236,49 @@ Xem `references/techniques.md` để biết:
 | `references/plots.md` | Mẫu đồ thị | Vẽ đồ thị hàm số, biểu đồ |
 | `references/techniques.md` | Kỹ thuật TikZ | Tham khảo cú pháp, trick hay |
 
+### Giáo trình "Học TikZ theo cách của bạn" (Bùi Quý)
+
+`references/hoc-tikz-bui-quy/` là bản trích xuất sách gốc
+`HocTikztheocachcuaBan_BuiQuy.pdf`, **tách theo đối tượng cần vẽ** để tra nhanh.
+Mở `references/hoc-tikz-bui-quy/README.md` để xem mục lục đầy đủ.
+
+| Cần vẽ gì | Đọc file |
+|-----------|----------|
+| Khai báo, hệ trục toạ độ | `01-khai-bao-he-toa-do.md` |
+| Tham số, hàm tính toán, phép toán toạ độ | `02-tinh-toan-toa-do.md` |
+| Điểm, văn bản, đoạn thẳng, đường gấp khúc | `03-diem-van-ban-doan-thang.md` |
+| Đường tròn, ellipse, cung, đường cong | `04-duong-tron-cung-duong-cong.md` |
+| Tiếp tuyến, giao điểm | `05-tiep-tuyen-giao-diem.md` |
+| scope, clip, node, pic | `06-scope-clip-node-pic.md` |
+| Tuỳ chọn nét vẽ và node | `07-tuy-chon-thuong-dung.md` |
+| foreach, macro | `08-foreach-macro.md` |
+| Hình không gian giả 3D | `09-hinh-khong-gian-3d.md` |
+| Bảng xét dấu, bảng biến thiên | `10-bang-xet-dau-bien-thien.md` |
+| Đồ thị hàm số, toạ độ cực | `11-do-thi-ham-so.md` |
+| Tô miền đồ thị | `12-to-mien-do-thi.md` |
+| Trình tự tư duy khi dựng hình | `13-tu-duy-ve-hinh.md` |
+| Export ảnh, ảnh động PDF/GIF | `14-export-anh-dong.md` |
+| calc, intersections, angles, patterns, decoration, shadings | `15-thu-vien-thuong-dung.md` |
+
+Sinh lại bản trích xuất khi cần: `python scripts/pdf_to_md.py <sách.pdf> -o <thư mục>`.
+
+---
+
+## Scripts
+
+| Script | Chức năng | Cú pháp |
+|--------|-----------|---------|
+| `validate_tikz.py` | Soi lỗi cú pháp trước khi biên dịch: lệch ngoặc, thiếu `;`, sai `--`, gõ nhầm lệnh | `python scripts/validate_tikz.py hinh.tex` |
+| `compile_tikz.py` | Biên dịch ra PDF/PNG, tự bọc preamble nếu chỉ đưa đoạn mã | `python scripts/compile_tikz.py hinh.tex -o hinh.pdf`<br>`python scripts/compile_tikz.py -c "\draw (0,0) circle (1);" -o tron.pdf` |
+| `extract_tikz.py` | Bóc các hình TikZ ra khỏi một tài liệu LaTeX lớn | `python scripts/extract_tikz.py tailieu.tex --list` |
+| `pdf_to_md.py` | Trích xuất sách PDF thành tài liệu tham chiếu `.md` | `python scripts/pdf_to_md.py sach.pdf -o thumuc` |
+
+Quy trình khuyến nghị: **viết mã → `validate_tikz.py` (0 lỗi) → `compile_tikz.py`**.
+
+Xuất PNG cần ImageMagick. Trên Windows **phải** có lệnh `magick` — đừng gọi
+`convert`, vì đó là tên của `C:\Windows\System32\convert.exe`, tiện ích chuyển
+FAT sang NTFS, hoàn toàn không liên quan. Script đã tự tránh chỗ này.
+
 
 ## Lưu file output
 
@@ -237,19 +289,35 @@ Xem `references/techniques.md` để biết:
 ```
 
 **Quy tắc đặt tên file:**
-- Format: `[LOẠI]_TÊN_HÌNH.tex`
+- Format: `LOAI_TEN_HINH.tex` — chữ HOA, không dấu, nối bằng `_`
 - Ví dụ:
-  - `[GEOMETRY]_TRIANGLE_CIRCUMCIRCLE.tex`
-  - `[PHYSICS]_FORCE_VECTORS.tex`
-  - `[CHEMISTRY]_BENZENE_STRUCTURE.tex`
+  - `GEOMETRY_TRIANGLE_CIRCUMCIRCLE.tex`
+  - `PHYSICS_FORCE_VECTORS.tex`
+  - `CHEMISTRY_BENZENE_STRUCTURE.tex`
 
-**Sau khi lưu file, TỰ ĐỘNG biên dịch bằng lệnh:**
+> **Không dùng dấu ngoặc vuông trong tên file** (kiểu `[GEOMETRY]_...tex`).
+> `pdflatex` đọc được, nhưng `[...]` là ký tự đại diện của PowerShell và của
+> hầu hết công cụ glob — `Copy-Item`, `Remove-Item`, `Glob` sẽ lặng lẽ không
+> khớp file nào. Vài file cũ trong `output/` còn dùng kiểu này, đổi tên dần.
+
+**Sau khi lưu file, TỰ ĐỘNG biên dịch.** Cách gọn và chạy được trên cả Windows
+lẫn Linux (không phụ thuộc `cd`, không dùng `&&` vốn lỗi trên PowerShell 5.1):
+
 ```bash
-cd "<SKILL_DIR>/output" && pdflatex "TÊN_FILE.tex"
+python "<SKILL_DIR>/scripts/validate_tikz.py" "<SKILL_DIR>/output/TEN_FILE.tex"
+python "<SKILL_DIR>/scripts/compile_tikz.py"  "<SKILL_DIR>/output/TEN_FILE.tex" -o "<SKILL_DIR>/output/TEN_FILE.pdf"
 ```
+
+Nếu muốn gọi thẳng `pdflatex` thì dùng `-output-directory` thay cho `cd`:
+
+```bash
+pdflatex -interaction=nonstopmode -output-directory "<SKILL_DIR>/output" "<SKILL_DIR>/output/TEN_FILE.tex"
+```
+
 Trong đó `<SKILL_DIR>` là đường dẫn tuyệt đối đến thư mục chứa file SKILL.md này.
 
-**LƯU Ý:** Luôn chạy lệnh biên dịch ngay sau khi lưu file để tạo PDF.
+**LƯU Ý:** Luôn validate rồi mới biên dịch. Hình có nhãn tiếng Việt thì preamble
+bắt buộc có `\usepackage[utf8]{vietnam}` — chỉ dùng `inputenc` là rơi dấu, mất chữ.
 
 
 ---
