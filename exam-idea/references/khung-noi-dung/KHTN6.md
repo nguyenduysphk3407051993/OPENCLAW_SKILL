@@ -3,10 +3,18 @@
 Dùng để tách **chủ đề → đơn vị kiến thức** khi lập ma trận. Tên đơn vị kiến
 thức nên đánh số `<chủ đề>.<thứ tự>` để ma trận và đặc tả tham chiếu chính xác.
 
-> Nếu dự án có skill `exam-latex-creator`, đối chiếu thêm
-> `exam-latex-creator/references/MAPID_KHTN6.tex` để gọi tên chương/bài thống
-> nhất với ngân hàng câu hỏi. Lưu ý MAPID đó **không có chương Mở đầu** —
-> đánh số chương của MAPID bắt đầu từ *Các thể của chất*.
+> **Phân biệt hai hệ tên gọi — đừng trộn lẫn:**
+>
+> - **Chủ đề / đơn vị kiến thức** (file này) theo **CT GDPT 2018**. Ma trận và
+>   bảng đặc tả bắt buộc dùng hệ này, vì mẫu của Bộ quy định như vậy.
+> - **Chương / Bài** theo **SGK Kết nối tri thức với cuộc sống**, tra ở
+>   `exam-latex-creator/references/MAPID_KHTN6.tex` (10 chương, 55 bài) hoặc
+>   `de-cuong-khtn-creator/references/MAPID_KHTN6.tex`. Đề, đề cương và giáo án
+>   dùng hệ này, và **phải chép nguyên văn tên trong sách, không bịa**.
+>
+> Ví dụ: đơn vị kiến thức *2.2 Sự chuyển thể của chất* của ma trận tương ứng với
+> *Bài 10. Các thể của chất và sự chuyển thể* trong SGK. Ghi tên nào cho đúng
+> chỗ đó, đừng lấy tên chủ đề đặt làm tên bài.
 
 ---
 

@@ -90,7 +90,7 @@ exam-latex-creator/
 │   ├── tu-bang-dac-ta.md             ← Ra đề từ bảng đặc tả .docx/.json
 │   ├── chay-tren-ubuntu-vps.md       ← Triển khai trên VPS Ubuntu
 │   ├── mapid6-coding.md              ← Quy tắc mã hóa ID6
-│   ├── MAPID_KHTN6.tex               ← Bản đồ nội dung KHTN lớp 6 (11 chương, 33 bài, 184 dạng)
+│   ├── MAPID_KHTN6.tex               ← KHTN 6 — bám SGK Kết nối tri thức (10 chương, 55 bài, 193 dạng)
 │   ├── MAPID_KHTN7.tex               ← Bản đồ nội dung KHTN lớp 7 (11 chương, 29 bài, 134 dạng)
 │   ├── MAPID_KHTN8.tex               ← Bản đồ nội dung KHTN lớp 8 (8 chương, 39 bài, 137 dạng)
 │   └── MAPID_KHTN9.tex               ← Bản đồ nội dung KHTN lớp 9 (12 chương, 42 bài, 208 dạng)
@@ -149,13 +149,33 @@ thật tên `Khaibao/Headerfooter/`. Chi tiết: `references/chay-tren-ubuntu-vp
 
 Thư mục `<SKILL_DIR>/references/` chứa các file `MAPID_<MÔN><LỚP>.tex` — bản đồ chi tiết toàn bộ chương/bài/dạng.
 
+> **TÊN CHƯƠNG VÀ TÊN BÀI PHẢI ĐÚNG NHƯ SÁCH GIÁO KHOA — KHÔNG BỊA.**
+> Bộ sách chuẩn của dự án là **Kết nối tri thức với cuộc sống**. Chép nguyên
+> văn từ MAPID: đúng từng chữ, đúng dấu, đúng viết hoa, giữ nguyên số hiệu bài
+> ("Bài 17. Tách chất khỏi hỗn hợp"). Không rút gọn, không đặt tên gợi nhớ,
+> không gộp/tách bài. Nếu MAPID chưa có chương/bài đó thì **dừng lại và hỏi**,
+> tuyệt đối không suy đoán tên.
+
 **Quy tắc:**
 1. **Trước khi tạo câu hỏi**, XÁC ĐỊNH LỚP từ yêu cầu người dùng → ĐỌC file MAPID đúng lớp:
-   - Lớp 6 → `MAPID_KHTN6.tex` (11 chương, 33 bài, 184 dạng)
-   - Lớp 7 → `MAPID_KHTN7.tex` (11 chương, 29 bài, 134 dạng)
-   - Lớp 8 → `MAPID_KHTN8.tex` (8 chương, 39 bài, 137 dạng)
-   - Lớp 9 → `MAPID_KHTN9.tex` (12 chương, 42 bài, 208 dạng)
-   - (Thêm file mới khi có: `MAPID_HOA10.tex`, `MAPID_TOAN9.tex`, ...)
+   Cả 4 file đã **chuẩn hoá theo SGK Kết nối tri thức với cuộc sống**, tên
+   chương và tên bài chép nguyên văn từ mục lục sách. Trong MAPID **chỉ ghi
+   tên thuần**, không kèm "Chương I" hay "Bài 17." — số thứ tự đã nằm ở mã
+   `[n]` của chính dòng đó:
+
+   | Lớp | File | Chương | Bài | Dạng |
+   |-----|------|--------|-----|------|
+   | 6 | `MAPID_KHTN6.tex` | 10 | 55 | 193 |
+   | 7 | `MAPID_KHTN7.tex` | 10 + Mở đầu | 42 | 134 |
+   | 8 | `MAPID_KHTN8.tex` | 8 + Mở đầu | 47 | 137 |
+   | 9 | `MAPID_KHTN9.tex` | 14 + Mở đầu | 51 | 208 |
+
+   (Thêm file mới khi có: `MAPID_HOA10.tex`, `MAPID_TOAN9.tex`, ...)
+
+   Ảnh mục lục gốc dùng để đối chiếu nằm ở
+   `de-cuong-khtn-creator/references/muc-luc-sgk/`. Một số bài chưa có dạng nào
+   — đó là chuyện bình thường, cứ bổ sung dần; **không được** vì thiếu dạng mà
+   đổi tên bài cho khớp nội dung mình định viết.
 
 2. Từ file MAPID, xác định chính xác:
    - Chương nào chứa chủ đề người dùng yêu cầu

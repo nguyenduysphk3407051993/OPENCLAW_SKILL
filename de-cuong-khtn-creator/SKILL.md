@@ -57,7 +57,8 @@ de-cuong-khtn-creator/
 │   ├── sa-tra-loi-ngan.md            ← Format loại 3: trả lời ngắn (SA)
 │   ├── bt-tu-luan.md                 ← Format loại 4: tự luận (BT)
 │   ├── mapid6-coding.md              ← Quy tắc mã hóa ID6
-│   ├── MAPID_KHTN6.tex               ← Bản đồ nội dung KHTN lớp 6
+│   ├── muc-luc-sgk/                  ← Ảnh mục lục SGK Kết nối tri thức lớp 6-9 (nguồn đối chiếu tên chương/bài)
+│   ├── MAPID_KHTN6.tex               ← KHTN 6 — bám SGK Kết nối tri thức (10 chương, 55 bài, 193 dạng)
 │   ├── MAPID_KHTN7.tex               ← Bản đồ nội dung KHTN lớp 7
 │   ├── MAPID_KHTN8.tex               ← Bản đồ nội dung KHTN lớp 8
 │   └── MAPID_KHTN9.tex               ← Bản đồ nội dung KHTN lớp 9
@@ -67,7 +68,7 @@ de-cuong-khtn-creator/
 ├── assets/
 │   └── template-de-cuong.tex         ← Template cấu trúc Đề cương học kì KHTN chuẩn
 └── latex-output/                     ← Thư mục xuất file .tex/.pdf
-    ├── FileMain.tex                  ← File chính (document class, subfiles, packages)
+    ├── Main.tex                      ← File master (document class, subfiles, packages)
     ├── Khaibao/                      ← Khai báo môi trường (Muctieu, kienthuccannho, ...)
     ├── Ans/                          ← Đáp án tự sinh (LGEX, Ans, LGTF, AnsBT, AnsSA...)
     ├── Ansbook/                      ← Bảng đáp án TF (AnsTF)
@@ -82,6 +83,33 @@ de-cuong-khtn-creator/
 | `<OUTPUT_DIR>` | `<SKILL_DIR>/latex-output` |
 | `<EXPORT>` | `python "<SKILL_DIR>/scripts/export_pdf.py"` |
 | `<MIX>` | `python "<SKILL_DIR>/scripts/mix_exam.py"` |
+| `<CHECK>` | `python "<SKILL_DIR>/scripts/check_linux.py"` |
+
+### Kiểm tra đường dẫn trước khi biên dịch — CHẠY TRƯỚC, MỖI KHI ĐỔI MÔI TRƯỜNG
+
+```bash
+<CHECK>                      # mặc định soi latex-output/
+<CHECK> "<OUTPUT_DIR>"       # hoặc chỉ định thư mục
+```
+
+Phải báo **0 lỗi** rồi mới `<EXPORT> compile`. Script soi 5 nhóm:
+
+| # | Kiểm tra gì | Vì sao hay vỡ khi đổi máy |
+|---|-------------|----------------------------|
+| 1 | `\input` / `\include` khớp đúng HOA/thường | Windows không phân biệt hoa thường, Linux thì có. `\input{Khaibao/Chuongmuc/ChuongMuc_ver2}` chạy ngon trên máy bạn nhưng chết trên VPS vì file thật tên `ChuongMuc_Ver2.tex` |
+| 2 | `\documentclass[X]{subfiles}` trỏ tới master có thật | Chép template từ skill khác sang là dính ngay: `[FileMain.tex]` trong khi ở đây master tên `Main.tex` |
+| 3 | Tên file có dấu tiếng Việt hoặc khoảng trắng | Vỡ khi đi qua shell, Makefile, hoặc rsync lên VPS |
+| 4 | Có `pdflatex` / `latexmk` trong PATH chưa | VPS mới cài thường thiếu, script in luôn lệnh `apt install` cần chạy |
+| 5 | Các gói LaTeX đặc biệt đang dùng | `vietnam`, `tkz-tab`, `chemfig`… nằm ở gói apt riêng, TeX Live bản `-base` không có |
+
+Bốn nguyên tắc khi tự gõ lệnh, để không phải sửa lại lúc lên VPS:
+
+1. **Bọc đường dẫn trong nháy kép** — thư mục hay có dấu cách.
+2. **Đừng dùng `cd A && lệnh`** — `&&` lỗi trên PowerShell 5.1. Dùng
+   `pdflatex -output-directory "<OUTPUT_DIR>" "<OUTPUT_DIR>/file.tex"`.
+3. **Ubuntu không có lệnh `python`**, chỉ có `python3`.
+4. **Đặt tên file mới không dấu, không khoảng trắng**, giữ đúng kiểu viết hoa
+   đã dùng trong thư mục đó.
 
 ---
 
@@ -92,7 +120,7 @@ Mỗi file Đề cương học kì KHTN phải tuân thủ nghiêm ngặt cấu 
 ### 1. Cấu trúc Khung File LaTeX
 
 ```latex
-\documentclass[FileMain.tex]{subfiles}
+\documentclass[Main.tex]{subfiles}
 \begin{document}
 
 % Các Chương và Bài được chèn ở đây...
@@ -100,7 +128,40 @@ Mỗi file Đề cương học kì KHTN phải tuân thủ nghiêm ngặt cấu 
 \end{document}
 ```
 
+> **Tên file master là `Main.tex`**, không phải `FileMain.tex`. Cả 34 file
+> subfiles đang có trong `latex-output/` đều khai báo `[Main.tex]` và biên dịch
+> được. Ghi sai tên master thì LaTeX vỡ ngay dòng đầu, mà thông báo lỗi của nó
+> lại không hề nhắc tới tên file bị thiếu nên rất mất thời gian dò.
+>
+> Skill anh em `exam-latex-creator` dùng tên `FileMain.tex` — hai skill khác
+> quy ước, đừng chép chéo dòng `\documentclass` giữa hai bên.
+
 ### 2. Cấu trúc từng Chương (`\chapter`)
+
+> #### TÊN CHƯƠNG VÀ TÊN BÀI PHẢI ĐÚNG NHƯ SÁCH — TUYỆT ĐỐI KHÔNG BỊA
+>
+> Trước khi viết bất kỳ `\chapter{}` hay `\section{}` nào, **bắt buộc mở**
+> `references/MAPID_KHTN<LỚP>.tex` và **chép nguyên văn** tên chương, tên bài
+> từ đó. Cả 4 file MAPID (lớp 6, 7, 8, 9) đã được chuẩn hoá theo **SGK Kết nối
+> tri thức với cuộc sống**; ảnh mục lục gốc để đối chiếu nằm ở
+> `references/muc-luc-sgk/`.
+>
+> Trong MAPID **chỉ ghi tên thuần**, không có "Chương I" hay "Bài 17." vì số
+> thứ tự đã nằm ở mã `[n]`. Khi viết ra file đề cương thì mới thêm số hiệu bài
+> đánh theo toàn tập đúng như sách:
+> `\section{Bài 17. Tách chất khỏi hỗn hợp}` — không đánh lại từ 1 ở mỗi chương.
+>
+> - **Chép đúng từng chữ**, kể cả dấu, cách viết hoa, dấu ngoặc và số La Mã.
+> - **Không tự rút gọn** ("An toàn trong phòng thực hành" ≠ "An toàn thí nghiệm").
+> - **Không tự đặt tên gợi nhớ**, không dịch, không thêm bớt chữ cho xuôi tai.
+> - **Không tự gộp hay tách bài** so với cấu trúc trong MAPID.
+> - Nếu người dùng đưa tên chương/bài khác MAPID, **hỏi lại** xem họ dùng bộ
+>   sách nào, đừng tự chọn một trong hai.
+> - Nếu MAPID **chưa có** chương/bài đó: dừng lại, báo người dùng bổ sung MAPID
+>   hoặc gửi ảnh/mục lục SGK. **Không được suy đoán tên.**
+>
+> Sai tên chương/bài là lỗi nặng nhất của skill này: đề cương trông vẫn đẹp
+> nhưng giáo viên không dùng được vì lệch với sách học sinh đang cầm trên tay.
 
 Mỗi chương bắt đầu bằng lệnh `\chapter{<Tên chương>}` và môi trường `Muctieu`:
 
@@ -115,7 +176,9 @@ Mỗi chương bắt đầu bằng lệnh `\chapter{<Tên chương>}` và môi t
 
 ### 3. Cấu trúc từng Bài (`\section`)
 
-Mỗi chương gồm nhiều bài (`\section{Tên bài}`). Trong mỗi bài gồm 2 phần chính:
+Mỗi chương gồm nhiều bài (`\section{Tên bài}`). Tên bài cũng **chép nguyên văn
+từ `references/MAPID_KHTN<LỚP>.tex`** như quy tắc ở mục 2. Trong mỗi bài gồm
+2 phần chính:
 
 #### **Phần A. Lý thuyết trọng tâm** (`\subsection{Lý thuyết trọng tâm ...}`)
 Được bọc trong môi trường `kienthuccannho`. Bên trong dùng các mục `\subsubsection{...}` cấp 1:
@@ -303,7 +366,9 @@ Trước khi soạn câu hỏi, đọc file mapid tương ứng trong `reference
 
 ## Checklist trước khi hoàn tất
 
-- [ ] Đề cương đầy đủ phần Header `\documentclass[FileMain.tex]{subfiles}` và `\begin{document}`.
+- [ ] **Tên chương và tên bài chép nguyên văn từ `references/MAPID_KHTN<LỚP>.tex`** — đã đối chiếu từng chữ, không rút gọn, không tự đặt.
+- [ ] Đã chạy `python scripts/check_linux.py` và **0 lỗi** (xem mục Kiểm tra đường dẫn).
+- [ ] Đề cương đầy đủ phần Header `\documentclass[Main.tex]{subfiles}` và `\begin{document}`.
 - [ ] Mỗi Chương có `\chapter{...}` và môi trường `\begin{Muctieu} ... \end{Muctieu}`.
 - [ ] Mỗi Bài có `\section{...}`.
 - [ ] Phần Lý thuyết trọng tâm nằm trong `\begin{kienthuccannho} ... \end{kienthuccannho}` với các `\subsubsection{...}`.
