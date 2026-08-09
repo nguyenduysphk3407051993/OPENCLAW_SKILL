@@ -74,6 +74,14 @@ mỗi lần chạy nên form không bao giờ hỏng. Đổi số mức độ t�
    - số câu trong đề khớp ma trận (loại 2 = 4 ý, loại 4 = 2 ý)
 3. Mắt thường — mở docx đối chiếu với `assets/mau_bang_*.docx`
 
+Form mẫu có hai biến thể: bản gốc 3 mức độ (Biết / Hiểu / Vận dụng) theo form
+của Bộ, và bản `*_4mucdo.docx` thêm mức *Liên hệ thực tế* — dùng bản 4 mức khi
+đối chiếu các bộ đề trong `output/`. Sinh lại bằng:
+
+```bash
+python assets/tao_form_mau.py --muc-do 4      # bỏ cờ để lấy bản 3 mức
+```
+
 ## Bộ đề mẫu có sẵn
 
 `output/KHTN6_MoDau_DaDangChat/` — KHTN 6, chủ đề *Mở đầu về Khoa học tự nhiên*

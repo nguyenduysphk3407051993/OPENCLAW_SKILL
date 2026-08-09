@@ -57,11 +57,13 @@ exam-idea/
 │   ├── setup_ubuntu.sh                   ← Dựng môi trường trên VPS Ubuntu
 │   └── package.py                        ← Đóng gói skill thành .zip
 ├── assets/
-│   ├── mau_bang_ma_tran.docx             ← Form mẫu gốc (tham chiếu mắt thường)
+│   ├── mau_bang_ma_tran.docx             ← Form mẫu gốc 3 mức (tham chiếu mắt thường)
 │   ├── mau_bang_ma_tran.png              ← Ảnh form gốc để đối chiếu
 │   ├── mau_bang_dac_ta_ma_tran.docx
 │   ├── mau_bang_dac_ta_ma_tran.png
-│   └── tao_form_mau.py                   ← Script tái tạo 2 form mẫu rỗng
+│   ├── mau_bang_ma_tran_4mucdo.docx      ← Form 4 mức (khớp bộ đề trong output/)
+│   ├── mau_bang_dac_ta_ma_tran_4mucdo.docx
+│   └── tao_form_mau.py                   ← Script tái tạo form mẫu rỗng (3 hoặc 4 mức)
 └── output/
     └── <TÊN_BỘ_ĐỀ>/                      ← Mỗi bộ đề một thư mục con
         ├── de_bai_tap.json
