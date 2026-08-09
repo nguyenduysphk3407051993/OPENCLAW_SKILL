@@ -1,0 +1,450 @@
+{
+  "nguon": "3_Bang_dac_ta.docx",
+  "thong_tin": {},
+  "lop": "6",
+  "mon": "K",
+  "tong_ket": {
+    "so_cau_theo_loai": {
+      "EX": 12,
+      "TF": 4,
+      "SA": 2,
+      "BT": 3
+    },
+    "tong_so_cau": 21,
+    "tong_lenh_hoi": 36
+  },
+  "canh_bao": [],
+  "cau": [
+    {
+      "stt": 1,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Nêu được khái niệm khoa học tự nhiên; nhận ra được đối tượng nghiên cứu của khoa học tự nhiên."
+    },
+    {
+      "stt": 2,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Trình bày được các lĩnh vực chủ yếu của khoa học tự nhiên: Vật lí, Hoá học, Sinh học, Thiên văn học, Khoa học Trái Đất."
+    },
+    {
+      "stt": 3,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+      "muc_do": "TH",
+      "muc_do_ten": "Thông hiểu",
+      "id6_goi_y": "6K?H?-?",
+      "yccd": "– Phân biệt được vật sống và vật không sống dựa vào các đặc điểm đặc trưng (trao đổi chất, lớn lên, sinh sản, cảm ứng); phân biệt được đối tượng của KHTN với các ngành khoa học khác."
+    },
+    {
+      "stt": 4,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Trình bày được công dụng và cách sử dụng một số dụng cụ đo thông dụng (thước, bình chia độ, cân, nhiệt kế), kính lúp và kính hiển vi quang học."
+    },
+    {
+      "stt": 5,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Trình bày được công dụng và cách sử dụng một số dụng cụ đo thông dụng (thước, bình chia độ, cân, nhiệt kế), kính lúp và kính hiển vi quang học."
+    },
+    {
+      "stt": 6,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+      "muc_do": "TH",
+      "muc_do_ten": "Thông hiểu",
+      "id6_goi_y": "6K?H?-?",
+      "yccd": "– Xác định được giới hạn đo (GHĐ) và độ chia nhỏ nhất (ĐCNN) của dụng cụ đo; lựa chọn được dụng cụ đo phù hợp với phép đo."
+    },
+    {
+      "stt": 7,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Nêu được sự đa dạng của chất; chất có ở xung quanh ta, trong mọi vật thể tự nhiên và vật thể nhân tạo."
+    },
+    {
+      "stt": 8,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Nêu được ba thể (trạng thái) cơ bản của chất: rắn, lỏng, khí kèm ví dụ minh hoạ ở điều kiện thường."
+    },
+    {
+      "stt": 9,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+      "muc_do": "TH",
+      "muc_do_ten": "Thông hiểu",
+      "id6_goi_y": "6K?H?-?",
+      "yccd": "– Trình bày và so sánh được đặc điểm về hình dạng, thể tích, khả năng bị nén và khả năng lan truyền của chất ở thể rắn, lỏng, khí."
+    },
+    {
+      "stt": 10,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Nêu được khái niệm về sự nóng chảy, sự đông đặc, sự bay hơi, sự ngưng tụ và sự sôi."
+    },
+    {
+      "stt": 11,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Nêu được nhiệt độ nóng chảy của nước đá và nhiệt độ sôi của nước ở điều kiện thường."
+    },
+    {
+      "stt": 12,
+      "kieu": "EX",
+      "loai": 1,
+      "nhom": "Nhiều lựa chọn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+      "muc_do": "TH",
+      "muc_do_ten": "Thông hiểu",
+      "id6_goi_y": "6K?H?-?",
+      "yccd": "– Xác định được quá trình chuyển thể xảy ra trong một hiện tượng cụ thể; tính toán đơn giản với các mốc nhiệt độ chuyển thể."
+    },
+    {
+      "stt": 13,
+      "kieu": "TF",
+      "loai": 2,
+      "nhom": "\"Đúng – Sai\"",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống",
+      "muc_do": [
+        "NB",
+        "TH"
+      ],
+      "muc_do_ten": "Nhận biết / Thông hiểu",
+      "id6_goi_y": "6K?N?-?",
+      "y": [
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Trình bày được các lĩnh vực chủ yếu của khoa học tự nhiên: Vật lí, Hoá học, Sinh học, Thiên văn học, Khoa học Trái Đất.",
+          "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống"
+        },
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Trình bày được các lĩnh vực chủ yếu của khoa học tự nhiên: Vật lí, Hoá học, Sinh học, Thiên văn học, Khoa học Trái Đất.",
+          "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống"
+        },
+        {
+          "muc_do": "TH",
+          "muc_do_ten": "Thông hiểu",
+          "yccd": "– Phân biệt được vật sống và vật không sống dựa vào các đặc điểm đặc trưng (trao đổi chất, lớn lên, sinh sản, cảm ứng); phân biệt được đối tượng của KHTN với các ngành khoa học khác.",
+          "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống"
+        },
+        {
+          "muc_do": "TH",
+          "muc_do_ten": "Thông hiểu",
+          "yccd": "– Phân biệt được vật sống và vật không sống dựa vào các đặc điểm đặc trưng (trao đổi chất, lớn lên, sinh sản, cảm ứng); phân biệt được đối tượng của KHTN với các ngành khoa học khác.",
+          "don_vi": "1.1. Giới thiệu về Khoa học tự nhiên. Các lĩnh vực chủ yếu của KHTN. Vật sống – vật không sống"
+        }
+      ]
+    },
+    {
+      "stt": 14,
+      "kieu": "TF",
+      "loai": 2,
+      "nhom": "\"Đúng – Sai\"",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+      "muc_do": [
+        "NB",
+        "TH"
+      ],
+      "muc_do_ten": "Nhận biết / Thông hiểu",
+      "id6_goi_y": "6K?N?-?",
+      "y": [
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được các quy định an toàn khi học trong phòng thực hành; nhận biết được ý nghĩa của một số kí hiệu cảnh báo.",
+          "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học"
+        },
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được các quy định an toàn khi học trong phòng thực hành; nhận biết được ý nghĩa của một số kí hiệu cảnh báo.",
+          "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học"
+        },
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được các quy định an toàn khi học trong phòng thực hành; nhận biết được ý nghĩa của một số kí hiệu cảnh báo.",
+          "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học"
+        },
+        {
+          "muc_do": "TH",
+          "muc_do_ten": "Thông hiểu",
+          "yccd": "– Xác định được giới hạn đo (GHĐ) và độ chia nhỏ nhất (ĐCNN) của dụng cụ đo; lựa chọn được dụng cụ đo phù hợp với phép đo.",
+          "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học"
+        }
+      ]
+    },
+    {
+      "stt": 15,
+      "kieu": "TF",
+      "loai": 2,
+      "nhom": "\"Đúng – Sai\"",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+      "muc_do": [
+        "NB",
+        "TH",
+        "VD"
+      ],
+      "muc_do_ten": "Nhận biết / Thông hiểu / Vận dụng",
+      "id6_goi_y": "6K?N?-?",
+      "y": [
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được sự đa dạng của chất; chất có ở xung quanh ta, trong mọi vật thể tự nhiên và vật thể nhân tạo.",
+          "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm"
+        },
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được ba thể (trạng thái) cơ bản của chất: rắn, lỏng, khí kèm ví dụ minh hoạ ở điều kiện thường.",
+          "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm"
+        },
+        {
+          "muc_do": "TH",
+          "muc_do_ten": "Thông hiểu",
+          "yccd": "– Trình bày và so sánh được đặc điểm về hình dạng, thể tích, khả năng bị nén và khả năng lan truyền của chất ở thể rắn, lỏng, khí.",
+          "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm"
+        },
+        {
+          "muc_do": "VD",
+          "muc_do_ten": "Vận dụng",
+          "yccd": "– Vận dụng đặc điểm các thể của chất để dự đoán và giải thích kết quả khi chuyển một lượng chất sang vật chứa có hình dạng khác.",
+          "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm"
+        }
+      ]
+    },
+    {
+      "stt": 16,
+      "kieu": "TF",
+      "loai": 2,
+      "nhom": "\"Đúng – Sai\"",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+      "muc_do": [
+        "NB",
+        "VD"
+      ],
+      "muc_do_ten": "Nhận biết / Vận dụng",
+      "id6_goi_y": "6K?N?-?",
+      "y": [
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được khái niệm về sự nóng chảy, sự đông đặc, sự bay hơi, sự ngưng tụ và sự sôi.",
+          "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)"
+        },
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được khái niệm về sự nóng chảy, sự đông đặc, sự bay hơi, sự ngưng tụ và sự sôi.",
+          "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)"
+        },
+        {
+          "muc_do": "NB",
+          "muc_do_ten": "Nhận biết",
+          "yccd": "– Nêu được khái niệm về sự nóng chảy, sự đông đặc, sự bay hơi, sự ngưng tụ và sự sôi.",
+          "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)"
+        },
+        {
+          "muc_do": "VD",
+          "muc_do_ten": "Vận dụng",
+          "yccd": "– Vận dụng kiến thức về sự ngưng tụ để phân tích và bác bỏ một cách giải thích sai về hiện tượng thực tế.",
+          "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)"
+        }
+      ]
+    },
+    {
+      "stt": 17,
+      "kieu": "SA",
+      "loai": 3,
+      "nhom": "Trả lời ngắn",
+      "moi_truong": "ex",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+      "muc_do": "NB",
+      "muc_do_ten": "Nhận biết",
+      "id6_goi_y": "6K?N?-?",
+      "yccd": "– Trình bày được công dụng và cách sử dụng một số dụng cụ đo thông dụng (thước, bình chia độ, cân, nhiệt kế), kính lúp và kính hiển vi quang học."
+    },
+    {
+      "stt": 18,
+      "kieu": "SA",
+      "loai": 3,
+      "nhom": "Trả lời ngắn",
+      "moi_truong": "ex",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+      "muc_do": "TH",
+      "muc_do_ten": "Thông hiểu",
+      "id6_goi_y": "6K?H?-?",
+      "yccd": "– Xác định được quá trình chuyển thể xảy ra trong một hiện tượng cụ thể; tính toán đơn giản với các mốc nhiệt độ chuyển thể."
+    },
+    {
+      "stt": 19,
+      "kieu": "BT",
+      "loai": 4,
+      "nhom": "Tự luận",
+      "moi_truong": "bt",
+      "chu_de": "Mở đầu về Khoa học tự nhiên",
+      "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học",
+      "muc_do": [
+        "TH"
+      ],
+      "muc_do_ten": "Thông hiểu",
+      "id6_goi_y": "6K?H?-?",
+      "y": [
+        {
+          "muc_do": "TH",
+          "muc_do_ten": "Thông hiểu",
+          "yccd": "– Giải thích được cơ sở khoa học của một số quy tắc an toàn bắt buộc trong phòng thực hành.",
+          "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học"
+        },
+        {
+          "muc_do": "TH",
+          "muc_do_ten": "Thông hiểu",
+          "yccd": "– Giải thích được cơ sở khoa học của một số quy tắc an toàn bắt buộc trong phòng thực hành.",
+          "don_vi": "1.2. An toàn trong phòng thực hành. Sử dụng dụng cụ đo, kính lúp và kính hiển vi quang học"
+        }
+      ]
+    },
+    {
+      "stt": 20,
+      "kieu": "BT",
+      "loai": 4,
+      "nhom": "Tự luận",
+      "moi_truong": "bt",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm",
+      "muc_do": [
+        "VD"
+      ],
+      "muc_do_ten": "Vận dụng",
+      "id6_goi_y": "6K?V?-?",
+      "y": [
+        {
+          "muc_do": "VD",
+          "muc_do_ten": "Vận dụng",
+          "yccd": "– Vận dụng đặc điểm các thể của chất để dự đoán và giải thích kết quả khi chuyển một lượng chất sang vật chứa có hình dạng khác.",
+          "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm"
+        },
+        {
+          "muc_do": "VD",
+          "muc_do_ten": "Vận dụng",
+          "yccd": "– Vận dụng đặc điểm các thể của chất để dự đoán và giải thích kết quả khi chuyển một lượng chất sang vật chứa có hình dạng khác.",
+          "don_vi": "2.1. Sự đa dạng của chất. Ba thể cơ bản của chất và đặc điểm"
+        }
+      ]
+    },
+    {
+      "stt": 21,
+      "kieu": "BT",
+      "loai": 4,
+      "nhom": "Tự luận",
+      "moi_truong": "bt",
+      "chu_de": "Đa dạng chất. Các thể của chất",
+      "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)",
+      "muc_do": [
+        "LH"
+      ],
+      "muc_do_ten": "Liên hệ thực tế",
+      "id6_goi_y": "6K?T?-?",
+      "y": [
+        {
+          "muc_do": "LH",
+          "muc_do_ten": "Liên hệ thực tế",
+          "yccd": "– Giải thích được hiện tượng chuyển thể của nước trong đời sống (trời nồm, sương mù, giọt nước bám ngoài thành cốc) và đề xuất được biện pháp ứng phó phù hợp với gia đình, địa phương.",
+          "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)"
+        },
+        {
+          "muc_do": "LH",
+          "muc_do_ten": "Liên hệ thực tế",
+          "yccd": "– Giải thích được hiện tượng chuyển thể của nước trong đời sống (trời nồm, sương mù, giọt nước bám ngoài thành cốc) và đề xuất được biện pháp ứng phó phù hợp với gia đình, địa phương.",
+          "don_vi": "2.2. Sự chuyển thể của chất (nóng chảy, đông đặc, hoá hơi, ngưng tụ, sôi)"
+        }
+      ]
+    }
+  ]
+}

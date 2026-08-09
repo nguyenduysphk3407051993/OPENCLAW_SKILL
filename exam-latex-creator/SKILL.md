@@ -1,6 +1,6 @@
 ---
 name: exam-latex-creator
-description: "Skill tạo câu hỏi/bài tập LaTeX cho giáo dục Việt Nam (THCS & THPT). Sử dụng khi cần soạn câu hỏi loại 1 (trắc nghiệm), loại 2 (đúng/sai), loại 3 (trả lời ngắn), loại 4 (tự luận) cho các môn KHTN, Toán, Văn theo chuẩn LaTeX. Cũng dùng khi cần trộn đề, ghép đề, lọc trùng, biên dịch PDF, hoặc trích xuất nội dung từ file pdf/ảnh/docx sang form LaTeX."
+description: "Skill tạo câu hỏi/bài tập LaTeX cho giáo dục Việt Nam (THCS & THPT). Sử dụng khi cần soạn câu hỏi loại 1 (trắc nghiệm), loại 2 (đúng/sai), loại 3 (trả lời ngắn), loại 4 (tự luận) cho các môn KHTN, Toán, Văn theo chuẩn LaTeX. Cũng dùng khi cần RA ĐỀ TỪ BẢNG ĐẶC TẢ có sẵn (.docx hoặc .json) để sinh đề đúng số câu/mức độ/chủ đề, trộn đề, ghép đề, lọc trùng, biên dịch PDF, hoặc trích xuất nội dung từ file pdf/ảnh/docx sang form LaTeX."
 allowed-tools: Read, Write, Edit, Glob, Grep, WebFetch
 argument-hint: "[loại câu hỏi] [số lượng] [chủ đề/chương/bài]"
 ---
@@ -14,6 +14,7 @@ Skill chuyên tạo câu hỏi theo chủ đề/chương/bài/dạng (Toán, Lý
 ## Khi nào dùng
 
 - Soạn câu hỏi loại 1 (trắc nghiệm), 2 (đúng/sai), 3 (trả lời ngắn), 4 (tự luận) dưới dạng mã LaTeX
+- **Người dùng đưa BẢNG ĐẶC TẢ (.docx/.json) và yêu cầu ra đề đúng theo bảng đó** (`spec_to_exam.py`)
 - Trích xuất nội dung từ file pdf/ảnh/docx chuyển sang form LaTeX
 - Tạo đề thi hoàn chỉnh với nhiều loại câu hỏi
 - Ghép câu hỏi từ nhiều nguồn thành đề thi (`assemble`)
@@ -31,14 +32,19 @@ exam-latex-creator/
 │   ├── tf-dung-sai.md                ← Format loại 2: đúng/sai (TF)
 │   ├── sa-tra-loi-ngan.md            ← Format loại 3: trả lời ngắn (SA)
 │   ├── bt-tu-luan.md                 ← Format loại 4: tự luận (BT)
+│   ├── tu-bang-dac-ta.md             ← Ra đề từ bảng đặc tả .docx/.json
+│   ├── chay-tren-ubuntu-vps.md       ← Triển khai trên VPS Ubuntu
 │   ├── mapid6-coding.md              ← Quy tắc mã hóa ID6
 │   ├── MAPID_KHTN6.tex               ← Bản đồ nội dung KHTN lớp 6 (11 chương, 33 bài, 184 dạng)
 │   ├── MAPID_KHTN7.tex               ← Bản đồ nội dung KHTN lớp 7 (11 chương, 29 bài, 134 dạng)
 │   ├── MAPID_KHTN8.tex               ← Bản đồ nội dung KHTN lớp 8 (8 chương, 39 bài, 137 dạng)
 │   └── MAPID_KHTN9.tex               ← Bản đồ nội dung KHTN lớp 9 (12 chương, 42 bài, 208 dạng)
 ├── scripts/
+│   ├── spec_to_exam.py               ← Bảng đặc tả → kế hoạch → khung .tex → đối chiếu
 │   ├── mix_exam.py                   ← Ghép đề, trộn đề, parse, lọc trùng
-│   └── export_pdf.py                 ← Sửa lỗi LaTeX, biên dịch PDF, xử lý ảnh
+│   ├── export_pdf.py                 ← Sửa lỗi LaTeX, biên dịch PDF, xử lý ảnh
+│   ├── check_linux.py                ← Soi lỗi HOA/thường + gói TeX trước khi lên VPS
+│   └── setup_ubuntu.sh               ← Dựng môi trường TeX + Python trên Ubuntu
 ├── assets/
 │   └── template-de-thi.tex           ← Template đề thi chuẩn (subfiles)
 └── latex-output/                     ← Thư mục xuất file .tex/.pdf
@@ -57,8 +63,14 @@ exam-latex-creator/
 | `<OUTPUT_DIR>` | `<SKILL_DIR>/latex-output` |
 | `<MIX>` | `python "<SKILL_DIR>/scripts/mix_exam.py"` |
 | `<EXPORT>` | `python "<SKILL_DIR>/scripts/export_pdf.py"` |
+| `<SPEC>` | `python "<SKILL_DIR>/scripts/spec_to_exam.py"` |
 
 **Lưu ý:** Khi chạy trong bash sandbox, dùng đường dẫn VM mount thay cho đường dẫn Windows.
+
+**Trên VPS Ubuntu:** chạy `bash scripts/setup_ubuntu.sh` một lần, rồi
+`python scripts/check_linux.py` — phải báo **0 lỗi** trước khi biên dịch. Linux
+phân biệt HOA/thường nên `\input{Khaibao/HeaderFooter/...}` sẽ vỡ nếu thư mục
+thật tên `Khaibao/Headerfooter/`. Chi tiết: `references/chay-tren-ubuntu-vps.md`.
 
 ---
 
@@ -120,6 +132,7 @@ Thư mục `<SKILL_DIR>/references/` chứa các file `MAPID_<MÔN><LỚP>.tex` 
 **Nhiệm vụ 1:** Tạo câu hỏi loại 1/2/3/4 theo chủ đề, chương, bài, số lượng
 **Nhiệm vụ 2:** Trích xuất nội dung từ file pdf/ảnh/docx → chuyển sang form LaTeX
 **Nhiệm vụ 3:** Tạo đề thi hoàn chỉnh theo cấu trúc (phần 1: EX, phần 2: TF, phần 3: SA, phần 4: BT)
+**Nhiệm vụ 4:** Ra đề từ **bảng đặc tả có sẵn** (.docx/.json) — xem `references/tu-bang-dac-ta.md`
 
 ### Yêu cầu nghiêm ngặt theo loại câu hỏi
 
@@ -208,6 +221,25 @@ Trong đó:
 
 ## Scripts
 
+### spec_to_exam.py — Ra đề từ bảng đặc tả
+
+| Lệnh | Mô tả | Cú pháp |
+|------|-------|---------|
+| `read` | Bảng đặc tả (.docx/.json) → kế hoạch ra đề | `<SPEC> read "<spec>" -o plan.json --lop 6 --mon K` |
+| `skeleton` | Kế hoạch → file .tex theo `template-de-thi.tex` (còn `% TODO`) | `<SPEC> skeleton plan.json -o "<OUTPUT_DIR>/<TEN>.tex" --ten-de "..." --made 101` |
+| `fill` | Kế hoạch + `de_bai_tap.json` → .tex đầy đủ nội dung | `<SPEC> fill plan.json de_bai_tap.json --id6-map id6.json -o "<OUTPUT_DIR>/<TEN>.tex"` |
+| `verify` | Đối chiếu .tex với bảng đặc tả | `<SPEC> verify plan.json "<OUTPUT_DIR>/<TEN>.tex"` |
+
+Cờ của `read`: `--y-dung-sai 4`, `--y-tu-luan 2` (số lệnh hỏi mỗi câu).
+Cờ metadata của `skeleton`/`fill`: `--monhoc --ten-de --ngaykt --nh --thoigian
+--made --so-de --ten-file`.
+
+**Ràng buộc khi sinh .tex** (chi tiết: `references/tu-bang-dac-ta.md`):
+- Chỉ dùng đúng cấu trúc `assets/template-de-thi.tex`
+- KHÔNG thêm gói hay lệnh LaTeX mới
+- Giữ nguyên dòng hướng dẫn thí sinh sau mỗi `\subsection`
+- Xoá hẳn phần không có câu hỏi
+
 ### mix_exam.py — Ghép, trộn đề, phân tích, lọc trùng
 
 | Lệnh | Mô tả | Cú pháp |
@@ -293,6 +325,27 @@ Config JSON:
    <EXPORT> compile "<TEN_FILE>.tex" --dir "<OUTPUT_DIR>" --times 2 --clean
    ```
 
+### Cách 4: Ra đề từ bảng đặc tả có sẵn — DÙNG KHI NGƯỜI DÙNG ĐƯA BẢNG ĐẶC TẢ
+
+1. **Đọc** `references/tu-bang-dac-ta.md`
+2. **Bung bảng đặc tả thành kế hoạch:**
+   ```bash
+   <SPEC> read "bang_dac_ta.docx" -o plan.json --lop 6 --mon K --y-tu-luan 2
+   ```
+3. **Sinh file .tex** theo đúng template — mỗi câu đã kèm chú thích Chủ đề /
+   Đơn vị kiến thức / YCCĐ / Mức độ để bám sát khi viết:
+   ```bash
+   <SPEC> skeleton plan.json -o "<OUTPUT_DIR>/<TEN_FILE>_MADE101.tex" \
+     --ten-de "Kiểm tra định kì giữa học kì I" --monhoc "Khoa học tự nhiên 6" \
+     --ngaykt 20/10/2026 --thoigian 45 --made 101
+   ```
+4. **Điền nội dung** vào các chỗ `% TODO`; **tra MAPID** thay dấu `?` trong ID6
+5. **Đối chiếu** — chỉ đi tiếp khi 0 lỗi:
+   ```bash
+   <SPEC> verify plan.json "<OUTPUT_DIR>/<TEN_FILE>_MADE101.tex"
+   ```
+6. **Fix + compile** như Cách 1; muốn nhiều mã đề thì `shuffle` như Cách 3
+
 ### Cách 2: Ghép từ nhiều nguồn (assemble)
 
 1. Chuẩn bị các file câu hỏi riêng lẻ
@@ -353,6 +406,9 @@ Xem chi tiết tại `<SKILL_DIR>/references/mapid6-coding.md`.
 
 ## Checklist trước khi hoàn thành
 
+- [ ] Nếu có bảng đặc tả: đã chạy `<SPEC> read` + `<SPEC> verify` và báo 0 lỗi
+- [ ] Không thêm bất kỳ gói hay lệnh LaTeX nào ngoài những gì template đã có
+- [ ] Giữ nguyên dòng hướng dẫn thí sinh sau mỗi `\subsection`
 - [ ] Đọc format reference đúng loại câu hỏi
 - [ ] Tra MAPID đúng lớp/môn → gán ID6 chính xác cho mỗi câu
 - [ ] Format đúng theo loại (choice 4 tham số, True đúng vị trí, itemchoice đúng label)
