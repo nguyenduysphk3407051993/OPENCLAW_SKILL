@@ -1,16 +1,8 @@
 ---
 name: stem-lesson-creator
-description: >-
-  Soạn KẾ HOẠCH BÀI DẠY STEM (giáo án STEM) chi tiết, hoàn chỉnh và xuất ra
-  file Word (.docx) theo đúng chuẩn định hướng giáo dục STEM của Việt Nam.
-  Skill tự soạn đầy đủ: mục tiêu (kiến thức/năng lực/phẩm chất), thiết bị & học
-  liệu, phân công vai trò kỹ sư cho học sinh, tiến trình từng tiết (lời thoại
-  GV + thao tác HS + thí nghiệm đối chứng), phụ lục công thức, hệ thống phiếu
-  học tập (Notebook) và rubric đánh giá. Phục vụ TOÀN BỘ môn KHTN (Hóa học, Vật
-  lý, Sinh học) làm chủ trì, tích hợp Toán/Công nghệ. Số tiết linh hoạt. Sử
-  dụng khi người dùng nói "soạn giáo án STEM", "kế hoạch bài dạy STEM", "làm
-  giáo án STEM về một chủ đề", "thiết kế bài học STEM", hoặc nêu một chủ đề STEM
-  (làm xà phòng, lên men, pin chanh, lọc nước...) và muốn xuất ra Word.
+description: "Soạn KẾ HOẠCH BÀI DẠY STEM (giáo án STEM) chi tiết, hoàn chỉnh và xuất ra file Word (.docx) theo đúng chuẩn định hướng giáo dục STEM của Việt Nam. Skill tự soạn đầy đủ: mục tiêu (kiến thức/năng lực/phẩm chất), thiết bị & học liệu, phân công vai trò kỹ sư cho học sinh, tiến trình từng tiết (lời thoại GV + thao tác HS + thí nghiệm đối chứng), phụ lục công thức, hệ thống phiếu học tập (Notebook) và rubric đánh giá. Phục vụ TOÀN BỘ môn KHTN (Hóa học, Vật lý, Sinh học) làm chủ trì, tích hợp Toán/Công nghệ. Số tiết linh hoạt. Sử dụng khi người dùng nói \"soạn giáo án STEM\", \"kế hoạch bài dạy STEM\", \"làm giáo án STEM về một chủ đề\", \"thiết kế bài học STEM\", hoặc nêu một chủ đề STEM (làm xà phòng, lên men, pin chanh, lọc nước...) và muốn xuất ra Word."
+allowed-tools: Read, Write, Bash
+argument-hint: "[môn] [lớp] [chủ đề STEM] [số tiết] [sản phẩm đầu ra]"
 ---
 
 # STEM Lesson Creator — Soạn giáo án STEM chuẩn xuất Word

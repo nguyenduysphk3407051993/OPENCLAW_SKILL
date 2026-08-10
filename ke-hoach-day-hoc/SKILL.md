@@ -1,12 +1,8 @@
 ---
 name: ke-hoach-day-hoc
-description: >-
-  Tạo kế hoạch bài dạy (KHBD) chuẩn theo Công văn 5512/BGDĐT-GDTrH cho môn
-  Khoa học tự nhiên lớp 9 (Vật lí, Hóa học, Sinh học) theo bộ sách Kết nối tri
-  thức với cuộc sống (KNTT). Đầu ra là file Word (.docx) đầy đủ các thành phần:
-  Mục tiêu, Thiết bị dạy học, Tiến trình dạy học với 4 hoạt động (Khởi động,
-  Hình thành kiến thức, Luyện tập, Vận dụng), mỗi hoạt động có bảng 2 cột
-  Hoạt động của GV và HS.
+description: "Tạo kế hoạch bài dạy (KHBD) chuẩn theo Công văn 5512/BGDĐT-GDTrH cho môn Khoa học tự nhiên lớp 9 (Vật lí, Hóa học, Sinh học) theo bộ sách Kết nối tri thức với cuộc sống (KNTT). Đầu ra là file Word (.docx) đầy đủ các thành phần: Mục tiêu, Thiết bị dạy học, Tiến trình dạy học với 4 hoạt động (Khởi động, Hình thành kiến thức, Luyện tập, Vận dụng), mỗi hoạt động có bảng 2 cột Hoạt động của GV và HS."
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+argument-hint: "[phân môn: Vật lí/Hóa học/Sinh học] [tên bài] [số tiết]"
 ---
 
 # Kế Hoạch Bài Dạy (KHBD) - Khoa học tự nhiên 9 KNTT

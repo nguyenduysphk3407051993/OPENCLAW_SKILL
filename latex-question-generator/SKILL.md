@@ -1,6 +1,8 @@
 ---
 name: latex-question-generator
-description: Kỹ năng tự tạo và chuyển đổi câu hỏi/bài tập trắc nghiệm, tự luận (lớp 6-10) sang định dạng code LaTeX chuẩn theo yêu cầu giáo dục Việt Nam. Hỗ trợ 4 loại câu hỏi.
+description: "Kỹ năng tự tạo và chuyển đổi câu hỏi/bài tập trắc nghiệm, tự luận (lớp 6-10) sang định dạng code LaTeX chuẩn theo yêu cầu giáo dục Việt Nam. Hỗ trợ 4 loại câu hỏi."
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+argument-hint: "[loại câu hỏi] [số lượng] [chủ đề/lớp]"
 ---
 
 # Kỹ năng Tạo & Chuyển Đổi Câu Hỏi LaTeX (LaTeX Question Generator)

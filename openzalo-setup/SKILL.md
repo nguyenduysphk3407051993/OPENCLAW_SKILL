@@ -1,6 +1,8 @@
 ---
 name: openzalo-setup
-description: Use when setting up OpenZalo (Zalo personal account) as a messaging channel for OpenClaw. Covers installing openzca CLI, plugin, QR login, channel config, and troubleshooting.
+description: "Use when setting up OpenZalo (Zalo personal account) as a messaging channel for OpenClaw. Covers installing openzca CLI, plugin, QR login, channel config, and troubleshooting."
+allowed-tools: Read, Write, Edit, Bash
+argument-hint: "[bước setup] [đường dẫn file cấu hình]"
 metadata:
   {
     "openclaw":
@@ -9,7 +11,6 @@ metadata:
         "requires": { "bins": ["npm", "git"] },
       },
   }
-allowed-tools: ["exec", "read", "write", "edit"]
 ---
 
 # OpenZalo Setup

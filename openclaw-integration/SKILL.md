@@ -1,6 +1,8 @@
 ---
 name: openclaw-integration
-description: Hỗ trợ tích hợp và hiểu các lệnh từ OpenClaw Gateway thông qua Agent Client Protocol (ACP) giúp kết nối Telegram với Antigravity.
+description: "Hỗ trợ tích hợp và hiểu các lệnh từ OpenClaw Gateway thông qua Agent Client Protocol (ACP) giúp kết nối Telegram với Antigravity."
+allowed-tools: Read, Write, Edit, Bash, Grep
+argument-hint: "[lệnh/task từ OpenClaw] [đường dẫn dự án]"
 ---
 
 # Kỹ năng Tích hợp OpenClaw - Antigravity (Mô hình Gravity Claw)

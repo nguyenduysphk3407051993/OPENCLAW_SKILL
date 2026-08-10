@@ -1,6 +1,8 @@
 ---
 name: mapid-creator
-description: Phân loại và tạo Map ID cho bài tập KHTN, Hoá học THCS/THPT. Sử dụng khi cần phân tích SGK/SBT/file PDF bài tập để dựng bản đồ nội dung MAPID phân cấp Lớp-Môn-Chương-Bài-Dạng, hoặc gán mã 6 tham số (Lớp-Môn-Chương-Mức độ-Bài-Dạng) cho câu hỏi. Trigger khi người dùng upload PDF bài tập, yêu cầu tạo/cập nhật MAPID, phân loại câu hỏi, hoặc xây dựng cấu trúc phân cấp cho ngân hàng đề thi.
+description: "Phân loại và tạo Map ID cho bài tập KHTN, Hoá học THCS/THPT. Sử dụng khi cần phân tích SGK/SBT/file PDF bài tập để dựng bản đồ nội dung MAPID phân cấp Lớp-Môn-Chương-Bài-Dạng, hoặc gán mã 6 tham số (Lớp-Môn-Chương-Mức độ-Bài-Dạng) cho câu hỏi. Trigger khi người dùng upload PDF bài tập, yêu cầu tạo/cập nhật MAPID, phân loại câu hỏi, hoặc xây dựng cấu trúc phân cấp cho ngân hàng đề thi."
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+argument-hint: "[lớp] [môn] [file PDF/chương cần phân loại]"
 ---
 
 # Map ID Creator

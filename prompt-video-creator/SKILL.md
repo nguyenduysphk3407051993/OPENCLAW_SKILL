@@ -2,6 +2,7 @@
 name: prompt-video-creator
 description: Skill tạo prompt video chuyên nghiệp bằng tiếng Anh cho AI video generators (Veo 3, Sora, Runway Gen-3/4, Kling, Luma Dream Machine, Pika, Hailuo, Hunyuan, Wan 2.1). Hỗ trợ mọi chủ đề với 15+ thành phần chi tiết và template sẵn cho 12+ thể loại (cinematic film, TikTok/Reels, YouTube, music video, quảng cáo, documentary, animation, vlog, tutorial, product demo, travel, wedding). Output theo chuẩn đạo diễn điện ảnh chuyên nghiệp với camera movement, shot type, lighting, color grading, motion, audio cues. Sử dụng khi người dùng muốn tạo prompt video, viết kịch bản AI video, cần prompt cho AI tạo video, hoặc nhắc đến bất kỳ thể loại video nào. Input tiếng Việt hoặc tiếng Anh, output luôn bằng tiếng Anh chuẩn cinematographer.
 allowed-tools: Read, Write, Glob
+argument-hint: "[chủ đề] [công cụ đích] [thời lượng] [tỉ lệ khung]"
 ---
 
 # Prompt Video Creator

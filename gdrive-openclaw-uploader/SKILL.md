@@ -1,7 +1,7 @@
 ---
 name: gdrive-openclaw-uploader
 description: "Skill upload và tổ chức tài liệu đa phương tiện lên Google Drive trong thư mục gốc OPENCLAW với 8 thư mục con phân loại tự động (Documents, Images, Videos, Audio, Presentations, Spreadsheets, Archives, Others). Dùng skill này MỖI KHI người dùng yêu cầu: upload/tải file lên Drive, đẩy tài liệu lên cloud, sao lưu file giáo dục, tổ chức tài liệu KHTN/giáo án/đề thi/hình ảnh/video bài giảng lên Google Drive, sắp xếp file đa phương tiện vào thư mục, hoặc khi nhắc đến 'OPENCLAW folder' / 'thư mục OPENCLAW'. Skill tự xử lý: phát hiện folder gốc đã tồn tại chưa, tạo subfolder thiếu, phân loại file theo extension, upload, và báo cáo kết quả."
-allowed-tools: Read, Write, Glob, Bash, mcp__gdrive__*
+allowed-tools: Read, Write, Glob, Bash, mcp__claude_ai_Google_Drive__search_files, mcp__claude_ai_Google_Drive__create_file, mcp__claude_ai_Google_Drive__copy_file, mcp__claude_ai_Google_Drive__get_file_metadata, mcp__claude_ai_Google_Drive__list_recent_files
 argument-hint: "[đường dẫn file/folder] [(tùy chọn) ghi chú/mô tả]"
 ---
 

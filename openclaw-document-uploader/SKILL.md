@@ -1,6 +1,8 @@
 ---
 name: openclaw-document-uploader
-description: Tự động phân loại và lưu trữ các tài liệu được upload định hướng vào thư mục gốc OPENCLAW. Tự động parse tên file để tạo và phân loại vào các thư mục con.
+description: "Tự động phân loại và lưu trữ các tài liệu được upload định hướng vào thư mục gốc OPENCLAW. Tự động parse tên file để tạo và phân loại vào các thư mục con."
+allowed-tools: Read, Write, Bash
+argument-hint: "[đường dẫn file tải lên] [thư mục gốc OPENCLAW]"
 ---
 
 # Kỹ năng Phân loại & Lưu trữ Tài liệu OpenClaw (Document Uploader)

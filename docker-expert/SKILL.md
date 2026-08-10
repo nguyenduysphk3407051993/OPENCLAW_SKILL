@@ -1,7 +1,7 @@
 ---
 name: docker-expert
 description: "Skill chuyên sử dụng Docker từ cơ bản đến nâng cao dành cho AI Agent. Cung cấp quy trình chuẩn để phân tích yêu cầu, viết Dockerfile tối ưu, cấu hình Docker Compose, quản lý container, network, volume và xử lý lỗi (troubleshooting)."
-allowed-tools: Read, Write, RunCommand, Glob, Grep
+allowed-tools: Read, Write, Bash, Glob, Grep
 argument-hint: "[yêu cầu cấu hình/quản lý Docker] [thông tin metadata]"
 ---
 

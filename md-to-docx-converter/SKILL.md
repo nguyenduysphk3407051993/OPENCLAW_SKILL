@@ -1,6 +1,8 @@
 ---
 name: md-to-docx-converter
-description: Kỹ năng chuyển đổi văn bản Markdown (đặc biệt là đề thi trắc nghiệm, tài liệu học tập) sang định dạng Word (.docx) tiêu chuẩn. Hỗ trợ xử lý bảng biểu, công thức toán học, và dàn trang dàn ý trắc nghiệm tự động.
+description: "Kỹ năng chuyển đổi văn bản Markdown (đặc biệt là đề thi trắc nghiệm, tài liệu học tập) sang định dạng Word (.docx) tiêu chuẩn. Hỗ trợ xử lý bảng biểu, công thức toán học, và dàn trang dàn ý trắc nghiệm tự động."
+allowed-tools: Read, Write, Edit, Bash
+argument-hint: "[đường dẫn file .md] [đường dẫn file .docx đầu ra]"
 ---
 
 # Kỹ năng Chuyển Đổi Markdown sang Word (MD to DOCX Converter)

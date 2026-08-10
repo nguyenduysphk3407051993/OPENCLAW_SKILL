@@ -2,6 +2,7 @@
 name: prompt-image-creator
 description: "Skill tạo prompt ảnh chuyên nghiệp bằng tiếng Anh cho AI image generators (Midjourney, DALL-E, Stable Diffusion, Flux, Ideogram). Hỗ trợ mọi chủ đề với 12+ thành phần chi tiết và 15+ template sẵn (poster, cover, slide, infographic, quảng cáo TikTok/Facebook/Instagram, banner, thumbnail, product photography, food photography, portrait, landscape, editorial, fashion). Sử dụng khi người dùng muốn tạo prompt ảnh, yêu cầu thiết kế hình ảnh, cần prompt cho AI tạo ảnh, hoặc nhắc đến bất kỳ thể loại ảnh nào. Input tiếng Việt hoặc tiếng Anh, output luôn bằng tiếng Anh chuẩn chuyên gia."
 allowed-tools: Read, Write, Glob
+argument-hint: "[chủ đề] [loại ảnh] [công cụ đích] [tỉ lệ khung]"
 ---
 
 # Prompt Image Creator

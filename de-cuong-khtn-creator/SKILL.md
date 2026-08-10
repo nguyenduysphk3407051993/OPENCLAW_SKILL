@@ -1,7 +1,7 @@
 ---
 name: de-cuong-khtn-creator
 description: "Skill tạo Đề cương học kì (hoặc cả năm học) cho các môn Khoa học tự nhiên (Lớp 6, 7, 8, 9) chuẩn LaTeX. Hỗ trợ tự động cấu trúc theo từng Chương (với Mục tiêu), Bài (Lý thuyết trọng tâm trong môi trường kienthuccannho với các subsubsection, và Bài tập với 4 phần: Tự luận, Trắc nghiệm nhiều lựa chọn, Trắc nghiệm đúng sai, Trả lời ngắn), tự động đặt tên file đáp án (C01_B01_TenBai), chèn hình ảnh chú thích và biên dịch PDF bằng pdflatex."
-allowed-tools: Read, Write, Edit, Glob, Grep, WebFetch
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebFetch
 argument-hint: "[môn/lớp] [học kì/năm học] [chương/bài]"
 ---
 

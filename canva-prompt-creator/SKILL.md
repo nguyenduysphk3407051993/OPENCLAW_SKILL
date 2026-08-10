@@ -1,13 +1,8 @@
 ---
 name: canva-prompt-creator
-description: >
-  Skill chuyên tạo từ khóa tìm kiếm Canva, prompt Magic Media, và gợi ý thiết kế slide chuyên nghiệp 
-  (font, layout, visual hierarchy, color). Tối ưu cho giáo dục Việt Nam, đặc biệt Khoa học Tự nhiên 
-  (Vật lý, Hóa học, Sinh học). Sử dụng khi người dùng cần: tìm template Canva, tạo từ khóa search, 
-  tìm ảnh minh họa cho slide, tạo prompt AI image, hỏi về keyword thiết kế, cần gợi ý style/font/layout, 
-  hoặc muốn ý tưởng thiết kế slide như designer chuyên nghiệp. Kể cả khi người dùng chỉ nói 
-  "tìm ảnh cho slide", "cần template bài giảng", "làm slide đẹp hơn" mà không nhắc Canva, 
-  skill này vẫn nên được kích hoạt.
+description: "Skill chuyên tạo từ khóa tìm kiếm Canva, prompt Magic Media, và gợi ý thiết kế slide chuyên nghiệp (font, layout, visual hierarchy, color). Tối ưu cho giáo dục Việt Nam, đặc biệt Khoa học Tự nhiên (Vật lý, Hóa học, Sinh học). Sử dụng khi người dùng cần: tìm template Canva, tạo từ khóa search, tìm ảnh minh họa cho slide, tạo prompt AI image, hỏi về keyword thiết kế, cần gợi ý style/font/layout, hoặc muốn ý tưởng thiết kế slide như designer chuyên nghiệp. Kể cả khi người dùng chỉ nói \"tìm ảnh cho slide\", \"cần template bài giảng\", \"làm slide đẹp hơn\" mà không nhắc Canva, skill này vẫn nên được kích hoạt."
+allowed-tools: Read, Write, Glob
+argument-hint: "[chủ đề/nội dung slide] [môn/lớp] [phong cách mong muốn]"
 ---
 
 # Canva Prompt Creator & Slide Design Advisor

@@ -1,17 +1,8 @@
 ---
 name: stem-giaoan-creator
-description: >
-  Soạn KẾ HOẠCH BÀI DẠY STEM (giáo án STEM, chuẩn GDPT 2018 / Công văn 5512) hoàn chỉnh, chi tiết
-  và xuất ra file Word (.docx). MẶC ĐỊNH theo cấu trúc 5512: mỗi tiết là một bài dạy có I. MỤC TIÊU
-  (Kiến thức / Năng lực chung + KHTN / Phẩm chất), II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU (GV/HS),
-  III. TIẾN TRÌNH DẠY HỌC với bảng 2 cột HOẠT ĐỘNG CỦA GIÁO VIÊN – HOẠT ĐỘNG CỦA HỌC SINH theo 4 bước
-  (Chuyển giao → Thực hiện → Báo cáo → Kết luận) + "Sản phẩm cần đạt", IV. ĐÁNH GIÁ TRONG TIẾT HỌC,
-  V. PHỤ LỤC (phiếu học tập); cuối bài có TIÊU CHÍ ĐÁNH GIÁ CHI TIẾT (rubric chấm điểm, tổng 100) và
-  PHIẾU TỔNG HỢP KẾT QUẢ. Vẫn giữ tùy chọn cấu trúc EDP (khung A–E + bảng thử nghiệm) khi được yêu cầu.
-  Hỗ trợ toàn bộ KHTN (Hóa/Lý/Sinh) chủ trì, tích hợp Toán/Công nghệ/Tin; số tiết linh hoạt.
-  Dùng khi người dùng nói "soạn giáo án STEM", "kế hoạch bài dạy STEM", "thiết kế bài dạy STEM",
-  "làm giáo án STEM về một chủ đề", hoặc nêu một chủ đề chế tạo/thực hành STEM (bình chữa cháy, pin
-  chanh, lọc nước, làm xà phòng, lên men rượu, tên lửa nước...) và muốn xuất Word.
+description: "Soạn KẾ HOẠCH BÀI DẠY STEM (giáo án STEM, chuẩn GDPT 2018 / Công văn 5512) hoàn chỉnh, chi tiết và xuất ra file Word (.docx). MẶC ĐỊNH theo cấu trúc 5512: mỗi tiết là một bài dạy có I. MỤC TIÊU (Kiến thức / Năng lực chung + KHTN / Phẩm chất), II. THIẾT BỊ DẠY HỌC VÀ HỌC LIỆU (GV/HS), III. TIẾN TRÌNH DẠY HỌC với bảng 2 cột HOẠT ĐỘNG CỦA GIÁO VIÊN – HOẠT ĐỘNG CỦA HỌC SINH theo 4 bước (Chuyển giao → Thực hiện → Báo cáo → Kết luận) + \"Sản phẩm cần đạt\", IV. ĐÁNH GIÁ TRONG TIẾT HỌC, V. PHỤ LỤC (phiếu học tập); cuối bài có TIÊU CHÍ ĐÁNH GIÁ CHI TIẾT (rubric chấm điểm, tổng 100) và PHIẾU TỔNG HỢP KẾT QUẢ. Vẫn giữ tùy chọn cấu trúc EDP (khung A–E + bảng thử nghiệm) khi được yêu cầu. Hỗ trợ toàn bộ KHTN (Hóa/Lý/Sinh) chủ trì, tích hợp Toán/Công nghệ/Tin; số tiết linh hoạt. Dùng khi người dùng nói \"soạn giáo án STEM\", \"kế hoạch bài dạy STEM\", \"thiết kế bài dạy STEM\", \"làm giáo án STEM về một chủ đề\", hoặc nêu một chủ đề chế tạo/thực hành STEM (bình chữa cháy, pin chanh, lọc nước, làm xà phòng, lên men rượu, tên lửa nước...) và muốn xuất Word."
+allowed-tools: Read, Write, Bash
+argument-hint: "[môn] [lớp] [tên bài] [số tiết] [bộ sách]"
 ---
 
 # STEM Giáo án Creator — Soạn Kế hoạch bài dạy STEM chuẩn 2018 (Công văn 5512)

@@ -1,6 +1,8 @@
 ---
 name: canva-ppt-lesson-designer
-description: Plan and design educational PowerPoint or Canva lesson decks slide by slide with detailed Vietnamese guidance and English search keywords. Use when a user wants to build a teaching presentation, lecture PPT, classroom slide deck, lesson visual plan, or needs per-slide suggestions for titles, core content, layouts, images, icons, videos, colors, fonts, interaction, speaker notes, accessibility, and preparation checklists.
+description: "Plan and design educational PowerPoint or Canva lesson decks slide by slide with detailed Vietnamese guidance and English search keywords. Use when a user wants to build a teaching presentation, lecture PPT, classroom slide deck, lesson visual plan, or needs per-slide suggestions for titles, core content, layouts, images, icons, videos, colors, fonts, interaction, speaker notes, accessibility, and preparation checklists."
+allowed-tools: Read, Write, Glob
+argument-hint: "[chủ đề bài giảng] [môn/lớp] [số slide]"
 ---
 
 # Canva PPT Lesson Designer

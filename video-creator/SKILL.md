@@ -1,6 +1,8 @@
 ---
 name: video-creator
-description: Use when a user needs an AI video concept, storyboard, shot list, keyframe prompts, image-to-video or text-to-video prompts, multi-scene continuity, dialogue timing, production blueprint, or prompt package for Flow, Veo, Sora, Kling, Runway, Luma, Pika, or another video generator.
+description: "Use when a user needs an AI video concept, storyboard, shot list, keyframe prompts, image-to-video or text-to-video prompts, multi-scene continuity, dialogue timing, production blueprint, or prompt package for Flow, Veo, Sora, Kling, Runway, Luma, Pika, or another video generator."
+allowed-tools: Read, Write, Bash
+argument-hint: "[chủ đề] [thời lượng] [số cảnh] [công cụ dựng] [tỉ lệ khung]"
 ---
 
 # Video Creator
