@@ -1,0 +1,303 @@
+{
+  "mode": "clil",
+  "title_vi": "Động năng",
+  "title_en": "Kinetic Energy",
+  "subject": "Vật lí",
+  "grade": 8,
+  "cefr": "A2",
+  "answer_key": true,
+  "sections": [
+    {
+      "type": "glossary",
+      "heading_vi": "Từ vựng trọng tâm",
+      "heading_en": "Key vocabulary",
+      "items": [
+        {
+          "vi": "động năng",
+          "en": "kinetic energy",
+          "ipa": "/kɪˈnetɪk ˈenədʒi/",
+          "pos": "n",
+          "note_vi": "Năng lượng vật có được do chuyển động"
+        },
+        {
+          "vi": "khối lượng",
+          "en": "mass",
+          "ipa": "/mæs/",
+          "pos": "n",
+          "note_vi": "Kí hiệu m, đơn vị kilôgam (kg)"
+        },
+        {
+          "vi": "vận tốc",
+          "en": "velocity",
+          "ipa": "/vəˈlɒsəti/",
+          "pos": "n",
+          "note_vi": "Kí hiệu v, đơn vị mét trên giây (m/s)"
+        },
+        {
+          "vi": "jun (đơn vị năng lượng)",
+          "en": "joule",
+          "ipa": "/dʒuːl/",
+          "pos": "n",
+          "note_vi": "Kí hiệu J"
+        },
+        {
+          "vi": "chuyển động",
+          "en": "motion",
+          "ipa": "/ˈməʊʃn/",
+          "pos": "n",
+          "note_vi": ""
+        }
+      ]
+    },
+    {
+      "type": "parallel_text",
+      "heading_vi": "Bài đọc: Động năng là gì?",
+      "heading_en": "Reading: What is kinetic energy?",
+      "pairs": [
+        {
+          "vi": "Mọi vật đang chuyển động đều mang năng lượng.",
+          "en": "Every moving object carries energy."
+        },
+        {
+          "vi": "Năng lượng mà một vật có được do chuyển động của nó gọi là động năng.",
+          "en": "The energy an object has because of its motion is called kinetic energy."
+        },
+        {
+          "vi": "Động năng phụ thuộc vào khối lượng và vận tốc của vật.",
+          "en": "Kinetic energy depends on the mass and the velocity of the object."
+        },
+        {
+          "vi": "Vật có khối lượng càng lớn hoặc chuyển động càng nhanh thì động năng càng lớn.",
+          "en": "The greater the mass or the faster the motion, the greater the kinetic energy."
+        },
+        {
+          "vi": "Động năng được tính bằng công thức Wđ = ½mv², đo bằng đơn vị jun (J).",
+          "en": "Kinetic energy is calculated by the formula KE = ½mv², measured in joules (J)."
+        }
+      ]
+    },
+    {
+      "type": "translation",
+      "heading_vi": "Dịch phân tích câu khoa học",
+      "heading_en": "Scientific sentence translation analysis",
+      "direction": "en2vi",
+      "granularity": "sentence",
+      "show_literal": true,
+      "units": [
+        {
+          "source": "Kinetic energy is calculated by the formula KE = ½mv².",
+          "target": "Động năng được tính bằng công thức Wđ = ½mv².",
+          "literal": "Động năng thì được tính bởi công thức KE bằng một-phần-hai m v bình phương.",
+          "tense": "Bị động — hiện tại đơn (Present Simple Passive)",
+          "structures": [
+            {
+              "pattern": "S + is + V3/ed + by + O",
+              "name_vi": "Câu bị động ở hiện tại đơn",
+              "explain_vi": "Chủ ngữ 'kinetic energy' chịu tác động, động từ 'calculate' chuyển sang V3 là 'calculated'."
+            }
+          ],
+          "vocab": [
+            {
+              "word": "calculate",
+              "vi": "tính, tính toán",
+              "pos": "v",
+              "ipa": "/ˈkælkjuleɪt/",
+              "note_vi": "V3 là 'calculated'"
+            },
+            {
+              "word": "formula",
+              "vi": "công thức",
+              "pos": "n",
+              "ipa": "/ˈfɔːmjələ/",
+              "note_vi": "Số nhiều: formulas hoặc formulae"
+            }
+          ],
+          "phrases": [
+            {
+              "en": "be measured in",
+              "vi": "được đo bằng (đơn vị)",
+              "kind": "collocation",
+              "ipa": "/bi ˈmeʒəd ɪn/",
+              "example_en": "Energy is measured in joules.",
+              "example_vi": "Năng lượng được đo bằng jun."
+            }
+          ],
+          "note_vi": "Trong tiếng Anh khoa học, câu bị động rất phổ biến vì nhấn vào hiện tượng chứ không phải người thực hiện."
+        },
+        {
+          "source": "The greater the mass, the greater the kinetic energy.",
+          "target": "Khối lượng càng lớn thì động năng càng lớn.",
+          "literal": "Càng lớn khối-lượng, càng lớn động-năng.",
+          "tense": "Hiện tại đơn (Present Simple)",
+          "structures": [
+            {
+              "pattern": "The + comparative + ..., the + comparative + ...",
+              "name_vi": "Cấu trúc so sánh 'càng ... càng ...'",
+              "explain_vi": "Diễn tả hai đại lượng biến đổi cùng chiều: khối lượng tăng thì động năng tăng."
+            }
+          ],
+          "vocab": [
+            {
+              "word": "mass",
+              "vi": "khối lượng",
+              "pos": "n",
+              "ipa": "/mæs/",
+              "note_vi": "Đơn vị kilôgam (kg)"
+            }
+          ],
+          "phrases": [
+            {
+              "en": "depend on",
+              "vi": "phụ thuộc vào",
+              "kind": "phrasal_verb",
+              "ipa": "/dɪˈpend ɒn/",
+              "example_en": "Kinetic energy depends on mass and velocity.",
+              "example_vi": "Động năng phụ thuộc vào khối lượng và vận tốc."
+            }
+          ],
+          "note_vi": "'greater' là dạng so sánh hơn của 'great', không thêm '-er' cho tính từ dài."
+        }
+      ]
+    },
+    {
+      "type": "phrasebook",
+      "heading_vi": "Sổ tay cụm từ khoa học",
+      "heading_en": "Science phrasebook",
+      "group_by_kind": true,
+      "items": [
+        {
+          "en": "kinetic energy",
+          "vi": "động năng",
+          "kind": "collocation",
+          "ipa": "/kɪˈnetɪk ˈenədʒi/",
+          "example_en": "A moving car has kinetic energy.",
+          "example_vi": "Một chiếc ô tô đang chạy có động năng."
+        },
+        {
+          "en": "depend on",
+          "vi": "phụ thuộc vào",
+          "kind": "phrasal_verb",
+          "ipa": "/dɪˈpend ɒn/",
+          "example_en": "The result depends on the temperature.",
+          "example_vi": "Kết quả phụ thuộc vào nhiệt độ."
+        },
+        {
+          "en": "be measured in",
+          "vi": "được đo bằng đơn vị",
+          "kind": "academic",
+          "ipa": "/bi ˈmeʒəd ɪn/",
+          "example_en": "Kinetic energy is measured in joules.",
+          "example_vi": "Động năng được đo bằng jun."
+        },
+        {
+          "en": "as ... increases",
+          "vi": "khi ... tăng lên",
+          "kind": "academic",
+          "ipa": "/əz ɪnˈkriːsɪz/",
+          "example_en": "As the velocity increases, the energy increases.",
+          "example_vi": "Khi vận tốc tăng, năng lượng tăng."
+        }
+      ]
+    },
+    {
+      "type": "sentence_frames",
+      "heading_vi": "Mẫu câu khoa học",
+      "heading_en": "Academic sentence frames",
+      "items": [
+        {
+          "frame_en": "The kinetic energy of ... depends on ... and ... .",
+          "frame_vi": "Động năng của ... phụ thuộc vào ... và ... .",
+          "example_en": "The kinetic energy of a car depends on its mass and its velocity.",
+          "example_vi": "Động năng của một chiếc ô tô phụ thuộc vào khối lượng và vận tốc của nó."
+        },
+        {
+          "frame_en": "As the velocity increases, the kinetic energy ... .",
+          "frame_vi": "Khi vận tốc tăng, động năng ... .",
+          "example_en": "As the velocity increases, the kinetic energy increases rapidly.",
+          "example_vi": "Khi vận tốc tăng, động năng tăng nhanh."
+        },
+        {
+          "frame_en": "We can calculate ... using the formula ... .",
+          "frame_vi": "Ta có thể tính ... bằng công thức ... .",
+          "example_en": "We can calculate kinetic energy using the formula KE = ½mv².",
+          "example_vi": "Ta có thể tính động năng bằng công thức Wđ = ½mv²."
+        }
+      ]
+    },
+    {
+      "type": "grammar",
+      "heading_vi": "Ngữ pháp",
+      "heading_en": "Grammar",
+      "point_en": "Comparatives with 'the ... the ...'",
+      "point_vi": "Cấu trúc so sánh 'càng ... càng ...'",
+      "structure": "The + comparative + S + V, the + comparative + S + V.",
+      "explain_vi": "Cấu trúc này diễn tả hai đại lượng biến đổi cùng chiều: khi vế thứ nhất tăng thì vế thứ hai cũng tăng. Trong vật lí, ta hay dùng để mô tả quan hệ giữa các đại lượng như khối lượng, vận tốc và động năng.",
+      "examples": [
+        {
+          "en": "The faster the object moves, the greater its kinetic energy.",
+          "vi": "Vật chuyển động càng nhanh thì động năng của nó càng lớn."
+        },
+        {
+          "en": "The heavier the object, the more energy it needs to stop.",
+          "vi": "Vật càng nặng thì càng cần nhiều năng lượng để dừng lại."
+        }
+      ],
+      "pitfalls_vi": [
+        "Quên thêm 'the' trước tính từ so sánh ở cả hai vế.",
+        "Dùng sai dạng so sánh: với tính từ dài phải dùng 'more', không thêm '-er'.",
+        "Đảo lộn trật tự vế nguyên nhân và vế kết quả."
+      ]
+    },
+    {
+      "type": "exercise",
+      "heading_vi": "Bài tập trắc nghiệm",
+      "heading_en": "Multiple-choice exercise",
+      "instruction_en": "Choose the best answer.",
+      "instruction_vi": "Chọn đáp án đúng nhất.",
+      "questions": [
+        {
+          "q_en": "Kinetic energy is the energy of an object due to its ...",
+          "q_vi": "Động năng là năng lượng của một vật do ... của nó.",
+          "choices": ["position", "motion", "temperature", "colour"],
+          "answer": "B. motion",
+          "explain_vi": "Động năng gắn liền với chuyển động (motion) của vật."
+        },
+        {
+          "q_en": "The formula for kinetic energy is ...",
+          "q_vi": "Công thức tính động năng là ...",
+          "choices": ["KE = mv", "KE = ½mv²", "KE = mgh", "KE = ½kx²"],
+          "answer": "B. KE = ½mv²",
+          "explain_vi": "Động năng Wđ = ½mv², với m là khối lượng và v là vận tốc."
+        },
+        {
+          "q_en": "Kinetic energy is measured in ...",
+          "q_vi": "Động năng được đo bằng đơn vị ...",
+          "choices": ["newton (N)", "watt (W)", "joule (J)", "pascal (Pa)"],
+          "answer": "C. joule (J)",
+          "explain_vi": "Năng lượng nói chung, kể cả động năng, được đo bằng jun (J)."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "heading_vi": "Bài tập tự luận",
+      "heading_en": "Written exercise",
+      "instruction_en": "Answer in your own words.",
+      "instruction_vi": "Trả lời bằng lời của em.",
+      "questions": [
+        {
+          "q_en": "A ball of mass 2 kg moves at 3 m/s. Calculate its kinetic energy.",
+          "q_vi": "Một quả bóng khối lượng 2 kg chuyển động với vận tốc 3 m/s. Tính động năng của nó.",
+          "answer": "KE = ½ · 2 · 3² = 9 J",
+          "explain_vi": "Áp dụng Wđ = ½mv² = ½ · 2 · 3² = 9 J."
+        },
+        {
+          "q_en": "Explain why a fast car is more dangerous than a slow one.",
+          "q_vi": "Giải thích vì sao ô tô chạy nhanh nguy hiểm hơn ô tô chạy chậm.",
+          "answer": "Vì vận tốc lớn hơn nên động năng lớn hơn (tỉ lệ với v²), gây va chạm mạnh hơn.",
+          "explain_vi": "Động năng tỉ lệ với bình phương vận tốc nên khi vận tốc tăng, động năng tăng rất nhanh."
+        }
+      ]
+    }
+  ]
+}

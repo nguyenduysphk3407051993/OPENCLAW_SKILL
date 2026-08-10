@@ -1,0 +1,152 @@
+{
+  "mode": "english",
+  "title_vi": "Chủ đề: Môi trường",
+  "title_en": "Unit: The Environment",
+  "subject": "Tiếng Anh",
+  "cefr": "A2",
+  "answer_key": false,
+  "sections": [
+    {
+      "type": "glossary",
+      "heading_vi": "Từ vựng chủ đề",
+      "heading_en": "Topic vocabulary",
+      "items": [
+        {
+          "vi": "ô nhiễm",
+          "en": "pollution",
+          "ipa": "/pəˈluːʃn/",
+          "pos": "n",
+          "note_vi": "air pollution = ô nhiễm không khí"
+        },
+        {
+          "vi": "tái chế",
+          "en": "recycle",
+          "ipa": "/ˌriːˈsaɪkl/",
+          "pos": "v",
+          "note_vi": "recycling (n) = việc tái chế"
+        },
+        {
+          "vi": "khí thải",
+          "en": "emission",
+          "ipa": "/iˈmɪʃn/",
+          "pos": "n",
+          "note_vi": ""
+        },
+        {
+          "vi": "bảo vệ",
+          "en": "protect",
+          "ipa": "/prəˈtekt/",
+          "pos": "v",
+          "note_vi": ""
+        },
+        {
+          "vi": "bền vững",
+          "en": "sustainable",
+          "ipa": "/səˈsteɪnəbl/",
+          "pos": "adj",
+          "note_vi": ""
+        }
+      ]
+    },
+    {
+      "type": "parallel_text",
+      "heading_vi": "Bài đọc: Hãy hành động vì Trái Đất",
+      "heading_en": "Reading: Act for the Earth",
+      "pairs": [
+        {
+          "vi": "Con người đã gây ra nhiều vấn đề cho môi trường trong nhiều năm qua.",
+          "en": "People have caused many problems for the environment over the years."
+        },
+        {
+          "vi": "Chúng ta đã thải ra quá nhiều rác và khí thải.",
+          "en": "We have produced too much rubbish and too many emissions."
+        },
+        {
+          "vi": "Tuy nhiên, nhiều người trẻ đã bắt đầu thay đổi thói quen của mình.",
+          "en": "However, many young people have started to change their habits."
+        },
+        {
+          "vi": "Họ đã tái chế nhiều hơn và sử dụng ít nhựa hơn.",
+          "en": "They have recycled more and used less plastic."
+        }
+      ]
+    },
+    {
+      "type": "sentence_frames",
+      "heading_vi": "Mẫu câu nói về môi trường",
+      "heading_en": "Sentence frames about the environment",
+      "items": [
+        {
+          "frame_en": "We should ... to protect the environment.",
+          "frame_vi": "Chúng ta nên ... để bảo vệ môi trường.",
+          "example_en": "We should recycle paper to protect the environment.",
+          "example_vi": "Chúng ta nên tái chế giấy để bảo vệ môi trường."
+        },
+        {
+          "frame_en": "If we ..., we will ... .",
+          "frame_vi": "Nếu chúng ta ..., chúng ta sẽ ... .",
+          "example_en": "If we plant more trees, we will have cleaner air.",
+          "example_vi": "Nếu chúng ta trồng nhiều cây hơn, chúng ta sẽ có không khí sạch hơn."
+        }
+      ]
+    },
+    {
+      "type": "grammar",
+      "heading_vi": "Ngữ pháp",
+      "heading_en": "Grammar",
+      "point_en": "Present Perfect Tense",
+      "point_vi": "Thì hiện tại hoàn thành",
+      "structure": "S + have/has + V3/V-ed + (O).",
+      "explain_vi": "Thì hiện tại hoàn thành diễn tả một hành động đã xảy ra trong quá khứ nhưng còn liên quan hoặc để lại kết quả ở hiện tại. Ta thường dùng với các trạng từ như 'already', 'yet', 'just', 'for', 'since'. Với chủ ngữ số ít ngôi thứ ba (he/she/it) dùng 'has', các trường hợp còn lại dùng 'have'.",
+      "examples": [
+        {
+          "en": "We have recycled a lot of plastic this year.",
+          "vi": "Năm nay chúng tôi đã tái chế rất nhiều nhựa."
+        },
+        {
+          "en": "She has just turned off the lights.",
+          "vi": "Cô ấy vừa mới tắt đèn xong."
+        },
+        {
+          "en": "They have lived here since 2010.",
+          "vi": "Họ đã sống ở đây từ năm 2010."
+        }
+      ],
+      "pitfalls_vi": [
+        "Nhầm giữa quá khứ đơn (nói thời điểm cụ thể) và hiện tại hoàn thành (không nói rõ thời điểm).",
+        "Dùng sai dạng V3 của động từ bất quy tắc (ví dụ: 'have goed' thay vì 'have gone').",
+        "Quên chia 'has' cho ngôi thứ ba số ít."
+      ]
+    },
+    {
+      "type": "exercise",
+      "heading_vi": "Bài tập trắc nghiệm",
+      "heading_en": "Multiple-choice exercise",
+      "instruction_en": "Choose the correct answer.",
+      "instruction_vi": "Chọn đáp án đúng.",
+      "questions": [
+        {
+          "q_en": "We ______ recycled all the bottles already.",
+          "q_vi": "Chúng tôi đã tái chế hết chai lọ rồi.",
+          "choices": ["has", "have", "having", "had"],
+          "answer": "B. have",
+          "explain_vi": "Chủ ngữ 'we' dùng 'have' trong thì hiện tại hoàn thành."
+        },
+        {
+          "q_en": "She ______ just planted a tree in the garden.",
+          "q_vi": "Cô ấy vừa mới trồng một cái cây trong vườn.",
+          "choices": ["have", "has", "is", "was"],
+          "answer": "B. has",
+          "explain_vi": "Chủ ngữ 'she' (ngôi thứ ba số ít) dùng 'has'."
+        },
+        {
+          "q_en": "Which word means 'to make something again from used materials'?",
+          "q_vi": "Từ nào có nghĩa là 'làm lại thứ gì đó từ vật liệu đã dùng'?",
+          "choices": ["pollute", "recycle", "protect", "waste"],
+          "answer": "B. recycle",
+          "explain_vi": "'recycle' nghĩa là tái chế."
+        }
+      ]
+    }
+  ]
+}

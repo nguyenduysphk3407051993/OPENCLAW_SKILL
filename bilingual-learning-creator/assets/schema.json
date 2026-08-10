@@ -1,0 +1,341 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bilingual learning document",
+  "type": "object",
+  "required": ["mode", "title_vi", "title_en", "sections"],
+
+  "$defs": {
+    "vocab": {
+      "title": "Một mục từ vựng có chú giải đầy đủ",
+      "type": "object",
+      "required": ["word", "vi"],
+      "properties": {
+        "word": { "type": "string", "description": "Từ/cụm tiếng Anh" },
+        "vi": { "type": "string", "description": "Nghĩa tiếng Việt" },
+        "pos": {
+          "type": "string",
+          "description": "Từ loại: n | v | adj | adv | prep | conj | phr.v | idiom"
+        },
+        "ipa": { "type": "string", "description": "Phiên âm IPA, bọc trong /.../" },
+        "forms": {
+          "type": "string",
+          "description": "Các dạng khác của từ, vd: 'melt (v) → molten (adj), melting point (n)'"
+        },
+        "note_vi": { "type": "string", "description": "Bẫy dịch, sắc thái, cách dùng" }
+      }
+    },
+    "phrase": {
+      "title": "Một cụm từ hay dùng",
+      "type": "object",
+      "required": ["en", "vi"],
+      "properties": {
+        "en": { "type": "string" },
+        "vi": { "type": "string" },
+        "kind": {
+          "type": "string",
+          "description": "collocation | idiom | phrasal_verb | fixed_expression | academic | classroom"
+        },
+        "ipa": { "type": "string" },
+        "register": { "type": "string", "description": "formal | neutral | informal | academic" },
+        "example_en": { "type": "string" },
+        "example_vi": { "type": "string" }
+      }
+    }
+  },
+
+  "properties": {
+    "mode": {
+      "enum": ["clil", "english"],
+      "description": "clil = dạy nội dung KHTN bằng song ngữ; english = học tiếng Anh có đối chiếu tiếng Việt"
+    },
+    "title_vi": { "type": "string" },
+    "title_en": { "type": "string" },
+    "subject": {
+      "type": "string",
+      "description": "Vật lí | Hoá học | Sinh học | KHTN | Tiếng Anh"
+    },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+    "cefr": {
+      "type": "string",
+      "description": "Trình độ tiếng Anh mục tiêu: A1 | A2 | B1 | B2"
+    },
+    "answer_key": {
+      "type": "boolean",
+      "default": true,
+      "description": "true thì dựng thêm phần Đáp án ở cuối file"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "title": "glossary — bảng thuật ngữ đối chiếu",
+            "type": "object",
+            "required": ["type", "heading_vi", "heading_en", "items"],
+            "properties": {
+              "type": { "const": "glossary" },
+              "heading_vi": { "type": "string" },
+              "heading_en": { "type": "string" },
+              "group_by": {
+                "type": "string",
+                "description": "Tuỳ chọn: 'pos' để nhóm bảng theo từ loại, bỏ trống thì giữ nguyên thứ tự"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["vi", "en"],
+                  "properties": {
+                    "vi": { "type": "string" },
+                    "en": { "type": "string" },
+                    "ipa": { "type": "string" },
+                    "pos": { "type": "string", "description": "n | v | adj | adv" },
+                    "forms": { "type": "string" },
+                    "note_vi": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "parallel_text — đoạn văn đối chiếu 2 cột để đọc",
+            "type": "object",
+            "required": ["type", "heading_vi", "heading_en", "pairs"],
+            "properties": {
+              "type": { "const": "parallel_text" },
+              "heading_vi": { "type": "string" },
+              "heading_en": { "type": "string" },
+              "granularity": {
+                "enum": ["sentence", "paragraph"],
+                "default": "sentence",
+                "description": "sentence = mỗi hàng một câu, căn thẳng từng câu một; paragraph = mỗi hàng một đoạn"
+              },
+              "numbered": {
+                "type": "boolean",
+                "default": false,
+                "description": "true thì đánh số từng cặp để giáo viên tiện chỉ vào câu số mấy"
+              },
+              "pairs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["vi", "en"],
+                  "properties": {
+                    "vi": { "type": "string" },
+                    "en": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "translation — dịch phân tích từng câu/đoạn kèm chú giải ngữ pháp và từ vựng",
+            "type": "object",
+            "required": ["type", "heading_vi", "heading_en", "direction", "units"],
+            "properties": {
+              "type": { "const": "translation" },
+              "heading_vi": { "type": "string" },
+              "heading_en": { "type": "string" },
+              "direction": {
+                "enum": ["vi2en", "en2vi"],
+                "description": "Chiều dịch chính, quyết định câu nào in đậm ở trên"
+              },
+              "granularity": {
+                "enum": ["sentence", "paragraph"],
+                "default": "sentence"
+              },
+              "show_literal": {
+                "type": "boolean",
+                "default": false,
+                "description": "true thì in thêm dòng dịch sát nghĩa đen để học sinh thấy chỗ tiếng Việt và tiếng Anh khác cấu trúc"
+              },
+              "units": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["source", "target"],
+                  "properties": {
+                    "source": { "type": "string", "description": "Câu/đoạn gốc theo chiều direction" },
+                    "target": { "type": "string", "description": "Bản dịch" },
+                    "literal": {
+                      "type": "string",
+                      "description": "Dịch sát nghĩa đen, chỉ in khi show_literal = true"
+                    },
+                    "tense": {
+                      "type": "string",
+                      "description": "Thì/thể của câu tiếng Anh, vd: 'Hiện tại đơn (Present Simple)', 'Bị động — hiện tại đơn'"
+                    },
+                    "structures": {
+                      "type": "array",
+                      "description": "Cấu trúc ngữ pháp dùng trong câu này",
+                      "items": {
+                        "type": "object",
+                        "required": ["pattern"],
+                        "properties": {
+                          "pattern": { "type": "string", "description": "vd: 'S + be + V3 + by + O'" },
+                          "name_vi": { "type": "string", "description": "vd: 'Câu bị động'" },
+                          "explain_vi": { "type": "string" }
+                        }
+                      }
+                    },
+                    "vocab": {
+                      "type": "array",
+                      "items": { "$ref": "#/$defs/vocab" }
+                    },
+                    "phrases": {
+                      "type": "array",
+                      "items": { "$ref": "#/$defs/phrase" }
+                    },
+                    "note_vi": { "type": "string", "description": "Lưu ý dịch thuật cho riêng câu này" }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "phrasebook — cụm từ, collocation, thành ngữ hay dùng",
+            "type": "object",
+            "required": ["type", "heading_vi", "heading_en", "items"],
+            "properties": {
+              "type": { "const": "phrasebook" },
+              "heading_vi": { "type": "string" },
+              "heading_en": { "type": "string" },
+              "group_by_kind": {
+                "type": "boolean",
+                "default": true,
+                "description": "true thì tách bảng riêng cho collocation / idiom / phrasal verb..."
+              },
+              "items": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/phrase" }
+              }
+            }
+          },
+          {
+            "title": "sentence_frames — mẫu câu học thuật dùng lại được",
+            "type": "object",
+            "required": ["type", "heading_vi", "heading_en", "items"],
+            "properties": {
+              "type": { "const": "sentence_frames" },
+              "heading_vi": { "type": "string" },
+              "heading_en": { "type": "string" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["frame_en", "frame_vi"],
+                  "properties": {
+                    "frame_en": { "type": "string" },
+                    "frame_vi": { "type": "string" },
+                    "function_vi": {
+                      "type": "string",
+                      "description": "Chức năng ngôn ngữ, vd: 'Nêu quan hệ nhân quả'"
+                    },
+                    "example_en": { "type": "string" },
+                    "example_vi": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "grammar — điểm ngữ pháp giải thích bằng tiếng Việt",
+            "type": "object",
+            "required": ["type", "point_en", "structure", "explain_vi"],
+            "properties": {
+              "type": { "const": "grammar" },
+              "point_en": { "type": "string" },
+              "point_vi": { "type": "string" },
+              "tense": {
+                "type": "string",
+                "description": "Tên thì nếu điểm ngữ pháp này là một thì, vd: 'Present Perfect'"
+              },
+              "cefr": { "type": "string", "description": "A1 | A2 | B1 | B2" },
+              "structure": {
+                "type": "string",
+                "description": "Công thức khẳng định, vd: 'S + have/has + V3'"
+              },
+              "structure_negative": { "type": "string" },
+              "structure_question": { "type": "string" },
+              "signal_words": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Dấu hiệu nhận biết: already, yet, since, for..."
+              },
+              "explain_vi": { "type": "string" },
+              "examples": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["en", "vi"],
+                  "properties": {
+                    "en": { "type": "string" },
+                    "vi": { "type": "string" }
+                  }
+                }
+              },
+              "contrast_with": {
+                "type": "object",
+                "description": "So sánh với điểm ngữ pháp dễ nhầm",
+                "required": ["point_en", "explain_vi"],
+                "properties": {
+                  "point_en": { "type": "string" },
+                  "explain_vi": { "type": "string" },
+                  "example_pair": {
+                    "type": "object",
+                    "properties": {
+                      "this_en": { "type": "string" },
+                      "other_en": { "type": "string" },
+                      "difference_vi": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "pitfalls_vi": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Lỗi người Việt hay mắc với điểm ngữ pháp này"
+              }
+            }
+          },
+          {
+            "title": "exercise — bài tập, có thể trắc nghiệm hoặc điền/viết/dịch",
+            "type": "object",
+            "required": ["type", "heading_vi", "heading_en", "questions"],
+            "properties": {
+              "type": { "const": "exercise" },
+              "heading_vi": { "type": "string" },
+              "heading_en": { "type": "string" },
+              "task": {
+                "type": "string",
+                "description": "mcq | fill | matching | translate_vi2en | translate_en2vi | writing"
+              },
+              "instruction_en": { "type": "string" },
+              "instruction_vi": { "type": "string" },
+              "questions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["q_en"],
+                  "properties": {
+                    "q_en": { "type": "string" },
+                    "q_vi": { "type": "string", "description": "Bản dịch gợi ý, in nghiêng dưới câu hỏi" },
+                    "choices": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Bỏ trống nếu là câu điền từ, dịch hoặc tự luận"
+                    },
+                    "answer": { "type": "string" },
+                    "explain_vi": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

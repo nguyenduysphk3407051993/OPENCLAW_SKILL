@@ -1,0 +1,453 @@
+{
+  "mode": "english",
+  "title_vi": "Cuộc sống hằng ngày và những dự định",
+  "title_en": "Daily Life and Future Plans",
+  "subject": "Tiếng Anh",
+  "grade": 8,
+  "cefr": "A2",
+  "answer_key": true,
+  "sections": [
+    {
+      "type": "glossary",
+      "heading_vi": "Từ vựng trọng tâm",
+      "heading_en": "Key vocabulary",
+      "group_by": "pos",
+      "items": [
+        {
+          "vi": "thói quen",
+          "en": "habit",
+          "ipa": "/ˈhæbɪt/",
+          "pos": "n",
+          "forms": "habitual (adj)",
+          "note_vi": "Thường đi với động từ 'have': have a habit of doing st"
+        },
+        {
+          "vi": "lịch trình, thời gian biểu",
+          "en": "schedule",
+          "ipa": "/ˈʃedjuːl/",
+          "pos": "n",
+          "forms": "to schedule (v)",
+          "note_vi": "Anh–Anh đọc /ˈʃedjuːl/, Anh–Mỹ đọc /ˈskedʒuːl/"
+        },
+        {
+          "vi": "trách nhiệm",
+          "en": "responsibility",
+          "ipa": "/rɪˌspɒnsəˈbɪləti/",
+          "pos": "n",
+          "forms": "responsible (adj)",
+          "note_vi": "responsible for + N/V-ing"
+        },
+        {
+          "vi": "hoàn thành",
+          "en": "complete",
+          "ipa": "/kəmˈpliːt/",
+          "pos": "v",
+          "forms": "completion (n), complete (adj)",
+          "note_vi": "Trang trọng hơn 'finish'"
+        },
+        {
+          "vi": "cải thiện",
+          "en": "improve",
+          "ipa": "/ɪmˈpruːv/",
+          "pos": "v",
+          "forms": "improvement (n)",
+          "note_vi": "improve at / in + lĩnh vực"
+        },
+        {
+          "vi": "chăm chỉ, siêng năng",
+          "en": "hard-working",
+          "ipa": "/ˌhɑːdˈwɜːkɪŋ/",
+          "pos": "adj",
+          "forms": "",
+          "note_vi": "Tính từ ghép, luôn có dấu gạch nối"
+        },
+        {
+          "vi": "hiệu quả",
+          "en": "efficient",
+          "ipa": "/ɪˈfɪʃnt/",
+          "pos": "adj",
+          "forms": "efficiency (n), efficiently (adv)",
+          "note_vi": "Khác 'effective' (có tác dụng): efficient nhấn ít tốn công sức"
+        },
+        {
+          "vi": "một cách thường xuyên",
+          "en": "regularly",
+          "ipa": "/ˈreɡjələli/",
+          "pos": "adv",
+          "forms": "regular (adj)",
+          "note_vi": "Trạng từ chỉ tần suất, đứng cuối câu hoặc trước động từ chính"
+        }
+      ]
+    },
+    {
+      "type": "parallel_text",
+      "heading_vi": "Bài đọc: Một ngày của Minh",
+      "heading_en": "Reading: Minh's Day",
+      "granularity": "sentence",
+      "numbered": true,
+      "pairs": [
+        {
+          "vi": "Minh là một học sinh chăm chỉ ở một trường trung học cơ sở tại Hà Nội.",
+          "en": "Minh is a hard-working student at a lower secondary school in Hanoi."
+        },
+        {
+          "vi": "Mỗi sáng, em thức dậy lúc sáu giờ và tập thể dục trong hai mươi phút.",
+          "en": "Every morning, he wakes up at six o'clock and does exercise for twenty minutes."
+        },
+        {
+          "vi": "Sau giờ học, em thường làm bài tập trước khi giúp mẹ nấu bữa tối.",
+          "en": "After school, he usually does his homework before he helps his mother cook dinner."
+        },
+        {
+          "vi": "Tối qua, em đã học từ vựng tiếng Anh mới trong một giờ.",
+          "en": "Last night, he studied new English vocabulary for an hour."
+        },
+        {
+          "vi": "Năm tới, em định tham gia câu lạc bộ tiếng Anh của trường.",
+          "en": "Next year, he is going to join the school's English club."
+        }
+      ]
+    },
+    {
+      "type": "translation",
+      "heading_vi": "Dịch phân tích từng câu",
+      "heading_en": "Sentence-by-sentence translation analysis",
+      "direction": "vi2en",
+      "granularity": "sentence",
+      "show_literal": true,
+      "units": [
+        {
+          "source": "Mỗi sáng, Minh thức dậy lúc sáu giờ.",
+          "target": "Every morning, Minh wakes up at six o'clock.",
+          "literal": "Mỗi buổi sáng, Minh thức-dậy tại sáu giờ đồng-hồ.",
+          "tense": "Hiện tại đơn (Present Simple)",
+          "structures": [
+            {
+              "pattern": "S + V(s/es) + ...",
+              "name_vi": "Hiện tại đơn diễn tả thói quen",
+              "explain_vi": "Chủ ngữ số ít ngôi thứ ba (Minh) nên động từ 'wake' thêm '-s' thành 'wakes'."
+            }
+          ],
+          "vocab": [
+            {
+              "word": "wake up",
+              "vi": "thức dậy",
+              "pos": "phr.v",
+              "ipa": "/weɪk ʌp/",
+              "note_vi": "Cụm động từ, khác 'get up' (rời khỏi giường)"
+            },
+            {
+              "word": "o'clock",
+              "vi": "giờ (đúng)",
+              "pos": "adv",
+              "ipa": "/əˈklɒk/",
+              "note_vi": "Chỉ dùng khi giờ tròn, không có phút"
+            }
+          ],
+          "phrases": [
+            {
+              "en": "every morning",
+              "vi": "mỗi buổi sáng",
+              "kind": "collocation",
+              "ipa": "/ˈevri ˈmɔːnɪŋ/",
+              "example_en": "Every morning, I read the news.",
+              "example_vi": "Mỗi buổi sáng, tôi đọc tin tức."
+            }
+          ],
+          "note_vi": "Tiếng Việt không chia động từ theo ngôi, nhưng tiếng Anh phải thêm '-s' ở ngôi thứ ba số ít."
+        },
+        {
+          "source": "Bài tập được nộp trước tám giờ tối mỗi ngày.",
+          "target": "The homework is submitted before eight p.m. every day.",
+          "literal": "Bài-tập thì được nộp trước tám giờ tối mỗi ngày.",
+          "tense": "Bị động — hiện tại đơn (Present Simple Passive)",
+          "structures": [
+            {
+              "pattern": "S + is/are + V3/ed + (by O)",
+              "name_vi": "Câu bị động ở hiện tại đơn",
+              "explain_vi": "Khi không cần nêu ai làm, ta dùng bị động: chủ ngữ là vật chịu tác động (the homework)."
+            }
+          ],
+          "vocab": [
+            {
+              "word": "submit",
+              "vi": "nộp, gửi",
+              "pos": "v",
+              "ipa": "/səbˈmɪt/",
+              "note_vi": "V3 là 'submitted', gấp đôi 't'"
+            }
+          ],
+          "phrases": [
+            {
+              "en": "hand in",
+              "vi": "nộp (bài)",
+              "kind": "phrasal_verb",
+              "ipa": "/hænd ɪn/",
+              "example_en": "Please hand in your homework on time.",
+              "example_vi": "Hãy nộp bài tập đúng giờ."
+            }
+          ],
+          "note_vi": "Người Việt hay quên đổi động từ sang dạng V3 khi dùng bị động."
+        },
+        {
+          "source": "Tối qua, Minh đã học từ vựng mới trong một giờ.",
+          "target": "Last night, Minh studied new vocabulary for an hour.",
+          "literal": "Đêm qua, Minh đã học từ-vựng mới trong một giờ đồng-hồ.",
+          "tense": "Quá khứ đơn (Past Simple)",
+          "structures": [
+            {
+              "pattern": "S + V2/ed + ... + for + khoảng thời gian",
+              "name_vi": "Quá khứ đơn với 'for' chỉ khoảng thời gian",
+              "explain_vi": "'studied' là quá khứ của 'study' (đổi y thành i, thêm -ed). 'for an hour' chỉ độ dài thời gian."
+            }
+          ],
+          "vocab": [
+            {
+              "word": "study",
+              "vi": "học, nghiên cứu",
+              "pos": "v",
+              "ipa": "/ˈstʌdi/",
+              "note_vi": "Quá khứ 'studied' (y → i + ed)"
+            },
+            {
+              "word": "vocabulary",
+              "vi": "từ vựng",
+              "pos": "n",
+              "ipa": "/vəˈkæbjələri/",
+              "note_vi": "Danh từ không đếm được"
+            }
+          ],
+          "phrases": [
+            {
+              "en": "last night",
+              "vi": "tối qua",
+              "kind": "fixed_expression",
+              "ipa": "/lɑːst naɪt/",
+              "example_en": "I went to bed late last night.",
+              "example_vi": "Tối qua tôi đi ngủ muộn."
+            }
+          ],
+          "note_vi": "Dấu hiệu 'last night' báo hiệu thì quá khứ đơn."
+        },
+        {
+          "source": "Năm tới, Minh định tham gia câu lạc bộ tiếng Anh.",
+          "target": "Next year, Minh is going to join the English club.",
+          "literal": "Năm tới, Minh thì sẽ-định tham-gia câu-lạc-bộ tiếng-Anh.",
+          "tense": "Tương lai với 'be going to' (dự định)",
+          "structures": [
+            {
+              "pattern": "S + be + going to + V(nguyên thể)",
+              "name_vi": "Dự định tương lai",
+              "explain_vi": "'be going to' diễn tả kế hoạch đã định trước. Chủ ngữ 'Minh' số ít nên dùng 'is'."
+            }
+          ],
+          "vocab": [
+            {
+              "word": "join",
+              "vi": "tham gia, gia nhập",
+              "pos": "v",
+              "ipa": "/dʒɔɪn/",
+              "note_vi": "join + club/team, không cần giới từ"
+            },
+            {
+              "word": "club",
+              "vi": "câu lạc bộ",
+              "pos": "n",
+              "ipa": "/klʌb/",
+              "note_vi": ""
+            }
+          ],
+          "phrases": [
+            {
+              "en": "be going to",
+              "vi": "dự định sẽ",
+              "kind": "fixed_expression",
+              "ipa": "/bi ˈɡəʊɪŋ tuː/",
+              "example_en": "We are going to visit our grandparents.",
+              "example_vi": "Chúng tôi định về thăm ông bà."
+            }
+          ],
+          "note_vi": "Đừng nhầm 'be going to' (dự định) với 'will' (quyết định tức thời)."
+        }
+      ]
+    },
+    {
+      "type": "phrasebook",
+      "heading_vi": "Sổ tay cụm từ",
+      "heading_en": "Phrasebook",
+      "group_by_kind": true,
+      "items": [
+        {
+          "en": "do homework",
+          "vi": "làm bài tập về nhà",
+          "kind": "collocation",
+          "ipa": "/duː ˈhəʊmwɜːk/",
+          "example_en": "She does her homework after dinner.",
+          "example_vi": "Cô ấy làm bài tập sau bữa tối."
+        },
+        {
+          "en": "keep a schedule",
+          "vi": "giữ đúng lịch trình",
+          "kind": "collocation",
+          "ipa": "/kiːp ə ˈʃedjuːl/",
+          "example_en": "Good students keep a daily schedule.",
+          "example_vi": "Học sinh giỏi giữ đúng lịch trình hằng ngày."
+        },
+        {
+          "en": "get up",
+          "vi": "ra khỏi giường",
+          "kind": "phrasal_verb",
+          "ipa": "/ɡet ʌp/",
+          "example_en": "I get up early on weekdays.",
+          "example_vi": "Tôi dậy sớm vào các ngày trong tuần."
+        },
+        {
+          "en": "look forward to",
+          "vi": "mong chờ",
+          "kind": "phrasal_verb",
+          "ipa": "/lʊk ˈfɔːwəd tuː/",
+          "example_en": "I look forward to the weekend.",
+          "example_vi": "Tôi mong chờ đến cuối tuần."
+        },
+        {
+          "en": "practice makes perfect",
+          "vi": "có công mài sắt có ngày nên kim",
+          "kind": "idiom",
+          "ipa": "/ˈpræktɪs meɪks ˈpɜːfɪkt/",
+          "example_en": "Keep studying — practice makes perfect.",
+          "example_vi": "Cứ học tiếp — có công mài sắt có ngày nên kim."
+        },
+        {
+          "en": "Can I have your attention, please?",
+          "vi": "Các em chú ý nào?",
+          "kind": "classroom",
+          "ipa": "/kæn aɪ hæv jɔːr əˈtenʃn pliːz/",
+          "example_en": "Can I have your attention, please? Let's begin.",
+          "example_vi": "Các em chú ý nào? Chúng ta bắt đầu."
+        }
+      ]
+    },
+    {
+      "type": "sentence_frames",
+      "heading_vi": "Mẫu câu nói về thói quen và dự định",
+      "heading_en": "Sentence frames for habits and plans",
+      "items": [
+        {
+          "frame_en": "I usually ... in the morning.",
+          "frame_vi": "Tôi thường ... vào buổi sáng.",
+          "function_vi": "Nói về thói quen hằng ngày",
+          "example_en": "I usually have breakfast at seven.",
+          "example_vi": "Tôi thường ăn sáng lúc bảy giờ."
+        },
+        {
+          "frame_en": "Every day, I ... before I ... .",
+          "frame_vi": "Mỗi ngày, tôi ... trước khi tôi ... .",
+          "function_vi": "Nói về thói quen hằng ngày",
+          "example_en": "Every day, I brush my teeth before I go to school.",
+          "example_vi": "Mỗi ngày, tôi đánh răng trước khi đi học."
+        },
+        {
+          "frame_en": "Next ..., I am going to ... .",
+          "frame_vi": "... tới, tôi định ... .",
+          "function_vi": "Nói về dự định tương lai",
+          "example_en": "Next summer, I am going to learn to swim.",
+          "example_vi": "Mùa hè tới, tôi định học bơi."
+        },
+        {
+          "frame_en": "I plan to ... so that I can ... .",
+          "frame_vi": "Tôi dự định ... để có thể ... .",
+          "function_vi": "Nói về dự định tương lai",
+          "example_en": "I plan to study harder so that I can pass the exam.",
+          "example_vi": "Tôi dự định học chăm hơn để có thể vượt qua kỳ thi."
+        }
+      ]
+    },
+    {
+      "type": "grammar",
+      "heading_vi": "Ngữ pháp",
+      "heading_en": "Grammar",
+      "point_en": "Present Simple",
+      "point_vi": "Thì hiện tại đơn",
+      "tense": "Present Simple",
+      "cefr": "A1",
+      "structure": "S + V(s/es) + O",
+      "structure_negative": "S + do/does + not + V(nguyên thể)",
+      "structure_question": "Do/Does + S + V(nguyên thể)?",
+      "signal_words": ["every day", "usually", "often", "always", "sometimes", "regularly"],
+      "explain_vi": "Thì hiện tại đơn dùng để nói về thói quen, sự thật hiển nhiên và lịch trình cố định. Với chủ ngữ ngôi thứ ba số ít (he, she, it), động từ thường thêm '-s' hoặc '-es'.",
+      "examples": [
+        {
+          "en": "She goes to school by bus every day.",
+          "vi": "Cô ấy đi học bằng xe buýt mỗi ngày."
+        },
+        {
+          "en": "Water boils at 100 degrees Celsius.",
+          "vi": "Nước sôi ở 100 độ C."
+        }
+      ],
+      "contrast_with": {
+        "point_en": "Present Continuous",
+        "explain_vi": "Hiện tại tiếp diễn diễn tả hành động đang xảy ra ngay lúc nói, còn hiện tại đơn diễn tả thói quen lặp lại.",
+        "example_pair": {
+          "this_en": "He plays football every Sunday.",
+          "other_en": "He is playing football now.",
+          "difference_vi": "'plays' là thói quen (Chủ nhật nào cũng chơi); 'is playing' là đang chơi ngay bây giờ."
+        }
+      },
+      "pitfalls_vi": [
+        "Quên thêm '-s/-es' với chủ ngữ ngôi thứ ba số ít.",
+        "Dùng động từ thường ở dạng nguyên thể trong câu phủ định/nghi vấn thay vì để 'does' mang '-s'.",
+        "Nhầm hiện tại đơn với hiện tại tiếp diễn khi nói về thói quen."
+      ]
+    },
+    {
+      "type": "exercise",
+      "heading_vi": "Bài tập nối cột",
+      "heading_en": "Matching exercise",
+      "task": "matching",
+      "instruction_en": "Match each phrase in column A with its meaning in column B.",
+      "instruction_vi": "Nối mỗi cụm từ ở cột A với nghĩa của nó ở cột B.",
+      "questions": [
+        {
+          "q_en": "wake up",
+          "choices": ["ra khỏi giường", "thức dậy", "làm bài tập", "mong chờ"],
+          "answer": "1 - b (thức dậy)"
+        },
+        {
+          "q_en": "get up",
+          "answer": "2 - a (ra khỏi giường)"
+        },
+        {
+          "q_en": "do homework",
+          "answer": "3 - c (làm bài tập)"
+        },
+        {
+          "q_en": "look forward to",
+          "answer": "4 - d (mong chờ)"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "heading_vi": "Bài tập dịch Việt–Anh",
+      "heading_en": "Translation exercise (Vietnamese to English)",
+      "task": "translate_vi2en",
+      "instruction_en": "Translate the following sentences into English.",
+      "instruction_vi": "Dịch các câu sau sang tiếng Anh.",
+      "questions": [
+        {
+          "q_en": "Mỗi sáng, tôi thức dậy lúc sáu giờ.",
+          "q_vi": "Gợi ý: dùng thì hiện tại đơn với 'wake up'.",
+          "answer": "Every morning, I wake up at six o'clock.",
+          "explain_vi": "Thói quen hằng ngày nên dùng hiện tại đơn."
+        },
+        {
+          "q_en": "Năm tới, cô ấy định học tiếng Nhật.",
+          "q_vi": "Gợi ý: dùng 'be going to' cho dự định.",
+          "answer": "Next year, she is going to learn Japanese.",
+          "explain_vi": "Dự định đã định trước nên dùng 'be going to'."
+        }
+      ]
+    }
+  ]
+}
