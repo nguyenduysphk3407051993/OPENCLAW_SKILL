@@ -1,0 +1,60 @@
+\documentclass[tikz,border=5mm]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usetikzlibrary{calc,angles,quotes,backgrounds}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.5]
+    % === ĐỊNH NGHĨA ĐIỂM ===
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (9,0);
+    \coordinate (C) at (0,12);
+    
+    % === TÍNH TOÁN ===
+    % Trung điểm BC là tâm đường tròn ngoại tiếp M
+    \coordinate (M) at ($(B)!0.5!(C)$);
+    
+    % === VẼ HÌNH ===
+    % Vẽ tam giác
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    
+    % Vẽ đường tròn ngoại tiếp
+    \draw (M) circle (7.5);
+    
+    % === ĐÁNH DẤU ===
+    % Góc vuông
+    \draw (A) rectangle ++(0.5,0.5);
+    
+    % Điểm
+    \foreach \p/\pos in {A/below left, B/below right, C/above left, M/above right} {
+        \fill (\p) circle (3pt);
+        \node[\pos] at (\p) {$\p$};
+    }
+    
+    % Kích thước
+    % Vẽ đường kích thước AB (dời xuống 1cm)
+    \draw[dashed, gray] (A) -- ++(0,-1);
+    \draw[dashed, gray] (B) -- ++(0,-1);
+    \draw[|<->|] ($(A)+(0,-1)$) -- ($(B)+(0,-1)$) node[midway, fill=white] {9 cm};
+    
+    % Vẽ đường kích thước AC (dời sang trái 1cm)
+    \draw[dashed, gray] (A) -- ++(-1,0);
+    \draw[dashed, gray] (C) -- ++(-1,0);
+    \draw[|<->|] ($(A)+(-1,0)$) -- ($(C)+(-1,0)$) node[midway, fill=white] {12 cm};
+    
+    % Bán kính
+    \draw[red, dashed] (M) -- (B);
+    \node[red, above] at ($(M)!0.5!(B)$) {$R$};
+    
+    % === LỜI GIẢI ===
+    \node[right=2.5cm, align=justify, text width=10cm] at (B) {
+        \textbf{Lời giải:}\\
+        Tam giác $ABC$ vuông tại $A$ có $AB = 9$ cm, $AC = 12$ cm.\\
+        Áp dụng định lý Pytago trong $\Delta ABC$:
+        \[ BC = \sqrt{AB^2 + AC^2} = \sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = 15 \text{ cm.} \]
+        Tâm đường tròn ngoại tiếp tam giác vuông là trung điểm của cạnh huyền $BC$.\\
+        Do đó, bán kính đường tròn ngoại tiếp tam giác là:
+        \[ R = \frac{BC}{2} = \frac{15}{2} = 7,5 \text{ cm.} \]
+    };
+\end{tikzpicture}
+\end{document}

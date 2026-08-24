@@ -1,0 +1,195 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{calc, patterns, decorations.pathmorphing, shapes.geometric, arrows.meta, positioning, fit}
+
+\tikzset{
+    glass/.style={draw=black, thick, line cap=round, line join=round},
+    mixture/.style={fill=black!85},
+    stand color/.style={fill=blue!30!gray, draw=black},
+    clamp color/.style={fill=gray!30, draw=black, rounded corners=1pt},
+    connector color/.style={draw=black, thick, fill=red!70!black},
+    flame color/.style={inner color=yellow, outer color=orange!80!red},
+    % === PICS COMPONENTS ===
+    % 1. STAND (GIÁ ĐỠ)
+    % Origin: Bottom Center of Base
+    pics/stand/.style={
+        code={
+            \def\standwidth{2.5}
+            \def\standheight{0.3}
+            \def\rodheight{6.5}
+            % Base
+            \draw[stand color] (-\standwidth/2, 0) rectangle (\standwidth/2, \standheight);
+            % Rod
+            \draw[glass, fill=gray!40] (-0.075, \standheight) rectangle (0.075, \standheight+\rodheight);
+            % Define coordinates for external use
+            \coordinate (-base) at (0,0);
+            \coordinate (-rod-top) at (0, \standheight+\rodheight);
+            \coordinate (-rod-mid) at (0, \standheight+\rodheight/2);
+        }
+    },
+    % 2. ALCOHOL LAMP (ĐÈN CỒN)
+    % Origin: Bottom Center
+    pics/alcohol_lamp/.style={
+        code={
+            % Wood Block
+            \draw[fill=brown!50, draw=black] (-0.75, 0) rectangle (0.75, 1.2);
+            % Lamp Body
+            \coordinate (LampBase) at (0, 1.2);
+            \draw[glass] ($(LampBase)+(-0.6,0)$) -- ($(LampBase)+(0.6,0)$) 
+                -- ($(LampBase)+(0.4,0.8)$) -- ($(LampBase)+(-0.4,0.8)$) -- cycle;
+            \draw[glass] ($(LampBase)+(-0.4,0.8)$) -- ($(LampBase)+(-0.1,1.0)$) 
+                -- ($(LampBase)+(0.1,1.0)$) -- ($(LampBase)+(0.4,0.8)$);
+            % Wick
+            \draw[thick, black] ($(LampBase)+(0,1.0)$) -- ++(0, 0.4);
+            % Flame
+            \draw[flame color] ($(LampBase)+(0,1.4)$) ellipse (0.2 and 0.5);
+            \coordinate (-top_flame) at ($(LampBase)+(0,1.9)$);
+        }
+    },
+    % 3. TEST TUBE (ỐNG NGHIỆM)
+    % Origin: Center of the Tube Body (useful for rotation)
+    % Parameters: mixture (boolean)
+    pics/test_tube/.style args={#1}{
+        code={
+            \def\tubelen{2.2} % Half length
+            \def\tuberad{0.4}
+            % Draw Tube
+            \draw[glass] (-\tubelen, \tuberad) -- (\tubelen, \tuberad);
+            \draw[glass] (-\tubelen, -\tuberad) -- (\tubelen, -\tuberad);
+            % Bottom Arc (Left)
+            \draw[glass] (-\tubelen, \tuberad) arc (90:270:\tuberad);
+            % Mouth (Right)
+            \draw[glass] (\tubelen, \tuberad) arc (90:-90:\tuberad); % Just a rim line essentially
+            % Lip
+             \draw[glass, fill=white] (\tubelen, \tuberad+0.05) rectangle (\tubelen+0.2, -\tuberad-0.05);
+            % Content (Optional Mixture)
+            \ifx#11 % If "1" or "mixture" passed
+                 \path[postaction={fill=black!85}] 
+                    (-\tubelen+0.1, -\tuberad+0.05) 
+                    [rounded corners=5pt] -- (-\tubelen+0.2, 0.1) 
+                    [sharp corners] -- (-0.5, -0.2) 
+                    -- (-0.5, -\tuberad+0.02) -- cycle;
+                 % Stopper
+                 \draw[fill=gray!50] (\tubelen+0.05, 0.35) rectangle (\tubelen+0.15, -0.35);
+            \fi
+            % Coordinates
+            \coordinate (-mouth) at (\tubelen+0.2, 0);
+            \coordinate (-bottom) at (-\tubelen-\tuberad, 0);
+            \coordinate (-center) at (0,0);
+        }
+    },
+    % 4. CLAMP (KẸP)
+    % Origin: At the rod connection point
+    pics/clamp/.style={
+        code={
+            \draw[clamp color] (0, -0.1) rectangle (-1.0, 0.1); % Arm
+            \draw[clamp color] (-1.3, -0.3) rectangle (-0.7, 0.3); % Holder
+            \coordinate (-holder) at (-1.0, 0);
+        }
+    }
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+    % === 1. PLACING STANDS ===
+    \pic (Stand1) at (0,0) {stand};
+    \pic (Stand2) at (7,0) {stand};
+
+    % === 2. PLACING LAMP ===
+    \pic (Lamp) at ($(Stand1-base) + (1.2, 0)$) {alcohol_lamp};
+
+    % === 3. PLACING REACTION TUBE ===
+    % We want the tube to be held by the stand.
+    % Let's determine the Clamp Position on Stand 1
+    \coordinate (ClampPos1) at ($(Stand1-base) + (0, 5.0)$);
+    
+    % Draw Clamp 1
+    % Rotate clamp to match tube? Usually clamp arm is horizontal, Holder rotates.
+    % Or simply draw clamp arm horizontal, and the tube inside is rotated.
+    % Let's assume clamp arm is fixed to rod horizontally.
+    \pic (Clamp1) at (ClampPos1) {clamp};
+    
+    % Place Tube relative to Clamp Holder
+    % Tube is rotated -15 degrees
+    \pic[rotate=-15] (Tube1) at ($(Clamp1-holder) + (0.5, 0)$) {test_tube=1}; % 1 for mixture
+
+    % === 4. PLACING COLLECTION TUBE ===
+    % Position on Stand 2
+    \coordinate (ClampPos2) at ($(Stand2-base) + (0, 5.5)$);
+    
+    % Draw Clamp 2 (facing left)
+    \pic[xscale=-1] (Clamp2) at (ClampPos2) {clamp};
+    
+    % Collection Tube (Inverted -> Rotate -90 or 90?)
+    % Inverted means bottom up.
+    % Standard tube: left=bottom, right=mouth.
+    % We want mouth down. So rotate -90 (mouth at bottom).
+    % Or rotate 90 (mouth at top)? 
+    % Let's rotate -90: Mouth at (0, -len), Bottom at (0, len).
+    % Oops default mouth is at x > 0.
+    % Rotate -90: Mouth at y < 0. Yes.
+    \pic[rotate=-90] (Tube2) at ($(ClampPos2) + (-1.0, 0)$) {test_tube=0}; % 0 for empty
+    
+    % === 5. CONNECTING TUBES ===
+    % We need to access coordinates inside the pics
+    % Tube1-mouth is the exit.
+    % Tube2-mouth is the entry (target).
+    
+    \coordinate (ExitPoint) at (Tube1-mouth);
+    \coordinate (EntryPoint) at (Tube2-mouth); 
+    
+    % Drawing the delivery tube setup
+    % 1. Small glass tube from stopper
+    % 2. Red Connector
+    % 3. Long glass tube into Tube2
+    
+    % Coordinate calculations
+    % Since Tube1 is rotated, Tube1-mouth is rotated correctly relative to Tube1 center.
+    % We just draw from ExitPoint.
+    
+    % Direction vector of Tube 1 (approx -15 deg)
+    \coordinate (Dir) at ($-1*(15:1)$); % Actually it's -15 deg
+    
+    % Start
+    \coordinate (A) at (ExitPoint);
+    \coordinate (B) at ($(A) + (-15:0.8)$); % Straight out from mouth
+    
+    % Connector
+    \draw[connector color] (B) circle (0.15); % Simplified connector visually or draw shape
+    \draw[connector color] ($(B)+(-15:-0.15)$) -- ($(B)+(-15:0.15)$); % Length
+    \fill[connector color] ($(B)+(-15:-0.15)$) to[out=90,in=180] ($(B)+(0,0.1)$) -- ($(B)+(-15:0.2)$) -- cycle; % Just a decorative shape matching previous
+     % Let's use the path from previous code for connector
+    \coordinate (ConnEnd) at ($(B) + (-15:0.6)$);
+    \draw[connector color, line width=4pt] (B) -- (ConnEnd); % Simple thick line for rubber
+    
+    % Delivery Tube to Collection
+    % Path: From ConnEnd -> Horizontal -> Up -> Enter Tube2
+    
+    % Calculate 'Up' path to go inside Tube 2
+    % Tube2 mouth is at EntryPoint. Tube2 bottom is up.
+    % We need to go INSIDE Tube 2, nearly to the top.
+    \coordinate (TargetInside) at ($(Tube2-bottom) + (0, -0.5)$); % Near the closed end (top physically)
+    
+    % Check X alignment
+    \coordinate (BendX) at ($(ConnEnd) + (0.5, 0)$);
+    % Actually we need to align with Tube2 vertical axis
+    % Actually we need to align with Tube2 vertical axis
+    % Use coordinates
+    \coordinate (Tube2Axis) at (Tube2-center);
+    
+    % We can draw: ConnEnd -- (Tube2Axis.x, ConnEnd.y) -- (Tube2Axis.x, TargetInside.y)
+    % But smooth bend
+    \coordinate (Corner) at (Tube2Axis |- ConnEnd);
+    
+    % Draw Delivery Tube
+    \draw[glass, double=white, double distance=2pt] 
+        (A) -- (B) % From stopper to connector start
+        (ConnEnd) -- ($(Corner) + (-0.3, 0)$) arc (270:360:0.3) -- (TargetInside);
+        
+    % === 6. ANNOTATIONS ===
+    \node[align=left, font=\bfseries\small] (Label) at ($(Stand1-base) + (0, 3)$) {Hỗn hợp\\ NH$_4$Cl\\ Ca(OH)$_2$};
+    \draw[->, thick] (Label) -- ($(Tube1-center) + (-0.5, 0)$);
+
+\end{tikzpicture}
+\end{document}

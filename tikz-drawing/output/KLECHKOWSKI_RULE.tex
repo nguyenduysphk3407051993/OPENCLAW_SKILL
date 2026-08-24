@@ -1,0 +1,112 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows.meta, positioning}
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+	\begin{tikzpicture}[
+	    scale=1.2,
+	    orbital/.style={
+	        circle,
+	        draw=white,
+	        line width=1.5pt,
+	        minimum size=1cm,
+	        font=\sffamily\bfseries\large,
+	        text=white
+	    },
+	    arrow line/.style={
+	        draw=black!70,
+	        {Latex[length=3mm, width=2mm]}-,
+	        line width=1.5pt,
+	        shorten <= -1.5cm,
+	        shorten >= 0.2cm
+	    },
+	    n1/.style={fill=red!60!orange},
+	    n2/.style={fill=green!50!black!80},
+	    n3/.style={fill=cyan!90!blue},
+	    n4/.style={fill=violet!70},
+	    n5/.style={fill=orange!90!yellow},
+	    n6/.style={fill=blue!60!black}
+	]
+	    % Define rows and columns
+	    % n=1
+	    \node[orbital, n1] (1s) at (0, 0) {1s};
+	
+	    % n=2
+	    \node[orbital, n2] (2s) at (0, -1.5) {2s};
+	    \node[orbital, n2] (2p) at (1.5, -1.5) {2p};
+	
+	    % n=3
+	    \node[orbital, n3] (3s) at (0, -3) {3s};
+	    \node[orbital, n3] (3p) at (1.5, -3) {3p};
+	    \node[orbital, n3] (3d) at (3, -3) {3d};
+	
+	    % n=4
+	    \node[orbital, n4] (4s) at (0, -4.5) {4s};
+	    \node[orbital, n4] (4p) at (1.5, -4.5) {4p};
+	    \node[orbital, n4] (4d) at (3, -4.5) {4d};
+	    \node[orbital, n4] (4f) at (4.5, -4.5) {4f};
+	
+	    % n=5
+	    \node[orbital, n5] (5s) at (0, -6) {5s};
+	    \node[orbital, n5] (5p) at (1.5, -6) {5p};
+	    \node[orbital, n5] (5d) at (3, -6) {5d};
+	    \node[orbital, n5] (5f) at (4.5, -6) {5f};
+	
+	    % n=6
+	    \node[orbital, n6] (6s) at (0, -7.5) {6s};
+	    \node[orbital, n6] (6p) at (1.5, -7.5) {6p};
+	    \node[orbital, n6] (6d) at (3, -7.5) {6d};
+	    \node[orbital, n6] (6f) at (4.5, -7.5) {6f};
+	
+	    % Draw diagonal arrows on background layer
+	    \begin{pgfonlayer}{background}
+	        % Arrow 1: 1s
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(1s.north east) + (0.3,0.3)$) -- ($(1s.south west) - (0.3,0.3)$);
+	            
+	        % Arrow 2: 2s
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(2s.north east) + (0.3,0.3)$) -- ($(2s.south west) - (0.3,0.3)$);
+	
+	        % Arrow 3: 2p -> 3s
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(2p.north east) + (0.3,0.3)$) -- ($(3s.south west) - (0.3,0.3)$);
+	
+	        % Arrow 4: 3p -> 4s
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(3p.north east) + (0.3,0.3)$) -- ($(4s.south west) - (0.3,0.3)$);
+	
+	        % Arrow 5: 3d -> 4p -> 5s
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(3d.north east) + (0.3,0.3)$) -- ($(5s.south west) - (0.3,0.3)$);
+	
+	        % Arrow 6: 4d -> 5p -> 6s
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(4d.north east) + (0.3,0.3)$) -- ($(6s.south west) - (0.3,0.3)$);
+	            
+	        % Arrow 7: 4f -> 5d -> 6p
+	         \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(4f.north east) + (0.3,0.3)$) -- ($(6p.south west) - (0.3,0.3)$);
+	
+	        % Arrow 8: 5f -> 6d
+	         \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(5f.north east) + (0.3,0.3)$) -- ($(6d.south west) - (0.3,0.3)$);
+	            
+	        % Arrow 9: 6f
+	        \draw[-{Latex[scale=1.5]}, color=black!70, line width=1.5pt] 
+	            ($(6f.north east) + (0.3,0.3)$) -- ($(6f.south west) - (0.3,0.3)$);
+	    \end{pgfonlayer}
+	
+	
+	    % Large arrow for "Chiều tăng n+l"
+	    \coordinate (StartArrow) at (2.5, 0.5);
+	    \coordinate (EndArrow) at (6.5, -4.5);
+	    \draw[-{Latex[scale=2]}, color=red!40, line width=3pt, opacity=0.8] 
+	        (StartArrow) -- (EndArrow) node[midway, sloped, above, black, font=\bfseries\Large] {Chiều tăng n+l};
+	
+	    % Title
+	    \node[below=1.5cm, font=\bfseries\huge, color=black!80] at (3, -7.5) {QUI TẮC KLECHKOWSKI};
+	\end{tikzpicture}
+\end{document}

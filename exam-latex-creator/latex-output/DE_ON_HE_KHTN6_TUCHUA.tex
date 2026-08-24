@@ -1,0 +1,223 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\usepackage[top=1.6cm,bottom=1.6cm,left=1.8cm,right=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{titlesec}
+\setlength{\parindent}{0pt}
+\setlist{nosep}
+\definecolor{ddo}{HTML}{C0392B}
+\definecolor{dxanh}{HTML}{1F4E79}
+
+% ===== Cờ hiển thị đáp án: mặc định HIỆN (bản GV) =====
+\newif\ifANS \ANStrue
+\ifdefined\HIDEANS \ANSfalse \fi
+
+\newcommand{\dapan}[1]{\ifANS\textbf{\color{ddo}#1}\else#1\fi}
+\newcommand{\loigiai}[1]{\ifANS\par\smallskip{\color{dxanh}\textbf{Lời giải. }#1}\par\fi}
+\newcommand{\dapanngan}[1]{\ifANS~~\textbf{\color{ddo}[Đáp án: #1]}\fi}
+% ý đúng/sai: #1 = Đ hoặc S, #2 = nội dung
+\newcommand{\yt}[2]{\item #2\ifANS~~\textbf{\color{ddo}(#1)}\fi}
+
+\titleformat{\section}{\large\bfseries\color{dxanh}}{}{0pt}{}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\newcommand{\cau}{\medskip\textbf{Câu \refstepcounter{cau}\thecau.}~}
+\newcounter{cau}
+\newcommand{\resetcau}{\setcounter{cau}{0}}
+
+\begin{document}
+
+% ====== TIÊU ĐỀ ======
+\begin{center}
+{\large\bfseries ĐỀ ÔN TẬP HÈ -- KHOA HỌC TỰ NHIÊN 6}\\[2pt]
+{\itshape (Dành cho học sinh lớp 5 lên lớp 6) -- Năm học 2025--2026}\\[4pt]
+{\bfseries Thời gian làm bài: 45 phút \quad | \quad Mã đề: 101}
+\ifANS\\[2pt]{\color{ddo}\bfseries (BẢN GIÁO VIÊN -- CÓ ĐÁP ÁN \& LỜI GIẢI)}\fi
+\end{center}
+\hrule
+\smallskip
+Họ và tên: \dotfill\quad Lớp: \rule{2.2cm}{0.4pt}
+\smallskip
+\hrule
+
+% ====== PHẦN I ======
+\section{PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN (mỗi câu chọn một phương án)}
+\resetcau
+
+\cau Khí nào sau đây chiếm khoảng $78\%$ thể tích không khí?
+\begin{multicols}{2}
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Oxygen
+\item B. Carbon dioxide
+\item \dapan{C. Nitrogen}
+\item D. Hơi nước
+\end{itemize}
+\end{multicols}
+\loigiai{Nitrogen chiếm khoảng $78\%$ thể tích không khí, oxygen khoảng $21\%$, phần còn lại là carbon dioxide, hơi nước và một số khí khác.}
+
+\cau Phơi quần áo ướt ngoài nắng, sau vài giờ quần áo khô. Nước trong quần áo đã biến đổi như thế nào?
+\begin{multicols}{2}
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Nước đông đặc
+\item B. Nước ngưng tụ
+\item \dapan{C. Nước bay hơi vào không khí}
+\item D. Nước thấm ngược vào vải
+\end{itemize}
+\end{multicols}
+\loigiai{Dưới ánh nắng, nước (thể lỏng) nhận nhiệt chuyển thành hơi nước (thể khí) bay vào không khí -- đó là sự bay hơi, nên quần áo khô.}
+
+\cau Ở vùng núi cao, nước thường sôi ở nhiệt độ thấp hơn $100^\circ$C. Nguyên nhân chủ yếu là
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. nước ở vùng núi không tinh khiết
+\item B. không khí trên núi lạnh hơn
+\item \dapan{C. áp suất khí quyển trên cao thấp hơn nên nhiệt độ sôi của nước giảm}
+\item D. nước trên núi chảy nhanh hơn
+\end{itemize}
+\loigiai{Càng lên cao áp suất khí quyển càng giảm, làm nước sôi ở nhiệt độ thấp hơn $100^\circ$C.}
+
+\cau Trường hợp nào sau đây là một dung dịch?
+\begin{multicols}{2}
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Cát khuấy đều trong nước
+\item B. Dầu ăn khuấy với nước
+\item \dapan{C. Muối ăn tan hoàn toàn trong nước}
+\item D. Gạo trộn lẫn với đỗ xanh
+\end{itemize}
+\end{multicols}
+\loigiai{Muối tan hoàn toàn và phân bố đều trong nước tạo thành dung dịch (nước muối). Cát, dầu ăn không tan; gạo và đỗ chỉ là hỗn hợp.}
+
+\cau Để tách muối ăn ra khỏi dung dịch nước muối, ta nên
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. dùng nam châm hút muối
+\item B. dùng giấy lọc để lọc muối
+\item \dapan{C. đun nóng dung dịch cho nước bay hơi, muối kết tinh ở lại}
+\item D. để yên cho muối tự lắng xuống
+\end{itemize}
+\loigiai{Muối tan trong nước nên không lọc hay lắng được. Đun nóng làm nước bay hơi, muối không bay hơi sẽ kết tinh và ở lại.}
+
+\cau Hỗn hợp nào sau đây có thể tách bằng nam châm?
+\begin{multicols}{2}
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Muối và nước
+\item B. Đường và nước
+\item \dapan{C. Mạt sắt và cát}
+\item D. Dầu ăn và nước
+\end{itemize}
+\end{multicols}
+\loigiai{Sắt bị nam châm hút còn cát thì không, nên dùng nam châm tách được mạt sắt khỏi cát.}
+
+\cau Chất ở trạng thái khí có đặc điểm nào sau đây?
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Có hình dạng và thể tích xác định
+\item B. Có hình dạng xác định nhưng thể tích thay đổi
+\item \dapan{C. Không có hình dạng xác định, chiếm toàn bộ không gian của vật chứa}
+\item D. Chỉ chiếm phần đáy của vật chứa
+\end{itemize}
+\loigiai{Chất khí không có hình dạng và thể tích xác định; nó chiếm đầy toàn bộ không gian vật chứa.}
+
+\cau Khi đun nóng, một mẩu nến rắn chảy thành nến lỏng. Đây là sự chuyển trạng thái
+\begin{multicols}{2}
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. lỏng sang rắn
+\item \dapan{B. rắn sang lỏng}
+\item C. rắn sang khí
+\item D. lỏng sang khí
+\end{itemize}
+\end{multicols}
+\loigiai{Nến từ thể rắn nóng chảy sang thể lỏng -- chuyển trạng thái rắn sang lỏng, không tạo chất mới.}
+
+\cau Sự biến đổi hóa học là sự biến đổi
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. chỉ làm thay đổi hình dạng của chất
+\item B. chỉ làm thay đổi trạng thái của chất
+\item \dapan{C. có sự tạo thành chất mới}
+\item D. làm cho chất bị chia nhỏ ra
+\end{itemize}
+\loigiai{Dấu hiệu cơ bản của biến đổi hóa học là tạo thành chất mới (thường đổi màu, mùi, tính tan).}
+
+\cau Hiện tượng nào sau đây là một biến đổi hóa học?
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Nước đá tan thành nước
+\item B. Bẻ đôi một viên phấn
+\item \dapan{C. Đinh sắt để lâu trong không khí ẩm bị gỉ}
+\item D. Hòa tan đường vào nước
+\end{itemize}
+\loigiai{Đinh sắt bị gỉ tạo ra chất mới (gỉ sắt) màu nâu đỏ, giòn -- là biến đổi hóa học. Ba hiện tượng còn lại chỉ đổi trạng thái/hình dạng.}
+
+\cau Dụng cụ nào sau đây dùng để đo chính xác thể tích chất lỏng?
+\begin{multicols}{2}
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Cốc thủy tinh
+\item \dapan{B. Ống đong}
+\item C. Đũa thủy tinh
+\item D. Kẹp ống nghiệm
+\end{itemize}
+\end{multicols}
+\loigiai{Ống đong có vạch chia thể tích nên dùng để đo chính xác thể tích chất lỏng.}
+
+\cau Việc làm nào sau đây KHÔNG đúng quy tắc an toàn trong phòng thực hành?
+\begin{itemize}[label={},leftmargin=1.2em]
+\item A. Đeo kính bảo hộ khi làm thí nghiệm
+\item \dapan{B. Nếm thử hóa chất để biết đó là chất gì}
+\item C. Đọc kỹ nhãn hóa chất trước khi dùng
+\item D. Rửa tay sạch bằng xà phòng sau khi thực hành
+\end{itemize}
+\loigiai{Tuyệt đối không nếm hoặc ngửi trực tiếp hóa chất vì có thể gây ngộ độc, bỏng.}
+
+% ====== PHẦN II ======
+\section{PHẦN II. TRẮC NGHIỆM ĐÚNG/SAI (mỗi ý chọn Đúng hoặc Sai)}
+\resetcau
+
+\cau Cho các phát biểu sau về nước, không khí và đất:
+\begin{enumerate}[label=\alph*),leftmargin=1.6em]
+\yt{Đ}{Nước có thể tồn tại ở cả ba thể: rắn, lỏng và khí.}
+\yt{S}{Không khí có màu xanh nhạt và có vị ngọt.}
+\yt{Đ}{Mùn trong đất cung cấp chất dinh dưỡng cho cây trồng.}
+\yt{S}{Nitrogen chiếm khoảng $21\%$ thể tích không khí.}
+\end{enumerate}
+\loigiai{a) Đúng -- nước có ba thể. b) Sai -- không khí trong suốt, không màu, không mùi, không vị. c) Đúng -- mùn giàu chất hữu cơ, dinh dưỡng. d) Sai -- nitrogen chiếm $\approx 78\%$, oxygen mới $\approx 21\%$.}
+
+\cau Cho các phát biểu sau về sự biến đổi của chất:
+\begin{enumerate}[label=\alph*),leftmargin=1.6em]
+\yt{Đ}{Đốt cháy một tờ giấy thành tro là biến đổi hóa học.}
+\yt{S}{Nước đá tan thành nước lỏng là biến đổi hóa học.}
+\yt{Đ}{Có thể nhận biết biến đổi hóa học qua dấu hiệu đổi màu, đổi mùi hoặc đổi tính tan.}
+\yt{Đ}{Thức ăn để lâu bị ôi thiu là một biến đổi hóa học.}
+\end{enumerate}
+\loigiai{a) Đúng -- tạo ra tro là chất mới. b) Sai -- chỉ đổi trạng thái (biến đổi vật lí). c) Đúng. d) Đúng -- ôi thiu sinh chất mới có mùi, vị khác.}
+
+% ====== PHẦN III ======
+\section{PHẦN III. TRẢ LỜI NGẮN}
+\resetcau
+
+\cau Ở điều kiện thường, nước sôi ở nhiệt độ bao nhiêu độ C? \dapanngan{$100$}
+\loigiai{Ở điều kiện thường, nước sôi ở $100^\circ$C.}
+
+\cau Nitrogen chiếm khoảng bao nhiêu phần trăm thể tích không khí? \dapanngan{$78$}
+\loigiai{Nitrogen chiếm khoảng $78\%$ thể tích không khí.}
+
+\cau Ở điều kiện thường, nước đông đặc (hóa thành nước đá) ở nhiệt độ bao nhiêu độ C? \dapanngan{$0$}
+\loigiai{Ở điều kiện thường, nước đông đặc ở $0^\circ$C.}
+
+% ====== PHẦN IV ======
+\section{PHẦN IV. TỰ LUẬN}
+\resetcau
+
+\cau Phân biệt sự khác nhau giữa biến đổi vật lí và biến đổi hóa học. Mỗi loại cho hai ví dụ minh họa.
+\loigiai{\textbf{Biến đổi vật lí:} chất chỉ thay đổi hình dạng, kích thước hoặc trạng thái, KHÔNG tạo chất mới. Ví dụ: xé nhỏ tờ giấy; nước đá tan thành nước.\newline
+\textbf{Biến đổi hóa học:} CÓ tạo thành chất mới (thường đổi màu, mùi, tính tan). Ví dụ: đốt giấy thành tro; đinh sắt bị gỉ.}
+
+\cau a) Trình bày cách tách muối ăn ra khỏi dung dịch nước muối và giải thích vì sao làm được như vậy.\newline
+b) Khi đun nóng hóa chất trong ống nghiệm, vì sao phải hướng miệng ống nghiệm về phía không có người?
+\loigiai{\textbf{a)} Đun nóng dung dịch nước muối: nước bay hơi dần, muối không bay hơi nên kết tinh và ở lại, thu được muối. Làm được vì muối tan trong nước tạo dung dịch; khi nước bay hơi hết, muối tách ra ở dạng tinh thể.\newline
+\textbf{b)} Vì khi đun, chất lỏng có thể sôi và bắn ra khỏi miệng ống; hướng miệng ống về phía không có người để tránh hóa chất nóng bắn vào người, bảo đảm an toàn.}
+
+\bigskip
+\begin{center}\rule{2cm}{0.6pt}\ \textbf{HẾT}\ \rule{2cm}{0.6pt}\end{center}
+
+\end{document}

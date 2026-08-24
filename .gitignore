@@ -24,6 +24,7 @@ __pycache__/
 *.jpg
 *.jpeg
 *.gif
+*.wmf
 
 # LaTeX auxiliary/temporary files
 *.aux
@@ -32,6 +33,9 @@ __pycache__/
 *.toc
 *.sol
 *.synctex.gz
+*.thm
+*.mw
+*.pre
 *.fdb_latexmk
 *.fls
 *.nav
@@ -52,5 +56,5 @@ zim9dNHr/
 zim9dNHr
 tmp/
 temp/
-latex-output/
-output/
+latex-input/
+images_extracted/

@@ -1,0 +1,44 @@
+{
+  "_chú_thích": "File cấu hình mẫu cho scripts/scrape.py. Xóa các khóa bắt đầu bằng dấu gạch dưới (_) khi dùng thật, hoặc cứ để nguyên - script bỏ qua chúng vì không nằm trong 'fields'.",
+
+  "_về_nguồn_URL": "Chọn MỘT trong 3 cách khai báo URL bên dưới (url / urls / url_template).",
+  "url_template": "https://quotes.toscrape.com/page/{page}/",
+  "_url_template": "Dùng {page} làm chỗ chèn số trang. Kết hợp với 'pages' hoặc 'max_pages'.",
+  "pages": [1, 2, 3],
+  "_pages": "Danh sách số trang cần cào. Nếu bỏ trống nhưng có 'max_pages', script tự tạo 1..max_pages.",
+
+  "_url": "Ví dụ dùng 1 URL duy nhất: \"url\": \"https://quotes.toscrape.com/\"",
+  "_urls": "Ví dụ dùng danh sách URL rời: \"urls\": [\"https://.../a\", \"https://.../b\"]",
+
+  "fetcher": "auto",
+  "_fetcher": "auto | http | dynamic | stealthy. 'auto' = tự chẩn đoán rút gọn: thử HTTP, nếu bị chặn -> stealthy, nếu không thấy item (JS render) -> dynamic. http = nhanh nhất, không mở trình duyệt. dynamic = Chromium render JS. stealthy = chống phát hiện bot, nặng nhất.",
+
+  "item_selector": ".quote",
+  "_item_selector": "CSS chọn TỪNG bản ghi (mỗi phần tử khớp = 1 dòng trong output).",
+
+  "fields": {
+    "noi_dung": ".text::text",
+    "tac_gia": ".author::text",
+    "the_loai": ".tags .tag::text",
+    "link_tac_gia": ".author + a::attr(href)"
+  },
+  "_fields": "Ánh xạ tên_cột -> CSS selector TƯƠNG ĐỐI bên trong mỗi item. Hỗ trợ ::text (lấy chữ) và ::attr(tên) (lấy thuộc tính, ví dụ ::attr(href)). Nếu selector khớp nhiều node, các chuỗi được nối bằng dấu cách.",
+
+  "delay": 1.5,
+  "_delay": "Số giây nghỉ giữa các request. MẶC ĐỊNH 1.5, TỐI THIỂU 0.5 (đặt thấp hơn sẽ tự bị nâng lên 0.5). Có jitter ngẫu nhiên ±30% cho tự nhiên. Nếu robots.txt khai báo Crawl-delay lớn hơn, delay tự được nâng theo.",
+
+  "max_pages": 3,
+  "_max_pages": "Giới hạn số trang tối đa cào (an toàn, tránh chạy quá đà).",
+
+  "timeout": 30,
+  "_timeout": "Timeout mỗi request, tính bằng giây.",
+
+  "output": "output.csv",
+  "_output": "Đường dẫn file xuất. Có thể ghi đè bằng cờ -o trên dòng lệnh.",
+
+  "output_format": "csv",
+  "_output_format": "csv | json. Nếu bỏ trống, script suy ra từ đuôi file output. CSV xuất encoding utf-8-sig để Excel mở tiếng Việt không vỡ font.",
+
+  "ignore_robots": false,
+  "_ignore_robots": "MẶC ĐỊNH false = TÔN TRỌNG robots.txt: nếu URL bị Disallow thì DỪNG. Đặt true để bỏ qua (in cảnh báo to) - chỉ dùng khi bạn chắc chắn có quyền truy cập dữ liệu công khai đó."
+}
