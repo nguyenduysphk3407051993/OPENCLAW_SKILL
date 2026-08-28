@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "He thong bai tap cung co kien thuc",
+  "type": "object",
+  "required": ["cau_hinh", "muc_tieu", "dang_bai_tap"],
+  "additionalProperties": false,
+  "properties": {
+    "cau_hinh": {
+      "type": "object",
+      "required": ["mon", "lop", "chu_de"],
+      "additionalProperties": false,
+      "properties": {
+        "mon": { "type": "string", "minLength": 1 },
+        "lop": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "chu_de": { "type": "string", "minLength": 1 },
+        "bo_sach": { "type": "string" },
+        "muc_dich": {
+          "type": "string",
+          "enum": ["phu_dao", "on_tap", "on_thi", "boi_duong"],
+          "default": "on_tap"
+        },
+        "tang": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1, "maximum": 4 }
+        },
+        "ghi_chu": { "type": "string" }
+      }
+    },
+
+    "muc_tieu": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ma", "noi_dung", "muc_do"],
+        "additionalProperties": false,
+        "properties": {
+          "ma": { "type": "string", "pattern": "^MT[0-9]+$" },
+          "noi_dung": { "type": "string", "minLength": 5 },
+          "muc_do": { "type": "string", "enum": ["NB", "TH", "VD", "VDC"] }
+        }
+      }
+    },
+
+    "nhom_bo_qua": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["nhom", "ly_do"],
+        "additionalProperties": false,
+        "properties": {
+          "nhom": { "type": "string", "enum": ["A","B","C","D","E","F","G","H","I"] },
+          "ly_do": { "type": "string", "minLength": 5 }
+        }
+      }
+    },
+
+    "dang_bai_tap": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ma", "nhom", "ten", "phuong_phap", "bai_tap"],
+        "additionalProperties": false,
+        "properties": {
+          "ma": { "type": "string", "pattern": "^[A-I][0-9]+$" },
+          "nhom": { "type": "string", "enum": ["A","B","C","D","E","F","G","H","I"] },
+          "ten": { "type": "string", "minLength": 3 },
+          "muc_tieu_lien_quan": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^MT[0-9]+$" }
+          },
+          "dau_hieu_nhan_biet": { "type": "string" },
+          "phuong_phap": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 3 }
+          },
+          "loi_thuong_gap": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "luu_y": { "type": "string" },
+          "bai_tap": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["tang", "de", "loi_giai", "dap_an"],
+              "additionalProperties": false,
+              "properties": {
+                "ma": { "type": "string" },
+                "tang": { "type": "integer", "minimum": 1, "maximum": 4 },
+                "muc_do": { "type": "string", "enum": ["NB", "TH", "VD", "VDC"] },
+                "hinh_thuc": {
+                  "type": "string",
+                  "enum": ["tu_luan", "trac_nghiem", "dung_sai", "tra_loi_ngan",
+                           "dien_khuyet", "noi_cot", "thuc_hanh"]
+                },
+                "de": { "type": "string", "minLength": 5 },
+                "phuong_an": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "loi_giai": { "type": "string", "minLength": 3 },
+                "dap_an": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "lo_trinh": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["buoi", "dang"],
+        "additionalProperties": false,
+        "properties": {
+          "buoi": { "type": "integer", "minimum": 1 },
+          "ten": { "type": "string" },
+          "dang": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "pattern": "^[A-I][0-9]+$" }
+          },
+          "so_bai": { "type": "integer", "minimum": 1 },
+          "moc_danh_gia": { "type": "string" }
+        }
+      }
+    }
+  }
+}

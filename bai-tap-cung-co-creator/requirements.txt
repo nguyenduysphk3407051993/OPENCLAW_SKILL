@@ -1,0 +1,5 @@
+# Phụ thuộc của skill bai-tap-cung-co-creator
+# Cài: pip install -r requirements.txt
+
+python-docx>=1.1.0      # bắt buộc - dựng file .docx
+jsonschema>=4.0.0       # tuỳ chọn - bật bước check_schema.py

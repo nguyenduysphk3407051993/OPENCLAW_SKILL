@@ -1,0 +1,595 @@
+{
+  "cau_hinh": {
+    "mon": "Vật lí",
+    "lop": 9,
+    "chu_de": "Định luật Ohm và đoạn mạch nối tiếp, song song",
+    "bo_sach": "Kết nối tri thức",
+    "muc_dich": "on_tap",
+    "tang": [1, 2, 3, 4],
+    "ghi_chu": "Bộ mẫu tham chiếu của skill - dùng làm khuôn khi sinh chủ đề khác."
+  },
+
+  "muc_tieu": [
+    { "ma": "MT1", "noi_dung": "Phát biểu được định luật Ohm và viết được hệ thức I = U/R, nêu đúng tên và đơn vị của từng đại lượng.", "muc_do": "NB" },
+    { "ma": "MT2", "noi_dung": "Nêu được cách mắc và công dụng của ampe kế, vôn kế trong mạch điện.", "muc_do": "NB" },
+    { "ma": "MT3", "noi_dung": "Phân biệt được đoạn mạch nối tiếp và đoạn mạch song song qua sơ đồ mạch và qua quan hệ giữa U, I, R.", "muc_do": "TH" },
+    { "ma": "MT4", "noi_dung": "Tính được một trong ba đại lượng U, I, R khi biết hai đại lượng còn lại, có thực hiện quy đổi đơn vị.", "muc_do": "VD" },
+    { "ma": "MT5", "noi_dung": "Tính được điện trở tương đương và phân bố U, I trong đoạn mạch nối tiếp, song song.", "muc_do": "VD" },
+    { "ma": "MT6", "noi_dung": "Đọc được đồ thị đặc tuyến I - U và rút ra kết luận về sự phụ thuộc của cường độ dòng điện vào hiệu điện thế.", "muc_do": "TH" },
+    { "ma": "MT7", "noi_dung": "Mô tả được cách bố trí và tiến hành thí nghiệm khảo sát sự phụ thuộc của I vào U đặt vào hai đầu dây dẫn.", "muc_do": "VD" },
+    { "ma": "MT8", "noi_dung": "Vận dụng kiến thức về điện trở để giải thích hiện tượng và đề xuất giải pháp an toàn, tiết kiệm điện trong gia đình.", "muc_do": "VDC" }
+  ],
+
+  "nhom_bo_qua": [],
+
+  "dang_bai_tap": [
+    {
+      "ma": "A1",
+      "nhom": "A",
+      "ten": "Nhắc lại định luật Ohm, hệ thức và đơn vị các đại lượng",
+      "muc_tieu_lien_quan": ["MT1"],
+      "dau_hieu_nhan_biet": "Đề yêu cầu phát biểu, viết công thức, gọi tên hoặc nêu đơn vị; không có số liệu để tính.",
+      "phuong_phap": [
+        "Xác định đề hỏi phát biểu, công thức hay đơn vị.",
+        "Viết hệ thức I = U/R, sau đó suy ra hai dạng biến đổi U = I·R và R = U/I.",
+        "Gọi tên đầy đủ và ghi kèm đơn vị: I - cường độ dòng điện (A); U - hiệu điện thế (V); R - điện trở (ohm).",
+        "Nêu ý nghĩa: với cùng một dây dẫn, I tỉ lệ thuận với U và tỉ lệ nghịch với R."
+      ],
+      "loi_thuong_gap": [
+        "Viết công thức nhưng không nêu đơn vị của các đại lượng.",
+        "Nói 'điện trở tỉ lệ nghịch với cường độ dòng điện' như một tính chất của dây dẫn - sai, R là đại lượng đặc trưng cho dây, không đổi khi thay đổi U."
+      ],
+      "bai_tap": [
+        {
+          "ma": "A1.1",
+          "tang": 1,
+          "muc_do": "NB",
+          "hinh_thuc": "dien_khuyet",
+          "de": "Điền vào chỗ trống: Cường độ dòng điện chạy qua dây dẫn ...(1)... với hiệu điện thế đặt vào hai đầu dây và ...(2)... với điện trở của dây. Hệ thức: I = ...(3)...",
+          "loi_giai": "Dựa trực tiếp vào phát biểu định luật Ohm trong SGK.",
+          "dap_an": "(1) tỉ lệ thuận; (2) tỉ lệ nghịch; (3) U/R"
+        },
+        {
+          "ma": "A1.2",
+          "tang": 2,
+          "muc_do": "NB",
+          "hinh_thuc": "trac_nghiem",
+          "de": "Đơn vị của điện trở là",
+          "phuong_an": ["ôm (Ω)", "vôn (V)", "ampe (A)", "oát (W)"],
+          "loi_giai": "R = U/I nên đơn vị là V/A, được đặt tên là ôm (Ω). V là đơn vị hiệu điện thế, A là đơn vị cường độ dòng điện, W là đơn vị công suất.",
+          "dap_an": "A"
+        },
+        {
+          "ma": "A1.3",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Viết hệ thức của định luật Ohm. Từ hệ thức đó, suy ra công thức tính hiệu điện thế và công thức tính điện trở. Nêu tên và đơn vị của từng đại lượng.",
+          "loi_giai": "Hệ thức: I = U/R. Nhân hai vế với R được U = I·R. Chia hai vế của U = I·R cho I được R = U/I.",
+          "dap_an": "I = U/R; U = I·R; R = U/I. I - cường độ dòng điện (A); U - hiệu điện thế (V); R - điện trở (Ω)."
+        }
+      ]
+    },
+
+    {
+      "ma": "A2",
+      "nhom": "A",
+      "ten": "Nhận diện dụng cụ đo và cách mắc ampe kế, vôn kế",
+      "muc_tieu_lien_quan": ["MT2"],
+      "dau_hieu_nhan_biet": "Đề nhắc tới ampe kế, vôn kế, chốt (+) (-), sơ đồ mạch điện có kí hiệu A hoặc V.",
+      "phuong_phap": [
+        "Ampe kế đo cường độ dòng điện, mắc NỐI TIẾP với vật cần đo.",
+        "Vôn kế đo hiệu điện thế, mắc SONG SONG với vật cần đo.",
+        "Chốt (+) của dụng cụ nối về phía cực dương của nguồn.",
+        "Chọn thang đo lớn hơn giá trị dự kiến để không làm hỏng dụng cụ."
+      ],
+      "loi_thuong_gap": [
+        "Mắc vôn kế nối tiếp - số chỉ gần bằng 0 và mạch gần như hở.",
+        "Mắc ampe kế song song với nguồn - gây đoản mạch, hỏng dụng cụ."
+      ],
+      "bai_tap": [
+        {
+          "ma": "A2.1",
+          "tang": 1,
+          "muc_do": "NB",
+          "hinh_thuc": "noi_cot",
+          "de": "Nối mỗi dụng cụ ở cột trái với cách mắc đúng ở cột phải: (1) Ampe kế; (2) Vôn kế. Cột phải: (a) mắc song song với vật cần đo; (b) mắc nối tiếp với vật cần đo.",
+          "loi_giai": "Ampe kế phải để toàn bộ dòng điện đi qua nên mắc nối tiếp; vôn kế đo hiệu điện thế giữa hai điểm nên mắc song song.",
+          "dap_an": "1 - b; 2 - a"
+        },
+        {
+          "ma": "A2.2",
+          "tang": 3,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Bạn An mắc vôn kế nối tiếp với bóng đèn để đo hiệu điện thế hai đầu đèn. a) Dự đoán số chỉ của vôn kế và độ sáng của đèn. b) Giải thích và nêu cách mắc đúng.",
+          "loi_giai": "a) Vôn kế có điện trở rất lớn; khi mắc nối tiếp, điện trở toàn mạch tăng vọt nên dòng điện gần bằng 0: đèn không sáng, vôn kế chỉ gần bằng hiệu điện thế của nguồn. b) Phải mắc vôn kế song song với hai đầu đèn.",
+          "dap_an": "a) Đèn không sáng, vôn kế chỉ gần bằng U nguồn. b) Mắc vôn kế song song với đèn."
+        }
+      ]
+    },
+
+    {
+      "ma": "B1",
+      "nhom": "B",
+      "ten": "Phân biệt đoạn mạch nối tiếp và đoạn mạch song song",
+      "muc_tieu_lien_quan": ["MT3"],
+      "dau_hieu_nhan_biet": "Đề cho sơ đồ mạch hoặc mô tả cách mắc và hỏi loại mạch, hoặc hỏi quan hệ giữa I, U, R của các phần tử.",
+      "phuong_phap": [
+        "Xác định số đường đi của dòng điện: một đường duy nhất là nối tiếp, từ hai đường trở lên là song song.",
+        "Nối tiếp: I bằng nhau ở mọi điểm; U cộng lại; R(tđ) = R1 + R2 (luôn lớn hơn mỗi điện trở thành phần).",
+        "Song song: U bằng nhau trên các nhánh; I cộng lại; 1/R(tđ) = 1/R1 + 1/R2 (R(tđ) luôn nhỏ hơn điện trở nhỏ nhất).",
+        "Kiểm tra lại kết quả bằng nhận xét về độ lớn của R(tđ)."
+      ],
+      "loi_thuong_gap": [
+        "Áp dụng nhầm công thức nối tiếp cho mạch song song.",
+        "Tính 1/R(tđ) rồi quên nghịch đảo, lấy luôn kết quả làm R(tđ)."
+      ],
+      "bai_tap": [
+        {
+          "ma": "B1.1",
+          "tang": 1,
+          "muc_do": "NB",
+          "hinh_thuc": "dung_sai",
+          "de": "Xét đoạn mạch gồm hai điện trở R1 và R2 mắc nối tiếp. Cho biết mỗi nhận định sau đúng hay sai: a) Cường độ dòng điện qua R1 bằng cường độ dòng điện qua R2. b) Hiệu điện thế hai đầu đoạn mạch bằng tổng hiệu điện thế trên mỗi điện trở. c) Điện trở tương đương nhỏ hơn R1. d) Nếu R1 bị đứt thì R2 vẫn có dòng điện chạy qua.",
+          "loi_giai": "a) Đúng - mạch nối tiếp chỉ có một đường đi của dòng điện. b) Đúng - U = U1 + U2. c) Sai - R(tđ) = R1 + R2 > R1. d) Sai - mạch hở nên không có dòng điện.",
+          "dap_an": "a) Đ; b) Đ; c) S; d) S"
+        },
+        {
+          "ma": "B1.2",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Nêu 2 điểm giống nhau và 2 điểm khác nhau giữa đoạn mạch nối tiếp và đoạn mạch song song gồm hai điện trở.",
+          "loi_giai": "Giống: đều tuân theo định luật Ohm cho từng điện trở và cho cả đoạn mạch; đều có thể thay bằng một điện trở tương đương. Khác: nối tiếp có I bằng nhau và U cộng lại, song song có U bằng nhau và I cộng lại; R(tđ) nối tiếp lớn hơn mỗi thành phần, R(tđ) song song nhỏ hơn mỗi thành phần.",
+          "dap_an": "Xem lời giải - cần nêu đủ 2 ý giống và 2 ý khác."
+        },
+        {
+          "ma": "B1.3",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Có hai điện trở R1 = 6 Ω và R2 = 12 Ω. Hỏi có thể tạo ra những giá trị điện trở tương đương nào từ hai điện trở này? Với mỗi giá trị, vẽ sơ đồ cách mắc và tính kết quả.",
+          "loi_giai": "Có 4 cách: chỉ dùng R1 (6 Ω); chỉ dùng R2 (12 Ω); mắc nối tiếp R(tđ) = 6 + 12 = 18 Ω; mắc song song R(tđ) = (6·12)/(6+12) = 72/18 = 4 Ω.",
+          "dap_an": "4 Ω; 6 Ω; 12 Ω; 18 Ω"
+        }
+      ]
+    },
+
+    {
+      "ma": "C1",
+      "nhom": "C",
+      "ten": "Tính U, I, R của một điện trở bằng định luật Ohm",
+      "muc_tieu_lien_quan": ["MT1", "MT4"],
+      "dau_hieu_nhan_biet": "Đề cho hai trong ba đại lượng U, I, R của cùng một dây dẫn và hỏi đại lượng còn lại.",
+      "phuong_phap": [
+        "Tóm tắt: ghi các đại lượng đã biết kèm đơn vị.",
+        "Quy đổi về đơn vị chuẩn: mA về A (chia 1000), kΩ về Ω (nhân 1000), mV về V.",
+        "Chọn công thức: I = U/R hoặc U = I·R hoặc R = U/I.",
+        "Thay số, tính và ghi kèm đơn vị.",
+        "Kiểm tra tính hợp lí của kết quả so với thiết bị thực tế."
+      ],
+      "loi_thuong_gap": [
+        "Quên đổi mA sang A, kết quả sai gấp 1000 lần.",
+        "Ghi kết quả không kèm đơn vị.",
+        "Nhầm U với I khi tóm tắt do đề cho theo thứ tự khác thường."
+      ],
+      "bai_tap": [
+        {
+          "ma": "C1.1",
+          "tang": 1,
+          "muc_do": "NB",
+          "hinh_thuc": "tu_luan",
+          "de": "Một dây dẫn có hiệu điện thế hai đầu là U = 12 V, cường độ dòng điện qua dây là I = 2 A. Tính điện trở của dây. (Gợi ý: dùng công thức R = U/I)",
+          "loi_giai": "Tóm tắt: U = 12 V; I = 2 A; R = ? Công thức R = U/I. Thay số: R = 12/2 = 6 (Ω).",
+          "dap_an": "R = 6 Ω"
+        },
+        {
+          "ma": "C1.2",
+          "tang": 2,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Đặt hiệu điện thế 9 V vào hai đầu một điện trở thì cường độ dòng điện qua nó là 0,3 A. Tính điện trở đó.",
+          "loi_giai": "Tóm tắt: U = 9 V; I = 0,3 A. R = U/I = 9/0,3 = 30 (Ω).",
+          "dap_an": "R = 30 Ω"
+        },
+        {
+          "ma": "C1.3",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Một bóng đèn có điện trở 24 Ω, cường độ dòng điện chạy qua đèn là 250 mA. Tính hiệu điện thế đặt vào hai đầu bóng đèn.",
+          "loi_giai": "Đổi đơn vị: I = 250 mA = 0,25 A. Công thức U = I·R = 0,25 × 24 = 6 (V). Kết quả hợp lí với một đèn pin nhỏ.",
+          "dap_an": "U = 6 V"
+        },
+        {
+          "ma": "C1.4",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Khi đặt vào hai đầu một dây dẫn hiệu điện thế 6 V thì dòng điện qua dây là 0,4 A. Muốn cường độ dòng điện qua dây tăng thêm 0,3 A thì phải đặt vào hai đầu dây hiệu điện thế bằng bao nhiêu? Nêu rõ giả thiết em đã dùng.",
+          "loi_giai": "Giả thiết: điện trở của dây không đổi. R = U/I = 6/0,4 = 15 (Ω). Cường độ mới I' = 0,4 + 0,3 = 0,7 (A). U' = I'·R = 0,7 × 15 = 10,5 (V).",
+          "dap_an": "U' = 10,5 V (với giả thiết R không đổi)"
+        }
+      ]
+    },
+
+    {
+      "ma": "C2",
+      "nhom": "C",
+      "ten": "Tính điện trở tương đương và phân bố U, I trong mạch nối tiếp, song song",
+      "muc_tieu_lien_quan": ["MT5"],
+      "dau_hieu_nhan_biet": "Đề có từ hai điện trở trở lên, kèm mô tả cách mắc hoặc sơ đồ mạch.",
+      "phuong_phap": [
+        "Vẽ lại sơ đồ, đánh dấu rõ đoạn nối tiếp và đoạn song song.",
+        "Tính R(tđ): nối tiếp R = R1 + R2; song song R = (R1·R2)/(R1 + R2).",
+        "Tính cường độ dòng điện mạch chính: I = U/R(tđ).",
+        "Quay ngược lại từng nhánh: mạch nối tiếp dùng U(i) = I·R(i); mạch song song dùng I(i) = U/R(i).",
+        "Kiểm tra: nối tiếp thì tổng U thành phần bằng U nguồn; song song thì tổng I nhánh bằng I mạch chính."
+      ],
+      "loi_thuong_gap": [
+        "Tính 1/R(tđ) rồi quên nghịch đảo.",
+        "Dùng U của cả mạch để tính dòng điện qua một điện trở trong mạch nối tiếp.",
+        "Không kiểm tra lại tổng - bỏ lỡ cơ hội tự phát hiện sai."
+      ],
+      "bai_tap": [
+        {
+          "ma": "C2.1",
+          "tang": 2,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Cho R1 = 10 Ω mắc nối tiếp với R2 = 20 Ω vào hiệu điện thế 12 V. Tính điện trở tương đương và cường độ dòng điện qua mạch.",
+          "loi_giai": "R(tđ) = R1 + R2 = 10 + 20 = 30 (Ω). I = U/R(tđ) = 12/30 = 0,4 (A).",
+          "dap_an": "R(tđ) = 30 Ω; I = 0,4 A"
+        },
+        {
+          "ma": "C2.2",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Cho R1 = 15 Ω mắc song song với R2 = 30 Ω, đặt vào hiệu điện thế 9 V. a) Tính điện trở tương đương. b) Tính cường độ dòng điện qua mỗi điện trở và qua mạch chính.",
+          "loi_giai": "a) R(tđ) = (15 × 30)/(15 + 30) = 450/45 = 10 (Ω). Nhận xét: 10 Ω nhỏ hơn cả 15 Ω - hợp lí. b) Vì mắc song song nên U1 = U2 = 9 V. I1 = 9/15 = 0,6 (A); I2 = 9/30 = 0,3 (A); I = I1 + I2 = 0,9 (A). Kiểm tra: I = U/R(tđ) = 9/10 = 0,9 A - khớp.",
+          "dap_an": "a) R(tđ) = 10 Ω. b) I1 = 0,6 A; I2 = 0,3 A; I = 0,9 A"
+        },
+        {
+          "ma": "C2.3",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Mắc R1 = 10 Ω nối tiếp với một biến trở R2 vào nguồn có hiệu điện thế không đổi 12 V. Cần đặt R2 bằng bao nhiêu để hiệu điện thế hai đầu R1 bằng 4 V?",
+          "loi_giai": "U1 = 4 V nên I = U1/R1 = 4/10 = 0,4 (A). Vì mắc nối tiếp, dòng điện qua R2 cũng là 0,4 A và U2 = 12 - 4 = 8 (V). Do đó R2 = U2/I = 8/0,4 = 20 (Ω). Kiểm tra: R(tđ) = 30 Ω, I = 12/30 = 0,4 A - khớp.",
+          "dap_an": "R2 = 20 Ω"
+        }
+      ]
+    },
+
+    {
+      "ma": "D1",
+      "nhom": "D",
+      "ten": "Đọc đồ thị đặc tuyến I - U và bảng kết quả đo",
+      "muc_tieu_lien_quan": ["MT6"],
+      "dau_hieu_nhan_biet": "Đề cho bảng số liệu U, I hoặc đồ thị I theo U và hỏi về quan hệ, điện trở, hoặc giá trị tại một điểm.",
+      "phuong_phap": [
+        "Đọc trục: trục hoành thường là U (V), trục tung là I (A).",
+        "Lấy toạ độ một điểm rõ ràng trên đồ thị hoặc một cặp số trong bảng.",
+        "Tính R = U/I cho từng cặp; nếu các giá trị R xấp xỉ bằng nhau thì đồ thị là đường thẳng qua gốc toạ độ.",
+        "Kết luận về quan hệ tỉ lệ thuận và nêu bằng chứng bằng chính số liệu.",
+        "Muốn dự đoán giá trị ngoài bảng, dùng R vừa tìm được chứ không ước lượng bằng mắt."
+      ],
+      "loi_thuong_gap": [
+        "Tính điện trở bằng cách lấy I/U thay vì U/I.",
+        "Kết luận 'tỉ lệ thuận' mà không dẫn ra số liệu chứng minh.",
+        "Đọc sai đơn vị trên trục (mA thay vì A)."
+      ],
+      "bai_tap": [
+        {
+          "ma": "D1.1",
+          "tang": 1,
+          "muc_do": "NB",
+          "hinh_thuc": "tra_loi_ngan",
+          "de": "Cho bảng kết quả đo trên một dây dẫn: U (V): 0 - 3 - 6 - 9 - 12; I (A): 0 - 0,2 - 0,4 - 0,6 - 0,8. Khi U = 9 V thì cường độ dòng điện bằng bao nhiêu ampe?",
+          "loi_giai": "Đọc trực tiếp cột U = 9 V trong bảng.",
+          "dap_an": "0,6 A"
+        },
+        {
+          "ma": "D1.2",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Với bảng số liệu ở bài D1.1, hãy tính điện trở của dây dẫn từ ít nhất hai cặp số liệu và nêu nhận xét.",
+          "loi_giai": "R = 3/0,2 = 15 (Ω); R = 12/0,8 = 15 (Ω). Các giá trị bằng nhau nên điện trở của dây không đổi.",
+          "dap_an": "R = 15 Ω ở mọi cặp số liệu; điện trở của dây là hằng số."
+        },
+        {
+          "ma": "D1.3",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Vẫn với dây dẫn ở bài D1.1. a) Đồ thị biểu diễn I theo U có dạng như thế nào? b) Dựa vào số liệu, hãy dự đoán cường độ dòng điện khi U = 18 V và nêu điều kiện để dự đoán đó đúng.",
+          "loi_giai": "a) Đường thẳng đi qua gốc toạ độ vì I tỉ lệ thuận với U. b) I = U/R = 18/15 = 1,2 (A). Điều kiện: điện trở của dây không đổi, tức dây không bị nóng lên đáng kể khi tăng hiệu điện thế.",
+          "dap_an": "a) Đường thẳng qua gốc toạ độ. b) I = 1,2 A, với điều kiện R không đổi."
+        },
+        {
+          "ma": "D1.4",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Một nhóm học sinh đo được bảng sau với bóng đèn dây tóc: U (V): 1 - 2 - 4 - 6; I (A): 0,25 - 0,45 - 0,75 - 1,00. a) Tính R ứng với mỗi cặp số liệu. b) Đồ thị I theo U có phải đường thẳng qua gốc toạ độ không? Giải thích nguyên nhân vật lí.",
+          "loi_giai": "a) R lần lượt là 4 Ω; 4,44 Ω; 5,33 Ω; 6 Ω. b) Không, vì R tăng dần khi U tăng. Nguyên nhân: dòng điện lớn làm dây tóc nóng lên, điện trở của kim loại tăng theo nhiệt độ. Định luật Ohm chỉ cho đồ thị thẳng khi nhiệt độ dây dẫn giữ gần như không đổi.",
+          "dap_an": "a) 4; 4,44; 5,33; 6 Ω. b) Không thẳng - do điện trở dây tóc tăng khi nhiệt độ tăng."
+        }
+      ]
+    },
+
+    {
+      "ma": "E1",
+      "nhom": "E",
+      "ten": "Bố trí và tiến hành thí nghiệm khảo sát sự phụ thuộc của I vào U",
+      "muc_tieu_lien_quan": ["MT2", "MT7"],
+      "dau_hieu_nhan_biet": "Đề yêu cầu nêu dụng cụ, vẽ sơ đồ mạch, mô tả các bước tiến hành hoặc chỉ ra sai sót trong cách làm thí nghiệm.",
+      "phuong_phap": [
+        "Liệt kê dụng cụ: nguồn điện thay đổi được, dây dẫn cần khảo sát, ampe kế, vôn kế, khoá K, dây nối.",
+        "Vẽ sơ đồ: ampe kế nối tiếp với dây dẫn, vôn kế song song với dây dẫn.",
+        "Nêu biến độc lập (U đặt vào hai đầu dây), biến phụ thuộc (I đo được), biến giữ nguyên (cùng một dây dẫn, nhiệt độ ổn định).",
+        "Tiến hành: thay đổi U ít nhất 4-5 giá trị, mỗi lần ghi cặp (U, I) vào bảng.",
+        "Xử lí: tính U/I cho từng lần đo, vẽ đồ thị I theo U, rút ra kết luận."
+      ],
+      "loi_thuong_gap": [
+        "Quên nêu biến giữ nguyên nên thí nghiệm không có giá trị kết luận.",
+        "Chỉ đo một lần rồi kết luận về quy luật.",
+        "Để dòng điện lớn chạy lâu làm dây nóng lên, điện trở thay đổi."
+      ],
+      "bai_tap": [
+        {
+          "ma": "E1.1",
+          "tang": 1,
+          "muc_do": "NB",
+          "hinh_thuc": "tu_luan",
+          "de": "Kể tên các dụng cụ cần dùng để khảo sát sự phụ thuộc của cường độ dòng điện vào hiệu điện thế đặt vào hai đầu một dây dẫn.",
+          "loi_giai": "Liệt kê theo danh mục ở bước 1 của phương pháp.",
+          "dap_an": "Nguồn điện thay đổi được, dây dẫn cần khảo sát, ampe kế, vôn kế, khoá K, các dây nối."
+        },
+        {
+          "ma": "E1.2",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "thuc_hanh",
+          "de": "Sắp xếp các bước sau theo đúng thứ tự tiến hành thí nghiệm: (1) Ghi cặp giá trị U và I vào bảng; (2) Mắc mạch điện theo sơ đồ; (3) Vẽ đồ thị và rút ra kết luận; (4) Thay đổi hiệu điện thế của nguồn; (5) Đóng khoá K và đọc số chỉ của hai dụng cụ đo.",
+          "loi_giai": "Phải mắc mạch trước, đóng khoá đọc số liệu, ghi bảng, rồi thay đổi U để lặp lại, cuối cùng mới xử lí số liệu.",
+          "dap_an": "2 - 5 - 1 - 4 - 3"
+        },
+        {
+          "ma": "E1.3",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Hãy thiết kế một thí nghiệm kiểm chứng nhận định: 'Điện trở của một dây dẫn không phụ thuộc vào hiệu điện thế đặt vào hai đầu dây.' Nêu rõ dụng cụ, biến độc lập, biến phụ thuộc, biến giữ nguyên, cách thu số liệu và cách kết luận ứng với từng khả năng kết quả.",
+          "loi_giai": "Dụng cụ như bài E1.1. Biến độc lập: hiệu điện thế U (thay đổi 5 giá trị: 2; 4; 6; 8; 10 V). Biến phụ thuộc: cường độ dòng điện I. Biến giữ nguyên: cùng một dây dẫn, cùng nhiệt độ (ngắt khoá giữa các lần đo để dây nguội). Thu số liệu: lập bảng U, I, tính tỉ số U/I cho từng lần. Kết luận: nếu các tỉ số U/I xấp xỉ bằng nhau trong sai số phép đo thì nhận định đúng; nếu U/I tăng rõ rệt theo U thì nhận định sai với dây đó, cần xét thêm ảnh hưởng của nhiệt độ.",
+          "dap_an": "Xem lời giải - bắt buộc nêu đủ 4 loại biến và cách kết luận cho cả hai khả năng."
+        }
+      ]
+    },
+
+    {
+      "ma": "F1",
+      "nhom": "F",
+      "ten": "Giải thích hiện tượng liên quan tới điện trở và dòng điện",
+      "muc_tieu_lien_quan": ["MT1", "MT5", "MT8"],
+      "dau_hieu_nhan_biet": "Đề bắt đầu bằng 'Vì sao', 'Giải thích tại sao' và mô tả một hiện tượng thực tế.",
+      "phuong_phap": [
+        "Xác định đại lượng nào thay đổi trong hiện tượng (U, I hay R).",
+        "Dùng hệ thức I = U/R để lập chuỗi nhân quả: đại lượng nào thay đổi kéo theo đại lượng nào.",
+        "Nêu rõ nguyên nhân - cơ chế - hệ quả quan sát được.",
+        "Kết luận bằng một câu bám vào hiện tượng đề nêu."
+      ],
+      "loi_thuong_gap": [
+        "Chỉ mô tả lại hiện tượng mà không nêu cơ chế.",
+        "Trả lời kiểu 'vì đó là tính chất của nó'.",
+        "Nhầm nguyên nhân và hệ quả trong chuỗi lập luận."
+      ],
+      "bai_tap": [
+        {
+          "ma": "F1.1",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Vì sao khi mắc thêm một bóng đèn nối tiếp vào mạch thì các bóng đèn đang sáng bị tối đi?",
+          "loi_giai": "Mắc thêm đèn nối tiếp làm điện trở tương đương của mạch tăng. Hiệu điện thế nguồn không đổi nên theo I = U/R, cường độ dòng điện qua mạch giảm. Dòng điện qua mỗi đèn giảm nên đèn sáng yếu hơn.",
+          "dap_an": "Vì R(tđ) tăng, U không đổi nên I giảm, các đèn sáng yếu hơn."
+        },
+        {
+          "ma": "F1.2",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Vì sao dây dẫn điện trong nhà phải dùng lõi đồng tiết diện đủ lớn, còn dây tóc bóng đèn lại làm bằng vonfram rất mảnh?",
+          "loi_giai": "Dây dẫn cần điện trở nhỏ để hao phí năng lượng trên đường dây thấp và dây không bị nóng: đồng dẫn điện tốt, tiết diện lớn thì điện trở càng nhỏ. Ngược lại, dây tóc bóng đèn cần điện trở lớn để toả nhiệt mạnh và nóng sáng: vonfram có điện trở suất lớn, chịu nhiệt độ cao và được làm rất mảnh nên điện trở lớn.",
+          "dap_an": "Dây dẫn cần R nhỏ để ít hao phí; dây tóc cần R lớn để toả nhiệt và phát sáng."
+        },
+        {
+          "ma": "F1.3",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Vào giờ cao điểm buổi tối, nhiều gia đình trong khu dân cư cùng bật thiết bị điện thì đèn trong nhà thường sáng yếu hơn. Giải thích hiện tượng này dựa trên kiến thức về đoạn mạch và điện trở của đường dây tải điện.",
+          "loi_giai": "Các hộ gia đình mắc song song vào lưới điện. Khi nhiều thiết bị cùng hoạt động, điện trở tương đương của toàn khu giảm nên cường độ dòng điện trên đường dây tải tăng mạnh. Đường dây tải luôn có điện trở nhất định, dòng điện lớn làm phần hiệu điện thế rơi trên đường dây tăng lên. Do đó hiệu điện thế thực tế đến ổ cắm trong nhà giảm xuống dưới 220 V, các đèn sáng yếu đi.",
+          "dap_an": "Do sụt áp trên điện trở của đường dây tải khi cường độ dòng điện tăng vào giờ cao điểm."
+        }
+      ]
+    },
+
+    {
+      "ma": "G1",
+      "nhom": "G",
+      "ten": "Vận dụng vào an toàn và tiết kiệm điện trong gia đình",
+      "muc_tieu_lien_quan": ["MT8"],
+      "dau_hieu_nhan_biet": "Đề đặt trong bối cảnh gia đình, trường học, địa phương và yêu cầu tư vấn, đề xuất biện pháp kèm cơ sở khoa học.",
+      "phuong_phap": [
+        "Đọc kĩ bối cảnh, xác định vấn đề thực tế cần giải quyết.",
+        "Chọn kiến thức vật lí liên quan (định luật Ohm, điện trở của dây, đoạn mạch).",
+        "Đề xuất đúng số lượng biện pháp mà đề yêu cầu.",
+        "Với mỗi biện pháp, nêu cơ sở khoa học bằng một câu chỉ rõ đại lượng nào thay đổi và vì sao có lợi.",
+        "Kiểm tra tính khả thi trong điều kiện gia đình Việt Nam."
+      ],
+      "loi_thuong_gap": [
+        "Kể lể chung chung kiểu 'tắt đèn khi không dùng' mà không nêu cơ sở khoa học.",
+        "Đề xuất biện pháp không khả thi hoặc không liên quan tới kiến thức đang học.",
+        "Không đủ số lượng biện pháp đề yêu cầu."
+      ],
+      "bai_tap": [
+        {
+          "ma": "G1.1",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Ổ cắm điện trong nhà thường được mắc song song với nhau. Hãy nêu 1 ưu điểm của cách mắc này so với mắc nối tiếp.",
+          "loi_giai": "Mắc song song thì mỗi thiết bị đều nhận đúng hiệu điện thế 220 V và hoạt động độc lập; một thiết bị hỏng hoặc tắt không làm ngắt các thiết bị còn lại. Nếu mắc nối tiếp, hiệu điện thế bị chia nhỏ và chỉ cần một thiết bị hỏng là cả mạch mất điện.",
+          "dap_an": "Các thiết bị hoạt động độc lập, cùng nhận đủ 220 V."
+        },
+        {
+          "ma": "G1.2",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Gia đình em dùng một ổ cắm kéo dài để cắm đồng thời nồi cơm điện, ấm siêu tốc và bàn là. Hãy chỉ ra nguy cơ có thể xảy ra và giải thích trên cơ sở kiến thức về đoạn mạch song song và điện trở của dây dẫn.",
+          "loi_giai": "Các thiết bị mắc song song nên cường độ dòng điện tổng qua dây của ổ kéo dài bằng tổng dòng điện của ba thiết bị, có thể vượt quá giá trị định mức của dây. Dòng điện lớn chạy qua điện trở của dây làm dây nóng lên mạnh, có thể chảy lớp vỏ cách điện, gây chập và cháy.",
+          "dap_an": "Quá tải ổ cắm: dòng điện tổng quá lớn làm dây nóng, có nguy cơ chập cháy."
+        },
+        {
+          "ma": "G1.3",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Nhà bạn Lan ở cuối một dãy trọ, đèn thường sáng yếu vào buổi tối và quạt chạy chậm. Hãy đề xuất 2 biện pháp cải thiện tình trạng này và nêu rõ cơ sở khoa học của mỗi biện pháp.",
+          "loi_giai": "Biện pháp 1: thay dây dẫn từ nguồn vào phòng bằng dây có tiết diện lớn hơn. Cơ sở: điện trở của dây tỉ lệ nghịch với tiết diện, tiết diện lớn thì R nhỏ, phần hiệu điện thế rơi trên dây giảm nên hiệu điện thế tới thiết bị tăng. Biện pháp 2: bố trí sử dụng lệch giờ cao điểm hoặc giảm số thiết bị công suất lớn dùng đồng thời. Cơ sở: giảm cường độ dòng điện tổng trên đường dây chung nên giảm sụt áp trên điện trở của dây. (Có thể nêu thêm: lắp ổn áp - cơ sở là ổn định hiệu điện thế đầu ra.)",
+          "dap_an": "2 biện pháp kèm cơ sở: tăng tiết diện dây để giảm R; giảm dòng điện tổng để giảm sụt áp."
+        }
+      ]
+    },
+
+    {
+      "ma": "H1",
+      "nhom": "H",
+      "ten": "Phát hiện và sửa lỗi sai trong lời giải, phản biện quan niệm sai",
+      "muc_tieu_lien_quan": ["MT4", "MT5"],
+      "dau_hieu_nhan_biet": "Đề trích một lời giải hoặc một phát biểu của bạn học sinh và hỏi đúng hay sai, sai ở đâu.",
+      "phuong_phap": [
+        "Đọc lại lời giải theo từng bước, kiểm tra riêng từng bước.",
+        "Kiểm tra 3 điểm hay sai nhất: đơn vị đã quy đổi chưa; công thức có đúng loại mạch không; kết quả có hợp lí về độ lớn không.",
+        "Chỉ đích danh bước sai và gọi tên lỗi.",
+        "Trình bày lại bước đó cho đúng và tính ra kết quả cuối cùng."
+      ],
+      "loi_thuong_gap": [
+        "Chỉ nói 'sai' mà không chỉ ra sai ở bước nào.",
+        "Làm lại từ đầu mà không phân tích lỗi - không đạt yêu cầu của dạng bài này."
+      ],
+      "bai_tap": [
+        {
+          "ma": "H1.1",
+          "tang": 2,
+          "muc_do": "TH",
+          "hinh_thuc": "tu_luan",
+          "de": "Bạn Nam giải: 'Một điện trở có U = 6 V, I = 300 mA. Vậy R = U/I = 6/300 = 0,02 Ω.' Chỉ ra chỗ sai và sửa lại.",
+          "loi_giai": "Sai ở bước thay số: chưa đổi 300 mA sang ampe. Phải đổi I = 300 mA = 0,3 A, khi đó R = 6/0,3 = 20 (Ω). Kết quả 0,02 Ω cũng vô lí vì quá nhỏ so với một điện trở thông thường.",
+          "dap_an": "Sai do không đổi mA sang A. Kết quả đúng: R = 20 Ω."
+        },
+        {
+          "ma": "H1.2",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Bạn Hoa nói: 'Mắc song song hai điện trở 20 Ω và 30 Ω thì điện trở tương đương là 50 Ω vì cứ mắc thêm điện trở là điện trở tăng lên.' Ý kiến đó đúng hay sai? Vì sao?",
+          "loi_giai": "Sai. Bạn Hoa dùng nhầm công thức của mạch nối tiếp. Với mạch song song: R(tđ) = (20 × 30)/(20 + 30) = 600/50 = 12 (Ω). Về bản chất, mắc song song tạo thêm đường đi cho dòng điện nên dòng điện tổng tăng, do đó điện trở tương đương phải nhỏ hơn điện trở nhỏ nhất trong mạch (12 Ω < 20 Ω).",
+          "dap_an": "Sai. R(tđ) = 12 Ω; mắc song song luôn cho R(tđ) nhỏ hơn mọi điện trở thành phần."
+        },
+        {
+          "ma": "H1.3",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Một bạn cho rằng: 'Dòng điện bị tiêu hao dần khi đi qua các bóng đèn mắc nối tiếp, nên đèn ở cuối mạch sáng yếu hơn đèn đầu mạch.' Hãy phản biện và đề xuất một thí nghiệm đơn giản để chứng minh quan điểm của em.",
+          "loi_giai": "Phản biện: trong mạch nối tiếp, cường độ dòng điện như nhau tại mọi điểm; thứ bị chuyển hoá là năng lượng điện, không phải dòng điện. Nếu các đèn giống hệt nhau thì chúng sáng như nhau bất kể vị trí; nếu sáng khác nhau thì do điện trở của chúng khác nhau. Thí nghiệm: mắc nối tiếp hai đèn giống nhau, dùng ampe kế đo cường độ dòng điện lần lượt ở trước đèn 1, giữa hai đèn và sau đèn 2. Kết quả cho ba số chỉ bằng nhau, chứng tỏ dòng điện không bị tiêu hao. Có thể đổi chỗ hai đèn để thấy độ sáng không thay đổi theo vị trí.",
+          "dap_an": "Quan niệm sai. I như nhau ở mọi điểm trong mạch nối tiếp; kiểm chứng bằng cách đo I tại ba vị trí."
+        }
+      ]
+    },
+
+    {
+      "ma": "I1",
+      "nhom": "I",
+      "ten": "Bài toán tổng hợp mạch hỗn hợp và biện luận",
+      "muc_tieu_lien_quan": ["MT4", "MT5", "MT8"],
+      "dau_hieu_nhan_biet": "Mạch có từ ba điện trở trở lên, vừa nối tiếp vừa song song, hoặc có biến trở và yêu cầu tìm điều kiện.",
+      "phuong_phap": [
+        "Vẽ lại sơ đồ cho gọn, đặt tên các nút, xác định nhóm nào song song, nhóm nào nối tiếp.",
+        "Rút gọn mạch từ trong ra ngoài: tính điện trở tương đương của các nhóm song song trước.",
+        "Tính dòng điện mạch chính từ R(tđ) toàn mạch.",
+        "Đi ngược lại để tìm U và I của từng phần tử.",
+        "Với bài có tham số, lập phương trình theo ẩn rồi biện luận và loại nghiệm không phù hợp thực tế (R phải dương)."
+      ],
+      "loi_thuong_gap": [
+        "Rút gọn mạch sai do đọc nhầm sơ đồ.",
+        "Không kiểm tra lại bằng tổng U hoặc tổng I nên không phát hiện sai sót.",
+        "Nhận nghiệm âm cho điện trở mà không loại."
+      ],
+      "bai_tap": [
+        {
+          "ma": "I1.1",
+          "tang": 3,
+          "muc_do": "VD",
+          "hinh_thuc": "tu_luan",
+          "de": "Cho mạch điện: R1 = 6 Ω mắc nối tiếp với cụm gồm R2 = 12 Ω song song R3 = 6 Ω. Hiệu điện thế toàn mạch là 12 V. Tính điện trở tương đương toàn mạch, cường độ dòng điện qua mạch chính và qua R2.",
+          "loi_giai": "Cụm song song: R23 = (12 × 6)/(12 + 6) = 72/18 = 4 (Ω). Toàn mạch: R = R1 + R23 = 6 + 4 = 10 (Ω). Dòng mạch chính: I = 12/10 = 1,2 (A). Hiệu điện thế trên cụm song song: U23 = I × R23 = 1,2 × 4 = 4,8 (V). Dòng qua R2: I2 = 4,8/12 = 0,4 (A). Kiểm tra: I3 = 4,8/6 = 0,8 A; I2 + I3 = 1,2 A - khớp với dòng mạch chính.",
+          "dap_an": "R = 10 Ω; I = 1,2 A; I2 = 0,4 A"
+        },
+        {
+          "ma": "I1.2",
+          "tang": 4,
+          "muc_do": "VDC",
+          "hinh_thuc": "tu_luan",
+          "de": "Mắc R1 = 8 Ω nối tiếp với một biến trở R vào nguồn có hiệu điện thế không đổi 24 V. Tìm giá trị của R để cường độ dòng điện trong mạch bằng 1,5 A. Sau đó, cho biết khi tăng R thì dòng điện trong mạch thay đổi thế nào và giải thích.",
+          "loi_giai": "Điện trở toàn mạch cần có: R(tđ) = U/I = 24/1,5 = 16 (Ω). Vì mắc nối tiếp: R = R(tđ) - R1 = 16 - 8 = 8 (Ω), giá trị dương nên nhận. Khi tăng R, điện trở toàn mạch tăng, mà U không đổi nên theo I = U/R(tđ) cường độ dòng điện giảm; đồ thị I theo R là đường cong giảm, không phải đường thẳng.",
+          "dap_an": "R = 8 Ω. Tăng R thì I giảm (theo quan hệ tỉ lệ nghịch với R(tđ))."
+        }
+      ]
+    }
+  ],
+
+  "lo_trinh": [
+    {
+      "buoi": 1,
+      "ten": "Nắm chắc định luật Ohm và dụng cụ đo",
+      "dang": ["A1", "A2"],
+      "so_bai": 8,
+      "moc_danh_gia": "Viết đúng 3 dạng công thức kèm đơn vị; nêu đúng cách mắc ampe kế và vôn kế."
+    },
+    {
+      "buoi": 2,
+      "ten": "Tính toán cơ bản và phân biệt hai loại mạch",
+      "dang": ["B1", "C1"],
+      "so_bai": 10,
+      "moc_danh_gia": "Làm đúng 4/5 bài tầng 2; không còn lỗi quên đổi đơn vị."
+    },
+    {
+      "buoi": 3,
+      "ten": "Mạch nối tiếp, song song và đọc dữ liệu",
+      "dang": ["C2", "D1"],
+      "so_bai": 10,
+      "moc_danh_gia": "Tính đúng R tương đương và tự kiểm tra được bằng tổng U hoặc tổng I."
+    },
+    {
+      "buoi": 4,
+      "ten": "Thí nghiệm và giải thích hiện tượng",
+      "dang": ["E1", "F1"],
+      "so_bai": 8,
+      "moc_danh_gia": "Nêu được đủ 4 loại biến trong một thiết kế thí nghiệm."
+    },
+    {
+      "buoi": 5,
+      "ten": "Thực tiễn, sửa lỗi sai và tổng hợp",
+      "dang": ["G1", "H1", "I1"],
+      "so_bai": 10,
+      "moc_danh_gia": "Giải được bài mạch hỗn hợp tầng 4; đề xuất được 2 biện pháp kèm cơ sở khoa học."
+    }
+  ]
+}
